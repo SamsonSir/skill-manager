@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skill Control Center</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <svg aria-hidden="true" class="icon-sprite">
+      <symbol id="icon-layers" viewBox="0 0 24 24">
+        <path d="m12 2 9 5-9 5-9-5 9-5Z"></path>
+        <path d="m3 12 9 5 9-5"></path>
+        <path d="m3 17 9 5 9-5"></path>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <path d="m21 21-4.3-4.3"></path>
+        <circle cx="11" cy="11" r="8"></circle>
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m16 18 6-6-6-6"></path>
+        <path d="m8 6-6 6 6 6"></path>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="M20 6 9 17l-5-5"></path>
+      </symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand">
+          <div class="brand-mark">
+            <svg><use href="#icon-layers"></use></svg>
+          </div>
+          <div>
+            <p class="eyebrow">Local-first</p>
+            <h1>Skill Control Center</h1>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <a href="#overview" class="nav-link is-active">健康总览</a>
+          <a href="#actions" class="nav-link">异常队列</a>
+          <a href="#sync" class="nav-link">同步对比</a>
+          <a href="#inventory" class="nav-link">技能库存</a>
+          <a href="#ops" class="nav-link">维护工具</a>
+        </nav>
+
+        <div class="side-note">
+          <p class="note-title">当前主线</p>
+          <p>以 shared 为主库，Codex 与 Claude 通过软链接读取同一份技能。</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Obsidian Vault Tool</p>
+            <h2>Agent Skills 同步健康控制台</h2>
+            <p id="syncLine" class="muted">等待扫描数据</p>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="refreshHint" type="button" title="查看刷新方式" aria-label="查看刷新方式">
+              <svg><use href="#icon-code"></use></svg>
+            </button>
+            <a class="text-button" href="./README.md">说明</a>
+          </div>
+        </header>
+
+        <section id="overview" class="section-band">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Overview</p>
+              <h3>同步健康</h3>
+            </div>
+            <p id="generatedAt" class="muted">等待扫描数据</p>
+          </div>
+
+          <div id="healthHero" class="health-hero"></div>
+          <div class="metric-grid" id="metricGrid"></div>
+          <div class="check-grid" id="checkList"></div>
+          <div class="root-grid" id="rootGrid"></div>
+        </section>
+
+        <section id="actions" class="section-band">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Action Queue</p>
+              <h3>需要处理的项目</h3>
+            </div>
+            <span class="pill is-ok" id="actionCount">0 项</span>
+          </div>
+          <div id="actionList" class="action-list"></div>
+        </section>
+
+        <section id="sync" class="section-band">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Codex / Claude</p>
+              <h3>同步对比</h3>
+            </div>
+          </div>
+          <div id="syncMatrix" class="sync-matrix"></div>
+          <div id="watcherPanel" class="watcher-wrap"></div>
+        </section>
+
+        <section id="inventory" class="section-band">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Inventory</p>
+              <h3>技能库存</h3>
+            </div>
+            <div class="table-tools">
+              <label class="search-box">
+                <svg><use href="#icon-search"></use></svg>
+                <input id="skillSearch" type="search" placeholder="搜索技能名、描述、路径或 Agent" />
+              </label>
+              <span class="muted" id="resultCount">0 项</span>
+            </div>
+          </div>
+
+          <div class="filter-row" aria-label="筛选技能状态">
+            <button type="button" class="filter-chip is-active" data-status="needs-action">需处理</button>
+            <button type="button" class="filter-chip" data-status="all">全部</button>
+            <button type="button" class="filter-chip" data-status="linked">软链共享</button>
+            <button type="button" class="filter-chip" data-status="identical">实体重复</button>
+            <button type="button" class="filter-chip" data-status="conflict">同名冲突</button>
+            <button type="button" class="filter-chip" data-status="unique">单独存在</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Skill</th>
+                  <th>状态</th>
+                  <th>入口</th>
+                  <th>建议动作</th>
+                  <th>路径</th>
+                </tr>
+              </thead>
+              <tbody id="skillTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="ops" class="section-band">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Operations</p>
+              <h3>维护命令</h3>
+            </div>
+          </div>
+
+          <div class="command-grid">
+            <article class="command-panel">
+              <div>
+                <p class="eyebrow">Refresh</p>
+                <h4>刷新页面数据</h4>
+              </div>
+              <pre><code>node tools/skill-manager/scripts/scan.mjs</code></pre>
+            </article>
+
+            <article class="command-panel">
+              <div>
+                <p class="eyebrow">Repair</p>
+                <h4>补齐 Claude 入口</h4>
+              </div>
+              <pre><code>node tools/skill-manager/scripts/ensure-agent-links.mjs --apply</code></pre>
+            </article>
+
+            <article class="command-panel">
+              <div>
+                <p class="eyebrow">Auto Sync</p>
+                <h4>安装/刷新 watcher</h4>
+              </div>
+              <pre><code>node tools/skill-manager/scripts/install-launchd.mjs --install</code></pre>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="hintDialog">
+      <div class="dialog-head">
+        <h3>刷新扫描数据</h3>
+        <button class="icon-button" id="closeDialog" type="button" aria-label="关闭">
+          <svg><use href="#icon-check"></use></svg>
+        </button>
+      </div>
+      <p>在 Obsidian 知识库根目录运行：</p>
+      <pre><code>node tools/skill-manager/scripts/scan.mjs</code></pre>
+      <p>脚本会更新 `data/report.js`，页面刷新后即可看到最新状态。</p>
+    </dialog>
+
+    <script src="./data/report.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
