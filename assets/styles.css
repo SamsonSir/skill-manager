@@ -415,6 +415,12 @@ svg {
   font-size: 13px;
 }
 
+.root-row small {
+  color: var(--blue);
+  font-family: "SFMono-Regular", "Cascadia Code", Menlo, monospace;
+  font-size: 11px;
+}
+
 .check-item p,
 .root-row p {
   margin: 3px 0 0;

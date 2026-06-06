@@ -30,7 +30,8 @@ const logPath = join(sharedRoot, "logs", "sync-new.log");
 const roots = [
   { label: "agents", path: join(homedir(), ".agents", "skills"), priority: 0 },
   { label: "claude", path: join(homedir(), ".claude", "skills"), priority: 1 },
-  { label: "codex", path: join(homedir(), ".codex", "skills"), priority: 2 }
+  { label: "codex", path: join(homedir(), ".codex", "skills"), priority: 2 },
+  { label: "vault-agents", path: join(homedir(), "Documents", "JokerSu-knowledge", ".agents", "skills"), priority: 3 }
 ];
 
 function valueAfter(flag) {

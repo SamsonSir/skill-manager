@@ -19,9 +19,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, "..");
 
 const roots = [
-  { label: "agents", path: join(homedir(), ".agents", "skills") },
-  { label: "claude", path: join(homedir(), ".claude", "skills") },
-  { label: "codex", path: join(homedir(), ".codex", "skills") }
+  { label: "agents", family: "agents", scope: "global", path: join(homedir(), ".agents", "skills") },
+  { label: "claude", family: "claude", scope: "global", path: join(homedir(), ".claude", "skills") },
+  { label: "codex", family: "codex", scope: "global", path: join(homedir(), ".codex", "skills") },
+  {
+    label: "vault-agents",
+    family: "agents",
+    scope: "JokerSu-knowledge",
+    path: join(homedir(), "Documents", "JokerSu-knowledge", ".agents", "skills")
+  }
 ];
 
 const launchAgentLabel = "com.jokersu.skill-manager.sync";
@@ -225,6 +231,8 @@ function scanRoot(root) {
       folderName: folder.split("/").pop(),
       description: parsed.data.description || "",
       root: root.label,
+      family: root.family || root.label,
+      scope: root.scope || "global",
       rootPath: root.path,
       path: skillPath,
       relativePath: relative(root.path, skillPath),
@@ -271,6 +279,8 @@ const groups = Array.from(byName.entries())
       needsAction: status === "conflict" || status === "identical",
       locations: locations.map((item) => ({
         root: item.root,
+        family: item.family,
+        scope: item.scope,
         path: item.path,
         relativePath: item.relativePath,
         realFolderPath: item.realFolderPath,
@@ -305,8 +315,8 @@ const brokenSymlinks = roots.flatMap((root) =>
     ...item
   }))
 );
-const codexSkills = skills.filter((skill) => skill.root === "agents" || skill.root === "codex");
-const claudeSkills = skills.filter((skill) => skill.root === "claude");
+const codexSkills = skills.filter((skill) => skill.family === "agents" || skill.family === "codex");
+const claudeSkills = skills.filter((skill) => skill.family === "claude");
 const codexClaudeSync = compareSkillSets(codexSkills, claudeSkills);
 const watcher = watcherStatus();
 const actionItems = [

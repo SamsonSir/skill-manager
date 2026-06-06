@@ -28,11 +28,18 @@ const resultPath = join(sharedRoot, "logs", `ensure-links-${stamp}.json`);
 const sourceRoots = [
   { label: "agents", path: join(homedir(), ".agents", "skills"), priority: 0 },
   { label: "codex", path: join(homedir(), ".codex", "skills"), priority: 1 },
-  { label: "shared", path: sharedDir, priority: 2 }
+  { label: "vault-agents", path: join(homedir(), "Documents", "JokerSu-knowledge", ".agents", "skills"), priority: 2 },
+  { label: "shared", path: sharedDir, priority: 3 }
 ];
 
 const targetRoots = [
-  { label: "claude", path: join(homedir(), ".claude", "skills") }
+  { label: "agents", path: join(homedir(), ".agents", "skills") },
+  { label: "claude", path: join(homedir(), ".claude", "skills") },
+  {
+    label: "vault-agents",
+    path: join(homedir(), "Documents", "JokerSu-knowledge", ".agents", "skills"),
+    existingOnly: true
+  }
 ];
 
 function sha256(text) {
@@ -139,6 +146,10 @@ function linkEntry(targetRoot, skill) {
     return { type: "backup-and-link", linkPath, target: skill.realFolderPath, backup: target, skill };
   }
 
+  if (targetRoot.existingOnly) {
+    return { type: "skip-missing", linkPath, target: skill.realFolderPath, skill };
+  }
+
   return { type: "link-missing", linkPath, target: skill.realFolderPath, skill };
 }
 
@@ -179,7 +190,8 @@ writeFileSync(
         relink: actions.filter((action) => action.type === "relink").length,
         backupAndLink: actions.filter((action) => action.type === "backup-and-link").length,
         alreadyLinked: actions.filter((action) => action.type === "already-linked").length,
-        alreadyLinkedNested: actions.filter((action) => action.type === "already-linked-nested").length
+        alreadyLinkedNested: actions.filter((action) => action.type === "already-linked-nested").length,
+        skipMissing: actions.filter((action) => action.type === "skip-missing").length
       },
       actions
     },
@@ -200,7 +212,8 @@ console.log(
       relink: actions.filter((action) => action.type === "relink").length,
       backupAndLink: actions.filter((action) => action.type === "backup-and-link").length,
       alreadyLinked: actions.filter((action) => action.type === "already-linked").length,
-      alreadyLinkedNested: actions.filter((action) => action.type === "already-linked-nested").length
+      alreadyLinkedNested: actions.filter((action) => action.type === "already-linked-nested").length,
+      skipMissing: actions.filter((action) => action.type === "skip-missing").length
     },
     null,
     2

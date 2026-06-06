@@ -149,6 +149,7 @@
           <article class="root-row">
             <div>
               <strong>${escapeHtml(root.label)}</strong>
+              <small>${escapeHtml(root.scope || "global")}</small>
               <p>${formatNumber(root.total)} 入口 · ${formatNumber(root.symlinks)} 软链 · ${formatNumber(real)} 实体</p>
             </div>
             <code>${escapeHtml(root.path)}</code>

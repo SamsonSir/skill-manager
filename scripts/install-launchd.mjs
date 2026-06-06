@@ -21,7 +21,8 @@ const watchedPaths = [
   join(homedir(), "agent-skills", "shared"),
   join(homedir(), ".agents", "skills"),
   join(homedir(), ".claude", "skills"),
-  join(homedir(), ".codex", "skills")
+  join(homedir(), ".codex", "skills"),
+  join(homedir(), "Documents", "JokerSu-knowledge", ".agents", "skills")
 ];
 
 const plist = `<?xml version="1.0" encoding="UTF-8"?>

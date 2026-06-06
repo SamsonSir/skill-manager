@@ -1,30 +1,44 @@
 window.SKILL_MANAGER_REPORT = {
-  "generatedAt": "2026-06-06T14:39:06.726Z",
+  "generatedAt": "2026-06-06T15:03:00.393Z",
   "roots": [
     {
       "label": "agents",
+      "family": "agents",
+      "scope": "global",
       "path": "/Users/joker/.agents/skills",
-      "total": 146,
-      "symlinks": 126
+      "total": 161,
+      "symlinks": 141
     },
     {
       "label": "claude",
+      "family": "claude",
+      "scope": "global",
       "path": "/Users/joker/.claude/skills",
-      "total": 149,
-      "symlinks": 143
+      "total": 161,
+      "symlinks": 155
     },
     {
       "label": "codex",
+      "family": "codex",
+      "scope": "global",
       "path": "/Users/joker/.codex/skills",
       "total": 3,
       "symlinks": 3
+    },
+    {
+      "label": "vault-agents",
+      "family": "agents",
+      "scope": "JokerSu-knowledge",
+      "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills",
+      "total": 62,
+      "symlinks": 62
     }
   ],
   "summary": {
-    "totalFiles": 298,
-    "uniqueNames": 149,
-    "duplicateNames": 149,
-    "linkedNames": 149,
+    "totalFiles": 387,
+    "uniqueNames": 161,
+    "duplicateNames": 161,
+    "linkedNames": 161,
     "physicalDuplicateNames": 0,
     "identicalNames": 0,
     "conflictNames": 0,
@@ -69,15 +83,15 @@ window.SKILL_MANAGER_REPORT = {
       "loaded": true,
       "watching": true,
       "state": "not running",
-      "runs": 1,
+      "runs": 6,
       "lastExitCode": 0,
-      "lastLogLine": "[2026-06-06T13:52:39.081Z] watch-sync complete",
+      "lastLogLine": "[2026-06-06T15:02:44.562Z] watch-sync complete",
       "logPath": "/Users/joker/agent-skills/logs/watch-sync.log"
     },
     "codexClaudeSync": {
-      "leftNames": 149,
-      "rightNames": 149,
-      "commonNames": 149,
+      "leftNames": 161,
+      "rightNames": 161,
+      "commonNames": 161,
       "leftOnly": [],
       "rightOnly": [],
       "mismatched": []
@@ -97,6 +111,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/1688-selection-assistant/SKILL.md",
           "relativePath": "1688-selection-assistant/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/1688-selection-assistant",
@@ -108,6 +124,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/1688-selection-assistant/SKILL.md",
           "relativePath": "1688-selection-assistant/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/1688-selection-assistant",
@@ -132,6 +150,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/agent-browser/SKILL.md",
           "relativePath": "agent-browser/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/agent-browser",
@@ -143,6 +163,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/agent-browser/SKILL.md",
           "relativePath": "agent-browser/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/agent-browser",
@@ -167,6 +189,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/agent-reach/SKILL.md",
           "relativePath": "agent-reach/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/agent-reach",
@@ -178,6 +202,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/agent-reach/SKILL.md",
           "relativePath": "agent-reach/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/agent-reach",
@@ -202,6 +228,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/ai-newsletters/SKILL.md",
           "relativePath": "ai-newsletters/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ai-newsletters",
@@ -213,7 +241,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/ai-newsletters/SKILL.md",
+          "relativePath": "ai-newsletters/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/ai-newsletters",
+          "hash": "851d608de93699fe09c2183864ffbd1c2153ea9670667d460b6c144a10e90989",
+          "modifiedAt": "2026-04-19T09:04:01.000Z",
+          "bytes": 3240,
+          "isSymlink": true,
+          "description": "整理 AI 简报内容，智能去重和排序。当用户调用 /ai-newsletters、/日报、/news 或 /start-my-day 需要简报内容时触发。从 TLDR AI、The Rundown AI 和 ai-news-radar 聚合数据（TopHub、Buzzing、NewsNow、AIbase等10+中英文信息源），生成包含精选推荐、AI 动态、生产力工具、WaytoAGI 精选的每日摘要。智能去重、按相关性和新鲜度排序，为高价值内容提供创作角度。主动识别用户对 AI 资讯的需求并提供高质量内容聚合。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/ai-newsletters/SKILL.md",
           "relativePath": "ai-newsletters/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ai-newsletters",
           "hash": "851d608de93699fe09c2183864ffbd1c2153ea9670667d460b6c144a10e90989",
@@ -237,6 +280,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/ai-products/SKILL.md",
           "relativePath": "ai-products/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ai-products",
@@ -248,7 +293,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/ai-products/SKILL.md",
+          "relativePath": "ai-products/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/ai-products",
+          "hash": "9b44d4720fe7dc91847f1df6d507d4424a370dceee9080a6d3a38482a8fd1114",
+          "modifiedAt": "2026-04-19T09:04:14.000Z",
+          "bytes": 3149,
+          "isSymlink": true,
+          "description": "整理 AI 产品发布信息，从 Product Hunt、Hacker News、GitHub 和 Techmeme 多源聚合。当用户调用 /ai-products 或 /start-my-day 需要产品发布信息时触发。智能过滤 AI 相关产品（AI、ML、LLM、GPT、Claude、automation、agent、model 等关键词），去重并按相关性、参与度（votes/points/stars）和内容潜力（教程友好、review-worthy、开源bonus）排序。生成包含精选推荐、LLM 与 AI 模型、开发者工具、生产力与自动化、开源亮点的每日摘要。主动识别有内容创作价值的产品机会（教程机会、抢先报道、深度分析、工具评测、竞品对比）。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/ai-products/SKILL.md",
           "relativePath": "ai-products/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ai-products",
           "hash": "9b44d4720fe7dc91847f1df6d507d4424a370dceee9080a6d3a38482a8fd1114",
@@ -272,6 +332,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/aihot/SKILL.md",
           "relativePath": "aihot/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/aihot",
@@ -283,6 +345,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/aihot/SKILL.md",
           "relativePath": "aihot/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/aihot",
@@ -307,6 +371,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/ak-rss-24h-brief/SKILL.md",
           "relativePath": "ak-rss-24h-brief/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ak-rss-24h-brief",
@@ -318,6 +384,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/ak-rss-24h-brief/SKILL.md",
           "relativePath": "ak-rss-24h-brief/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ak-rss-24h-brief",
@@ -342,6 +410,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/anthropic-frontend-design/SKILL.md",
           "relativePath": "anthropic-frontend-design/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/anthropic-frontend-design",
@@ -353,6 +423,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/anthropic-frontend-design/SKILL.md",
           "relativePath": "anthropic-frontend-design/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/anthropic-frontend-design",
@@ -377,6 +449,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/archive/SKILL.md",
           "relativePath": "archive/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/archive",
@@ -388,7 +462,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/archive/SKILL.md",
+          "relativePath": "archive/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/archive",
+          "hash": "1b45fdd9cb5704cc85860be89539a60b4beebf399ea38c960fb8334c8574fd25",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 5224,
+          "isSymlink": true,
+          "description": "Archive completed projects and processed inbox items"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/archive/SKILL.md",
           "relativePath": "archive/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/archive",
           "hash": "1b45fdd9cb5704cc85860be89539a60b4beebf399ea38c960fb8334c8574fd25",
@@ -412,6 +501,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/ask/SKILL.md",
           "relativePath": "ask/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ask",
@@ -423,7 +514,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/ask/SKILL.md",
+          "relativePath": "ask/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/ask",
+          "hash": "42323007e2bf4f32caf7cc42b39a1776f9cb3db254c18c0adee0f61c8573a648",
+          "modifiedAt": "2026-04-19T09:03:48.000Z",
+          "bytes": 1706,
+          "isSymlink": true,
+          "description": "快速回答问题，不进行深入的笔记整理。当用户问简单事实性问题、需要快速解释、询问\"How to\"、\"What is\"类问题、\"XXX是什么\"、\"怎么做XXX\"、\"解释一下XXX\"、\"XXX的用法\"或直接调用 /ask 时触发。适用于不需要创建持久化知识条目的场景，如快速查询、简单解释、事实核实。如果问题涉及深入研究、需要创建笔记或系统化学习，应改用 /research 或 /parse-knowledge。主动识别适合快速回答的问题并给出简洁准确的答案。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/ask/SKILL.md",
           "relativePath": "ask/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ask",
           "hash": "42323007e2bf4f32caf7cc42b39a1776f9cb3db254c18c0adee0f61c8573a648",
@@ -447,6 +553,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/auto-updater/SKILL.md",
           "relativePath": "auto-updater/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/auto-updater",
@@ -458,6 +566,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/auto-updater/SKILL.md",
           "relativePath": "auto-updater/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/auto-updater",
@@ -482,6 +592,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/automation-workflows/SKILL.md",
           "relativePath": "automation-workflows/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/automation-workflows",
@@ -493,6 +605,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/automation-workflows/SKILL.md",
           "relativePath": "automation-workflows/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/automation-workflows",
@@ -517,6 +631,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/baidu-search/SKILL.md",
           "relativePath": "baidu-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/baidu-search",
@@ -528,6 +644,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/baidu-search/SKILL.md",
           "relativePath": "baidu-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/baidu-search",
@@ -552,6 +670,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/baoyu-youtube-transcript/SKILL.md",
           "relativePath": "baoyu-youtube-transcript/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/baoyu-youtube-transcript",
@@ -563,7 +683,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/baoyu-youtube-transcript/SKILL.md",
+          "relativePath": "baoyu-youtube-transcript/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/baoyu-youtube-transcript",
+          "hash": "b7085574c6bf72e07c578db14316682b9ebf1e841d9db62916d284efd84c96cc",
+          "modifiedAt": "2026-04-05T05:42:35.000Z",
+          "bytes": 9704,
+          "isSymlink": true,
+          "description": "Downloads YouTube video transcripts/subtitles and cover images by URL or video ID. Supports multiple languages, translation, chapters, and speaker identification. Caches raw data for fast re-formatting. Use when user asks to \"get YouTube transcript\", \"download subtitles\", \"get captions\", \"YouTube字幕\", \"YouTube封面\", \"视频封面\", \"video thumbnail\", \"video cover image\", or provides a YouTube URL and wants the transcript/subtitle text or cover image extracted."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/baoyu-youtube-transcript/SKILL.md",
           "relativePath": "baoyu-youtube-transcript/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/baoyu-youtube-transcript",
           "hash": "b7085574c6bf72e07c578db14316682b9ebf1e841d9db62916d284efd84c96cc",
@@ -587,6 +722,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/bilibili-data-cy/SKILL.md",
           "relativePath": "bilibili-data-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/bilibili-data-cy",
@@ -598,7 +735,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/bilibili-data-cy/SKILL.md",
+          "relativePath": "bilibili-data-cy/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/bilibili-data-cy",
+          "hash": "e46cd0504edf4ff33453f5bad4c658d046492ebdcc1488af7884ebe0243d22a2",
+          "modifiedAt": "2026-04-05T05:32:51.000Z",
+          "bytes": 3525,
+          "isSymlink": true,
+          "description": ">-"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/bilibili-data-cy/SKILL.md",
           "relativePath": "bilibili-data-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/bilibili-data-cy",
           "hash": "e46cd0504edf4ff33453f5bad4c658d046492ebdcc1488af7884ebe0243d22a2",
@@ -622,6 +774,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/cangjie-skill/SKILL.md",
           "relativePath": "cangjie-skill/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/cangjie-skill",
@@ -633,6 +787,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/cangjie-skill/SKILL.md",
           "relativePath": "cangjie-skill/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/cangjie-skill",
@@ -657,6 +813,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/2nd-brain/SKILL.md",
           "relativePath": "2nd-brain/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/2nd-brain",
@@ -668,6 +826,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/2nd-brain/SKILL.md",
           "relativePath": "2nd-brain/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/2nd-brain",
@@ -692,6 +852,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/brainstorm/SKILL.md",
           "relativePath": "brainstorm/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/brainstorm",
@@ -703,7 +865,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/brainstorm/SKILL.md",
+          "relativePath": "brainstorm/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/brainstorm",
+          "hash": "1f59f9f80356999cf063618e7f93159e8cb50c685b8af5f713d937bb95c127f1",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 6908,
+          "isSymlink": true,
+          "description": "Interactive brainstorming session, then optionally create a Project or capture knowledge"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/brainstorm/SKILL.md",
           "relativePath": "brainstorm/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/brainstorm",
           "hash": "1f59f9f80356999cf063618e7f93159e8cb50c685b8af5f713d937bb95c127f1",
@@ -727,6 +904,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/brainstorming/SKILL.md",
           "relativePath": "superpowers/brainstorming/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/brainstorming",
@@ -738,7 +917,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/brainstorming/SKILL.md",
+          "relativePath": "brainstorming/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/brainstorming",
+          "hash": "bba47904a7f6bbee3bf8a107ebbe84e65d392be683bbb898ded736b29e415f90",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 10634,
+          "isSymlink": true,
+          "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/brainstorming/SKILL.md",
           "relativePath": "brainstorming/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/brainstorming",
           "hash": "bba47904a7f6bbee3bf8a107ebbe84e65d392be683bbb898ded736b29e415f90",
@@ -762,6 +956,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/break-ai-slop/SKILL.md",
           "relativePath": "break-ai-slop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/break-ai-slop",
@@ -773,6 +969,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/break-ai-slop/SKILL.md",
           "relativePath": "break-ai-slop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/break-ai-slop",
@@ -781,6 +979,71 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 4005,
           "isSymlink": true,
           "description": ">-"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/break-ai-slop/SKILL.md",
+          "relativePath": "break-ai-slop/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/break-ai-slop",
+          "hash": "04bb129d7482b9545e7aa863ff5a5b7eb59324e4ee2db51ee7963a913b30989c",
+          "modifiedAt": "2026-04-26T14:58:44.000Z",
+          "bytes": 4005,
+          "isSymlink": true,
+          "description": ">-"
+        }
+      ]
+    },
+    {
+      "name": "bugfix",
+      "status": "linked",
+      "hashes": [
+        "1e955d9d3ae291c1d0759cea09298eb8f8177bb18dc36a4e7f2b08c5f65a6bcb"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/bugfix"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/bugfix/SKILL.md",
+          "relativePath": "bugfix/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/bugfix",
+          "hash": "1e955d9d3ae291c1d0759cea09298eb8f8177bb18dc36a4e7f2b08c5f65a6bcb",
+          "modifiedAt": "2026-06-06T14:56:12.072Z",
+          "bytes": 10804,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/bugfix/SKILL.md",
+          "relativePath": "bugfix/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/bugfix",
+          "hash": "1e955d9d3ae291c1d0759cea09298eb8f8177bb18dc36a4e7f2b08c5f65a6bcb",
+          "modifiedAt": "2026-06-06T14:56:12.072Z",
+          "bytes": 10804,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/bugfix/SKILL.md",
+          "relativePath": "bugfix/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/bugfix",
+          "hash": "1e955d9d3ae291c1d0759cea09298eb8f8177bb18dc36a4e7f2b08c5f65a6bcb",
+          "modifiedAt": "2026-06-06T14:56:12.072Z",
+          "bytes": 10804,
+          "isSymlink": true,
+          "description": ">"
         }
       ]
     },
@@ -797,6 +1060,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/camofox-browser/SKILL.md",
           "relativePath": "camofox-browser/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/camofox-browser",
@@ -808,6 +1073,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/camofox-browser/SKILL.md",
           "relativePath": "camofox-browser/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/camofox-browser",
@@ -832,6 +1099,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/camofox-cli/SKILL.md",
           "relativePath": "camofox-cli/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/camofox-cli",
@@ -843,6 +1112,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/camofox-cli/SKILL.md",
           "relativePath": "camofox-cli/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/camofox-cli",
@@ -867,6 +1138,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/cc-shield/SKILL.md",
           "relativePath": "cc-shield/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/cc-shield",
@@ -878,6 +1151,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/cc-shield/SKILL.md",
           "relativePath": "cc-shield/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/cc-shield",
@@ -902,6 +1177,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/claude-code-third-party-api/SKILL.md",
           "relativePath": "claude-code-third-party-api/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/claude-code-third-party-api",
@@ -913,6 +1190,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/claude-code-third-party-api/SKILL.md",
           "relativePath": "claude-code-third-party-api/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/claude-code-third-party-api",
@@ -937,6 +1216,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/clawflows/SKILL.md",
           "relativePath": "clawflows/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/clawflows",
@@ -948,6 +1229,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/clawflows/SKILL.md",
           "relativePath": "clawflows/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/clawflows",
@@ -972,6 +1255,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/design-image-studio/SKILL.md",
           "relativePath": "design-image-studio/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/design-image-studio",
@@ -983,6 +1268,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/design-image-studio/SKILL.md",
           "relativePath": "design-image-studio/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/design-image-studio",
@@ -1007,6 +1294,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/dispatching-parallel-agents/SKILL.md",
           "relativePath": "superpowers/dispatching-parallel-agents/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/dispatching-parallel-agents",
@@ -1018,7 +1307,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/dispatching-parallel-agents/SKILL.md",
+          "relativePath": "dispatching-parallel-agents/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/dispatching-parallel-agents",
+          "hash": "76806091c7f923ba2596546b19cccd98a08e57a68745df77c3a7b998fe838e2b",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 6441,
+          "isSymlink": true,
+          "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/dispatching-parallel-agents/SKILL.md",
           "relativePath": "dispatching-parallel-agents/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/dispatching-parallel-agents",
           "hash": "76806091c7f923ba2596546b19cccd98a08e57a68745df77c3a7b998fe838e2b",
@@ -1042,6 +1346,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/douyin-matrix/SKILL.md",
           "relativePath": "douyin-matrix/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/douyin-matrix",
@@ -1053,6 +1359,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/douyin-matrix/SKILL.md",
           "relativePath": "douyin-matrix/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/douyin-matrix",
@@ -1077,6 +1385,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/douyin-selection-sop/SKILL.md",
           "relativePath": "douyin-selection-sop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/douyin-selection-sop",
@@ -1088,7 +1398,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/douyin-selection-sop/SKILL.md",
+          "relativePath": "douyin-selection-sop/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/douyin-selection-sop",
+          "hash": "5b16c7f9aefc83405bf8642001ed6f836414d438db27b945483432ad4a920283",
+          "modifiedAt": "2026-04-27T14:02:56.000Z",
+          "bytes": 12141,
+          "isSymlink": true,
+          "description": "抖音电商选品全流程SOP。当用户要求执行抖店/抖音电商选品、罗盘短视频榜采集、爆品潜质分析、带货视频提取下载、飞书选品清单写入时触发。覆盖 Phase 1-6：罗盘采集→爆品预筛→素材提取→极简报告→飞书入库→上架准备。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/douyin-selection-sop/SKILL.md",
           "relativePath": "douyin-selection-sop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/douyin-selection-sop",
           "hash": "5b16c7f9aefc83405bf8642001ed6f836414d438db27b945483432ad4a920283",
@@ -1111,7 +1436,22 @@ window.SKILL_MANAGER_REPORT = {
       "needsAction": false,
       "locations": [
         {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/dramaya-workflow/SKILL.md",
+          "relativePath": "dramaya-workflow/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/dramaya-workflow",
+          "hash": "9582b5d736c91299e3bca016d6f4a71a72ead9c7b8906be945dc6422a74c1ae3",
+          "modifiedAt": "2026-05-21T08:57:27.048Z",
+          "bytes": 6430,
+          "isSymlink": true,
+          "description": "Use when working on Dramaya project coordination, including 今天任务, 开始任务, 收工, 插入需求, Plane work items, GitHub PR flow, cycles, versions, testing, release handoff, or two-person Codex collaboration."
+        },
+        {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/dramaya-workflow/SKILL.md",
           "relativePath": "dramaya-workflow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/dramaya-workflow",
@@ -1123,6 +1463,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "codex",
+          "family": "codex",
+          "scope": "global",
           "path": "/Users/joker/.codex/skills/dramaya-workflow/SKILL.md",
           "relativePath": "dramaya-workflow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/dramaya-workflow",
@@ -1147,6 +1489,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/dream-memory/SKILL.md",
           "relativePath": "dream-memory/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/dream-memory",
@@ -1158,6 +1502,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/dream-memory/SKILL.md",
           "relativePath": "dream-memory/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/dream-memory",
@@ -1166,6 +1512,58 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 1893,
           "isSymlink": true,
           "description": "Consolidate recent logs, sessions, and existing memory files into durable topic memories, normalize dates, prune stale entries, and keep MEMORY.md short enough for prompt use."
+        }
+      ]
+    },
+    {
+      "name": "e2e-verify",
+      "status": "linked",
+      "hashes": [
+        "73c3d09b0919c3b438ae53782555456df036ba993616ea56bec572dcaef92369"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/e2e-verify"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/e2e-verify/SKILL.md",
+          "relativePath": "e2e-verify/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/e2e-verify",
+          "hash": "73c3d09b0919c3b438ae53782555456df036ba993616ea56bec572dcaef92369",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 9085,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/e2e-verify/SKILL.md",
+          "relativePath": "e2e-verify/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/e2e-verify",
+          "hash": "73c3d09b0919c3b438ae53782555456df036ba993616ea56bec572dcaef92369",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 9085,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/e2e-verify/SKILL.md",
+          "relativePath": "e2e-verify/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/e2e-verify",
+          "hash": "73c3d09b0919c3b438ae53782555456df036ba993616ea56bec572dcaef92369",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 9085,
+          "isSymlink": true,
+          "description": ">"
         }
       ]
     },
@@ -1182,6 +1580,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/elevenlabs-tts/SKILL.md",
           "relativePath": "elevenlabs-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/elevenlabs-tts",
@@ -1193,6 +1593,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/elevenlabs-tts/SKILL.md",
           "relativePath": "elevenlabs-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/elevenlabs-tts",
@@ -1217,6 +1619,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/exa-search/SKILL.md",
           "relativePath": "exa-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/exa-search",
@@ -1228,6 +1632,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/exa-search/SKILL.md",
           "relativePath": "exa-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/exa-search",
@@ -1252,6 +1658,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/executing-plans/SKILL.md",
           "relativePath": "superpowers/executing-plans/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/executing-plans",
@@ -1263,7 +1671,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/executing-plans/SKILL.md",
+          "relativePath": "executing-plans/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/executing-plans",
+          "hash": "a711f83fb762e2ea0fa151f598893da9911a408895c91cc7a7e0770dd59a27b3",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 2459,
+          "isSymlink": true,
+          "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/executing-plans/SKILL.md",
           "relativePath": "executing-plans/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/executing-plans",
           "hash": "a711f83fb762e2ea0fa151f598893da9911a408895c91cc7a7e0770dd59a27b3",
@@ -1287,6 +1710,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-agi-collector/SKILL.md",
           "relativePath": "feishu-agi-collector/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-agi-collector",
@@ -1298,6 +1723,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-agi-collector/SKILL.md",
           "relativePath": "feishu-agi-collector/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-agi-collector",
@@ -1322,6 +1749,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-doc-exporter/SKILL.md",
           "relativePath": "feishu-doc-exporter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc-exporter",
@@ -1333,6 +1762,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-doc-exporter/SKILL.md",
           "relativePath": "feishu-doc-exporter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc-exporter",
@@ -1357,6 +1788,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-doc-summarizer/SKILL.md",
           "relativePath": "feishu-doc-summarizer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc-summarizer",
@@ -1368,6 +1801,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-doc-summarizer/SKILL.md",
           "relativePath": "feishu-doc-summarizer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc-summarizer",
@@ -1392,6 +1827,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-doc/SKILL.md",
           "relativePath": "feishu-doc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc",
@@ -1403,6 +1840,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-doc/SKILL.md",
           "relativePath": "feishu-doc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-doc",
@@ -1427,6 +1866,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-knowledge-extractor/SKILL.md",
           "relativePath": "feishu-knowledge-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-knowledge-extractor",
@@ -1438,6 +1879,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-knowledge-extractor/SKILL.md",
           "relativePath": "feishu-knowledge-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-knowledge-extractor",
@@ -1462,6 +1905,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-meeting-call/SKILL.md",
           "relativePath": "feishu-meeting-call/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-meeting-call",
@@ -1473,6 +1918,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-meeting-call/SKILL.md",
           "relativePath": "feishu-meeting-call/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-meeting-call",
@@ -1497,6 +1944,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/feishu-wiki/SKILL.md",
           "relativePath": "feishu-wiki/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-wiki",
@@ -1508,6 +1957,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/feishu-wiki/SKILL.md",
           "relativePath": "feishu-wiki/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/feishu-wiki",
@@ -1532,6 +1983,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/film-storyboard-expand-cy/SKILL.md",
           "relativePath": "film-storyboard-expand-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/film-storyboard-expand-cy",
@@ -1543,7 +1996,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/film-storyboard-expand-cy/SKILL.md",
+          "relativePath": "film-storyboard-expand-cy/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/film-storyboard-expand-cy",
+          "hash": "c00b700a57c4b9a401983946fb1037e13fb3d08998fad066634ab56602de728c",
+          "modifiedAt": "2026-04-04T11:37:57.000Z",
+          "bytes": 6458,
+          "isSymlink": true,
+          "description": "分镜扩展/分镜提示词/扩展分镜/根据图片生成分镜/电影分镜/镜头提示词/从图片扩展电影分镜/storyboard expand"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/film-storyboard-expand-cy/SKILL.md",
           "relativePath": "film-storyboard-expand-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/film-storyboard-expand-cy",
           "hash": "c00b700a57c4b9a401983946fb1037e13fb3d08998fad066634ab56602de728c",
@@ -1567,6 +2035,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/find-skills/SKILL.md",
           "relativePath": "find-skills/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/find-skills",
@@ -1578,6 +2048,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/find-skills/SKILL.md",
           "relativePath": "find-skills/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/find-skills",
@@ -1602,6 +2074,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/finishing-a-development-branch/SKILL.md",
           "relativePath": "superpowers/finishing-a-development-branch/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/finishing-a-development-branch",
@@ -1613,7 +2087,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/finishing-a-development-branch/SKILL.md",
+          "relativePath": "finishing-a-development-branch/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/finishing-a-development-branch",
+          "hash": "dd2f82c6dc8582b621f9eb57fcb65f557f88eadf872727ac81d0840ae12c504e",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 4250,
+          "isSymlink": true,
+          "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/finishing-a-development-branch/SKILL.md",
           "relativePath": "finishing-a-development-branch/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/finishing-a-development-branch",
           "hash": "dd2f82c6dc8582b621f9eb57fcb65f557f88eadf872727ac81d0840ae12c504e",
@@ -1637,6 +2126,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/firecrawl/SKILL.md",
           "relativePath": "firecrawl/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/firecrawl",
@@ -1648,7 +2139,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/firecrawl/SKILL.md",
+          "relativePath": "firecrawl/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/firecrawl",
+          "hash": "4acabe2326cbe952796fd0ae516538821d3bc3ab230eb33faabfb6ee6e25031c",
+          "modifiedAt": "2026-04-04T09:47:46.000Z",
+          "bytes": 5378,
+          "isSymlink": true,
+          "description": "|"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/firecrawl/SKILL.md",
           "relativePath": "firecrawl/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/firecrawl",
           "hash": "4acabe2326cbe952796fd0ae516538821d3bc3ab230eb33faabfb6ee6e25031c",
@@ -1672,6 +2178,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/free-ride/SKILL.md",
           "relativePath": "free-ride/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/free-ride",
@@ -1683,6 +2191,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/free-ride/SKILL.md",
           "relativePath": "free-ride/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/free-ride",
@@ -1707,6 +2217,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/frontend-design/SKILL.md",
           "relativePath": "frontend-design/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/frontend-design",
@@ -1718,7 +2230,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/frontend-design/SKILL.md",
+          "relativePath": "frontend-design/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/frontend-design",
+          "hash": "b81e2ff87ed8fa4d6c377ccb127a7254c9e6a77e3ae94f21e6b514f7bb2945a0",
+          "modifiedAt": "2026-04-04T11:22:06.000Z",
+          "bytes": 4440,
+          "isSymlink": true,
+          "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/frontend-design/SKILL.md",
           "relativePath": "frontend-design/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/frontend-design",
           "hash": "b81e2ff87ed8fa4d6c377ccb127a7254c9e6a77e3ae94f21e6b514f7bb2945a0",
@@ -1742,6 +2269,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/frontend-slides/SKILL.md",
           "relativePath": "frontend-slides/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/frontend-slides",
@@ -1753,6 +2282,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/frontend-slides/SKILL.md",
           "relativePath": "frontend-slides/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/frontend-slides",
@@ -1761,6 +2292,71 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 13603,
           "isSymlink": true,
           "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/frontend-slides/SKILL.md",
+          "relativePath": "frontend-slides/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/frontend-slides",
+          "hash": "9b4fb3a6886c26b12c18ffbb69703b04cb59a6ecb6e73e7c3f0fca8a6963e971",
+          "modifiedAt": "2026-04-04T11:27:29.000Z",
+          "bytes": 13603,
+          "isSymlink": true,
+          "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices."
+        }
+      ]
+    },
+    {
+      "name": "functional-test",
+      "status": "linked",
+      "hashes": [
+        "5a42778fa2c3b60341a272983a859674fe375739a2e8dffa4303d3add53e9b00"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/functional-test"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/functional-test/SKILL.md",
+          "relativePath": "functional-test/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/functional-test",
+          "hash": "5a42778fa2c3b60341a272983a859674fe375739a2e8dffa4303d3add53e9b00",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 10812,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/functional-test/SKILL.md",
+          "relativePath": "functional-test/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/functional-test",
+          "hash": "5a42778fa2c3b60341a272983a859674fe375739a2e8dffa4303d3add53e9b00",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 10812,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/functional-test/SKILL.md",
+          "relativePath": "functional-test/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/functional-test",
+          "hash": "5a42778fa2c3b60341a272983a859674fe375739a2e8dffa4303d3add53e9b00",
+          "modifiedAt": "2026-06-06T14:56:12.073Z",
+          "bytes": 10812,
+          "isSymlink": true,
+          "description": ">"
         }
       ]
     },
@@ -1777,6 +2373,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/github-kb/SKILL.md",
           "relativePath": "github-kb/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/github-kb",
@@ -1788,6 +2386,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/github-kb/SKILL.md",
           "relativePath": "github-kb/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/github-kb",
@@ -1812,6 +2412,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/gws-workspace/SKILL.md",
           "relativePath": "gws-workspace/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/gws-workspace",
@@ -1823,6 +2425,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/gws-workspace/SKILL.md",
           "relativePath": "gws-workspace/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/gws-workspace",
@@ -1831,6 +2435,110 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 8824,
           "isSymlink": true,
           "description": ">"
+        }
+      ]
+    },
+    {
+      "name": "grill-with-docs",
+      "status": "linked",
+      "hashes": [
+        "8e5252c67fc9d30960a9e317020c582b3fefbe0187b4502e7c9b66aa077c358e"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/grill-with-docs"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/grill-with-docs/SKILL.md",
+          "relativePath": "grill-with-docs/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/grill-with-docs",
+          "hash": "8e5252c67fc9d30960a9e317020c582b3fefbe0187b4502e7c9b66aa077c358e",
+          "modifiedAt": "2026-06-06T14:56:12.074Z",
+          "bytes": 4668,
+          "isSymlink": true,
+          "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/grill-with-docs/SKILL.md",
+          "relativePath": "grill-with-docs/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/grill-with-docs",
+          "hash": "8e5252c67fc9d30960a9e317020c582b3fefbe0187b4502e7c9b66aa077c358e",
+          "modifiedAt": "2026-06-06T14:56:12.074Z",
+          "bytes": 4668,
+          "isSymlink": true,
+          "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/grill-with-docs/SKILL.md",
+          "relativePath": "grill-with-docs/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/grill-with-docs",
+          "hash": "8e5252c67fc9d30960a9e317020c582b3fefbe0187b4502e7c9b66aa077c358e",
+          "modifiedAt": "2026-06-06T14:56:12.074Z",
+          "bytes": 4668,
+          "isSymlink": true,
+          "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions."
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "status": "linked",
+      "hashes": [
+        "df94983faa527aa790a9bb594081791afacfd3e0030bfef69679303a01d08f80"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/handoff"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/handoff/SKILL.md",
+          "relativePath": "handoff/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/handoff",
+          "hash": "df94983faa527aa790a9bb594081791afacfd3e0030bfef69679303a01d08f80",
+          "modifiedAt": "2026-06-06T14:56:12.076Z",
+          "bytes": 4288,
+          "isSymlink": true,
+          "description": "Compact the current conversation into a handoff document for another agent to pick up."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/handoff/SKILL.md",
+          "relativePath": "handoff/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/handoff",
+          "hash": "df94983faa527aa790a9bb594081791afacfd3e0030bfef69679303a01d08f80",
+          "modifiedAt": "2026-06-06T14:56:12.076Z",
+          "bytes": 4288,
+          "isSymlink": true,
+          "description": "Compact the current conversation into a handoff document for another agent to pick up."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/handoff/SKILL.md",
+          "relativePath": "handoff/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/handoff",
+          "hash": "df94983faa527aa790a9bb594081791afacfd3e0030bfef69679303a01d08f80",
+          "modifiedAt": "2026-06-06T14:56:12.076Z",
+          "bytes": 4288,
+          "isSymlink": true,
+          "description": "Compact the current conversation into a handoff document for another agent to pick up."
         }
       ]
     },
@@ -1847,6 +2555,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/hv-analysis/SKILL.md",
           "relativePath": "hv-analysis/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/hv-analysis",
@@ -1858,6 +2568,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/hv-analysis/SKILL.md",
           "relativePath": "hv-analysis/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/hv-analysis",
@@ -1866,6 +2578,71 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 19722,
           "isSymlink": true,
           "description": "|"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/hv-analysis/SKILL.md",
+          "relativePath": "hv-analysis/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/hv-analysis",
+          "hash": "898f21b1f7b45456a54419b1b31765c896662a1e3f614d2c3413f809824de3a2",
+          "modifiedAt": "2026-04-17T07:44:04.000Z",
+          "bytes": 19722,
+          "isSymlink": true,
+          "description": "|"
+        }
+      ]
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "status": "linked",
+      "hashes": [
+        "d9892f739ebf492540568c3d95f40c8c95b51024384403cbd7e4fff7a8d33e78"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/improve-codebase-architecture"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/improve-codebase-architecture/SKILL.md",
+          "relativePath": "improve-codebase-architecture/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/improve-codebase-architecture",
+          "hash": "d9892f739ebf492540568c3d95f40c8c95b51024384403cbd7e4fff7a8d33e78",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5417,
+          "isSymlink": true,
+          "description": "Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the decisions in docs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/improve-codebase-architecture/SKILL.md",
+          "relativePath": "improve-codebase-architecture/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/improve-codebase-architecture",
+          "hash": "d9892f739ebf492540568c3d95f40c8c95b51024384403cbd7e4fff7a8d33e78",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5417,
+          "isSymlink": true,
+          "description": "Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the decisions in docs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/improve-codebase-architecture/SKILL.md",
+          "relativePath": "improve-codebase-architecture/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/improve-codebase-architecture",
+          "hash": "d9892f739ebf492540568c3d95f40c8c95b51024384403cbd7e4fff7a8d33e78",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5417,
+          "isSymlink": true,
+          "description": "Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the decisions in docs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable."
         }
       ]
     },
@@ -1882,6 +2659,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/jina-reader/SKILL.md",
           "relativePath": "jina-reader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/jina-reader",
@@ -1893,7 +2672,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/jina-reader/SKILL.md",
+          "relativePath": "jina-reader/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/jina-reader",
+          "hash": "eb2522c526d4d75174a6e6775089e5df9091f82aa670936705c3bdd425572e39",
+          "modifiedAt": "2026-04-04T09:48:05.000Z",
+          "bytes": 5118,
+          "isSymlink": true,
+          "description": "Reads web content and searches the web using Jina AI Reader API. Use when extracting content from URLs, reading social media posts (X/Twitter), or web searching for current information."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/jina-reader/SKILL.md",
           "relativePath": "jina-reader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/jina-reader",
           "hash": "eb2522c526d4d75174a6e6775089e5df9091f82aa670936705c3bdd425572e39",
@@ -1917,6 +2711,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/json-canvas/SKILL.md",
           "relativePath": "json-canvas/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/json-canvas",
@@ -1928,7 +2724,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/json-canvas/SKILL.md",
+          "relativePath": "json-canvas/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/json-canvas",
+          "hash": "b026f0ce1e2aeccf27f4ebb5f2f6b47e0defd639a76ef33daebd90ae279cf2c2",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 14012,
+          "isSymlink": true,
+          "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/json-canvas/SKILL.md",
           "relativePath": "json-canvas/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/json-canvas",
           "hash": "b026f0ce1e2aeccf27f4ebb5f2f6b47e0defd639a76ef33daebd90ae279cf2c2",
@@ -1952,6 +2763,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/kairos-lite/SKILL.md",
           "relativePath": "kairos-lite/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/kairos-lite",
@@ -1963,6 +2776,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/kairos-lite/SKILL.md",
           "relativePath": "kairos-lite/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/kairos-lite",
@@ -1987,6 +2802,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/khazix-writer/SKILL.md",
           "relativePath": "khazix-writer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/khazix-writer",
@@ -1998,7 +2815,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/khazix-writer/SKILL.md",
+          "relativePath": "khazix-writer/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/khazix-writer",
+          "hash": "081bfbf5bc0f0c9a2c5a6410eaaa9de18a0cc50f932a1195f45df04e30018602",
+          "modifiedAt": "2026-04-07T06:54:50.000Z",
+          "bytes": 30173,
+          "isSymlink": true,
+          "description": "|"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/khazix-writer/SKILL.md",
           "relativePath": "khazix-writer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/khazix-writer",
           "hash": "081bfbf5bc0f0c9a2c5a6410eaaa9de18a0cc50f932a1195f45df04e30018602",
@@ -2022,6 +2854,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/kickoff/SKILL.md",
           "relativePath": "kickoff/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/kickoff",
@@ -2033,7 +2867,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/kickoff/SKILL.md",
+          "relativePath": "kickoff/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/kickoff",
+          "hash": "aaafdb5a869a36286e86a26d25a6d1c927824b1ef326f01a57aa786a269e4922",
+          "modifiedAt": "2026-04-19T09:03:25.000Z",
+          "bytes": 6490,
+          "isSymlink": true,
+          "description": "将想法或收件箱笔记转化为结构化的项目笔记。当用户说\"开始一个项目\"、\"创建项目\"、\"把XXX变成项目\"、\"整理收件箱\"、\"有个想法想变成项目\"、\"启动XXX项目\"或直接调用 /kickoff 时触发。支持从收件箱文件、内联文本或无输入三种方式启动，自动识别领域（SoftwareEngineering、Finance、Health、Writing等）并创建符合C.A.P.结构（背景Context、行动Action、进展Progress）的项目笔记。主动识别有潜力的想法并转化为可执行的项目。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/kickoff/SKILL.md",
           "relativePath": "kickoff/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/kickoff",
           "hash": "aaafdb5a869a36286e86a26d25a6d1c927824b1ef326f01a57aa786a269e4922",
@@ -2057,6 +2906,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-approval/SKILL.md",
           "relativePath": "lark-approval/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-approval",
@@ -2068,6 +2919,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-approval/SKILL.md",
           "relativePath": "lark-approval/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-approval",
@@ -2092,6 +2945,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-base/SKILL.md",
           "relativePath": "lark-base/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-base",
@@ -2103,6 +2958,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-base/SKILL.md",
           "relativePath": "lark-base/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-base",
@@ -2127,6 +2984,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-calendar/SKILL.md",
           "relativePath": "lark-calendar/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-calendar",
@@ -2138,6 +2997,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-calendar/SKILL.md",
           "relativePath": "lark-calendar/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-calendar",
@@ -2162,6 +3023,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-contact/SKILL.md",
           "relativePath": "lark-contact/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-contact",
@@ -2173,6 +3036,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-contact/SKILL.md",
           "relativePath": "lark-contact/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-contact",
@@ -2197,6 +3062,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-doc/SKILL.md",
           "relativePath": "lark-doc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-doc",
@@ -2208,6 +3075,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-doc/SKILL.md",
           "relativePath": "lark-doc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-doc",
@@ -2232,6 +3101,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-drive/SKILL.md",
           "relativePath": "lark-drive/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-drive",
@@ -2243,6 +3114,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-drive/SKILL.md",
           "relativePath": "lark-drive/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-drive",
@@ -2267,6 +3140,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-event/SKILL.md",
           "relativePath": "lark-event/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-event",
@@ -2278,6 +3153,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-event/SKILL.md",
           "relativePath": "lark-event/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-event",
@@ -2302,6 +3179,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-im/SKILL.md",
           "relativePath": "lark-im/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-im",
@@ -2313,6 +3192,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-im/SKILL.md",
           "relativePath": "lark-im/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-im",
@@ -2337,6 +3218,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-mail/SKILL.md",
           "relativePath": "lark-mail/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-mail",
@@ -2348,6 +3231,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-mail/SKILL.md",
           "relativePath": "lark-mail/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-mail",
@@ -2372,6 +3257,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-minutes/SKILL.md",
           "relativePath": "lark-minutes/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-minutes",
@@ -2383,6 +3270,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-minutes/SKILL.md",
           "relativePath": "lark-minutes/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-minutes",
@@ -2407,6 +3296,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-openapi-explorer/SKILL.md",
           "relativePath": "lark-openapi-explorer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-openapi-explorer",
@@ -2418,6 +3309,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-openapi-explorer/SKILL.md",
           "relativePath": "lark-openapi-explorer/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-openapi-explorer",
@@ -2442,6 +3335,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-shared/SKILL.md",
           "relativePath": "lark-shared/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-shared",
@@ -2453,6 +3348,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-shared/SKILL.md",
           "relativePath": "lark-shared/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-shared",
@@ -2477,6 +3374,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-sheets/SKILL.md",
           "relativePath": "lark-sheets/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-sheets",
@@ -2488,6 +3387,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-sheets/SKILL.md",
           "relativePath": "lark-sheets/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-sheets",
@@ -2512,6 +3413,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-skill-maker/SKILL.md",
           "relativePath": "lark-skill-maker/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-skill-maker",
@@ -2523,6 +3426,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-skill-maker/SKILL.md",
           "relativePath": "lark-skill-maker/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-skill-maker",
@@ -2547,6 +3452,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-task/SKILL.md",
           "relativePath": "lark-task/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-task",
@@ -2558,6 +3465,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-task/SKILL.md",
           "relativePath": "lark-task/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-task",
@@ -2582,6 +3491,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-vc/SKILL.md",
           "relativePath": "lark-vc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-vc",
@@ -2593,6 +3504,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-vc/SKILL.md",
           "relativePath": "lark-vc/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-vc",
@@ -2617,6 +3530,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-whiteboard/SKILL.md",
           "relativePath": "lark-whiteboard/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-whiteboard",
@@ -2628,6 +3543,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-whiteboard/SKILL.md",
           "relativePath": "lark-whiteboard/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-whiteboard",
@@ -2652,6 +3569,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-wiki/SKILL.md",
           "relativePath": "lark-wiki/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-wiki",
@@ -2663,6 +3582,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-wiki/SKILL.md",
           "relativePath": "lark-wiki/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-wiki",
@@ -2687,6 +3608,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-workflow-meeting-summary/SKILL.md",
           "relativePath": "lark-workflow-meeting-summary/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-workflow-meeting-summary",
@@ -2698,6 +3621,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-workflow-meeting-summary/SKILL.md",
           "relativePath": "lark-workflow-meeting-summary/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-workflow-meeting-summary",
@@ -2722,6 +3647,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/lark-workflow-standup-report/SKILL.md",
           "relativePath": "lark-workflow-standup-report/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-workflow-standup-report",
@@ -2733,6 +3660,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/lark-workflow-standup-report/SKILL.md",
           "relativePath": "lark-workflow-standup-report/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/lark-workflow-standup-report",
@@ -2756,7 +3685,22 @@ window.SKILL_MANAGER_REPORT = {
       "needsAction": false,
       "locations": [
         {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/libtv-skill/SKILL.md",
+          "relativePath": "libtv-skill/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/libtv-skill",
+          "hash": "7e8ffa94928cf50af201c8fb36d094af74664e274346f4e3ee49ef097585866a",
+          "modifiedAt": "2026-04-12T09:54:31.651Z",
+          "bytes": 11469,
+          "isSymlink": true,
+          "description": "agent-im 会话技能 - 通过 liblib.tv 的 AI 能力生成和编辑图片/视频。覆盖场景包括：生成（文生图、文生视频、图生视频、做动画、画一个xxx、来段xxx）、编辑修改（把xxx换成yyy、去掉xxx、加上xxx、改成xxx、调整xxx、局部修改、改镜头）、风格转换（风格迁移、转绘、换风格）、视频续写延长、复刻视频/TVC/宣传片、短剧/短漫剧生成、音乐MV生成、产品广告/展示片制作、分镜/故事板设计、教育视频/短视频制作。当用户提到 liblib、libtv、上传参考图/视频、查看生成进度时也应触发。关键判断：只要用户的请求涉及 AI 图片或视频的创作、生成、编辑、修改，无论措辞如何（如\"画只猫\"、\"做个海报\"、\"把纸船换成爱心\"、\"这个视频帮我改一下\"、\"帮我复刻这段视频\"、\"用这首歌做个MV\"、\"一句话生成短剧\"），都必须触发此技能。"
+        },
+        {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/libtv-skill/SKILL.md",
           "relativePath": "libtv-skill/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/libtv-skill",
@@ -2768,6 +3712,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "codex",
+          "family": "codex",
+          "scope": "global",
           "path": "/Users/joker/.codex/skills/libtv-skill/SKILL.md",
           "relativePath": "libtv-skill/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/libtv-skill",
@@ -2792,6 +3738,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/local-whisper/SKILL.md",
           "relativePath": "local-whisper/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/local-whisper",
@@ -2803,6 +3751,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/local-whisper/SKILL.md",
           "relativePath": "local-whisper/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/local-whisper",
@@ -2811,6 +3761,58 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 1386,
           "isSymlink": true,
           "description": "Local speech-to-text using OpenAI Whisper. Runs fully offline after model download. High quality transcription with multiple model sizes."
+        }
+      ]
+    },
+    {
+      "name": "lsp-setup",
+      "status": "linked",
+      "hashes": [
+        "d1763b450a24352b0e312b85fc6588580c607b5727383c63bb04354ae4bfc30a"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/lsp-setup"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/lsp-setup/SKILL.md",
+          "relativePath": "lsp-setup/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/lsp-setup",
+          "hash": "d1763b450a24352b0e312b85fc6588580c607b5727383c63bb04354ae4bfc30a",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5133,
+          "isSymlink": true,
+          "description": "|"
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/lsp-setup/SKILL.md",
+          "relativePath": "lsp-setup/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/lsp-setup",
+          "hash": "d1763b450a24352b0e312b85fc6588580c607b5727383c63bb04354ae4bfc30a",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5133,
+          "isSymlink": true,
+          "description": "|"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/lsp-setup/SKILL.md",
+          "relativePath": "lsp-setup/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/lsp-setup",
+          "hash": "d1763b450a24352b0e312b85fc6588580c607b5727383c63bb04354ae4bfc30a",
+          "modifiedAt": "2026-06-06T14:56:12.077Z",
+          "bytes": 5133,
+          "isSymlink": true,
+          "description": "|"
         }
       ]
     },
@@ -2827,6 +3829,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/memory-extractor/SKILL.md",
           "relativePath": "memory-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/memory-extractor",
@@ -2838,6 +3842,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/memory-extractor/SKILL.md",
           "relativePath": "memory-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/memory-extractor",
@@ -2862,6 +3868,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/memory-setup/SKILL.md",
           "relativePath": "memory-setup/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/memory-setup",
@@ -2873,6 +3881,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/memory-setup/SKILL.md",
           "relativePath": "memory-setup/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/memory-setup",
@@ -2897,6 +3907,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/meta-superpowers-daily-flow/SKILL.md",
           "relativePath": "meta-superpowers-daily-flow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/meta-superpowers-daily-flow",
@@ -2908,6 +3920,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/meta-superpowers-daily-flow/SKILL.md",
           "relativePath": "meta-superpowers-daily-flow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/meta-superpowers-daily-flow",
@@ -2932,6 +3946,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/meta-superpowers-workflow/SKILL.md",
           "relativePath": "meta-superpowers-workflow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/meta-superpowers-workflow",
@@ -2943,6 +3959,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/meta-superpowers-workflow/SKILL.md",
           "relativePath": "meta-superpowers-workflow/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/meta-superpowers-workflow",
@@ -2967,6 +3985,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/openclaw-mission-control/SKILL.md",
           "relativePath": "openclaw-mission-control/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/openclaw-mission-control",
@@ -2978,6 +3998,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/openclaw-mission-control/SKILL.md",
           "relativePath": "openclaw-mission-control/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/openclaw-mission-control",
@@ -3002,6 +4024,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/mistral-ocr/SKILL.md",
           "relativePath": "mistral-ocr/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/mistral-ocr",
@@ -3013,6 +4037,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/mistral-ocr/SKILL.md",
           "relativePath": "mistral-ocr/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/mistral-ocr",
@@ -3037,6 +4063,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/x-twitter/skills/multi-search-engine/SKILL.md",
           "relativePath": "x-twitter/skills/multi-search-engine/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-twitter/skills/multi-search-engine",
@@ -3048,6 +4076,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/x-twitter/skills/multi-search-engine/SKILL.md",
           "relativePath": "x-twitter/skills/multi-search-engine/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-twitter/skills/multi-search-engine",
@@ -3055,6 +4085,19 @@ window.SKILL_MANAGER_REPORT = {
           "modifiedAt": "2026-04-08T16:40:35.000Z",
           "bytes": 3372,
           "isSymlink": false,
+          "description": "Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/multi-search-engine/SKILL.md",
+          "relativePath": "multi-search-engine/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/x-twitter/skills/multi-search-engine",
+          "hash": "ef2d2706e82ad0fc8d681b48e08cfac3ddb716972560394dabe25bf01ccf4933",
+          "modifiedAt": "2026-04-08T16:40:35.000Z",
+          "bytes": 3372,
+          "isSymlink": true,
           "description": "Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required."
         }
       ]
@@ -3072,6 +4115,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/myclaw-backup/SKILL.md",
           "relativePath": "myclaw-backup/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/myclaw-backup",
@@ -3083,6 +4128,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/myclaw-backup/SKILL.md",
           "relativePath": "myclaw-backup/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/myclaw-backup",
@@ -3107,6 +4154,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/n8n/SKILL.md",
           "relativePath": "n8n/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/n8n",
@@ -3118,6 +4167,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/n8n/SKILL.md",
           "relativePath": "n8n/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/n8n",
@@ -3141,7 +4192,22 @@ window.SKILL_MANAGER_REPORT = {
       "needsAction": false,
       "locations": [
         {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/neat-freak/SKILL.md",
+          "relativePath": "neat-freak/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/neat-freak",
+          "hash": "8ccbd3056aac36e8504fbb99dd507af4a9d9fe5451ed84f18a14f35c2975b0e0",
+          "modifiedAt": "2026-04-29T10:05:34.168Z",
+          "bytes": 10268,
+          "isSymlink": true,
+          "description": ">"
+        },
+        {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/neat-freak/SKILL.md",
           "relativePath": "neat-freak/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/neat-freak",
@@ -3153,6 +4219,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "codex",
+          "family": "codex",
+          "scope": "global",
           "path": "/Users/joker/.codex/skills/neat-freak/SKILL.md",
           "relativePath": "neat-freak/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/neat-freak",
@@ -3177,6 +4245,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/obsidian/SKILL.md",
           "relativePath": "obsidian/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian",
@@ -3188,6 +4258,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/obsidian/SKILL.md",
           "relativePath": "obsidian/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian",
@@ -3212,6 +4284,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/obsidian-bases/SKILL.md",
           "relativePath": "obsidian-bases/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-bases",
@@ -3223,7 +4297,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/obsidian-bases/SKILL.md",
+          "relativePath": "obsidian-bases/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-bases",
+          "hash": "769b27496cd3f9df91be7226a2e1aaca39b9cfe4b67f45defb60a9d22c4039eb",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 16441,
+          "isSymlink": true,
+          "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/obsidian-bases/SKILL.md",
           "relativePath": "obsidian-bases/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-bases",
           "hash": "769b27496cd3f9df91be7226a2e1aaca39b9cfe4b67f45defb60a9d22c4039eb",
@@ -3247,6 +4336,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/obsidian-markdown/SKILL.md",
           "relativePath": "obsidian-markdown/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-markdown",
@@ -3258,7 +4349,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/obsidian-markdown/SKILL.md",
+          "relativePath": "obsidian-markdown/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-markdown",
+          "hash": "1c5686dd0dc11ff932f09203173e3d9fbbccfe3b7f9565c460ed1aa0bab8ed12",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 10812,
+          "isSymlink": true,
+          "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/obsidian-markdown/SKILL.md",
           "relativePath": "obsidian-markdown/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/obsidian-markdown",
           "hash": "1c5686dd0dc11ff932f09203173e3d9fbbccfe3b7f9565c460ed1aa0bab8ed12",
@@ -3282,6 +4388,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/gstack-office-hours/SKILL.md",
           "relativePath": "gstack-office-hours/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/gstack-office-hours",
@@ -3293,7 +4401,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/gstack-office-hours/SKILL.md",
+          "relativePath": "gstack-office-hours/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/gstack-office-hours",
+          "hash": "bb297c94c371b292903d8a60e42c12da54f950027b3daf7b7949accfe0723b63",
+          "modifiedAt": "2026-04-18T09:06:48.000Z",
+          "bytes": 109268,
+          "isSymlink": true,
+          "description": "|"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/gstack-office-hours/SKILL.md",
           "relativePath": "gstack-office-hours/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/gstack-office-hours",
           "hash": "bb297c94c371b292903d8a60e42c12da54f950027b3daf7b7949accfe0723b63",
@@ -3317,6 +4440,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/opencli/SKILL.md",
           "relativePath": "opencli/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/opencli",
@@ -3328,6 +4453,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/opencli/SKILL.md",
           "relativePath": "opencli/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/opencli",
@@ -3352,6 +4479,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/parse-knowledge/SKILL.md",
           "relativePath": "parse-knowledge/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/parse-knowledge",
@@ -3363,7 +4492,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/parse-knowledge/SKILL.md",
+          "relativePath": "parse-knowledge/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/parse-knowledge",
+          "hash": "704c43cde3fa446490b540292af5e6c23fd4fd892a8fbfb158d138c3dc441e31",
+          "modifiedAt": "2026-04-19T09:00:58.000Z",
+          "bytes": 2168,
+          "isSymlink": true,
+          "description": "将非结构化文本整合到 OrbitOS 知识库结构中（领域 + Wiki）。当用户提供一段文本要求\"整理成笔记\"、\"存到知识库\"、\"提取知识点\"、\"结构化这段内容\"、\"把这段内容存起来\"或直接调用 /parse 时触发。主动识别文本中的核心概念并创建主笔记和原子概念，建立知识链接。分析文本所属领域（SoftwareEngineering、Finance、Health、Writing等），在 30_研究/ 创建主笔记，在 40_知识库/ 创建原子概念，使用 wikilink 建立关联关系。适用于将文档、笔记、对话等文本转化为结构化知识。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/parse-knowledge/SKILL.md",
           "relativePath": "parse-knowledge/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/parse-knowledge",
           "hash": "704c43cde3fa446490b540292af5e6c23fd4fd892a8fbfb158d138c3dc441e31",
@@ -3387,6 +4531,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/proactive-agent/SKILL.md",
           "relativePath": "proactive-agent/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/proactive-agent",
@@ -3398,6 +4544,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/proactive-agent/SKILL.md",
           "relativePath": "proactive-agent/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/proactive-agent",
@@ -3406,6 +4554,58 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 20883,
           "isSymlink": true,
           "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞"
+        }
+      ]
+    },
+    {
+      "name": "prototype",
+      "status": "linked",
+      "hashes": [
+        "0136715d021da251a4d13ad524e55d8dd10a1ddfb60bd183c1dae726ea79a68c"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/prototype"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/prototype/SKILL.md",
+          "relativePath": "prototype/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/prototype",
+          "hash": "0136715d021da251a4d13ad524e55d8dd10a1ddfb60bd183c1dae726ea79a68c",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 3338,
+          "isSymlink": true,
+          "description": "Build a throwaway prototype to flesh out a design before committing to it. Routes between two branches — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route. Use when the user wants to prototype, sanity-check a data model or state machine, mock up a UI, explore design options, or says \"prototype this\", \"let me play with it\", \"try a few designs\"."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/prototype/SKILL.md",
+          "relativePath": "prototype/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/prototype",
+          "hash": "0136715d021da251a4d13ad524e55d8dd10a1ddfb60bd183c1dae726ea79a68c",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 3338,
+          "isSymlink": true,
+          "description": "Build a throwaway prototype to flesh out a design before committing to it. Routes between two branches — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route. Use when the user wants to prototype, sanity-check a data model or state machine, mock up a UI, explore design options, or says \"prototype this\", \"let me play with it\", \"try a few designs\"."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/prototype/SKILL.md",
+          "relativePath": "prototype/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/prototype",
+          "hash": "0136715d021da251a4d13ad524e55d8dd10a1ddfb60bd183c1dae726ea79a68c",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 3338,
+          "isSymlink": true,
+          "description": "Build a throwaway prototype to flesh out a design before committing to it. Routes between two branches — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route. Use when the user wants to prototype, sanity-check a data model or state machine, mock up a UI, explore design options, or says \"prototype this\", \"let me play with it\", \"try a few designs\"."
         }
       ]
     },
@@ -3422,6 +4622,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/pua/SKILL.md",
           "relativePath": "pua/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/pua",
@@ -3433,7 +4635,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/pua/SKILL.md",
+          "relativePath": "pua/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/pua",
+          "hash": "108bec91ba1e7433f795cbdd07e03bebefb6501d946fa73f873e6a9924734311",
+          "modifiedAt": "2026-04-10T17:16:05.000Z",
+          "bytes": 26613,
+          "isSymlink": true,
+          "description": "Forces high-agency exhaustive problem-solving with corporate PUA pressure. Triggers on user frustration, repeated failures (2+), passive behavior, or quality complaints. Common triggers across Reddit/LinuxDo/HN/X: 'try harder', 'figure it out', 'stop giving up', 'you keep failing', '加油', '别偷懒', '你再试试', '为什么还不行', '你怎么又失败了', '你怎么搞的', '又错了', '能不能靠谱点', '认真点', '不行啊', '降智了', '你又在原地打转', '你把之前的改坏了', '别让我手动处理', '换个方法', 'stop spinning', 'you broke it', 'why does this still not work', 'this is the third time', '/pua', 'PUA模式'. Applies to ALL task types: code, config, debug, deploy, research."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/pua/SKILL.md",
           "relativePath": "pua/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/pua",
           "hash": "108bec91ba1e7433f795cbdd07e03bebefb6501d946fa73f873e6a9924734311",
@@ -3457,6 +4674,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/qianchuan-launch-sop/SKILL.md",
           "relativePath": "qianchuan-launch-sop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qianchuan-launch-sop",
@@ -3468,6 +4687,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/qianchuan-launch-sop/SKILL.md",
           "relativePath": "qianchuan-launch-sop/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qianchuan-launch-sop",
@@ -3492,6 +4713,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/qmd/SKILL.md",
           "relativePath": "qmd/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qmd",
@@ -3503,7 +4726,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/qmd/SKILL.md",
+          "relativePath": "qmd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/qmd",
+          "hash": "c9b21461e1a444199c2e726ae32b4d2cabb848bdccb3160a2be8e9eb7b4f8c79",
+          "modifiedAt": "2026-04-04T11:22:07.000Z",
+          "bytes": 4079,
+          "isSymlink": true,
+          "description": "Search markdown knowledge bases, notes, and documentation using QMD. Use when users ask to search notes, find documents, or look up information."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/qmd/SKILL.md",
           "relativePath": "qmd/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qmd",
           "hash": "c9b21461e1a444199c2e726ae32b4d2cabb848bdccb3160a2be8e9eb7b4f8c79",
@@ -3527,6 +4765,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/qwen-image-edit/SKILL.md",
           "relativePath": "qwen-image-edit/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qwen-image-edit",
@@ -3538,7 +4778,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/qwen-image-edit/SKILL.md",
+          "relativePath": "qwen-image-edit/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/qwen-image-edit",
+          "hash": "c57e22272fcfbbfa6d695445ebfaf29a194c307ac7e7b9ba36d54753692f8203",
+          "modifiedAt": "2026-04-06T06:20:25.000Z",
+          "bytes": 4067,
+          "isSymlink": true,
+          "description": "使用阿里云通义千问 Qwen-Image-2.0-Pro 进行图像编辑。支持多图输入、文本指令编辑、风格迁移、姿势调整等高级图像处理场景。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/qwen-image-edit/SKILL.md",
           "relativePath": "qwen-image-edit/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qwen-image-edit",
           "hash": "c57e22272fcfbbfa6d695445ebfaf29a194c307ac7e7b9ba36d54753692f8203",
@@ -3562,6 +4817,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/qwen-tts/SKILL.md",
           "relativePath": "qwen-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qwen-tts",
@@ -3573,6 +4830,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/qwen-tts/SKILL.md",
           "relativePath": "qwen-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/qwen-tts",
@@ -3597,6 +4856,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/receiving-code-review/SKILL.md",
           "relativePath": "superpowers/receiving-code-review/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/receiving-code-review",
@@ -3608,7 +4869,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/receiving-code-review/SKILL.md",
+          "relativePath": "receiving-code-review/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/receiving-code-review",
+          "hash": "c9382e92b8f32363566068ecfed19d3b2651eaf40d3942b24840f839dedfc406",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 6314,
+          "isSymlink": true,
+          "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/receiving-code-review/SKILL.md",
           "relativePath": "receiving-code-review/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/receiving-code-review",
           "hash": "c9382e92b8f32363566068ecfed19d3b2651eaf40d3942b24840f839dedfc406",
@@ -3632,6 +4908,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/requesting-code-review/SKILL.md",
           "relativePath": "superpowers/requesting-code-review/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/requesting-code-review",
@@ -3643,7 +4921,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/requesting-code-review/SKILL.md",
+          "relativePath": "requesting-code-review/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/requesting-code-review",
+          "hash": "a5ff68586ccf62d1803cedeb71d60fd96ec05591d29c8d123196117eefd34cd0",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 2935,
+          "isSymlink": true,
+          "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/requesting-code-review/SKILL.md",
           "relativePath": "requesting-code-review/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/requesting-code-review",
           "hash": "a5ff68586ccf62d1803cedeb71d60fd96ec05591d29c8d123196117eefd34cd0",
@@ -3667,6 +4960,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/research/SKILL.md",
           "relativePath": "research/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/research",
@@ -3678,7 +4973,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/research/SKILL.md",
+          "relativePath": "research/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/research",
+          "hash": "fdeee3fbef49f4a160d20ff4fdd14d9600fb2a314129958053c6a3621b67124a",
+          "modifiedAt": "2026-04-19T09:03:19.000Z",
+          "bytes": 7056,
+          "isSymlink": true,
+          "description": "深度研究工作流，当用户想要深入研究技术、概念或复杂主题时使用。适用于 /research 命令、用户表达\"我想了解XXX\"、\"帮我研究XXX\"、\"深入探索XXX\"、\"XXX是怎么工作的\"、\"XXX的最佳实践是什么\"、\"XXX的核心概念是什么\"等意图时触发。使用两个独立Agent（规划Agent + 执行Agent）保持上下文新鲜，识别领域、搜索现有笔记、创建研究计划、生成主笔记和原子概念。主动识别需要深度研究的内容并提供系统化的研究方法。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/research/SKILL.md",
           "relativePath": "research/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/research",
           "hash": "fdeee3fbef49f4a160d20ff4fdd14d9600fb2a314129958053c6a3621b67124a",
@@ -3702,6 +5012,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/seedream/SKILL.md",
           "relativePath": "seedream/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/seedream",
@@ -3713,7 +5025,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/seedream/SKILL.md",
+          "relativePath": "seedream/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/seedream",
+          "hash": "67c93236d724cadc20dbe16f5b0763cd83da2bef7880d38071445a33e068a8c9",
+          "modifiedAt": "2026-04-06T06:20:21.000Z",
+          "bytes": 5874,
+          "isSymlink": true,
+          "description": "使用火山引擎 Seedream-5.0 API 生成高质量图片。支持主题模板、批量生成、并发请求。适用于文生图场景，支持中英文提示词，可生成 2K/4K 高清图像。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/seedream/SKILL.md",
           "relativePath": "seedream/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/seedream",
           "hash": "67c93236d724cadc20dbe16f5b0763cd83da2bef7880d38071445a33e068a8c9",
@@ -3737,6 +5064,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/self-improving-agent/SKILL.md",
           "relativePath": "self-improving-agent/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/self-improving-agent",
@@ -3748,6 +5077,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/self-improving-agent/SKILL.md",
           "relativePath": "self-improving-agent/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/self-improving-agent",
@@ -3772,6 +5103,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/self-improving/SKILL.md",
           "relativePath": "self-improving/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/self-improving",
@@ -3783,6 +5116,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/self-improving/SKILL.md",
           "relativePath": "self-improving/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/self-improving",
@@ -3807,6 +5142,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/short-drama-tts/SKILL.md",
           "relativePath": "short-drama-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/short-drama-tts",
@@ -3818,6 +5155,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/short-drama-tts/SKILL.md",
           "relativePath": "short-drama-tts/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/short-drama-tts",
@@ -3842,6 +5181,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/skill-creator/SKILL.md",
           "relativePath": "skill-creator/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/skill-creator",
@@ -3853,6 +5194,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/skill-creator/SKILL.md",
           "relativePath": "skill-creator/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/skill-creator",
@@ -3877,6 +5220,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/skill-vetter/SKILL.md",
           "relativePath": "skill-vetter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/skill-vetter",
@@ -3888,6 +5233,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/skill-vetter/SKILL.md",
           "relativePath": "skill-vetter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/skill-vetter",
@@ -3912,6 +5259,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/start-my-day/SKILL.md",
           "relativePath": "start-my-day/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/start-my-day",
@@ -3923,7 +5272,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/start-my-day/SKILL.md",
+          "relativePath": "start-my-day/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/start-my-day",
+          "hash": "47575b73b8ecb12cd052c87028d8c88d266efcc7fd802c545b572979e300588a",
+          "modifiedAt": "2026-04-03T16:47:38.000Z",
+          "bytes": 5388,
+          "isSymlink": true,
+          "description": "Daily planning workflow - review yesterday, plan today, connect to active projects"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/start-my-day/SKILL.md",
           "relativePath": "start-my-day/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/start-my-day",
           "hash": "47575b73b8ecb12cd052c87028d8c88d266efcc7fd802c545b572979e300588a",
@@ -3947,6 +5311,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/structured-context-compressor/SKILL.md",
           "relativePath": "structured-context-compressor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/structured-context-compressor",
@@ -3958,6 +5324,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/structured-context-compressor/SKILL.md",
           "relativePath": "structured-context-compressor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/structured-context-compressor",
@@ -3982,6 +5350,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/subagent-driven-development/SKILL.md",
           "relativePath": "superpowers/subagent-driven-development/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/subagent-driven-development",
@@ -3993,7 +5363,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/subagent-driven-development/SKILL.md",
+          "relativePath": "subagent-driven-development/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/subagent-driven-development",
+          "hash": "081ad3869e55c80bf8f890b4768a90c0e8057daf94b1b6fadebfc85ea5b8304a",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 12139,
+          "isSymlink": true,
+          "description": "Use when executing implementation plans with independent tasks in the current session"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/subagent-driven-development/SKILL.md",
           "relativePath": "subagent-driven-development/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/subagent-driven-development",
           "hash": "081ad3869e55c80bf8f890b4768a90c0e8057daf94b1b6fadebfc85ea5b8304a",
@@ -4017,6 +5402,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/summarize/SKILL.md",
           "relativePath": "summarize/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/summarize",
@@ -4028,6 +5415,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/summarize/SKILL.md",
           "relativePath": "summarize/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/summarize",
@@ -4052,6 +5441,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/super-ocr/SKILL.md",
           "relativePath": "super-ocr/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/super-ocr",
@@ -4063,6 +5454,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/super-ocr/SKILL.md",
           "relativePath": "super-ocr/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/super-ocr",
@@ -4087,6 +5480,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/swarm-coordinator/SKILL.md",
           "relativePath": "swarm-coordinator/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/swarm-coordinator",
@@ -4098,6 +5493,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/swarm-coordinator/SKILL.md",
           "relativePath": "swarm-coordinator/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/swarm-coordinator",
@@ -4122,6 +5519,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/systematic-debugging/SKILL.md",
           "relativePath": "superpowers/systematic-debugging/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/systematic-debugging",
@@ -4133,7 +5532,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/systematic-debugging/SKILL.md",
+          "relativePath": "systematic-debugging/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/systematic-debugging",
+          "hash": "4999cb851360485eca5074e727bbdd62ef20549c5d5b01216fcbf5831badb473",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 9884,
+          "isSymlink": true,
+          "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/systematic-debugging/SKILL.md",
           "relativePath": "systematic-debugging/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/systematic-debugging",
           "hash": "4999cb851360485eca5074e727bbdd62ef20549c5d5b01216fcbf5831badb473",
@@ -4157,6 +5571,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/task-triage/SKILL.md",
           "relativePath": "task-triage/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/task-triage",
@@ -4168,6 +5584,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/task-triage/SKILL.md",
           "relativePath": "task-triage/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/task-triage",
@@ -4192,6 +5610,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/tavily-search/SKILL.md",
           "relativePath": "tavily-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/tavily-search",
@@ -4203,6 +5623,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/tavily-search/SKILL.md",
           "relativePath": "tavily-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/tavily-search",
@@ -4211,6 +5633,58 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 1195,
           "isSymlink": true,
           "description": "AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents."
+        }
+      ]
+    },
+    {
+      "name": "tdd",
+      "status": "linked",
+      "hashes": [
+        "83ace750c24ae70f1fb0933a7f7b7c51ec5d2d2e07334e1bb220d6d03ddb99de"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/tdd"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/tdd/SKILL.md",
+          "relativePath": "tdd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/tdd",
+          "hash": "83ace750c24ae70f1fb0933a7f7b7c51ec5d2d2e07334e1bb220d6d03ddb99de",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 6975,
+          "isSymlink": true,
+          "description": "Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions \"red-green-refactor\", wants integration tests, or asks for test-first development."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/tdd/SKILL.md",
+          "relativePath": "tdd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/tdd",
+          "hash": "83ace750c24ae70f1fb0933a7f7b7c51ec5d2d2e07334e1bb220d6d03ddb99de",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 6975,
+          "isSymlink": true,
+          "description": "Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions \"red-green-refactor\", wants integration tests, or asks for test-first development."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/tdd/SKILL.md",
+          "relativePath": "tdd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/tdd",
+          "hash": "83ace750c24ae70f1fb0933a7f7b7c51ec5d2d2e07334e1bb220d6d03ddb99de",
+          "modifiedAt": "2026-06-06T14:56:12.080Z",
+          "bytes": 6975,
+          "isSymlink": true,
+          "description": "Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions \"red-green-refactor\", wants integration tests, or asks for test-first development."
         }
       ]
     },
@@ -4227,6 +5701,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/test-driven-development/SKILL.md",
           "relativePath": "superpowers/test-driven-development/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/test-driven-development",
@@ -4238,6 +5714,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/test-driven-development/SKILL.md",
           "relativePath": "test-driven-development/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/test-driven-development",
@@ -4246,6 +5724,175 @@ window.SKILL_MANAGER_REPORT = {
           "bytes": 9867,
           "isSymlink": true,
           "description": "Use when implementing any feature or bugfix, before writing implementation code"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/test-driven-development/SKILL.md",
+          "relativePath": "test-driven-development/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/test-driven-development",
+          "hash": "7dee67b4af6bdccc7a914ca34533184d64592d0f5b23aeae631538168db14994",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 9867,
+          "isSymlink": true,
+          "description": "Use when implementing any feature or bugfix, before writing implementation code"
+        }
+      ]
+    },
+    {
+      "name": "thermo-nuclear-code-quality-review",
+      "status": "linked",
+      "hashes": [
+        "7faca08b51b643b2ddd0836f92af15574444024685dcc1e677dbbb39ae8c9e8f"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/thermo-nuclear-code-quality-review"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/thermo-nuclear-code-quality-review/SKILL.md",
+          "relativePath": "thermo-nuclear-code-quality-review/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/thermo-nuclear-code-quality-review",
+          "hash": "7faca08b51b643b2ddd0836f92af15574444024685dcc1e677dbbb39ae8c9e8f",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 12437,
+          "isSymlink": true,
+          "description": "Run an extremely strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth. Use for a thermo-nuclear code quality review, thermonuclear review, deep code quality audit, or especially harsh maintainability review."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/thermo-nuclear-code-quality-review/SKILL.md",
+          "relativePath": "thermo-nuclear-code-quality-review/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/thermo-nuclear-code-quality-review",
+          "hash": "7faca08b51b643b2ddd0836f92af15574444024685dcc1e677dbbb39ae8c9e8f",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 12437,
+          "isSymlink": true,
+          "description": "Run an extremely strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth. Use for a thermo-nuclear code quality review, thermonuclear review, deep code quality audit, or especially harsh maintainability review."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/thermo-nuclear-code-quality-review/SKILL.md",
+          "relativePath": "thermo-nuclear-code-quality-review/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/thermo-nuclear-code-quality-review",
+          "hash": "7faca08b51b643b2ddd0836f92af15574444024685dcc1e677dbbb39ae8c9e8f",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 12437,
+          "isSymlink": true,
+          "description": "Run an extremely strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth. Use for a thermo-nuclear code quality review, thermonuclear review, deep code quality audit, or especially harsh maintainability review."
+        }
+      ]
+    },
+    {
+      "name": "to-issues",
+      "status": "linked",
+      "hashes": [
+        "0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/to-issues"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/to-issues/SKILL.md",
+          "relativePath": "to-issues/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-issues",
+          "hash": "0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 3576,
+          "isSymlink": true,
+          "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/to-issues/SKILL.md",
+          "relativePath": "to-issues/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-issues",
+          "hash": "0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 3576,
+          "isSymlink": true,
+          "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/to-issues/SKILL.md",
+          "relativePath": "to-issues/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-issues",
+          "hash": "0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 3576,
+          "isSymlink": true,
+          "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues."
+        }
+      ]
+    },
+    {
+      "name": "to-prd",
+      "status": "linked",
+      "hashes": [
+        "21e7c0d430a360164b2db74411a5de1ae523859b8e16bd2fceee8a56d1838c9a"
+      ],
+      "realFolderPaths": [
+        "/Users/joker/agent-skills/shared/to-prd"
+      ],
+      "needsAction": false,
+      "locations": [
+        {
+          "root": "agents",
+          "family": "agents",
+          "scope": "global",
+          "path": "/Users/joker/.agents/skills/to-prd/SKILL.md",
+          "relativePath": "to-prd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-prd",
+          "hash": "21e7c0d430a360164b2db74411a5de1ae523859b8e16bd2fceee8a56d1838c9a",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 6671,
+          "isSymlink": true,
+          "description": "Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context."
+        },
+        {
+          "root": "claude",
+          "family": "claude",
+          "scope": "global",
+          "path": "/Users/joker/.claude/skills/to-prd/SKILL.md",
+          "relativePath": "to-prd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-prd",
+          "hash": "21e7c0d430a360164b2db74411a5de1ae523859b8e16bd2fceee8a56d1838c9a",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 6671,
+          "isSymlink": true,
+          "description": "Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/to-prd/SKILL.md",
+          "relativePath": "to-prd/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/to-prd",
+          "hash": "21e7c0d430a360164b2db74411a5de1ae523859b8e16bd2fceee8a56d1838c9a",
+          "modifiedAt": "2026-06-06T14:56:12.081Z",
+          "bytes": 6671,
+          "isSymlink": true,
+          "description": "Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context."
         }
       ]
     },
@@ -4262,6 +5909,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/triage-sync/SKILL.md",
           "relativePath": "triage-sync/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/triage-sync",
@@ -4273,7 +5922,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/triage-sync/SKILL.md",
+          "relativePath": "triage-sync/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/triage-sync",
+          "hash": "4307a9a3150b4b6852309945243f49161e3afde31bde1bfe55a5d48a803921ae",
+          "modifiedAt": "2026-04-29T14:51:18.000Z",
+          "bytes": 7668,
+          "isSymlink": true,
+          "description": "处理微信同步助手内容，将原始聊天流水和公众号文章整理到知识库。当用户提到\"整理同步助手\"、\"归档微信记录\"、\"处理收件箱里的同步文件\"、\"整理公众号文章\"、\"处理微信同步内容\"或直接调用 /triage-sync 时触发。主动识别需要归档的微信内容并按 6 大分类（AI工程实践、AI产品与工具、AI商业与转型、知识管理、工作流与方法论、Agent技术）智能整理。从 00_收件箱/ 同步助手_*.md 提取精华群聊到 40_知识库/精华群聊/，从 笔记同步助手/YYYY-MM-DD/*.md 分类整理公众号文章到 40_知识库/精华文章/<category>/，归档源文件到 99_系统/归档/。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/triage-sync/SKILL.md",
           "relativePath": "triage-sync/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/triage-sync",
           "hash": "4307a9a3150b4b6852309945243f49161e3afde31bde1bfe55a5d48a803921ae",
@@ -4297,6 +5961,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/x-twitter/SKILL.md",
           "relativePath": "x-twitter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-twitter",
@@ -4308,6 +5974,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/x-twitter/SKILL.md",
           "relativePath": "x-twitter/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-twitter",
@@ -4332,6 +6000,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/ultimate-search/SKILL.md",
           "relativePath": "ultimate-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ultimate-search",
@@ -4343,6 +6013,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/ultimate-search/SKILL.md",
           "relativePath": "ultimate-search/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/ultimate-search",
@@ -4367,6 +6039,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/using-git-worktrees/SKILL.md",
           "relativePath": "superpowers/using-git-worktrees/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-git-worktrees",
@@ -4378,7 +6052,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/using-git-worktrees/SKILL.md",
+          "relativePath": "using-git-worktrees/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-git-worktrees",
+          "hash": "de9dcde34840eee074047ec327d4ea6ca4954c5a73a6d874dc48f25fe46c9e7c",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 5635,
+          "isSymlink": true,
+          "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/using-git-worktrees/SKILL.md",
           "relativePath": "using-git-worktrees/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-git-worktrees",
           "hash": "de9dcde34840eee074047ec327d4ea6ca4954c5a73a6d874dc48f25fe46c9e7c",
@@ -4402,6 +6091,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/using-superpowers/SKILL.md",
           "relativePath": "superpowers/using-superpowers/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-superpowers",
@@ -4413,7 +6104,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/using-superpowers/SKILL.md",
+          "relativePath": "using-superpowers/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-superpowers",
+          "hash": "316e29381219adf0cac62190c67aeabf427d6e6e5f2735541d502b3d339be7aa",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 5421,
+          "isSymlink": true,
+          "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/using-superpowers/SKILL.md",
           "relativePath": "using-superpowers/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/using-superpowers",
           "hash": "316e29381219adf0cac62190c67aeabf427d6e6e5f2735541d502b3d339be7aa",
@@ -4437,6 +6143,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/verification-before-completion/SKILL.md",
           "relativePath": "superpowers/verification-before-completion/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/verification-before-completion",
@@ -4448,7 +6156,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/verification-before-completion/SKILL.md",
+          "relativePath": "verification-before-completion/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/verification-before-completion",
+          "hash": "ea52d15aabaf72bc6b558efe2c126f161b53961090ddcd712000273bfe8c7b6c",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 4201,
+          "isSymlink": true,
+          "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/verification-before-completion/SKILL.md",
           "relativePath": "verification-before-completion/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/verification-before-completion",
           "hash": "ea52d15aabaf72bc6b558efe2c126f161b53961090ddcd712000273bfe8c7b6c",
@@ -4472,6 +6195,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/verification-gate/SKILL.md",
           "relativePath": "verification-gate/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/verification-gate",
@@ -4483,6 +6208,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/verification-gate/SKILL.md",
           "relativePath": "verification-gate/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/verification-gate",
@@ -4507,6 +6234,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/video-auto-clip/SKILL.md",
           "relativePath": "video-auto-clip/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-auto-clip",
@@ -4518,6 +6247,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/video-auto-clip/SKILL.md",
           "relativePath": "video-auto-clip/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-auto-clip",
@@ -4542,6 +6273,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/video-content-extractor/SKILL.md",
           "relativePath": "video-content-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-content-extractor",
@@ -4553,6 +6286,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/video-content-extractor/SKILL.md",
           "relativePath": "video-content-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-content-extractor",
@@ -4577,6 +6312,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/video-replication-sop-cy/SKILL.md",
           "relativePath": "video-replication-sop-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-replication-sop-cy",
@@ -4588,6 +6325,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/video-replication-sop-cy/SKILL.md",
           "relativePath": "video-replication-sop-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-replication-sop-cy",
@@ -4612,6 +6351,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/video-screenplay-cy/SKILL.md",
           "relativePath": "video-screenplay-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-screenplay-cy",
@@ -4623,7 +6364,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/video-screenplay-cy/SKILL.md",
+          "relativePath": "video-screenplay-cy/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/video-screenplay-cy",
+          "hash": "372534c64ae7787800e2c8578f78faff936641d38eaa262d1bafe81966ec2aa8",
+          "modifiedAt": "2026-04-04T11:38:01.000Z",
+          "bytes": 5046,
+          "isSymlink": true,
+          "description": ">-"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/video-screenplay-cy/SKILL.md",
           "relativePath": "video-screenplay-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/video-screenplay-cy",
           "hash": "372534c64ae7787800e2c8578f78faff936641d38eaa262d1bafe81966ec2aa8",
@@ -4647,6 +6403,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/videoagent-video-studio/SKILL.md",
           "relativePath": "videoagent-video-studio/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/videoagent-video-studio",
@@ -4658,6 +6416,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/videoagent-video-studio/SKILL.md",
           "relativePath": "videoagent-video-studio/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/videoagent-video-studio",
@@ -4682,6 +6442,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/web-access/SKILL.md",
           "relativePath": "web-access/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/web-access",
@@ -4693,7 +6455,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/web-access/SKILL.md",
+          "relativePath": "web-access/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/web-access",
+          "hash": "1ea896e6cc439e1c9311d568a8d116f9f8fc7e2b8d3bd5b9b9126ed9b3eec06a",
+          "modifiedAt": "2026-04-04T10:00:12.000Z",
+          "bytes": 16010,
+          "isSymlink": true,
+          "description": ""
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/web-access/SKILL.md",
           "relativePath": "web-access/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/web-access",
           "hash": "1ea896e6cc439e1c9311d568a8d116f9f8fc7e2b8d3bd5b9b9126ed9b3eec06a",
@@ -4717,6 +6494,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/wechat-article-extractor/SKILL.md",
           "relativePath": "wechat-article-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-article-extractor",
@@ -4728,6 +6507,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/wechat-article-extractor/SKILL.md",
           "relativePath": "wechat-article-extractor/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-article-extractor",
@@ -4752,6 +6533,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/wechat-mp-auto/SKILL.md",
           "relativePath": "wechat-mp-auto/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-mp-auto",
@@ -4763,7 +6546,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/wechat-mp-auto/SKILL.md",
+          "relativePath": "wechat-mp-auto/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/wechat-mp-auto",
+          "hash": "c40d4807b65086e368062eff831e590093f274a4e1367c83b002d99dd871ffc8",
+          "modifiedAt": "2026-04-06T14:52:30.000Z",
+          "bytes": 3900,
+          "isSymlink": true,
+          "description": "微信公众号自动化 — 将文章保存到草稿箱（支持 HTML 内容 + 封面图）"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/wechat-mp-auto/SKILL.md",
           "relativePath": "wechat-mp-auto/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-mp-auto",
           "hash": "c40d4807b65086e368062eff831e590093f274a4e1367c83b002d99dd871ffc8",
@@ -4787,6 +6585,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/wechat-typesetting-cy/SKILL.md",
           "relativePath": "wechat-typesetting-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-typesetting-cy",
@@ -4798,7 +6598,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/wechat-typesetting-cy/SKILL.md",
+          "relativePath": "wechat-typesetting-cy/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/wechat-typesetting-cy",
+          "hash": "ad81cf0d575f1e664b53925e038c57bdf7863548704ec6915b9988a6b0d785c1",
+          "modifiedAt": "2026-04-07T07:42:55.000Z",
+          "bytes": 14175,
+          "isSymlink": true,
+          "description": "微信公众号文章多模板排版技能。将纯文本或Markdown转换为精美排版的HTML代码，支持多种视觉风格模板。当用户提到\"微信文章\"、\"公众号文章\"、\"发公众号\"、\"帮我排版\"、\"公众号排版\"、\"排版成微信格式\"、\"蓝色模板\"、\"暗黑模板\"、\"科技风排版\"时触发。"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/wechat-typesetting-cy/SKILL.md",
           "relativePath": "wechat-typesetting-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/wechat-typesetting-cy",
           "hash": "ad81cf0d575f1e664b53925e038c57bdf7863548704ec6915b9988a6b0d785c1",
@@ -4822,6 +6637,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/writing-plans/SKILL.md",
           "relativePath": "superpowers/writing-plans/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-plans",
@@ -4833,7 +6650,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/writing-plans/SKILL.md",
+          "relativePath": "writing-plans/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-plans",
+          "hash": "90056bad3d5f196fa7c9fec0ffe592e6d9c86bc983e406642a51d1a4198b7024",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 6046,
+          "isSymlink": true,
+          "description": "Use when you have a spec or requirements for a multi-step task, before touching code"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/writing-plans/SKILL.md",
           "relativePath": "writing-plans/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-plans",
           "hash": "90056bad3d5f196fa7c9fec0ffe592e6d9c86bc983e406642a51d1a4198b7024",
@@ -4857,6 +6689,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/superpowers/writing-skills/SKILL.md",
           "relativePath": "superpowers/writing-skills/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-skills",
@@ -4868,7 +6702,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/writing-skills/SKILL.md",
+          "relativePath": "writing-skills/SKILL.md",
+          "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-skills",
+          "hash": "38ba648975ae6ba512d6695676f146163db61a496b867f716f4bdfb0ee3aca3e",
+          "modifiedAt": "2026-04-12T09:22:42.000Z",
+          "bytes": 22624,
+          "isSymlink": true,
+          "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/writing-skills/SKILL.md",
           "relativePath": "writing-skills/SKILL.md",
           "realFolderPath": "/Users/joker/.agents/skills/superpowers/writing-skills",
           "hash": "38ba648975ae6ba512d6695676f146163db61a496b867f716f4bdfb0ee3aca3e",
@@ -4892,6 +6741,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/x-article-publisher/SKILL.md",
           "relativePath": "x-article-publisher/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-article-publisher",
@@ -4903,6 +6754,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/x-article-publisher/SKILL.md",
           "relativePath": "x-article-publisher/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-article-publisher",
@@ -4927,6 +6780,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/x-reader/SKILL.md",
           "relativePath": "x-reader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-reader",
@@ -4938,6 +6793,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/x-reader/SKILL.md",
           "relativePath": "x-reader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/x-reader",
@@ -4962,6 +6819,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/skills/xhs-auth/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-auth/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-auth",
@@ -4973,6 +6832,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/skills/xhs-auth/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-auth/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-auth",
@@ -4997,6 +6858,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xhs-auto-cy/SKILL.md",
           "relativePath": "xhs-auto-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xhs-auto-cy",
@@ -5008,6 +6871,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xhs-auto-cy/SKILL.md",
           "relativePath": "xhs-auto-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xhs-auto-cy",
@@ -5032,6 +6897,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/skills/xhs-content-ops/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-content-ops/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-content-ops",
@@ -5043,6 +6910,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/skills/xhs-content-ops/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-content-ops/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-content-ops",
@@ -5067,6 +6936,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/skills/xhs-explore/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-explore/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-explore",
@@ -5078,6 +6949,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/skills/xhs-explore/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-explore/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-explore",
@@ -5102,6 +6975,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/skills/xhs-interact/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-interact/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-interact",
@@ -5113,6 +6988,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/skills/xhs-interact/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-interact/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-interact",
@@ -5137,6 +7014,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/skills/xhs-publish/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-publish/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-publish",
@@ -5148,6 +7027,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/skills/xhs-publish/SKILL.md",
           "relativePath": "xiaohongshu-auto/skills/xhs-publish/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto/skills/xhs-publish",
@@ -5172,6 +7053,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xianyu-reply-cy/SKILL.md",
           "relativePath": "xianyu-reply-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xianyu-reply-cy",
@@ -5183,7 +7066,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xianyu-reply-cy/SKILL.md",
+          "relativePath": "xianyu-reply-cy/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/xianyu-reply-cy",
+          "hash": "e04a9f91ba195d570587b59ac8aa63b4facda42718d517bfc34735714d61d4db",
+          "modifiedAt": "2026-04-04T11:38:04.000Z",
+          "bytes": 4918,
+          "isSymlink": true,
+          "description": ">-"
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/xianyu-reply-cy/SKILL.md",
           "relativePath": "xianyu-reply-cy/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xianyu-reply-cy",
           "hash": "e04a9f91ba195d570587b59ac8aa63b4facda42718d517bfc34735714d61d4db",
@@ -5207,6 +7105,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-downloader/SKILL.md",
           "relativePath": "xiaohongshu-downloader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-downloader",
@@ -5218,6 +7118,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-downloader/SKILL.md",
           "relativePath": "xiaohongshu-downloader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-downloader",
@@ -5242,6 +7144,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/xiaohongshu-auto/SKILL.md",
           "relativePath": "xiaohongshu-auto/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto",
@@ -5253,6 +7157,8 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/xiaohongshu-auto/SKILL.md",
           "relativePath": "xiaohongshu-auto/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/xiaohongshu-auto",
@@ -5277,6 +7183,8 @@ window.SKILL_MANAGER_REPORT = {
       "locations": [
         {
           "root": "agents",
+          "family": "agents",
+          "scope": "global",
           "path": "/Users/joker/.agents/skills/yt-dlp-downloader/SKILL.md",
           "relativePath": "yt-dlp-downloader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/yt-dlp-downloader",
@@ -5288,7 +7196,22 @@ window.SKILL_MANAGER_REPORT = {
         },
         {
           "root": "claude",
+          "family": "claude",
+          "scope": "global",
           "path": "/Users/joker/.claude/skills/yt-dlp-downloader/SKILL.md",
+          "relativePath": "yt-dlp-downloader/SKILL.md",
+          "realFolderPath": "/Users/joker/agent-skills/shared/yt-dlp-downloader",
+          "hash": "d37357ff0ac8ebe080608f2a9c6c426c17058b7a4c19fbd767f0a0b6a0a2d324",
+          "modifiedAt": "2026-04-04T11:27:27.000Z",
+          "bytes": 6071,
+          "isSymlink": true,
+          "description": "Download videos from YouTube, Bilibili, Twitter, and thousands of other sites using yt-dlp. Use when the user provides a video URL and wants to download it, extract audio (MP3), download subtitles, or select video quality. Triggers on phrases like \"下载视频\", \"download video\", \"yt-dlp\", \"YouTube\", \"B站\", \"抖音\", \"提取音频\", \"extract audio\"."
+        },
+        {
+          "root": "vault-agents",
+          "family": "agents",
+          "scope": "JokerSu-knowledge",
+          "path": "/Users/joker/Documents/JokerSu-knowledge/.agents/skills/yt-dlp-downloader/SKILL.md",
           "relativePath": "yt-dlp-downloader/SKILL.md",
           "realFolderPath": "/Users/joker/agent-skills/shared/yt-dlp-downloader",
           "hash": "d37357ff0ac8ebe080608f2a9c6c426c17058b7a4c19fbd767f0a0b6a0a2d324",
