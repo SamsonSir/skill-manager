@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "cb87a397-94aa-44dd-8fea-5a32d0af9d42",
+  "path": "diagram-2",
+  "path_key": "diagram-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

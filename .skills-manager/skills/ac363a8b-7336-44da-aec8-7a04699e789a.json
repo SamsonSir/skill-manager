@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ac363a8b-7336-44da-aec8-7a04699e789a",
+  "path": "plan-design-review-2",
+  "path_key": "plan-design-review-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

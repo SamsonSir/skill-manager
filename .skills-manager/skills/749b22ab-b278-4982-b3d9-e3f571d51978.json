@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "749b22ab-b278-4982-b3d9-e3f571d51978",
+  "path": "benchmark-models-2",
+  "path_key": "benchmark-models-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

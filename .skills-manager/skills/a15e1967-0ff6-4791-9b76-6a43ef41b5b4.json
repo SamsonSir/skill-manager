@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a15e1967-0ff6-4791-9b76-6a43ef41b5b4",
+  "path": "unfreeze-2",
+  "path_key": "unfreeze-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

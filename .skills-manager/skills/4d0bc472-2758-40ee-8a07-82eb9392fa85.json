@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4d0bc472-2758-40ee-8a07-82eb9392fa85",
+  "path": "guard-2",
+  "path_key": "guard-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

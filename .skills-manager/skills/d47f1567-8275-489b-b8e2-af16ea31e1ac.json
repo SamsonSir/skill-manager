@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d47f1567-8275-489b-b8e2-af16ea31e1ac",
+  "path": "design-shotgun-2",
+  "path_key": "design-shotgun-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

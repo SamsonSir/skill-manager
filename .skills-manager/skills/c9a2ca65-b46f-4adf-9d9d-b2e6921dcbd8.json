@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c9a2ca65-b46f-4adf-9d9d-b2e6921dcbd8",
+  "path": "plan-ceo-review-2",
+  "path_key": "plan-ceo-review-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

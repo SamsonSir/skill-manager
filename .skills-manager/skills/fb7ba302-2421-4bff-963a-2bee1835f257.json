@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fb7ba302-2421-4bff-963a-2bee1835f257",
+  "path": "ios-clean-2",
+  "path_key": "ios-clean-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

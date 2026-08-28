@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d280dbd1-7fb3-4642-a9a2-343c7b78c30c",
+  "path": "autoplan-2",
+  "path_key": "autoplan-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

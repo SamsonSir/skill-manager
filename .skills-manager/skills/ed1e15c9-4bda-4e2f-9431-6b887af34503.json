@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ed1e15c9-4bda-4e2f-9431-6b887af34503",
+  "path": "open-gstack-browser-2",
+  "path_key": "open-gstack-browser-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
