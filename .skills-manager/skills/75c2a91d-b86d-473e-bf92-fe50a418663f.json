@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "75c2a91d-b86d-473e-bf92-fe50a418663f",
+  "path": "mistral-ocr",
+  "path_key": "mistral-ocr",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

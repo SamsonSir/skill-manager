@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d63a094d-f832-4e15-908f-b3c5b0f40bd1",
+  "path": "structured-context-compressor",
+  "path_key": "structured-context-compressor",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

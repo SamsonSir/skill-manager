@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ed5591a0-4db0-4ce5-9c9f-ab2a31ae2fc6",
+  "path": "dispatching-parallel-agents",
+  "path_key": "dispatching-parallel-agents",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

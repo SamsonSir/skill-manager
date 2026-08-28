@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8823246d-1997-4c4e-9baf-4e60cee57b33",
+  "path": "ship",
+  "path_key": "ship",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

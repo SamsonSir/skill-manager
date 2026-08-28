@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "be24c3b6-0f93-4442-b93e-4ddd25e4657c",
+  "path": "paul-graham-perspective",
+  "path_key": "paul-graham-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6150887e-bc23-4e77-969c-87eae3bfd775",
+  "path": "video-auto-clip",
+  "path_key": "video-auto-clip",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

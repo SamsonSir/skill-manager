@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7c7ba715-352e-4206-b5d4-b2bc27cf11b0",
+  "path": "ak-rss-24h-brief",
+  "path_key": "ak-rss-24h-brief",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

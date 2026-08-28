@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "875dc761-1625-4f8f-b03a-dd8f645bca83",
+  "path": "qwen-image-edit",
+  "path_key": "qwen-image-edit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

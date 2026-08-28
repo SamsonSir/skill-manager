@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "75d0e393-566a-4baf-a6f4-170a22a6c535",
+  "path": "videoagent-video-studio",
+  "path_key": "videoagent-video-studio",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

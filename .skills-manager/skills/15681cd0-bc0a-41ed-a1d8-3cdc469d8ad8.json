@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "15681cd0-bc0a-41ed-a1d8-3cdc469d8ad8",
+  "path": "cso",
+  "path_key": "cso",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

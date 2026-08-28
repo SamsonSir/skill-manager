@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a692b0d2-48da-420d-8073-80a5ac372f25",
+  "path": "chronicle",
+  "path_key": "chronicle",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

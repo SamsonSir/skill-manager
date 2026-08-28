@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "71d37c92-c971-43b6-88e6-180db94d1093",
+  "path": "video-screenplay-cy",
+  "path_key": "video-screenplay-cy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

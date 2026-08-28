@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "0f266902-70f3-459f-9d5d-7015ff88b33c",
+  "path": "twitter-openclaw",
+  "path_key": "twitter-openclaw",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

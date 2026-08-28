@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "97e84610-6a56-4280-880f-d0b40b75d4c6",
+  "path": "feishu-doc-summarizer",
+  "path_key": "feishu-doc-summarizer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

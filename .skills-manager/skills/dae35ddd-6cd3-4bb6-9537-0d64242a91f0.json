@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "dae35ddd-6cd3-4bb6-9537-0d64242a91f0",
+  "path": "local-whisper",
+  "path_key": "local-whisper",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

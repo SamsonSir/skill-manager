@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b3bad244-c8df-4bbc-95c9-2a1b5d4ec3de",
+  "path": "brainstorm",
+  "path_key": "brainstorm",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

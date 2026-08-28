@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "61817d92-aac8-4f0b-b216-3b72a92b2c8a",
+  "path": "kairos-lite",
+  "path_key": "kairos-lite",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

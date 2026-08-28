@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b91ef437-a08c-43ba-b48b-6e7c1e53027b",
+  "path": "storage-analyzer",
+  "path_key": "storage-analyzer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

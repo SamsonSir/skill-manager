@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d5760ac8-b5e4-4937-94c7-f19a2bd86eef",
+  "path": "json-canvas",
+  "path_key": "json-canvas",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3e57be4f-d5ff-480a-b77e-d20781917634",
+  "path": "computer-use",
+  "path_key": "computer-use",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

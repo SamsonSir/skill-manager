@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "9163941d-fc53-4ee7-850c-6c6f210b3e5b",
+  "path": "elevenlabs-tts",
+  "path_key": "elevenlabs-tts",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

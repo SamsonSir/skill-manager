@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ff81d09c-9404-4c06-9873-7433e18b0787",
+  "path": "xianyu-reply-cy",
+  "path_key": "xianyu-reply-cy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

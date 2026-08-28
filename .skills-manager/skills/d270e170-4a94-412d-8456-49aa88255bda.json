@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d270e170-4a94-412d-8456-49aa88255bda",
+  "path": "video-replication-sop-cy",
+  "path_key": "video-replication-sop-cy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

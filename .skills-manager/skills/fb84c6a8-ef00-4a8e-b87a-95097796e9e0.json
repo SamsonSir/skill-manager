@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fb84c6a8-ef00-4a8e-b87a-95097796e9e0",
+  "path": "fixing-accessibility",
+  "path_key": "fixing-accessibility",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

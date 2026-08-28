@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a48053d9-8bc4-4f2f-9afd-ad97c7747ffd",
+  "path": "meta-superpowers-daily-flow",
+  "path_key": "meta-superpowers-daily-flow",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

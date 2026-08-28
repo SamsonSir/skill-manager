@@ -1,0 +1,197 @@
+<!--
+  微信公众号排版模板 — Notion Clean（Notion 干净风）
+  纯白底 + 黑灰文字 + 蓝色超链接 + emoji 小标题 + 灰色 callout
+  主色: #2383E2 (Notion 蓝) / #1A1A1A (主文字) / #787774 (次要灰) / #F1F1EF (灰底)
+  背景: #FFFFFF
+  使用方法: 复制 <section data-role="outer"> 内的 HTML 到微信公众号编辑器源代码模式
+
+  微信适配：
+  1. 主布局用 <table border-collapse:collapse>
+  2. 背景全部实色 hex
+  3. callout 卡片用 table 做"左色条"
+  4. 不用 flex / gap / linear-gradient
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信公众号排版预览 — Notion Clean</title>
+<style>
+  body { margin: 0; padding: 40px; background: #F5F5F5; }
+  .preview-wrapper { max-width: 677px; margin: 0 auto; box-shadow: 0 2px 30px rgba(0,0,0,0.08); }
+</style>
+</head>
+<body>
+<div class="preview-wrapper">
+
+<!-- ========== 正文开始 ========== -->
+<section data-role="outer" style="background-color: #FFFFFF; color: #1A1A1A; padding: 0; font-family: -apple-system, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; background-color: #FFFFFF; border: none;">
+
+<!-- ========== [组件] 顶部 Banner ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 40px 28px 24px; border: none;">
+  <p style="margin: 0 0 12px 0; padding: 0;"><span style="font-size: 12px; color: #787774;">📝 &nbsp;JokerSu AI 之路 · 2026-04-07</span></p>
+  <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-size: 28px; font-weight: 700; color: #1A1A1A; line-height: 1.3; letter-spacing: -0.3px;">文章标题写在这里</span></p>
+  <p style="margin: 0 0 16px 0; padding: 0;"><span style="font-size: 28px; font-weight: 700; color: #1A1A1A; line-height: 1.3; letter-spacing: -0.3px;">支持换行</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #787774; line-height: 1.6;">副标题或一句话摘要写在这里</span></p>
+</td></tr>
+
+<!-- [组件] 浅灰分割线 -->
+<tr><td style="background-color: #FFFFFF; padding: 0 28px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr><td style="background-color: #E8E8E6; height: 1px; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 章节头（emoji 小标题）========== -->
+<tr><td style="background-color: #FFFFFF; padding: 28px 28px 8px; border: none;">
+  <p style="margin: 0; padding: 0;"><span style="font-size: 20px; font-weight: 700; color: #1A1A1A; line-height: 1.4;">🔥 &nbsp;章节标题写在这里</span></p>
+</td></tr>
+
+<!-- ========== [组件] 正文段落 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <p style="margin: 0 0 14px 0; padding: 0; text-align: justify;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.75;">正文段落写在这里。Notion 风的关键是<span style="font-weight: 700;">克制</span>，正文只用黑灰两色，强调用加粗，链接用<span style="color: #2383E2; border-bottom: 1px solid #2383E2;">Notion 蓝</span>。</span></p>
+  <p style="margin: 0; padding: 0; text-align: justify;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.75;">需要次要说明时用<span style="color: #787774;">灰色文字</span>，比颜色高亮更优雅。代码用<span style="background-color: #F1F1EF; color: #EB5757; padding: 2px 6px; border-radius: 3px; font-family: 'Menlo', monospace; font-size: 13px;">行内代码</span>样式。</span></p>
+</td></tr>
+
+<!-- ========== [组件] callout 卡片（蓝色提示）========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #EBF5FE; border-radius: 4px;">
+    <tr>
+      <td width="4" style="background-color: #2383E2; border: none;">&nbsp;</td>
+      <td style="padding: 14px 16px; border: none;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 14px; font-weight: 700; color: #1A1A1A;">💡 &nbsp;提示标题</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #1A1A1A; line-height: 1.7;">callout 内容写在这里。这种灰底 + 左色条的样式是 Notion 的标志，也是公众号能稳定渲染的最干净的提示框。</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] callout 卡片（黄色警告）========== -->
+<tr><td style="background-color: #FFFFFF; padding: 0 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FDF6E3; border-radius: 4px;">
+    <tr>
+      <td width="4" style="background-color: #E5A93D; border: none;">&nbsp;</td>
+      <td style="padding: 14px 16px; border: none;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 14px; font-weight: 700; color: #1A1A1A;">⚠️ &nbsp;注意</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #1A1A1A; line-height: 1.7;">警告类信息写在这里。</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] callout 卡片（绿色成功）========== -->
+<tr><td style="background-color: #FFFFFF; padding: 0 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #EDF7ED; border-radius: 4px;">
+    <tr>
+      <td width="4" style="background-color: #4DAB7E; border: none;">&nbsp;</td>
+      <td style="padding: 14px 16px; border: none;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 14px; font-weight: 700; color: #1A1A1A;">✅ &nbsp;最佳实践</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #1A1A1A; line-height: 1.7;">推荐做法写在这里。</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 列表 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr>
+      <td width="20" style="vertical-align: top; padding: 4px 0 8px 0; border: none;"><span style="font-size: 15px; color: #1A1A1A;">•</span></td>
+      <td style="vertical-align: top; padding: 4px 0 8px 0; border: none;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.7;">第一条要点写在这里。一句话讲清。</span></td>
+    </tr>
+    <tr>
+      <td width="20" style="vertical-align: top; padding: 4px 0 8px 0; border: none;"><span style="font-size: 15px; color: #1A1A1A;">•</span></td>
+      <td style="vertical-align: top; padding: 4px 0 8px 0; border: none;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.7;">第二条要点写在这里。</span></td>
+    </tr>
+    <tr>
+      <td width="20" style="vertical-align: top; padding: 4px 0 0 0; border: none;"><span style="font-size: 15px; color: #1A1A1A;">•</span></td>
+      <td style="vertical-align: top; padding: 4px 0 0 0; border: none;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.7;">第三条要点写在这里。</span></td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 编号步骤列表 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr>
+      <td width="32" style="vertical-align: top; padding: 0 8px 12px 0; border: none;">
+        <span style="display: inline-block; width: 22px; height: 22px; line-height: 22px; background-color: #1A1A1A; color: #FFFFFF; font-size: 12px; font-weight: 700; text-align: center; border-radius: 50%;">1</span>
+      </td>
+      <td style="vertical-align: top; padding: 2px 0 12px 0; border: none;">
+        <p style="margin: 0 0 2px 0; padding: 0;"><span style="font-size: 15px; font-weight: 700; color: #1A1A1A;">第一步</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #787774; line-height: 1.7;">具体操作写在这里。</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="32" style="vertical-align: top; padding: 0 8px 12px 0; border: none;">
+        <span style="display: inline-block; width: 22px; height: 22px; line-height: 22px; background-color: #1A1A1A; color: #FFFFFF; font-size: 12px; font-weight: 700; text-align: center; border-radius: 50%;">2</span>
+      </td>
+      <td style="vertical-align: top; padding: 2px 0 12px 0; border: none;">
+        <p style="margin: 0 0 2px 0; padding: 0;"><span style="font-size: 15px; font-weight: 700; color: #1A1A1A;">第二步</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #787774; line-height: 1.7;">具体操作写在这里。</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="32" style="vertical-align: top; padding: 0 8px 0 0; border: none;">
+        <span style="display: inline-block; width: 22px; height: 22px; line-height: 22px; background-color: #1A1A1A; color: #FFFFFF; font-size: 12px; font-weight: 700; text-align: center; border-radius: 50%;">3</span>
+      </td>
+      <td style="vertical-align: top; padding: 2px 0 0 0; border: none;">
+        <p style="margin: 0 0 2px 0; padding: 0;"><span style="font-size: 15px; font-weight: 700; color: #1A1A1A;">第三步</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #787774; line-height: 1.7;">具体操作写在这里。</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 引用块 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr>
+      <td width="3" style="background-color: #1A1A1A; border: none;">&nbsp;</td>
+      <td style="padding: 4px 0 4px 16px; border: none;">
+        <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 15px; color: #1A1A1A; line-height: 1.7; font-style: italic;">「引用的话写在这里。Notion 风的引用块用极细黑色左边框，没有任何背景色。」</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 13px; color: #787774;">— 引用来源</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 对比表格 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 1px solid #E8E8E6;">
+    <tr>
+      <td style="background-color: #F7F7F5; padding: 10px 12px; font-size: 13px; font-weight: 700; color: #1A1A1A; border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6;">维度</td>
+      <td style="background-color: #F7F7F5; padding: 10px 12px; font-size: 13px; font-weight: 700; color: #1A1A1A; border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6;">方案 A</td>
+      <td style="background-color: #F7F7F5; padding: 10px 12px; font-size: 13px; font-weight: 700; color: #1A1A1A; border-bottom: 1px solid #E8E8E6;">方案 B</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A; border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6;">速度</td>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A; border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6;">快</td>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A; border-bottom: 1px solid #E8E8E6;">中</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A; border-right: 1px solid #E8E8E6;">成本</td>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A; border-right: 1px solid #E8E8E6;">高</td>
+      <td style="padding: 10px 12px; font-size: 13px; color: #1A1A1A;">低</td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 结尾 ========== -->
+<tr><td style="background-color: #FFFFFF; padding: 24px 28px 40px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr><td style="background-color: #E8E8E6; height: 1px; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr>
+  </table>
+  <p style="margin: 16px 0 4px 0; padding: 0;"><span style="font-size: 14px; color: #787774;">📬 &nbsp;本文是「JokerSu AI 之路」每日 AI 工具实测系列。</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #787774;">关注，明天见。</span></p>
+</td></tr>
+
+</table>
+</section>
+<!-- ========== 正文结束 ========== -->
+
+</div>
+</body>
+</html>

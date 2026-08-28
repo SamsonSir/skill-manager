@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6b8081a3-7892-4d6f-9e20-010731448578",
+  "path": "andrej-karpathy-perspective",
+  "path_key": "andrej-karpathy-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

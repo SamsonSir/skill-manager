@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8efe92d7-5606-452d-8a67-c2c568059b8f",
+  "path": "feishu-doc-writer",
+  "path_key": "feishu-doc-writer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

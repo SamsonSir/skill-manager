@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "bdc9e602-c356-4aeb-a375-bd94c2ad537c",
+  "path": "camofox-cli",
+  "path_key": "camofox-cli",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

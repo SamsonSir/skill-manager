@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3ef66290-1fce-453d-b5f1-090586f0ff34",
+  "path": "x-reader",
+  "path_key": "x-reader",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

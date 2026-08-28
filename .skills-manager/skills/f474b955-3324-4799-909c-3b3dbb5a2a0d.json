@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f474b955-3324-4799-909c-3b3dbb5a2a0d",
+  "path": "xiaohongshu-downloader",
+  "path_key": "xiaohongshu-downloader",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

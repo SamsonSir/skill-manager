@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "0a308b65-ca51-4ccc-b7a6-e711efa8fff1",
+  "path": "ilya-sutskever-perspective",
+  "path_key": "ilya-sutskever-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

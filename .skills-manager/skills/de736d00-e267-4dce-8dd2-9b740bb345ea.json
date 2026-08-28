@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "de736d00-e267-4dce-8dd2-9b740bb345ea",
+  "path": "ai-newsletters",
+  "path_key": "ai-newsletters",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

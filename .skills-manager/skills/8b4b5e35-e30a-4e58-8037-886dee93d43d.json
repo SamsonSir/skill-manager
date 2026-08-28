@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8b4b5e35-e30a-4e58-8037-886dee93d43d",
+  "path": "seedream",
+  "path_key": "seedream",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

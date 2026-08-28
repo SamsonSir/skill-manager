@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "caa19e4b-ba13-4821-8911-2c38c245afff",
+  "path": "bugfix",
+  "path_key": "bugfix",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

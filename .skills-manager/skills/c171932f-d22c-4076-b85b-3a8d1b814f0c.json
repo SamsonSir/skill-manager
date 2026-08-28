@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c171932f-d22c-4076-b85b-3a8d1b814f0c",
+  "path": "ios-sync",
+  "path_key": "ios-sync",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

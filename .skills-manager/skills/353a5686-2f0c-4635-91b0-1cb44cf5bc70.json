@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "353a5686-2f0c-4635-91b0-1cb44cf5bc70",
+  "path": "bilibili-data",
+  "path_key": "bilibili-data",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

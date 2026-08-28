@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "672bd231-95d3-44de-9ba9-4026822182bc",
+  "path": "lark-approval",
+  "path_key": "lark-approval",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

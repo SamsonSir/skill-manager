@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b08c9f9d-fd37-40c9-befb-bf663cfc2517",
+  "path": "setup-deploy",
+  "path_key": "setup-deploy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

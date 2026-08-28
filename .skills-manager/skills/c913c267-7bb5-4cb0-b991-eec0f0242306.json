@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c913c267-7bb5-4cb0-b991-eec0f0242306",
+  "path": "1688-selection-assistant",
+  "path_key": "1688-selection-assistant",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

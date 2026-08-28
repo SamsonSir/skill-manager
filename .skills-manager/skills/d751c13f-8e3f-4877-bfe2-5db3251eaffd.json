@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d751c13f-8e3f-4877-bfe2-5db3251eaffd",
+  "path": "careful",
+  "path_key": "careful",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

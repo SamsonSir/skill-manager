@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3a7461f8-e416-43bd-80ba-12e9394bc5f1",
+  "path": "kickoff",
+  "path_key": "kickoff",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

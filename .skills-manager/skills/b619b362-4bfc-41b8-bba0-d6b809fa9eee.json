@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b619b362-4bfc-41b8-bba0-d6b809fa9eee",
+  "path": "receiving-code-review",
+  "path_key": "receiving-code-review",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

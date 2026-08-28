@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b5799797-0cc5-4444-9789-4ed66bbe65c2",
+  "path": "meta-superpowers-workflow",
+  "path_key": "meta-superpowers-workflow",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

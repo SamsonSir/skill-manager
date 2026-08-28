@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "06c3d055-7505-4aca-9cfd-d957b9fcd683",
+  "path": "document-generate",
+  "path_key": "document-generate",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "50aa1793-7165-471c-be5a-4801e24f4766",
+  "path": "lsp-setup",
+  "path_key": "lsp-setup",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

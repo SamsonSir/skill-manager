@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d140a9fd-c7ec-4768-a6c7-daa3f472a008",
+  "path": "feishu-agi-collector",
+  "path_key": "feishu-agi-collector",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

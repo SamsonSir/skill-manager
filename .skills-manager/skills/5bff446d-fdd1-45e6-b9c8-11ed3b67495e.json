@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "5bff446d-fdd1-45e6-b9c8-11ed3b67495e",
+  "path": "short-drama-tts",
+  "path_key": "short-drama-tts",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

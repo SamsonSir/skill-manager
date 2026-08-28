@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4705376f-c5fc-45fc-9d88-c5d02ab0f1a4",
+  "path": "sun-yuchen-perspective",
+  "path_key": "sun-yuchen-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

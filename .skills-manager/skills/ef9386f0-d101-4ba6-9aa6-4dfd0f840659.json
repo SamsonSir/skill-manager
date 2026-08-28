@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ef9386f0-d101-4ba6-9aa6-4dfd0f840659",
+  "path": "verification-gate",
+  "path_key": "verification-gate",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

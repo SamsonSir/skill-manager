@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "14bfba5d-3090-4ab0-b55a-8615cd3fd051",
+  "path": "landing-report",
+  "path_key": "landing-report",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

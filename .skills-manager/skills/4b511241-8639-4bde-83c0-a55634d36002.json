@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4b511241-8639-4bde-83c0-a55634d36002",
+  "path": "setup-browser-cookies",
+  "path_key": "setup-browser-cookies",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3e9e25dd-c299-408c-b6f6-6e67332d3ae8",
+  "path": "wechat-mp-auto",
+  "path_key": "wechat-mp-auto",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

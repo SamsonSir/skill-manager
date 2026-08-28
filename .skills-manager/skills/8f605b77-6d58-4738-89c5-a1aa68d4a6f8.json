@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8f605b77-6d58-4738-89c5-a1aa68d4a6f8",
+  "path": "plan-tune",
+  "path_key": "plan-tune",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

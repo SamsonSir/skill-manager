@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "94627370-10fb-47a4-b84f-5c4c4adb4088",
+  "path": "super-ocr",
+  "path_key": "super-ocr",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

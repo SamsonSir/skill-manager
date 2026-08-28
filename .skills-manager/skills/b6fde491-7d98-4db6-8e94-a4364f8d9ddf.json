@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b6fde491-7d98-4db6-8e94-a4364f8d9ddf",
+  "path": "task-triage",
+  "path_key": "task-triage",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

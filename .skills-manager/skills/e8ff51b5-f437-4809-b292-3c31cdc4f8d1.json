@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e8ff51b5-f437-4809-b292-3c31cdc4f8d1",
+  "path": "mission-control",
+  "path_key": "mission-control",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

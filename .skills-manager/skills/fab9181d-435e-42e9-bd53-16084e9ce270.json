@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fab9181d-435e-42e9-bd53-16084e9ce270",
+  "path": "film-storyboard-expand",
+  "path_key": "film-storyboard-expand",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

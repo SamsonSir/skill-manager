@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "5bd50a53-dafb-43db-a6df-50f9018531ef",
+  "path": "video-content-extractor",
+  "path_key": "video-content-extractor",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

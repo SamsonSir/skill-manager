@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e6e36718-8abe-455b-8a85-6758e703adcf",
+  "path": "dramaya-workflow",
+  "path_key": "dramaya-workflow",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

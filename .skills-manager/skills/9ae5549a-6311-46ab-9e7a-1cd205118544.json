@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "9ae5549a-6311-46ab-9e7a-1cd205118544",
+  "path": "feishu-meeting-call",
+  "path_key": "feishu-meeting-call",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

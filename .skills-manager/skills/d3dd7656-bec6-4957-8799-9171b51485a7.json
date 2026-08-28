@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d3dd7656-bec6-4957-8799-9171b51485a7",
+  "path": "feishu-wiki",
+  "path_key": "feishu-wiki",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

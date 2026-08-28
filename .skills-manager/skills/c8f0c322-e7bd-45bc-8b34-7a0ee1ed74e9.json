@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c8f0c322-e7bd-45bc-8b34-7a0ee1ed74e9",
+  "path": "brain",
+  "path_key": "brain",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

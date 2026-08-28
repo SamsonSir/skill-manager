@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "32de0dc0-2cb9-4aba-8958-6bc33ea6f37c",
+  "path": "partner-skill",
+  "path_key": "partner-skill",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "830e0110-e11f-44d4-9915-6deaea18e6dd",
+  "path": "ctf-malware",
+  "path_key": "ctf-malware",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

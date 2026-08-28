@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f9b9370a-112e-476e-aaad-5bfa22552446",
+  "path": "ui-styling",
+  "path_key": "ui-styling",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

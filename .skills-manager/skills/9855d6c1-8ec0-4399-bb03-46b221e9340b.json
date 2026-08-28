@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "9855d6c1-8ec0-4399-bb03-46b221e9340b",
+  "path": "ios-design-review",
+  "path_key": "ios-design-review",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

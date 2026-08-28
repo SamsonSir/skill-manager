@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "23ac76fe-8474-4152-a8ab-48fac512b6d6",
+  "path": "fixing-metadata",
+  "path_key": "fixing-metadata",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

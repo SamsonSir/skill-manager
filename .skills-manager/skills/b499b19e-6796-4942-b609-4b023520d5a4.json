@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b499b19e-6796-4942-b609-4b023520d5a4",
+  "path": "e2e-verify",
+  "path_key": "e2e-verify",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

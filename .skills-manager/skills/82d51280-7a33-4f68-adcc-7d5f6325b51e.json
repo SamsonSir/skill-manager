@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "82d51280-7a33-4f68-adcc-7d5f6325b51e",
+  "path": "gstack-upgrade",
+  "path_key": "gstack-upgrade",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

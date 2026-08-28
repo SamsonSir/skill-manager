@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e51262a3-7a78-4366-a050-09943d3a7446",
+  "path": "orchestration",
+  "path_key": "orchestration",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8e8de594-7a0c-4db1-be70-cf4c9868963f",
+  "path": "swarm-coordinator",
+  "path_key": "swarm-coordinator",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

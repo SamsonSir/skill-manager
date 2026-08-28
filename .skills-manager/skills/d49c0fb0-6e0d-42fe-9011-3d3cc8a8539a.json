@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d49c0fb0-6e0d-42fe-9011-3d3cc8a8539a",
+  "path": "sync-gbrain",
+  "path_key": "sync-gbrain",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

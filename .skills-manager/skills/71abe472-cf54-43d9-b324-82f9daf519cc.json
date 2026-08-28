@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "71abe472-cf54-43d9-b324-82f9daf519cc",
+  "path": "clawflows",
+  "path_key": "clawflows",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "video-auto-clip",
+  "version": "1.0.0",
+  "description": "AI驱动的视频智能剪辑技能：支持自然语言触发，基于已调通脚本批量识别并剪除敏感片段，支持去水印、并行批量与轻量输出",
+  "author": "xia",
+  "emoji": "✂️",
+  "tags": ["video", "clip", "edit", "censorship", "delogo"],
+  "tools": ["scripts/batch_clip_nl.sh", "tools/vision_ocr.swift", "tools/image_diff.swift"],
+  "dependencies": ["ffmpeg", "ffprobe"]
+}

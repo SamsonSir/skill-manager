@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c33021be-c5da-47b4-b5f8-5f66cb3705dd",
+  "path": "memory-setup",
+  "path_key": "memory-setup",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

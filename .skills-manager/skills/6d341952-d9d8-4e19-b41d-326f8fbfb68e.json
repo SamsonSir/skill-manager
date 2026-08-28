@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6d341952-d9d8-4e19-b41d-326f8fbfb68e",
+  "path": "freeze",
+  "path_key": "freeze",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

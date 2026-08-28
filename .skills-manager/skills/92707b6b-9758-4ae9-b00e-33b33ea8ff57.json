@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "92707b6b-9758-4ae9-b00e-33b33ea8ff57",
+  "path": "yt-dlp-downloader",
+  "path_key": "yt-dlp-downloader",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

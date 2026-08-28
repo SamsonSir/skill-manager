@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "514b75c7-2038-4cf7-8080-f0c822cdf47c",
+  "path": "start-my-day",
+  "path_key": "start-my-day",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

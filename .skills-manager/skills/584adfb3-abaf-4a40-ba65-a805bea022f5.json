@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "584adfb3-abaf-4a40-ba65-a805bea022f5",
+  "path": "break-ai-slop",
+  "path_key": "break-ai-slop",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

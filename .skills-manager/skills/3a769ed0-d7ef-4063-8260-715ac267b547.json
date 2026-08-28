@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3a769ed0-d7ef-4063-8260-715ac267b547",
+  "path": "plan-devex-review",
+  "path_key": "plan-devex-review",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

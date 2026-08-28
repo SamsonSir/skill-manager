@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "57b4358d-e1f3-4640-a5c9-f696ea66582b",
+  "path": "tavily",
+  "path_key": "tavily",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

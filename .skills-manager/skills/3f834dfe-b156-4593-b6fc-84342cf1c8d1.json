@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3f834dfe-b156-4593-b6fc-84342cf1c8d1",
+  "path": "cz-perspective",
+  "path_key": "cz-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4ce63fa6-47c7-4b42-b8cd-9362193ddf73",
+  "path": "trump-perspective",
+  "path_key": "trump-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

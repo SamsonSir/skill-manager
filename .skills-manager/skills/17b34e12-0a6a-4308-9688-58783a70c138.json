@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "17b34e12-0a6a-4308-9688-58783a70c138",
+  "path": "context-save",
+  "path_key": "context-save",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

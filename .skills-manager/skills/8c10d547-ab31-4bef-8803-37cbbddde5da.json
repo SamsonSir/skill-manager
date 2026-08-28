@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8c10d547-ab31-4bef-8803-37cbbddde5da",
+  "path": "ponytail-review",
+  "path_key": "ponytail-review",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

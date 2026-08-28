@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "10c88a0d-3ce9-4a28-8f47-97cba9af22a3",
+  "path": "land-and-deploy",
+  "path_key": "land-and-deploy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

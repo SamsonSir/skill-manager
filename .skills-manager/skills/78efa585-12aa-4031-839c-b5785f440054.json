@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "78efa585-12aa-4031-839c-b5785f440054",
+  "path": "ai-products",
+  "path_key": "ai-products",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f521a3aa-bac7-4702-86e1-957488f8a030",
+  "path": "health",
+  "path_key": "health",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6aff84cd-1f41-454f-9af1-a85390f4926d",
+  "path": "ask",
+  "path_key": "ask",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

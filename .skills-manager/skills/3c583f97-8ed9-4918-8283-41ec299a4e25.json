@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3c583f97-8ed9-4918-8283-41ec299a4e25",
+  "path": "anthropic-frontend-design",
+  "path_key": "anthropic-frontend-design",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

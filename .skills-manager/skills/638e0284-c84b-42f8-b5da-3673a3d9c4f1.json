@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "638e0284-c84b-42f8-b5da-3673a3d9c4f1",
+  "path": "qianchuan-launch-sop",
+  "path_key": "qianchuan-launch-sop",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

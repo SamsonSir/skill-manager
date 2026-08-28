@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c0f8588c-6911-469d-8406-59ed20be308d",
+  "path": "document-release",
+  "path_key": "document-release",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

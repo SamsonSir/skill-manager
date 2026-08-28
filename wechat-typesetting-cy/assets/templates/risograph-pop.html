@@ -1,0 +1,149 @@
+<!--
+  微信公众号排版模板 — Risograph Pop（双色 tonal 老报纸版）
+  奶油纸底 + 深棕油墨 + 砖红点睛
+  主色: #C84B31 (砖红) / #3D2817 (深棕油墨)
+  背景: #FBF7EC (奶油纸)
+  使用方法: 复制 <section data-role="outer"> 内的 HTML 到微信公众号编辑器源代码模式
+
+  设计理念：
+  - 双色 tonal，绝不超过两种强调色
+  - 标题用衬线字体（Georgia + Songti SC）制造老报纸大字标题感
+  - 正文保持无衬线，易读
+  - 色块描边用深棕作"油墨"，砖红作点睛
+
+  微信适配：
+  1. 主布局用 <table border-collapse:collapse>
+  2. 背景全部实色 hex
+  3. 不用 flex / gap / linear-gradient / background-image
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信公众号排版预览 — Risograph Pop (Tonal)</title>
+<style>
+  body { margin: 0; padding: 40px; background: #E8E2D0; }
+  .preview-wrapper { max-width: 677px; margin: 0 auto; box-shadow: 0 2px 30px rgba(0,0,0,0.15); }
+</style>
+</head>
+<body>
+<div class="preview-wrapper">
+
+<!-- ========== 正文开始 ========== -->
+<section data-role="outer" style="background-color: #FBF7EC; color: #3D2817; padding: 0; font-family: -apple-system, 'Helvetica Neue', 'PingFang SC', sans-serif;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; background-color: #FBF7EC; border: none;">
+
+<!-- ========== [组件] Banner ========== -->
+<tr><td style="background-color: #FBF7EC; padding: 40px 28px 28px; border: none;">
+  <!-- 顶部期号 + 日期：横线分隔，老报纸刊头感 -->
+  <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 11px; color: #C84B31; font-weight: 700; letter-spacing: 3px;">ISSUE 01 &nbsp;&middot;&nbsp; 2026.04</span></p>
+  <p style="margin: 0 0 20px 0; padding: 0;"><span style="font-size: 11px; color: #6B5440; letter-spacing: 1px;">JOKERSU AI · DAILY</span></p>
+  <!-- 大标题（衬线字体） -->
+  <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 38px; font-weight: 900; color: #3D2817; line-height: 1.1; letter-spacing: -0.5px;">大标题第一行</span></p>
+  <p style="margin: 0 0 18px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 38px; font-weight: 900; color: #C84B31; line-height: 1.1; letter-spacing: -0.5px; font-style: italic;">放在第二行</span></p>
+  <!-- 副标题 -->
+  <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #6B5440; line-height: 1.7;">副标题或一句话摘要写在这里，不要超过两行。这一行是次要文字，用中棕色，跟主深棕区分。</span></p>
+</td></tr>
+
+<!-- [组件] 双线分隔（粗深棕 + 细砖红）老报纸刊头分隔 -->
+<tr><td style="background-color: #3D2817; height: 4px; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr>
+<tr><td style="background-color: #FBF7EC; height: 2px; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr>
+<tr><td style="background-color: #C84B31; height: 1px; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr>
+
+<!-- ========== [组件] 章节头 ========== -->
+<tr><td style="background-color: #FBF7EC; padding: 36px 28px 12px; border: none;">
+  <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-size: 11px; color: #C84B31; font-weight: 700; letter-spacing: 3px;">§ 01 &nbsp;&middot;&nbsp; SECTION</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 26px; font-weight: 900; color: #3D2817; line-height: 1.25; letter-spacing: -0.3px;">章节标题写在这里</span></p>
+</td></tr>
+
+<!-- ========== [组件] 正文段落 ========== -->
+<tr><td style="background-color: #FBF7EC; padding: 8px 28px 16px; border: none;">
+  <p style="margin: 0 0 14px 0; padding: 0; text-align: justify;"><span style="font-size: 15px; color: #3D2817; line-height: 1.85;">正文段落写在这里。双色 tonal 的正文克制得多，关键词用<span style="color: #C84B31; font-weight: 700;">砖红加粗</span>就够了，不再用色块底高亮。</span></p>
+  <p style="margin: 0; padding: 0; text-align: justify;"><span style="font-size: 15px; color: #3D2817; line-height: 1.85;">如果真要做色块高亮，只在<span style="background-color: #C84B31; color: #FBF7EC; padding: 0 4px;">极少的场合</span>用，一篇文章不超过 2-3 处。次要说明用<span style="color: #6B5440;">中棕色</span>，比加粗更柔和。</span></p>
+</td></tr>
+
+<!-- ========== [组件] 大色块引言（深棕底 + 砖红装饰）========== -->
+<tr><td style="background-color: #FBF7EC; padding: 8px 28px 16px; border: none;">
+  <section style="background-color: #3D2817; padding: 28px 24px; border-top: 3px solid #C84B31; border-bottom: 3px solid #C84B31;">
+    <p style="margin: 0 0 12px 0; padding: 0; text-align: center;"><span style="font-family: Georgia, serif; font-size: 32px; color: #C84B31; line-height: 0.5;">&ldquo;</span></p>
+    <p style="margin: 0 0 16px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 18px; font-weight: 700; color: #FBF7EC; line-height: 1.6; font-style: italic;">金句写在这里。双色 tonal 的引言区不再用强烈对比色，而是把深棕做底、砖红做点缀框线，质感更像装订成册的老印刷物。</span></p>
+    <p style="margin: 0; padding: 0; text-align: right;"><span style="font-size: 12px; color: #C84B31; font-weight: 700; letter-spacing: 1px;">— 引用来源</span></p>
+  </section>
+</td></tr>
+
+<!-- ========== [组件] 编号大数字列表 ========== -->
+<tr><td style="background-color: #FBF7EC; padding: 16px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+    <tr>
+      <td width="60" style="vertical-align: top; padding: 0 12px 16px 0; border: none;">
+        <p style="margin: 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 48px; font-weight: 900; color: #C84B31; line-height: 0.85; font-style: italic;">01</span></p>
+      </td>
+      <td style="vertical-align: top; padding: 6px 0 16px 0; border-bottom: 1px solid #E8DFC9;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 17px; font-weight: 900; color: #3D2817;">第一条要点的标题</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #6B5440; line-height: 1.7;">说明文字写在这里，1-2 行就够。深棕标题 + 中棕说明，层次靠字重和深浅，不靠颜色。</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="60" style="vertical-align: top; padding: 16px 12px 16px 0; border: none;">
+        <p style="margin: 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 48px; font-weight: 900; color: #C84B31; line-height: 0.85; font-style: italic;">02</span></p>
+      </td>
+      <td style="vertical-align: top; padding: 22px 0 16px 0; border-bottom: 1px solid #E8DFC9;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 17px; font-weight: 900; color: #3D2817;">第二条要点的标题</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #6B5440; line-height: 1.7;">说明文字写在这里。</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="60" style="vertical-align: top; padding: 16px 12px 0 0; border: none;">
+        <p style="margin: 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 48px; font-weight: 900; color: #C84B31; line-height: 0.85; font-style: italic;">03</span></p>
+      </td>
+      <td style="vertical-align: top; padding: 22px 0 0 0; border: none;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 17px; font-weight: 900; color: #3D2817;">第三条要点的标题</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #6B5440; line-height: 1.7;">说明文字写在这里。</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 标语板（砖红底奶油字）========== -->
+<tr><td style="background-color: #FBF7EC; padding: 24px 28px; border: none;">
+  <section style="background-color: #C84B31; padding: 36px 24px; text-align: center; border: 3px double #FBF7EC; outline: 1px solid #C84B31;">
+    <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-size: 11px; font-weight: 700; color: #FBF7EC; letter-spacing: 4px;">— KEY POINT —</span></p>
+    <p style="margin: 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 24px; font-weight: 900; color: #FBF7EC; line-height: 1.35;">用一句话讲清核心观点</span></p>
+  </section>
+</td></tr>
+
+<!-- ========== [组件] 数据格 ========== -->
+<tr><td style="background-color: #FBF7EC; padding: 8px 28px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 2px solid #3D2817;">
+    <tr>
+      <td width="33%" style="background-color: #FBF7EC; padding: 20px 8px; text-align: center; border-right: 1px solid #3D2817;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 30px; font-weight: 900; color: #C84B31; font-style: italic;">25.3K</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #6B5440; font-weight: 700; letter-spacing: 1px;">STARS</span></p>
+      </td>
+      <td width="33%" style="background-color: #3D2817; padding: 20px 8px; text-align: center; border-right: 1px solid #3D2817;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 30px; font-weight: 900; color: #FBF7EC; font-style: italic;">19</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #C84B31; font-weight: 700; letter-spacing: 1px;">AGENTS</span></p>
+      </td>
+      <td width="34%" style="background-color: #FBF7EC; padding: 20px 8px; text-align: center;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', serif; font-size: 30px; font-weight: 900; color: #C84B31; font-style: italic;">-50%</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #6B5440; font-weight: 700; letter-spacing: 1px;">TOKENS</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- ========== [组件] 结尾 CTA（深棕底）========== -->
+<tr><td style="background-color: #3D2817; padding: 40px 28px; text-align: center; border: none;">
+  <p style="margin: 0 0 12px 0; padding: 0;"><span style="font-size: 11px; font-weight: 700; color: #C84B31; letter-spacing: 4px;">— FIN —</span></p>
+  <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-family: Georgia, 'Songti SC', 'STSong', serif; font-size: 22px; font-weight: 900; color: #FBF7EC; line-height: 1.3;">JokerSu AI 之路</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 13px; color: #C84B31;">关注，明天见</span></p>
+</td></tr>
+
+</table>
+</section>
+<!-- ========== 正文结束 ========== -->
+
+</div>
+</body>
+</html>

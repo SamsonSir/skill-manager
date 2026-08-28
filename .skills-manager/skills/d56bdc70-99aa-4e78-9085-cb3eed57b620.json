@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d56bdc70-99aa-4e78-9085-cb3eed57b620",
+  "path": "douyin-matrix",
+  "path_key": "douyin-matrix",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

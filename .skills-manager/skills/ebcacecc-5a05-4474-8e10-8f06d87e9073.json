@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ebcacecc-5a05-4474-8e10-8f06d87e9073",
+  "path": "cc-shield",
+  "path_key": "cc-shield",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

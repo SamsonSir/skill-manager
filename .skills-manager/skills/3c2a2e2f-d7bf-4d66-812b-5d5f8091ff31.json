@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3c2a2e2f-d7bf-4d66-812b-5d5f8091ff31",
+  "path": "feynman-perspective",
+  "path_key": "feynman-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

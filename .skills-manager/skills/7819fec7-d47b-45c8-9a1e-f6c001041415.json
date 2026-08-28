@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7819fec7-d47b-45c8-9a1e-f6c001041415",
+  "path": "full-output-enforcement",
+  "path_key": "full-output-enforcement",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

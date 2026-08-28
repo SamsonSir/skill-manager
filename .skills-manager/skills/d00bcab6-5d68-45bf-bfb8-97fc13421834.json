@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d00bcab6-5d68-45bf-bfb8-97fc13421834",
+  "path": "learn",
+  "path_key": "learn",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

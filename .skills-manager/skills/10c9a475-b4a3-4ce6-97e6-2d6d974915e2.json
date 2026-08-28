@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "10c9a475-b4a3-4ce6-97e6-2d6d974915e2",
+  "path": "cangjie-skill",
+  "path_key": "cangjie-skill",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

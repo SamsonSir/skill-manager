@@ -1,0 +1,70 @@
+{
+  "skill_name": "triage-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我整理一下今天的同步助手内容",
+      "expected_output": "扫描 00_收件箱/ 和 笔记同步助手/ 目录，生成处理报告，显示待处理的文件数量和分类信息",
+      "assertions": [
+        {
+          "name": "扫描输入源",
+          "check": "检查 00_收件箱/ 同步助手_*.md 文件是否存在"
+        },
+        {
+          "name": "检查文章源",
+          "check": "检查 笔记同步助手/YYYY-MM-DD/ 目录是否存在"
+        },
+        {
+          "name": "生成报告",
+          "check": "输出处理报告，包含文件数量和分类信息"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/triage-sync",
+      "expected_output": "执行完整的归档流程，包括群聊精华抽取和文章分类，生成最终报告",
+      "assertions": [
+        {
+          "name": "处理群聊",
+          "check": "生成 40_知识库/精华群聊/ 文件（按日期命名）"
+        },
+        {
+          "name": "处理文章",
+          "check": "按 6 大分类生成 40_知识库/精华文章/<category>/ 文件"
+        },
+        {
+          "name": "归档源文件",
+          "check": "移动源文件到 99_系统/归档/（群聊到收件箱/YYYY/MM/，文章到笔记同步助手/YYYY/MM/）"
+        },
+        {
+          "name": "生成报告",
+          "check": "输出完整的归档报告，包括处理的文件数、分类分布、归档路径"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "归档微信同步的公众号文章",
+      "expected_output": "识别公众号文章并按6大分类整理",
+      "assertions": [
+        {
+          "name": "识别文章",
+          "check": "从 笔记同步助手/ 识别 .md 文章文件"
+        },
+        {
+          "name": "智能分类",
+          "check": "根据内容将文章分类到 6 大分类之一（AI工程实践、AI产品与工具、AI商业与转型、知识管理、工作流与方法论、Agent技术）"
+        },
+        {
+          "name": "保留完整内容",
+          "check": "生成的文章包含完整的原文内容和所有图片链接"
+        },
+        {
+          "name": "添加元数据",
+          "check": "生成的文章包含完整的 YAML frontmatter（source, author, original_url, saved, extracted, category, tags, quality）"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "13dfeb81-aa80-4890-905c-448656c7df01",
+  "path": "functional-test",
+  "path_key": "functional-test",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

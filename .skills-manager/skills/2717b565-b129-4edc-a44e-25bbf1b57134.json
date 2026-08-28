@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2717b565-b129-4edc-a44e-25bbf1b57134",
+  "path": "memory-extractor",
+  "path_key": "memory-extractor",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

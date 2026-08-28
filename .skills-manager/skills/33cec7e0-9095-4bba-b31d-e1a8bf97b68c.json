@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "33cec7e0-9095-4bba-b31d-e1a8bf97b68c",
+  "path": "gstack",
+  "path_key": "gstack",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

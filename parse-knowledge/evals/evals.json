@@ -1,0 +1,74 @@
+{
+  "skill_name": "parse-knowledge",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我整理这段关于 React Hooks 的内容：React Hooks 是 React 16.8 引入的新特性，它让你无需编写类组件就能使用 state 和其他 React 特性。useState 用于在函数组件中添加 state，useEffect 用于处理副作用，useContext 用于消费 Context。",
+      "expected_output": "在 30_研究/SoftwareEngineering/ReactHooks/ReactHooks.md 创建主笔记，在 40_知识库/ 创建 useState、useEffect、useContext 等原子概念",
+      "assertions": [
+        {
+          "name": "识别领域",
+          "check": "主笔记的 area 字段为 [[SoftwareEngineering]]"
+        },
+        {
+          "name": "提取概念",
+          "check": "在 40_知识库/ 创建至少一个原子概念文件（如 useState、useEffect 或 useContext）"
+        },
+        {
+          "name": "建立链接",
+          "check": "主笔记中使用 wikilink [[useState]]、[[useEffect]] 等链接原子概念"
+        },
+        {
+          "name": "完整 frontmatter",
+          "check": "主笔记和原子概念都有完整的 YAML frontmatter（created, type, area/tags 等）"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/parse 这是一段关于知识管理的笔记：构建个人知识管理系统（PKM）是一个长期的过程。核心在于输入、处理、输出三个环节。推荐使用 Obsidian 作为工具，因为它支持双向链接，可以建立知识之间的关联。Zettelkasten 方法论强调原子笔记和互连网络。",
+      "expected_output": "在 30_研究/KnowledgeManagement/PersonalKnowledgeManagement/PersonalKnowledgeManagement.md 创建主笔记，在 40_知识库/ 创建 Obsidian、Zettelkasten、PKM 等原子概念",
+      "assertions": [
+        {
+          "name": "识别领域",
+          "check": "主笔记的 area 字段为 [[KnowledgeManagement]]"
+        },
+        {
+          "name": "提取概念",
+          "check": "创建多个原子概念文件（如 Obsidian、Zettelkasten、PKM）"
+        },
+        {
+          "name": "概念原子化",
+          "check": "每个原子概念文件只包含一个概念的定义（1-3 段话）"
+        },
+        {
+          "name": "使用模板",
+          "check": "原子概念使用 Wiki_Template.md 模板格式"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "把这段对话整理成知识库：用户：什么是 JWT？Claude：JWT（JSON Web Token）是一种开放标准（RFC 7519），用于在各方之间以 JSON 对象安全地传输信息。它由三部分组成：Header、Payload 和 Signature。常用于身份验证和信息交换。",
+      "expected_output": "创建 JWT 相关的主笔记和原子概念",
+      "assertions": [
+        {
+          "name": "识别领域",
+          "check": "主笔记的 area 字段正确识别（如 [[SoftwareEngineering]]）"
+        },
+        {
+          "name": "提取核心概念",
+          "check": "创建 JWT 作为主概念，可能还创建 Header、Payload、Signature 作为子概念"
+        },
+        {
+          "name": "保留关键信息",
+          "check": "保留 JWT 的定义、组成、用途等关键信息"
+        },
+        {
+          "name": "不创建对话格式",
+          "check": "输出不是对话格式，而是结构化的知识笔记"
+        }
+      ]
+    }
+  ]
+}

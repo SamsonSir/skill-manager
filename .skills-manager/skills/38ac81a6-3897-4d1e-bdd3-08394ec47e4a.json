@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "38ac81a6-3897-4d1e-bdd3-08394ec47e4a",
+  "path": "make-pdf",
+  "path_key": "make-pdf",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

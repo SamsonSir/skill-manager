@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d25643a2-195c-4ee3-b169-e8ca1da48c97",
+  "path": "thermo-nuclear-code-quality-review",
+  "path_key": "thermo-nuclear-code-quality-review",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

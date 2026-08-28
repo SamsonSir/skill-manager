@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d2180c97-89c7-465a-a9f5-f077ae634f9d",
+  "path": "douyin-selection-sop",
+  "path_key": "douyin-selection-sop",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,128 @@
+<!--
+  微信公众号排版模板 — Mono Terminal（终端单色）
+  纯黑底 + 等宽字体 + 荧光绿 hacker 风
+  主色: #00FF88 (荧光绿) / #FFD23F (警告黄) / #FF5E5E (红)
+  背景: #0A0A0A (近纯黑)
+  字体: 'JetBrains Mono', 'Menlo', 'Consolas', monospace（系统等宽栈，移动端自动回退）
+  使用方法: 复制 <section data-role="outer"> 内的 HTML 到微信公众号编辑器源代码模式
+
+  微信适配：
+  1. 主布局用 <table border-collapse:collapse>
+  2. 背景全部实色 hex（不用 rgba 背景）
+  3. 不用 flex / gap / linear-gradient
+  4. 等宽字体走系统栈，PC 端 JetBrains Mono / Menlo，移动端回退到系统 monospace
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信公众号排版预览 — Mono Terminal</title>
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; }
+  .preview-wrapper { max-width: 677px; margin: 0 auto; box-shadow: 0 2px 30px rgba(0,0,0,0.6); }
+</style>
+</head>
+<body>
+<div class="preview-wrapper">
+
+<!-- ========== 正文开始 ========== -->
+<section data-role="outer" style="background-color: #0A0A0A; color: #C8C8C8; padding: 0; font-family: 'JetBrains Mono', 'Menlo', 'Consolas', 'Courier New', monospace;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; background-color: #0A0A0A; border: none;">
+
+<!-- ========== [组件] 顶部 Banner ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 32px 24px 24px; border: none;">
+  <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-size: 11px; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace;">$ cat /jokersu/posts/2026-04-07.md</span></p>
+  <p style="margin: 0 0 16px 0; padding: 0;"><span style="font-size: 11px; color: #4A4A4A; font-family: 'JetBrains Mono', 'Menlo', monospace;">// loading article... [OK]</span></p>
+  <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 24px; font-weight: 700; color: #F0F0F0; font-family: 'JetBrains Mono', 'Menlo', monospace; letter-spacing: -0.5px;">&gt; 文章主标题</span></p>
+  <p style="margin: 0 0 16px 0; padding: 0;"><span style="font-size: 24px; font-weight: 700; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace; letter-spacing: -0.5px;">&gt; 写在第二行</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 12px; color: #6A6A6A; font-family: 'JetBrains Mono', 'Menlo', monospace;">// 副标题或一句话摘要写在这里</span></p>
+</td></tr>
+
+<!-- [组件] 分隔线 ASCII -->
+<tr><td style="background-color: #0A0A0A; padding: 0 24px 16px; border: none;">
+  <p style="margin: 0; padding: 0;"><span style="font-size: 11px; color: #2A2A2A; font-family: 'JetBrains Mono', 'Menlo', monospace; letter-spacing: 1px;">────────────────────────────────────────</span></p>
+</td></tr>
+
+<!-- ========== [组件] 章节头 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 16px 24px 8px; border: none;">
+  <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 11px; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace;">## 01_section</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 18px; font-weight: 700; color: #F0F0F0; font-family: 'JetBrains Mono', 'Menlo', monospace;">章节标题</span></p>
+</td></tr>
+
+<!-- ========== [组件] 正文段落 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <p style="margin: 0 0 12px 0; padding: 0; text-align: justify;"><span style="font-size: 14px; color: #C8C8C8; line-height: 1.8; font-family: 'JetBrains Mono', 'Menlo', monospace;">正文段落写在这里。等宽字体加大行间距制造代码注释般的阅读节奏。每段都偏短一点，避免一段超过 4 行。</span></p>
+  <p style="margin: 0; padding: 0; text-align: justify;"><span style="font-size: 14px; color: #C8C8C8; line-height: 1.8; font-family: 'JetBrains Mono', 'Menlo', monospace;">关键词用<span style="color: #00FF88; font-weight: 700;">荧光绿加粗</span>，警告用<span style="color: #FFD23F; font-weight: 700;">警告黄</span>，错误用<span style="color: #FF5E5E; font-weight: 700;">红色</span>。三色就够。</span></p>
+</td></tr>
+
+<!-- ========== [组件] 代码块/命令框 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <section style="background-color: #141414; border: 1px solid #2A2A2A; border-radius: 4px; padding: 16px; overflow-x: auto;">
+    <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 10px; color: #4A4A4A; font-family: 'JetBrains Mono', 'Menlo', monospace; letter-spacing: 1px;">~/jokersu $</span></p>
+    <p style="margin: 0; padding: 0;"><span style="font-size: 13px; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace; line-height: 1.7;">npx claude-code --skill khazix-writer<br>&nbsp;&nbsp;--input "今日素材.md"<br>&nbsp;&nbsp;--output "draft.md"</span></p>
+  </section>
+</td></tr>
+
+<!-- ========== [组件] callout 警告框 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <section style="background-color: #1A1500; border-left: 3px solid #FFD23F; padding: 12px 16px;">
+    <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 11px; color: #FFD23F; font-family: 'JetBrains Mono', 'Menlo', monospace; font-weight: 700;">[WARN]</span></p>
+    <p style="margin: 0; padding: 0;"><span style="font-size: 13px; color: #E0E0E0; font-family: 'JetBrains Mono', 'Menlo', monospace; line-height: 1.7;">注意事项写在这里。这种 callout 比 markdown 的 &gt; 引用块更有 hacker 味。</span></p>
+  </section>
+</td></tr>
+
+<!-- ========== [组件] 列表（用 > 前缀代替 bullet）========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 14px; color: #C8C8C8; font-family: 'JetBrains Mono', 'Menlo', monospace;"><span style="color: #00FF88;">&gt;</span>&nbsp;&nbsp;第一条要点写在这里</span></p>
+  <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 14px; color: #C8C8C8; font-family: 'JetBrains Mono', 'Menlo', monospace;"><span style="color: #00FF88;">&gt;</span>&nbsp;&nbsp;第二条要点写在这里</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 14px; color: #C8C8C8; font-family: 'JetBrains Mono', 'Menlo', monospace;"><span style="color: #00FF88;">&gt;</span>&nbsp;&nbsp;第三条要点写在这里</span></p>
+</td></tr>
+
+<!-- ========== [组件] 引用块 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <section style="background-color: #0F0F0F; border-left: 3px solid #00FF88; padding: 14px 18px;">
+    <p style="margin: 0 0 6px 0; padding: 0;"><span style="font-size: 13px; color: #E0E0E0; font-family: 'JetBrains Mono', 'Menlo', monospace; line-height: 1.8;">「引用的话写在这里。等宽字体下中文也能保持节奏感。」</span></p>
+    <p style="margin: 0; padding: 0;"><span style="font-size: 11px; color: #4A4A4A; font-family: 'JetBrains Mono', 'Menlo', monospace;">// — 引用来源</span></p>
+  </section>
+</td></tr>
+
+<!-- ========== [组件] 数据格 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 8px 24px 16px; border: none;">
+  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 1px solid #2A2A2A;">
+    <tr>
+      <td width="33%" style="background-color: #0F0F0F; padding: 14px 8px; text-align: center; border-right: 1px solid #2A2A2A;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 22px; font-weight: 700; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace;">25.3K</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #6A6A6A; font-family: 'JetBrains Mono', 'Menlo', monospace;">stars</span></p>
+      </td>
+      <td width="33%" style="background-color: #0F0F0F; padding: 14px 8px; text-align: center; border-right: 1px solid #2A2A2A;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 22px; font-weight: 700; color: #FFD23F; font-family: 'JetBrains Mono', 'Menlo', monospace;">19</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #6A6A6A; font-family: 'JetBrains Mono', 'Menlo', monospace;">agents</span></p>
+      </td>
+      <td width="34%" style="background-color: #0F0F0F; padding: 14px 8px; text-align: center;">
+        <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 22px; font-weight: 700; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace;">-50%</span></p>
+        <p style="margin: 0; padding: 0;"><span style="font-size: 10px; color: #6A6A6A; font-family: 'JetBrains Mono', 'Menlo', monospace;">tokens</span></p>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- [组件] 分隔线 -->
+<tr><td style="background-color: #0A0A0A; padding: 16px 24px; border: none;">
+  <p style="margin: 0; padding: 0;"><span style="font-size: 11px; color: #2A2A2A; font-family: 'JetBrains Mono', 'Menlo', monospace; letter-spacing: 1px;">────────────────────────────────────────</span></p>
+</td></tr>
+
+<!-- ========== [组件] 结尾 ========== -->
+<tr><td style="background-color: #0A0A0A; padding: 16px 24px 32px; border: none; text-align: center;">
+  <p style="margin: 0 0 8px 0; padding: 0;"><span style="font-size: 11px; color: #4A4A4A; font-family: 'JetBrains Mono', 'Menlo', monospace;">$ exit 0</span></p>
+  <p style="margin: 0 0 4px 0; padding: 0;"><span style="font-size: 13px; color: #00FF88; font-family: 'JetBrains Mono', 'Menlo', monospace; font-weight: 700;">// JokerSu AI 之路</span></p>
+  <p style="margin: 0; padding: 0;"><span style="font-size: 11px; color: #4A4A4A; font-family: 'JetBrains Mono', 'Menlo', monospace;">// 关注，下次见</span></p>
+</td></tr>
+
+</table>
+</section>
+<!-- ========== 正文结束 ========== -->
+
+</div>
+</body>
+</html>

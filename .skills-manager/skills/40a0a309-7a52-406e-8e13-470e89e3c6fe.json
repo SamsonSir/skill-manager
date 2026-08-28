@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "40a0a309-7a52-406e-8e13-470e89e3c6fe",
+  "path": "qa-only",
+  "path_key": "qa-only",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ecd6ab86-cdec-42e0-9975-9dd5a59ab9c6",
+  "path": "office-hours",
+  "path_key": "office-hours",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

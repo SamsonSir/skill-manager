@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f9aebe33-7cd5-4f28-9400-eb677fb3fd3e",
+  "path": "ctf-osint",
+  "path_key": "ctf-osint",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c251a8ea-60cb-446d-8896-bd7c8ddba248",
+  "path": "camofox-browser",
+  "path_key": "camofox-browser",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

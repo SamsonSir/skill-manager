@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "cff87800-2fb2-45c8-bcff-175c5c93bac7",
+  "path": "wechat-typesetting-cy",
+  "path_key": "wechat-typesetting-cy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

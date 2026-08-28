@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fd6c1f30-07e7-4c95-a4c3-0965a0313ef8",
+  "path": "design-consultation",
+  "path_key": "design-consultation",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

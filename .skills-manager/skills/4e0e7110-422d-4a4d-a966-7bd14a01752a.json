@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4e0e7110-422d-4a4d-a966-7bd14a01752a",
+  "path": "lark-base",
+  "path_key": "lark-base",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

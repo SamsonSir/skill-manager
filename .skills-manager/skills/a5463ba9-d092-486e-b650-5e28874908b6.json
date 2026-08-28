@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a5463ba9-d092-486e-b650-5e28874908b6",
+  "path": "context-restore",
+  "path_key": "context-restore",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

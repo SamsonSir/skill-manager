@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "0f2d32aa-be35-4306-ae69-001241814d8b",
+  "path": "dream-memory",
+  "path_key": "dream-memory",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

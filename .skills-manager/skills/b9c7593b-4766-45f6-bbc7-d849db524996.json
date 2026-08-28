@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b9c7593b-4766-45f6-bbc7-d849db524996",
+  "path": "qwen-tts",
+  "path_key": "qwen-tts",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6d7e0453-7b0b-4ae1-8f5e-6ba0d435c1d5",
+  "path": "auto-updater",
+  "path_key": "auto-updater",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

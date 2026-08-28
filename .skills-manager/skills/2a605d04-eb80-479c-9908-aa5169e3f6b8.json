@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2a605d04-eb80-479c-9908-aa5169e3f6b8",
+  "path": "mrbeast-perspective",
+  "path_key": "mrbeast-perspective",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

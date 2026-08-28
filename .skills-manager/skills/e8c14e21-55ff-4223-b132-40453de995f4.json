@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e8c14e21-55ff-4223-b132-40453de995f4",
+  "path": "baidu-search",
+  "path_key": "baidu-search",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

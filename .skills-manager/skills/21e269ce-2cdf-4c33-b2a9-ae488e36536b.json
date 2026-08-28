@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "21e269ce-2cdf-4c33-b2a9-ae488e36536b",
+  "path": "ios-qa",
+  "path_key": "ios-qa",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

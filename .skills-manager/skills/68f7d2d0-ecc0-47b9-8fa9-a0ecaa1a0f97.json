@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "68f7d2d0-ecc0-47b9-8fa9-a0ecaa1a0f97",
+  "path": "freeride",
+  "path_key": "freeride",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

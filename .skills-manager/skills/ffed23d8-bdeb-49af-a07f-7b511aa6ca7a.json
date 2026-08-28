@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ffed23d8-bdeb-49af-a07f-7b511aa6ca7a",
+  "path": "ios-fix",
+  "path_key": "ios-fix",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

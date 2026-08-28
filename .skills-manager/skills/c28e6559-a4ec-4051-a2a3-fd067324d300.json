@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c28e6559-a4ec-4051-a2a3-fd067324d300",
+  "path": "ian-xiaohei-illustrations",
+  "path_key": "ian-xiaohei-illustrations",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

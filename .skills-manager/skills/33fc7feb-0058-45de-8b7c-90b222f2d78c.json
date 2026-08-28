@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "33fc7feb-0058-45de-8b7c-90b222f2d78c",
+  "path": "feishu-knowledge-extractor",
+  "path_key": "feishu-knowledge-extractor",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

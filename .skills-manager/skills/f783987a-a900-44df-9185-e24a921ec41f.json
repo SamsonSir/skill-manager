@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f783987a-a900-44df-9185-e24a921ec41f",
+  "path": "myclaw-backup",
+  "path_key": "myclaw-backup",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

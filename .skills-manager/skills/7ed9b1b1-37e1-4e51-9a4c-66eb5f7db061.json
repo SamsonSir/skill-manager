@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7ed9b1b1-37e1-4e51-9a4c-66eb5f7db061",
+  "path": "banner-design",
+  "path_key": "banner-design",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
