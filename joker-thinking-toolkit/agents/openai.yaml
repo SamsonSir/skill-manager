@@ -1,0 +1,4 @@
+interface:
+  display_name: "Joker 深度思考与决策"
+  short_description: "自动选择澄清、核查、第一性原理或决策方法解决复杂问题"
+  default_prompt: "请根据这个问题自动选择最合适的思考方法，检查假设和反例后给出结论。"

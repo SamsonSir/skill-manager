@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2015756c-79bf-487b-9b2f-4e9d4cdec213",
+  "path": "xhs-auth",
+  "path_key": "xhs-auth",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

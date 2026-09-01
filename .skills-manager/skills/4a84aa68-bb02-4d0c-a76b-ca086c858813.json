@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4a84aa68-bb02-4d0c-a76b-ca086c858813",
+  "path": "joker-domain-briefing",
+  "path_key": "joker-domain-briefing",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

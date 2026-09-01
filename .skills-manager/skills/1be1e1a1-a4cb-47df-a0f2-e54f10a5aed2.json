@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "1be1e1a1-a4cb-47df-a0f2-e54f10a5aed2",
+  "path": "xhs-interact",
+  "path_key": "xhs-interact",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

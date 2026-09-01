@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "4ed0d057-4bb3-4794-99d2-0a9cba0f9373",
+  "path": "joker-thinking-toolkit",
+  "path_key": "joker-thinking-toolkit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

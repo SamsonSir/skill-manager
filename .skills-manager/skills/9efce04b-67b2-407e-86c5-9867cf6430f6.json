@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "9efce04b-67b2-407e-86c5-9867cf6430f6",
+  "path": "tabbit",
+  "path_key": "tabbit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a18673d5-57f8-4b5f-b86e-462d9b576335",
+  "path": "xhs-content-ops",
+  "path_key": "xhs-content-ops",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

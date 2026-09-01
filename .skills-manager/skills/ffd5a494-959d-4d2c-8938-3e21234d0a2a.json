@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ffd5a494-959d-4d2c-8938-3e21234d0a2a",
+  "path": "aeg-router",
+  "path_key": "aeg-router",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
