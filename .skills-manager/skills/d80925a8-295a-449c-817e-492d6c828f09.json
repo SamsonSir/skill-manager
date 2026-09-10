@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "skill_id": "d80925a8-295a-449c-817e-492d6c828f09",
-  "path": "joker",
-  "path_key": "joker",
+  "path": "joker-wechat-get-message",
+  "path_key": "joker-wechat-get-message",
   "enabled": true,
   "tags": [],
   "source": {

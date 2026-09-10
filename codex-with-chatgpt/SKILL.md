@@ -693,7 +693,3 @@ the previous public address is gone. Doctor already started a new one.
 | cloudflared missing | install it yourself (brew/winget), then retry |
 | Sidebar has no「项目」 | Ask the user to hover「聊天」, click the …, choose「按项目整理」 |
 | Collection page is the wrong Project | Ask the user to open the named collection and say「已找到」, or accept long-chat |
-
-## Local network setup note
-
-On this Mac, initial quick-tunnel setup timed out without the existing system proxy. Setup succeeded using HTTPS_PROXY=http://127.0.0.1:7897 HTTP_PROXY=http://127.0.0.1:7897 NO_PROXY=127.0.0.1,localhost NODE_USE_ENV_PROXY=1 TUNNEL_TRANSPORT_PROTOCOL=http2 before the Node CLI command. When starting a new bridge process, verify the current proxy with scutil --proxy and use its current address; do not assume port 7897 is permanent. Scope these environment variables to C2C commands only. Do not change global network settings.
