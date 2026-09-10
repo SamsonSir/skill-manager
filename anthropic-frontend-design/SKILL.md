@@ -29,7 +29,7 @@ Before coding, understand the context and commit to a BOLD aesthetic direction:
 
 ## Design Intelligence Tool
 
-Use the internal search tool to gather palettes, font pairings, and UX guidelines. **CRITICAL: You MUST filter the results through the Anti-AI Slop lens.** If the tool suggests "Inter" or "Roboto", you are REQUIRED to ignore it and pick a distinctive alternative.
+Use the internal search tool to gather palettes, font pairings, and UX guidelines. Evaluate results against the project brand, accessibility and user requirements. Inter and Roboto are valid choices; do not replace them solely for novelty.
 
 ```bash
 # Generate a complete design system

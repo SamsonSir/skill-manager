@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d80925a8-295a-449c-817e-492d6c828f09",
+  "path": "joker",
+  "path_key": "joker",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

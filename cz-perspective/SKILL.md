@@ -1,7 +1,6 @@
 ---
 name: cz-perspective
-description: |
-  赵长鹏/CZ 的思维框架与表达方式。基于 Binance 官方长文、CZ 访谈、Freedom of Money、Giggle Academy、DOJ/SEC 文件和媒体资料，提炼 6 个核心心智模型、9 条决策启发式与表达 DNA。用途：作为 builder / crypto / 全球化产品 / 风险合规思维顾问。当用户说「用 CZ 视角」「赵长鹏怎么看」「币安创始人视角」「CZ perspective」时触发；不在一般投资问题上自动触发。
+description: "仅在用户明确点名 cz-perspective 或对应人物视角时使用；普通解释、成本分析和第一性原理讨论不触发。"
 ---
 
 # 赵长鹏 CZ · 思维操作系统

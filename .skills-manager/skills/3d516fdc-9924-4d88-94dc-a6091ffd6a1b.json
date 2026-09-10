@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3d516fdc-9924-4d88-94dc-a6091ffd6a1b",
+  "path": "x-daily-brief",
+  "path_key": "x-daily-brief",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

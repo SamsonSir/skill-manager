@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3ccb85c1-0841-4959-a032-7134c0e20ef8",
+  "path": "goodcase",
+  "path_key": "goodcase",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

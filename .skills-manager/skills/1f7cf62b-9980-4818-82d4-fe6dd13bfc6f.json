@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "1f7cf62b-9980-4818-82d4-fe6dd13bfc6f",
+  "path": "lark-meeting",
+  "path_key": "lark-meeting",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

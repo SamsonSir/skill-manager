@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2fe9ca10-2051-42b1-a12f-8fa87add0660",
+  "path": "wechat-cli",
+  "path_key": "wechat-cli",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

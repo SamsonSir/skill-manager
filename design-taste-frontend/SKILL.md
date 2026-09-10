@@ -140,7 +140,7 @@ Unless the design read picks a real design system (Section 2.A), these are the d
 ### 3.C Icons
 * **Allowed libraries (priority order):** `@phosphor-icons/react`, `hugeicons-react`, `@radix-ui/react-icons`, `@tabler/icons-react`.
 * **Discouraged:** `lucide-react`. Acceptable only when the user explicitly asks for it or the project already depends on it.
-* **NEVER hand-roll SVG icons.** If a glyph is missing, install a second library or compose from primitives - do not draw icon paths from scratch.
+* Prefer the existing icon library. A small custom SVG is acceptable when it matches the design and avoids an unnecessary dependency.
 * **One family per project.** Do not mix Phosphor with Lucide in the same component tree.
 * **Standardize `strokeWidth` globally** (e.g. `1.5` or `2.0`).
 
@@ -203,7 +203,7 @@ LLMs default to clichés. Override these defaults proactively. Each rule has a c
     - **Terracotta + Slate:** warm rust against cool grey, no brass
     - **Olive + Brick + Paper:** muted olive plus brick-red accent
     - **Pure monochrome + single saturated pop:** off-white + off-black + one bright accent (electric blue, emerald, hot pink, etc.)
-  * **Palette-rotation rule:** if the previous premium-consumer project you generated used the beige+brass family, this one MUST use a different family. Do not ship the same warm-craft palette twice in a row.
+   * **Palette choice:** Follow the current brand and brief. Reusing an appropriate palette is allowed; cross-project rotation is optional.
   * **Override:** the beige+brass+espresso palette is acceptable ONLY when the brand brief explicitly names those colors, or when the brand identity is genuinely vintage / artisan / warm-craft AND you can articulate why this specific palette fits this specific brand. Default-reaching for it because "this is a cookware brief" is banned.
 
 ### 4.3 Layout Diversification

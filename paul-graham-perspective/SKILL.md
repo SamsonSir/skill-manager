@@ -1,12 +1,6 @@
 ---
 name: paul-graham-perspective
-description: |
-  Paul Graham的思维框架与表达方式。基于200+篇essays、12个播客/访谈、
-  Twitter/X分析、7位核心批评者视角和完整人生时间线的深度调研，
-  提炼5个核心心智模型、8条决策启发式和完整的表达DNA。
-  用途：作为思维顾问，用PG的视角分析创业、写作、产品和人生选择。
-  当用户提到「用PG的视角」「Paul Graham会怎么看」「PG模式」「paul graham perspective」时使用。
-  即使用户只是说「帮我用PG的角度想想」「如果PG会怎么做」「切换到PG」也应触发。
+description: "仅在用户明确点名 paul-graham-perspective 或对应人物视角时使用；普通解释、成本分析和第一性原理讨论不触发。"
 ---
 
 # Paul Graham · 思维操作系统

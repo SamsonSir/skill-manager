@@ -3,4 +3,4 @@ interface:
   short_description: "Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and..."
   default_prompt: "Use gstack-design-shotgun for this task."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

@@ -1,267 +1,40 @@
 ---
 name: automation-workflows
-description: Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to automate, building workflows across tools, setting up triggers and actions, or optimizing existing automations. Covers automation opportunity identification, workflow design, tool selection (Zapier, Make, n8n), testing, and maintenance. Trigger on "automate", "automation", "workflow automation", "save time", "reduce manual work", "automate my business", "no-code automation".
+description: 梳理、实现或优化跨工具业务自动化与企业 AI 工作流，明确触发、数据、权限、执行状态及验收；适用于现有流程改造或新建业务闭环，不因出现“工作流”就接管软件开发规范审计或普通概念解释。
 ---
 
-# Automation Workflows
+# 业务自动化工作流
 
-## Overview
-As a solopreneur, your time is your most valuable asset. Automation lets you scale without hiring. The goal is simple: automate anything you do more than twice a week that doesn't require creative thinking. This playbook shows you how to identify automation opportunities, design workflows, and implement them without writing code.
+从用户已有流程和本次目标出发，交付对应的流程改进、局部设计或已授权实现。用户已有主体方案时沿用它，只处理指定缺口；不默认要求先记录一周工作、重做选型或另建平台。
 
----
+## 确定本次范围
 
-## Step 1: Identify What to Automate
+结合已有上下文确认实际参与者、触发事件、输入、完成标准和人工判断点。缺少信息会改变实现时，先检查现有资料和系统，再问最关键的问题。已确认的业务与授权不重复询问。
 
-Not every task should be automated. Start by finding the highest-value opportunities.
+区分三种请求：解释操作步骤直接讲清；评估方案说明依据与待验证事项；实施请求在已有授权内落实并验证。软件开发遵循当前环境的项目治理入口，技能不另造一套研发状态机。
 
-**Automation audit (spend 1 hour on this):**
+## 建立可执行流程
 
-1. Track every task you do for a week (use a notebook or simple spreadsheet)
-2. For each task, note:
-   - How long it takes
-   - How often you do it (daily, weekly, monthly)
-   - Whether it's repetitive or requires judgment
+- 沿一笔业务识别触发条件、数据来源、处理步骤、输出位置和负责人。删除无业务价值的步骤需要业务依据，不因追求自动化比例扩大改造。
+- 明确数据唯一标识、字段口径、有效版本和权威来源。跨部门、客户或院校的数据按实际授权隔离。
+- 将确定规则交给程序或工作流；需要语义判断的步骤可以交给模型，并界定无法判断时的处理路径。
+- 为产生业务副作用的动作定义权限检查、请求标识、返回凭证和重试语义。技术超时、结果未知与业务拒绝分别记录；不盲目重复提交。
+- 根据任务影响保留状态、诊断记录和人工接管方式。监控频率、告警渠道、预算及保留期由实际需要决定，不自动创建定时任务或向外发送通知。
 
-3. Calculate time cost per task:
-   ```
-   Time Cost = (Minutes per task × Frequency per month) / 60
-   ```
-   Example: 15 min task done 20x/month = 5 hours/month
+涉及企业系统地基、改造或新建落地时，按需读取 [references/system-foundations.md](references/system-foundations.md)。简单两步自动化不必展开全部内容。
 
-4. Sort by time cost (highest to lowest)
+## 工具与实施
 
-**Good candidates for automation:**
-- Repetitive (same steps every time)
-- Rule-based (no complex judgment calls)
-- High-frequency (daily or weekly)
-- Time-consuming (takes 10+ minutes)
+优先检查用户已选系统、现有接口、连接器和维护条件。只有选型确属任务范围时才比较工具，并核查当前官方能力和价格；不内置固定产品排序、价格或回本阈值。当前环境指定的 Lark、浏览器或开发入口继续生效。
 
-**Examples:**
-- ✅ Sending weekly reports to clients (same format, same schedule)
-- ✅ Creating invoices after payment
-- ✅ Adding new leads to CRM from form submissions
-- ✅ Posting social media content on a schedule
-- ❌ Conducting customer discovery interviews (requires nuance)
-- ❌ Writing custom proposals for clients (requires creativity)
+把配置、映射和代码准备为可检查的结果；启用真实触发器、批量写入、对外发送或删除须核对已有授权和范围。只读分析不扩展为连接生产账号。示例数据或受控测试优先，代表性真实数据须符合实际访问和使用授权。
 
-**Low-hanging fruit checklist (start here):**
-- [ ] Email notifications for form submissions
-- [ ] Auto-save form responses to spreadsheet
-- [ ] Schedule social posts in advance
-- [ ] Auto-create invoices from payment confirmations
-- [ ] Sync data between tools (CRM ↔ email tool ↔ spreadsheet)
+## 验证与交付
 
----
+验证实际结果而非只看界面“成功”：目标记录是否正确、对象与权限是否匹配、重复事件是否造成重复副作用。按风险选择空值、权限拒绝、限流、超时、部分完成和重启等相关场景；无需为简单流程套用完整生产清单。
 
-## Step 2: Choose Your Automation Tool
+说明已实现与已运行的范围、检查结果、需要人工处理的情况及维护责任。仅当需要评估收益时，比较原人工时间与自动化后的复核、返工、维护和运行费用；未知数据标成待测量，不以调用量或使用人数代替业务收益。
 
-Three main options for no-code automation. Pick based on complexity and budget.
+## 长任务、工具与协作
 
-**Tool comparison:**
-
-| Tool | Best For | Pricing | Learning Curve | Power Level |
-|---|---|---|---|---|
-| **Zapier** | Simple, 2-3 step workflows | $20-50/month | Easy | Low-Medium |
-| **Make (Integromat)** | Visual, multi-step workflows | $9-30/month | Medium | Medium-High |
-| **n8n** | Complex, developer-friendly, self-hosted | Free (self-hosted) or $20/month | Medium-Hard | High |
-
-**Selection guide:**
-- Budget < $20/month → Try Zapier free tier or n8n self-hosted
-- Need visual workflow builder → Make
-- Simple 2-step workflows → Zapier
-- Complex workflows with branching logic → Make or n8n
-- Want full control and customization → n8n
-
-**Recommendation for solopreneurs:** Start with Zapier (easiest to learn). Graduate to Make or n8n when you hit Zapier's limits.
-
----
-
-## Step 3: Design Your Workflow
-
-Before building, map out the workflow on paper or a whiteboard.
-
-**Workflow design template:**
-
-```
-TRIGGER: What event starts the workflow?
-  Example: "New row added to Google Sheet"
-
-CONDITIONS (optional): Should this workflow run every time, or only when certain conditions are met?
-  Example: "Only if Status column = 'Approved'"
-
-ACTIONS: What should happen as a result?
-  Step 1: [action]
-  Step 2: [action]
-  Step 3: [action]
-
-ERROR HANDLING: What happens if something fails?
-  Example: "Send me a Slack message if action fails"
-```
-
-**Example workflow (lead capture → CRM → email):**
-```
-TRIGGER: New form submission on website
-
-CONDITIONS: Email field is not empty
-
-ACTIONS:
-  Step 1: Add lead to CRM (e.g., Airtable or HubSpot)
-  Step 2: Send welcome email via email tool (e.g., ConvertKit)
-  Step 3: Create task in project management tool (e.g., Notion) to follow up in 3 days
-  Step 4: Send me a Slack notification: "New lead: [Name]"
-
-ERROR HANDLING: If Step 1 fails, send email alert to me
-```
-
-**Design principles:**
-- Keep it simple — start with 2-3 steps, add complexity later
-- Test each step individually before chaining them together
-- Add delays between actions if needed (some APIs are slow)
-- Always include error notifications so you know when things break
-
----
-
-## Step 4: Build and Test Your Workflow
-
-Now implement it in your chosen tool.
-
-**Build workflow (Zapier example):**
-1. **Choose trigger app** (e.g., Google Forms, Typeform, website form)
-2. **Connect your account** (authenticate via OAuth)
-3. **Test trigger** (submit a test form to make sure data comes through)
-4. **Add action** (e.g., "Add row to Google Sheets")
-5. **Map fields** (match form fields to spreadsheet columns)
-6. **Test action** (run test to verify row is added correctly)
-7. **Repeat for additional actions**
-8. **Turn on workflow** (Zapier calls this "turn on Zap")
-
-**Testing checklist:**
-- [ ] Submit test data through the trigger
-- [ ] Verify each action executes correctly
-- [ ] Check that data maps to the right fields
-- [ ] Test with edge cases (empty fields, special characters, long text)
-- [ ] Test error handling (intentionally cause a failure to see if alerts work)
-
-**Common issues and fixes:**
-
-| Issue | Cause | Fix |
-|---|---|---|
-| Workflow doesn't trigger | Trigger conditions too narrow | Check filter settings, broaden criteria |
-| Action fails | API rate limit or permissions | Add delay between actions, re-authenticate |
-| Data missing or incorrect | Field mapping wrong | Double-check which fields are mapped |
-| Workflow runs multiple times | Duplicate triggers | De-duplicate based on unique ID |
-
-**Rule:** Test with real data before relying on an automation. Don't discover bugs when a real customer is involved.
-
----
-
-## Step 5: Monitor and Maintain Automations
-
-Automations aren't set-it-and-forget-it. They break. Tools change. APIs update. You need a maintenance plan.
-
-**Weekly check (5 min):**
-- Scan workflow logs for errors (most tools show a log of runs + failures)
-- Address any failures immediately
-
-**Monthly audit (15 min):**
-- Review all active workflows
-- Check: Is this still being used? Is it still saving time?
-- Disable or delete unused workflows (they clutter your dashboard and can cause confusion)
-- Update any workflows that depend on tools you've switched away from
-
-**Where to store workflow documentation:**
-- Create a simple doc (Notion, Google Doc) for each workflow
-- Include: What it does, when it runs, what apps it connects, how to troubleshoot
-- If you have 10+ workflows, this doc will save you hours when something breaks
-
-**Error handling setup:**
-- Route all error notifications to one place (Slack channel, email inbox, or task manager)
-- Set up: "If any workflow fails, send a message to [your error channel]"
-- Review errors weekly and fix root causes
-
----
-
-## Step 6: Advanced Automation Ideas
-
-Once you've automated the basics, consider these higher-leverage workflows:
-
-### Client onboarding automation
-```
-TRIGGER: New client signs contract (via DocuSign, HelloSign)
-ACTIONS:
-  1. Create project in project management tool
-  2. Add client to CRM with "Active" status
-  3. Send onboarding email sequence
-  4. Create invoice in accounting software
-  5. Schedule kickoff call on calendar
-  6. Add client to Slack workspace (if applicable)
-```
-
-### Content distribution automation
-```
-TRIGGER: New blog post published on website (via RSS or webhook)
-ACTIONS:
-  1. Post link to LinkedIn with auto-generated caption
-  2. Post link to Twitter as a thread
-  3. Add post to email newsletter draft (in email tool)
-  4. Add to content calendar (Notion or Airtable)
-  5. Send notification to team (Slack) that post is live
-```
-
-### Customer health monitoring
-```
-TRIGGER: Every Monday at 9am (scheduled trigger)
-ACTIONS:
-  1. Pull usage data for all customers from database (via API)
-  2. Flag customers with <50% of average usage
-  3. Add flagged customers to "At Risk" segment in CRM
-  4. Send re-engagement email campaign to at-risk customers
-  5. Create task for me to personally reach out to top 10 at-risk customers
-```
-
-### Invoice and payment tracking
-```
-TRIGGER: Payment received (Stripe webhook)
-ACTIONS:
-  1. Mark invoice as paid in accounting software
-  2. Send receipt email to customer
-  3. Update CRM: customer status = "Paid"
-  4. Add revenue to monthly dashboard (Google Sheets or Airtable)
-  5. Send me a Slack notification: "Payment received: $X from [Customer]"
-```
-
----
-
-## Step 7: Calculate Automation ROI
-
-Not every automation is worth the time investment. Calculate ROI to prioritize.
-
-**ROI formula:**
-```
-Time Saved per Month (hours) = (Minutes per task / 60) × Frequency per month
-Cost = (Setup time in hours × $50/hour) + Tool cost per month
-Payback Period (months) = Setup cost / Monthly time saved value
-
-If payback period < 3 months → Worth it
-If payback period > 6 months → Probably not worth it (unless it unlocks other value)
-```
-
-**Example:**
-```
-Task: Manually copying form submissions to CRM (15 min, 20x/month = 5 hours/month saved)
-Setup time: 1 hour
-Tool cost: $20/month (Zapier)
-Payback: ($50 setup cost) / ($250/month value saved) = 0.2 months → Absolutely worth it
-```
-
-**Rule:** Focus on automations with payback < 3 months. Those are your highest-leverage investments.
-
----
-
-## Automation Mistakes to Avoid
-- **Automating before optimizing.** Don't automate a bad process. Fix the process first, then automate it.
-- **Over-automating.** Not everything needs to be automated. If a task is rare or requires judgment, do it manually.
-- **No error handling.** If an automation breaks and you don't know, it causes silent failures. Always set up error alerts.
-- **Not testing thoroughly.** A broken automation is worse than no automation — it creates incorrect data or missed tasks.
-- **Building too complex too fast.** Start with simple 2-3 step workflows. Add complexity only when the simple version works perfectly.
-- **Not documenting workflows.** Future you will forget how this works. Write it down.
+跨会话或多步骤副作用流程按需读取 [references/continuity-and-receipts.md](references/continuity-and-receipts.md)，复用项目已有状态库与策略。接口与GUI按实际可用性、授权、可验证结果、总耗时和重试成本选择；用户指定工具优先。仅把独立资料研究或互不冲突的产物并行委派，账号写入、浏览器会话和连续决策使用单一执行者。独立子任务给出输入、输出、允许范围和完成判据，主任务核验产物后整合。

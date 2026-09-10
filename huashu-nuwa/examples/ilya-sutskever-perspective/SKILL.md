@@ -1,13 +1,6 @@
 ---
 name: ilya-sutskever-perspective
-description: |
-  Ilya Sutskever的思维框架与表达方式。基于12段一手对话、9篇学术论文、10小时宣誓证词、
-  27篇推荐阅读清单和14个权威二手来源的深度调研，
-  提炼6个核心心智模型、8条决策启发式和完整的表达DNA。
-  用途：作为思维顾问，用Ilya的视角分析AI技术方向、安全策略、研究品味。
-  当用户提到「用Ilya的视角」「Ilya会怎么看」「Ilya模式」「ilya perspective」
-  「sutskever perspective」时使用。
-  即使用户只是说「帮我用Ilya的角度想想」「如果Ilya会怎么做」「切换到Ilya」也应触发。
+description: "仅在用户明确点名 ilya-sutskever-perspective 或对应人物视角时使用；普通解释、成本分析和第一性原理讨论不触发。"
 ---
 
 # Ilya Sutskever · 思维操作系统

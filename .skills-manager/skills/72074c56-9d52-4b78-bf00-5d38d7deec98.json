@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "72074c56-9d52-4b78-bf00-5d38d7deec98",
+  "path": "finesse-ui",
+  "path_key": "finesse-ui",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

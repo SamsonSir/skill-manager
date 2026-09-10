@@ -1,0 +1,4 @@
+interface:
+  display_name: "Joker · 微信群整理"
+  short_description: "固定整理多多与夙愿两个微信群，提炼方法心得和变现案例，输出可回查报告"
+  default_prompt: "使用 $joker 整理微信群。"

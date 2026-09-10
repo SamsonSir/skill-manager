@@ -1,4 +1,4 @@
 interface:
   display_name: "Joker 陌生领域资料转化"
-  short_description: "将长篇专业资料转成聪明外行可理解并能与专家对话的入门文档"
-  default_prompt: "请把我提供的专业资料整理成面向聪明外行的领域入门文档。"
+  short_description: "围绕指定用途解读专业资料，将陌生概念转成可理解、可实施的步骤"
+  default_prompt: "请用 $joker-domain-briefing 围绕我的具体问题解读资料，解释机制并按需要给出实际操作步骤。"
