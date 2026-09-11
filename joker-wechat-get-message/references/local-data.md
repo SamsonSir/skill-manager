@@ -7,14 +7,32 @@
 - 已有查询器：根目录下 `读取聊天记录.py`。仅依赖Python标准库。`--stats`读取旧验证报告，不可用于判断当前新鲜度。
 - 多多：`57947720564@chatroom`
 - 夙愿：`50351187410@chatroom`
-- 报告根：`学习整理/Joker/<运行时间>/<多多或夙愿>/`，每次新目录，禁止覆盖旧报告。
-- 运行状态：`学习整理/Joker/state.json`。权限目录0700、文件0600；不写进正式知识库或技能目录。
+- 监控名单：`学习整理/Joker/watchlist.json`。权限目录0700、文件0600。默认仍是上述两群；`enabled: true` 才会进入「整理微信群」。不要把 564 个会话一次性加入。
+- 名单管理脚本：技能目录 `scripts/watchlist.py`。只读 SQLite，不打印聊天正文。
+- 快照刷新：技能目录 `scripts/refresh.py`，步骤见 [refresh.md](refresh.md)。
+- 群日报：技能目录 `scripts/daily.py`，飞书目录见 [feishu-wiki.md](feishu-wiki.md) 与 `scripts/wiki_catalog.json`。
+- 报告根：`学习整理/Joker/<运行时间>/<对象标签>/`，每次新目录，禁止覆盖旧报告。群与联系人分开目录，禁止混成同一份。
+- 运行状态：`学习整理/Joker/state.json`。权限目录0700、文件0600；不写进正式知识库或技能目录。不存在时不要伪造增量游标。
+- 飞书个人学习库：空间 `Joker AI学习知识库`（`space_id` `7684186386408197367`）。写入规则见 [feishu-wiki.md](feishu-wiki.md)。本机 HTML 仍按上面的报告根输出，不要用飞书页代替来源索引。
 
-技能内固定的是此用户明确指定的数据位置和两个群；不要搜索其他账号、扩展到所有聊天或读取密钥。
+技能内固定的是此用户明确指定的数据位置；默认监控对象是两个群。可以按用户本轮点名把快照里已有的群或联系人加入名单，但查询必须用精确 `chat_username = ?`，不要搜索其他账号、不要默认扩展到全部聊天。刷新快照时由 `scripts/refresh.py` 读取 `private/keys.json`，Agent 不要打印密钥内容。
 
 ## 每次先查实际数据
 
-参数化SQL，逐群查询：
+先看名单与快照新鲜度（无正文）：
+
+```bash
+python3 "/Users/joker/.skills-manager/skills/joker-wechat-get-message/scripts/watchlist.py" status
+```
+
+加入监控必须先解析到唯一 ID。`读取聊天记录.py --chat` 是包含匹配，**不能**用来当 ID。用：
+
+```bash
+python3 ".../scripts/watchlist.py" list-chats --query '精确名称或ID'
+python3 ".../scripts/watchlist.py" add --id 'chat_username'
+```
+
+同名多个会话时停止询问，不要取第一项。参数化 SQL，逐个对象查询：
 
 ```sql
 SELECT COUNT(*) AS records, MIN(create_time) AS first_time,
@@ -22,7 +40,7 @@ SELECT COUNT(*) AS records, MIN(create_time) AS first_time,
 FROM messages WHERE chat_username = ?;
 ```
 
-`create_time`是Unix秒，使用`zoneinfo.ZoneInfo('Asia/Shanghai')`转换，不依赖宿主默认时区。最大消息时间只是快照中的最新记录，不证明实时同步或中间日期完整。与当前时间相差超过24小时明确提示快照滞后；即使不足24小时也不称已全量同步。
+`create_time`是Unix秒，使用`zoneinfo.ZoneInfo('Asia/Shanghai')`转换，不依赖宿主默认时区。最大消息时间只是快照中的最新记录，不证明实时同步或中间日期完整。`refresh_needed` 为 true 或要的日期晚于该时间时，先按 [refresh.md](refresh.md) 刷新。与当前时间相差超过24小时且未刷新成功，明确提示快照滞后；即使不足24小时也不称已全量同步。
 
 ## 读取消息
 
