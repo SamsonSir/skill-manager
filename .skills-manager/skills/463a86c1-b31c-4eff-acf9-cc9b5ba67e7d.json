@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "463a86c1-b31c-4eff-acf9-cc9b5ba67e7d",
+  "path": "xiaohongshu-write",
+  "path_key": "xiaohongshu-write",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d6b9b537-fad0-4e4f-a36e-2c35d8dec07b",
+  "path": "space-text-logic-diagram",
+  "path_key": "space-text-logic-diagram",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fb91dd49-6730-457b-a3f9-6160c6e7a17a",
+  "path": "hypit",
+  "path_key": "hypit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

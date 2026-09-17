@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8b054176-8bf3-4873-b473-e37ed6b2dd5f",
+  "path": "GordenImage2PPTX",
+  "path_key": "gordenimage2pptx",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

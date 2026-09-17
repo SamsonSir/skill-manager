@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f1647f1a-e147-4e74-8fbf-0b9634727c71",
+  "path": "space-xhs-cover",
+  "path_key": "space-xhs-cover",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

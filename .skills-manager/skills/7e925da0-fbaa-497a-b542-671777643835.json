@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7e925da0-fbaa-497a-b542-671777643835",
+  "path": "space-chart-image",
+  "path_key": "space-chart-image",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

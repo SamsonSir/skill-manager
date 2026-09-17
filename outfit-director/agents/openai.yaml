@@ -1,0 +1,4 @@
+interface:
+  display_name: "换装导演"
+  short_description: "生成女性、男性及宠物的多造型拼贴首帧与换装视频脚本"
+  default_prompt: "使用 $outfit-director 设计一套 7 造型、15 秒的连续换装舞蹈首帧与视频脚本。"

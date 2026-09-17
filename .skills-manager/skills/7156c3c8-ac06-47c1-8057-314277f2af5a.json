@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7156c3c8-ac06-47c1-8057-314277f2af5a",
+  "path": "douyin-transcript-exporter",
+  "path_key": "douyin-transcript-exporter",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

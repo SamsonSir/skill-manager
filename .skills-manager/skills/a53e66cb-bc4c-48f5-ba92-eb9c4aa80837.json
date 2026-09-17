@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a53e66cb-bc4c-48f5-ba92-eb9c4aa80837",
+  "path": "baoyu-design",
+  "path_key": "baoyu-design",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

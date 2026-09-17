@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "184143a8-9379-48ad-86ee-d9c099d83054",
+  "path": "space-xhs-account-audit",
+  "path_key": "space-xhs-account-audit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

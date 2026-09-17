@@ -1,0 +1,4 @@
+interface:
+  display_name: "生图提示词教练"
+  short_description: "依据官方指南，结合实例系统学习画面描述、关键条件与出图迭代"
+  default_prompt: "使用 $joker-image-prompt-coach，依据官方生图提示词指南，结合例子带我开始学习怎么描述画面、何时补充关键条件。"

@@ -15,11 +15,14 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+import lark_util as lu
 import watchlist as wl
 
 TZ = datetime.timezone(datetime.timedelta(hours=8))
 CATALOG_PATH = Path(__file__).resolve().parent / "wiki_catalog.json"
+OVERLAY_DIR = Path(__file__).resolve().parent / "overlays"
 SOURCE_MARK = re.compile(r"来源：\s*#\d+|成员\d+")
+TAKEAWAY_BAN = re.compile(r"以上是该时段可读文字摘录|练习前回到原消息上下文")
 WXID_RE = re.compile(r"^wxid_", re.I)
 URL_RE = re.compile(r"https?://[^\s<>\"']+")
 TAG_RE = re.compile(r"<[^>]+>")
@@ -231,6 +234,16 @@ def clusters(messages: list[dict], window: int = 1200, min_size: int = 6, limit:
         end = datetime.datetime.fromtimestamp(group[-1]["create_time"], TZ)
         hits = topic_hits(group)
         title = hits[0][0] if hits else f"{start.strftime('%H:%M')}–{end.strftime('%H:%M')} 时段"
+        takeaway = ""
+        for m in group:
+            text = m.get("text") or ""
+            if m.get("local_type") != 1 or len(text) < 16:
+                continue
+            if re.search(r"可以|建议|先|不要|关键是|其实|记住|适合|别急", text):
+                takeaway = text[:120]
+                break
+        if TAKEAWAY_BAN.search(takeaway or ""):
+            takeaway = ""
         out.append(
             {
                 "title": title,
@@ -239,6 +252,8 @@ def clusters(messages: list[dict], window: int = 1200, min_size: int = 6, limit:
                 "excerpts": excerpts[:4],
                 "start": start.strftime("%H:%M"),
                 "end": end.strftime("%H:%M"),
+                "what": "；".join(excerpts[:4]),
+                "takeaway": takeaway,
             }
         )
         if len(out) >= limit:
@@ -362,6 +377,8 @@ def build_day(con, chat_username: str, label: str, wiki_title: str, day: datetim
 
 
 def overview_sentence(p: dict[str, Any]) -> str:
+    if str(p.get("overview") or "").strip():
+        return str(p["overview"]).strip()
     tops = "、".join(f"{name}（{n}条）" for name, n in p["rank"][:3]) or "—"
     topics = "、".join(name for name, _ in p["topics"][:3])
     text = (
@@ -433,16 +450,15 @@ def render_xml(p: dict[str, Any]) -> str:
         parts.append("<p>时段消息不足以切出重点讨论簇，不编空段。</p>")
     for i, cluster in enumerate(p["clusters"], 1):
         parts.append(f"<h3>{i}. {xml_escape(cluster['title'])}</h3>")
-        excerpts = "；".join(cluster["excerpts"]) or "该时段以图片/视频/表情为主，正文未展开。"
-        names = "、".join(cluster["names"]) or "—"
-        parts.append(
-            f"<p><b>发生了什么：</b>{xml_escape(cluster['start'])}–{xml_escape(cluster['end'])} "
-            f"共 {cluster['count']} 条。{xml_escape(excerpts)}</p>"
-        )
-        parts.append(
-            "<p><b>群友可参考：</b>以上是该时段可读文字摘录，不是教程全文；"
-            "附件未展开，练习前回到原消息上下文。</p>"
-        )
+        what = cluster.get("what") or "；".join(cluster.get("excerpts") or [])
+        if not what:
+            what = "该时段以图片/视频/表情为主，正文未展开。"
+        names = "、".join(cluster.get("names") or []) or "—"
+        takeaway = (cluster.get("takeaway") or "").strip()
+        if not takeaway or TAKEAWAY_BAN.search(takeaway):
+            takeaway = "该话题还停在晒图或闲聊，没有提炼出可带走的做法。"
+        parts.append(f"<p><b>发生了什么：</b>{xml_escape(what)}</p>")
+        parts.append(f"<p><b>群友可参考：</b>{xml_escape(takeaway)}</p>")
         parts.append(f"<p>参与：{xml_escape(names)}</p>")
     parts.append(f"<h2>{BLOCKS[5]}</h2>")
     if p["progress"]:
@@ -483,10 +499,309 @@ def render_xml(p: dict[str, Any]) -> str:
     xml = "\n".join(parts) + "\n"
     if SOURCE_MARK.search(xml):
         raise DailyError("生成 XML 含编号来源或成员编码，已中止")
+    if TAKEAWAY_BAN.search(xml):
+        raise DailyError("群友可参考写成了摘录套话，已中止")
+    if p.get("clusters") and xml.count("<b>群友可参考：</b>") < len(p["clusters"]):
+        raise DailyError("重点讨论缺少群友可参考")
     for heading in BLOCKS:
         if heading not in xml:
             raise DailyError(f"缺少固定栏目：{heading}")
     return xml
+
+
+def clip(text: str, limit: int = 72) -> str:
+    text = re.sub(r"\s+", " ", str(text or "")).strip()
+    text = re.sub(r"[*_`~<>]", "", text)
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1] + "…"
+
+
+def render_card(p: dict[str, Any], wiki_url: str = "") -> dict[str, Any]:
+    """Card 2.0：九块日报结构。header blue / default / column_set + collapsible + button."""
+    overview = clip(overview_sentence(p), 160)
+    rank_lines = []
+    for i, (name, n) in enumerate(p.get("rank") or [], 1):
+        rank_lines.append(f"{i}. {clip(name, 16)} — {n}")
+    if not rank_lines:
+        rank_lines.append("本期无有效发言账号")
+    topic_lines = []
+    for name, n in (p.get("topics") or [])[:5]:
+        topic_lines.append(f"- {clip(name, 18)} · {n}")
+    if not topic_lines:
+        topic_lines.append("- 关键词桶未命中")
+    types = p.get("types") or {}
+    detail_parts = [
+        f"**{BLOCKS[1]}**\n"
+        f"文字 {types.get('text', 0)} / 图片 {types.get('image', 0)} / "
+        f"视频 {types.get('video', 0)} / 系统 {types.get('system', 0)}；"
+        f"覆盖 {p.get('first')}–{p.get('last')}",
+        f"**{BLOCKS[4]}**",
+    ]
+    if p.get("clusters"):
+        for i, cluster in enumerate(p["clusters"][:4], 1):
+            excerpts = "；".join(clip(x, 36) for x in cluster.get("excerpts") or []) or "该时段以附件为主"
+            names = "、".join(clip(n, 10) for n in cluster.get("names") or []) or "—"
+            takeaway = clip(cluster.get("takeaway") or "该话题没有可带走的做法", 72)
+            detail_parts.append(
+                f"**{i}. {clip(cluster.get('title') or '讨论', 24)}**\n"
+                f"发生了什么：{excerpts}\n"
+                f"群友可参考：{takeaway}\n"
+                f"参与：{names}"
+            )
+    else:
+        detail_parts.append("时段消息不足以切出重点讨论簇，不编空段。")
+    detail_parts.append(f"**{BLOCKS[5]}**")
+    if p.get("progress"):
+        detail_parts.extend(f"- {clip(item, 48)}" for item in p["progress"][:5])
+    else:
+        detail_parts.append("本期未识别到链接、询价或开源进展。")
+    detail_parts.append(f"**{BLOCKS[6]}**")
+    if p.get("thoughts"):
+        for name, text in p["thoughts"][:4]:
+            detail_parts.append(f"- **{clip(name, 12)}**：{clip(text, 42)}")
+    else:
+        detail_parts.append("本期未发现可摘录的心得句。")
+    detail_parts.append(f"**{BLOCKS[7]}**")
+    if p.get("tools"):
+        for label, url in p["tools"][:5]:
+            host = urlparse(url).netloc or clip(url, 32)
+            detail_parts.append(f"- {clip(label, 24)}：{host}")
+    else:
+        detail_parts.append("本期没有提取到可展示的 http(s) 链接。")
+    keys = " · ".join(p.get("keywords") or []) or "本期关键词不足"
+    detail_parts.append(f"**{BLOCKS[8]}**\n{clip(keys, 80)}")
+    detail_md = "\n\n".join(detail_parts)
+    card: dict[str, Any] = {
+        "schema": "2.0",
+        "config": {
+            "update_multi": True,
+            "width_mode": "default",
+            "style": {
+                "text_size": {
+                    "title": {"default": "heading-2", "pc": "heading-2", "mobile": "heading-3"},
+                    "body": {"default": "normal", "pc": "normal", "mobile": "normal"},
+                    "caption": {"default": "notation", "pc": "notation", "mobile": "notation"},
+                },
+                "color": {
+                    "cus-primary": {"light_mode": "rgba(15,76,129,1)", "dark_mode": "rgba(80,150,255,1)"},
+                    "cus-primary-bg": {"light_mode": "rgba(15,76,129,0.08)", "dark_mode": "rgba(80,150,255,0.12)"},
+                    "cus-muted": {"light_mode": "rgba(100,106,115,1)", "dark_mode": "rgba(150,155,163,1)"},
+                },
+            },
+        },
+        "header": {
+            "title": {"tag": "plain_text", "content": f"{p['date']} {p['wiki_title']}"},
+            "subtitle": {"tag": "plain_text", "content": f"群日报 · {clip(p.get('theme') or '群聊摘录', 24)}"},
+            "template": "blue",
+            "icon": {"tag": "standard_icon", "token": "myai_colorful"},
+            "text_tag_list": [
+                {"tag": "text_tag", "text": {"tag": "plain_text", "content": "日报"}, "color": "blue"},
+                {"tag": "text_tag", "text": {"tag": "plain_text", "content": "九块"}, "color": "neutral"},
+            ],
+        },
+        "body": {
+            "direction": "vertical",
+            "padding": "12px 12px 20px 12px",
+            "elements": [
+                {
+                    "tag": "markdown",
+                    "element_id": "overview",
+                    "margin": "0px 0px 12px 0px",
+                    "content": f"**{BLOCKS[0]}**\n{overview}",
+                },
+                {
+                    "tag": "column_set",
+                    "element_id": "metrics",
+                    "flex_mode": "none",
+                    "horizontal_spacing": "12px",
+                    "margin": "0px 0px 12px 0px",
+                    "columns": [
+                        {
+                            "tag": "column",
+                            "width": "weighted",
+                            "weight": 1,
+                            "background_style": "grey-50",
+                            "padding": "12px",
+                            "vertical_spacing": "2px",
+                            "elements": [
+                                {
+                                    "tag": "markdown",
+                                    "content": f"## <font color='blue'>{p['count']}</font>",
+                                    "text_align": "center",
+                                },
+                                {
+                                    "tag": "markdown",
+                                    "content": "<font color='grey'>消息</font>",
+                                    "text_align": "center",
+                                    "text_size": "notation",
+                                },
+                            ],
+                        },
+                        {
+                            "tag": "column",
+                            "width": "weighted",
+                            "weight": 1,
+                            "background_style": "grey-50",
+                            "padding": "12px",
+                            "vertical_spacing": "2px",
+                            "elements": [
+                                {
+                                    "tag": "markdown",
+                                    "content": f"## <font color='blue'>{p['speakers']}</font>",
+                                    "text_align": "center",
+                                },
+                                {
+                                    "tag": "markdown",
+                                    "content": "<font color='grey'>活跃</font>",
+                                    "text_align": "center",
+                                    "text_size": "notation",
+                                },
+                            ],
+                        },
+                        {
+                            "tag": "column",
+                            "width": "weighted",
+                            "weight": 1,
+                            "background_style": "grey-50",
+                            "padding": "12px",
+                            "vertical_spacing": "2px",
+                            "elements": [
+                                {
+                                    "tag": "markdown",
+                                    "content": f"## <font color='blue'>{p.get('share') or 0}</font>",
+                                    "text_align": "center",
+                                },
+                                {
+                                    "tag": "markdown",
+                                    "content": "<font color='grey'>分享</font>",
+                                    "text_align": "center",
+                                    "text_size": "notation",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "tag": "column_set",
+                    "element_id": "ranks",
+                    "flex_mode": "none",
+                    "horizontal_spacing": "12px",
+                    "margin": "0px 0px 12px 0px",
+                    "columns": [
+                        {
+                            "tag": "column",
+                            "width": "weighted",
+                            "weight": 1,
+                            "background_style": "blue-50",
+                            "padding": "12px",
+                            "vertical_spacing": "4px",
+                            "elements": [
+                                {
+                                    "tag": "markdown",
+                                    "content": f"**<font color='blue'>{BLOCKS[2]}</font>**\n"
+                                    + "\n".join(rank_lines),
+                                }
+                            ],
+                        },
+                        {
+                            "tag": "column",
+                            "width": "weighted",
+                            "weight": 1,
+                            "background_style": "grey-50",
+                            "padding": "12px",
+                            "vertical_spacing": "4px",
+                            "elements": [
+                                {
+                                    "tag": "markdown",
+                                    "content": f"**<font color='blue'>{BLOCKS[3]}</font>**\n"
+                                    + "\n".join(topic_lines),
+                                }
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "tag": "collapsible_panel",
+                    "element_id": "details",
+                    "expanded": False,
+                    "margin": "0px 0px 12px 0px",
+                    "header": {
+                        "title": {
+                            "tag": "plain_text",
+                            "content": "重点讨论 / 进展 / 思考 / 工具",
+                        }
+                    },
+                    "elements": [{"tag": "markdown", "content": detail_md}],
+                },
+            ],
+        },
+    }
+    if wiki_url:
+        card["body"]["elements"].append(
+            {
+                "tag": "button",
+                "element_id": "openwiki",
+                "text": {"tag": "plain_text", "content": "打开 Wiki 日报"},
+                "type": "primary_filled",
+                "width": "fill",
+                "margin": "0px",
+                "behaviors": [
+                    {
+                        "type": "open_url",
+                        "default_url": wiki_url,
+                        "pc_url": wiki_url,
+                        "ios_url": wiki_url,
+                        "android_url": wiki_url,
+                    }
+                ],
+            }
+        )
+    else:
+        card["body"]["elements"][-1]["margin"] = "0px"
+    dumped = json.dumps(card, ensure_ascii=False)
+    if SOURCE_MARK.search(dumped):
+        raise DailyError("卡片含编号来源或成员编码，已中止")
+    return card
+
+
+def send_card(card: dict[str, Any], user_open_id: str | None = None) -> dict[str, Any]:
+    notify = catalog().get("notify") or {}
+    user_id = user_open_id or notify.get("user_open_id")
+    identity = str(notify.get("as") or "bot")
+    if not user_id:
+        raise DailyError("wiki_catalog.json 缺少 notify.user_open_id")
+    proc = subprocess.run(
+        [
+            "lark-cli",
+            "im",
+            "+messages-send",
+            "--user-id",
+            user_id,
+            "--msg-type",
+            "interactive",
+            "--content",
+            json.dumps(card, ensure_ascii=False),
+            "--as",
+            identity,
+            "--format",
+            "json",
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if proc.returncode != 0:
+        raise DailyError(f"飞书卡片发送失败：{(proc.stderr or proc.stdout)[:500]}")
+    payload = json.loads(proc.stdout) if proc.stdout.strip() else {}
+    inner = payload.get("data") if isinstance(payload, dict) else None
+    if isinstance(inner, dict):
+        payload = inner
+    return {
+        "message_id": str(payload.get("message_id") or ""),
+        "chat_id": str(payload.get("chat_id") or ""),
+        "user_id": user_id,
+        "as": identity,
+    }
 
 
 def resolve_target(con, chat_username: str | None, name: str | None) -> dict[str, str]:
@@ -535,18 +850,10 @@ def write_outputs(payload: dict[str, Any], xml: str, out_dir: Path) -> dict[str,
 
 
 def lark_json(args: list[str]) -> dict[str, Any]:
-    proc = subprocess.run(args, capture_output=True, text=True)
-    if proc.returncode != 0:
-        err = (proc.stderr or proc.stdout or "").strip()
-        raise DailyError(f"lark-cli 失败：{err[:500]}")
-    text = proc.stdout.strip()
-    if not text:
-        return {}
-    payload = json.loads(text)
-    inner = payload.get("data") if isinstance(payload, dict) else None
-    if isinstance(inner, dict):
-        return inner
-    return payload if isinstance(payload, dict) else {}
+    try:
+        return lu.lark_json(args)
+    except lu.LarkError as exc:
+        raise DailyError(str(exc)) from exc
 
 
 def existing_daily(parent: str, title: str) -> dict[str, str] | None:
@@ -570,13 +877,19 @@ def existing_daily(parent: str, title: str) -> dict[str, str] | None:
     items = data.get("data", data)
     if isinstance(items, dict):
         items = items.get("items") or items.get("nodes") or items.get("children") or []
+    dated = None
+    day = title[:10] if len(title) >= 10 else ""
     for node in items or []:
-        if str(node.get("title") or "") == title:
-            return {
-                "node_token": str(node.get("node_token") or node.get("nodeToken") or ""),
-                "obj_token": str(node.get("obj_token") or node.get("objToken") or ""),
-            }
-    return None
+        node_title = str(node.get("title") or "")
+        hit = {
+            "node_token": str(node.get("node_token") or node.get("nodeToken") or ""),
+            "obj_token": str(node.get("obj_token") or node.get("objToken") or ""),
+        }
+        if node_title == title:
+            return hit
+        if day and node_title.startswith(day + "-"):
+            dated = hit
+    return dated
 
 
 def publish(payload: dict[str, Any], xml_path: Path, parent: str) -> dict[str, str]:
@@ -641,6 +954,103 @@ def publish(payload: dict[str, Any], xml_path: Path, parent: str) -> dict[str, s
     }
 
 
+def apply_overlay(payload: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
+    data = dict(payload)
+    if overlay.get("overview"):
+        data["overview"] = str(overlay["overview"]).strip()
+    if overlay.get("theme"):
+        data["theme"] = str(overlay["theme"]).strip()
+        data["title"] = f"{data['date']}-{data['wiki_title']}-{data['theme']}"
+    if overlay.get("topics"):
+        topics = []
+        for item in overlay["topics"]:
+            if isinstance(item, dict):
+                topics.append((str(item.get("title") or ""), int(item.get("heat") or 1)))
+            elif isinstance(item, (list, tuple)) and item:
+                topics.append((str(item[0]), int(item[1]) if len(item) > 1 else 1))
+        data["topics"] = topics
+    if overlay.get("clusters"):
+        clusters = []
+        for item in overlay["clusters"]:
+            takeaway = str(item.get("takeaway") or "").strip()
+            if TAKEAWAY_BAN.search(takeaway):
+                raise DailyError("overlay 的群友可参考是套话")
+            clusters.append(
+                {
+                    "title": str(item.get("title") or "未命名讨论"),
+                    "count": int(item.get("count") or 0),
+                    "names": list(item.get("names") or []),
+                    "excerpts": list(item.get("excerpts") or []),
+                    "start": str(item.get("start") or ""),
+                    "end": str(item.get("end") or ""),
+                    "what": str(item.get("what") or item.get("happened") or ""),
+                    "takeaway": takeaway,
+                }
+            )
+        data["clusters"] = clusters
+    if overlay.get("progress"):
+        data["progress"] = [str(x) for x in overlay["progress"]]
+    if overlay.get("thoughts"):
+        thoughts = []
+        for item in overlay["thoughts"]:
+            if isinstance(item, dict):
+                thoughts.append((str(item.get("name") or ""), str(item.get("text") or "")))
+            elif isinstance(item, (list, tuple)) and len(item) >= 2:
+                thoughts.append((str(item[0]), str(item[1])))
+        data["thoughts"] = thoughts
+    if overlay.get("tools"):
+        tools = []
+        for item in overlay["tools"]:
+            if isinstance(item, dict):
+                tools.append((str(item.get("label") or ""), str(item.get("url") or "")))
+            elif isinstance(item, (list, tuple)) and item:
+                tools.append((str(item[0]), str(item[1]) if len(item) > 1 else ""))
+        data["tools"] = tools
+    if overlay.get("keywords"):
+        data["keywords"] = [str(x) for x in overlay["keywords"]]
+    dumped = json.dumps(data, ensure_ascii=False)
+    if SOURCE_MARK.search(dumped) or TAKEAWAY_BAN.search(dumped):
+        raise DailyError("overlay 含编号来源、成员编码或群友可参考套话")
+    data["overlay_applied"] = True
+    return data
+
+
+def overlay_path(label: str, day: datetime.date) -> Path:
+    return OVERLAY_DIR / f"{day.isoformat()}-{label}.json"
+
+
+def attach_overlay(payload: dict[str, Any], overlay_arg: str | None = None) -> dict[str, Any]:
+    if overlay_arg:
+        path = Path(overlay_arg)
+        if not path.is_file():
+            raise DailyError(f"找不到 overlay：{path}")
+    else:
+        path = overlay_path(str(payload.get("label") or ""), parse_day(str(payload.get("date") or "")))
+        if not path.is_file():
+            return payload
+    overlay = json.loads(path.read_text(encoding="utf-8"))
+    data = apply_overlay(payload, overlay)
+    data["overlay_file"] = str(path)
+    return data
+
+
+def ensure_publishable(payload: dict[str, Any]) -> None:
+    label = str(payload.get("label") or "群")
+    day = str(payload.get("date") or "")
+    expected = overlay_path(label, parse_day(day)) if day else OVERLAY_DIR / f"YYYY-MM-DD-{label}.json"
+    if not payload.get("overlay_applied"):
+        raise DailyError(
+            f"写入飞书必须先套 overlay（{expected}）。"
+            "脚本只算统计和排行；总览、事件名、发生了什么、群友可参考由 Agent 按群主模板填写。"
+            "换任何 Agent 都走同一份 JSON，不能直接把机械日报覆盖进 Wiki。"
+        )
+    for cluster in payload.get("clusters") or []:
+        takeaway = str(cluster.get("takeaway") or "").strip()
+        if not takeaway or TAKEAWAY_BAN.search(takeaway):
+            title = cluster.get("title") or "未命名讨论"
+            raise DailyError(f"「{title}」缺少可带走的群友可参考")
+
+
 def default_out_dir() -> Path:
     return Path(
         os.environ.get(
@@ -674,6 +1084,8 @@ def main(argv: list[str] | None = None) -> int:
     p_build.add_argument("--to-date")
     p_build.add_argument("--out", help="输出目录")
     p_build.add_argument("--publish", action="store_true", help="写入飞书 Wiki")
+    p_build.add_argument("--notify", action="store_true", help="用飞书机器人把日报卡片发给自己")
+    p_build.add_argument("--overlay", help="Agent 填写的讨论 overlay JSON")
     args = parser.parse_args(raw)
     args.json = as_json
     con = wl.connect(wl.db_path())
@@ -701,6 +1113,7 @@ def main(argv: list[str] | None = None) -> int:
                     results.append({"ok": False, "date": day.isoformat(), "error": str(exc)})
                     continue
                 raise
+            payload = attach_overlay(payload, getattr(args, "overlay", None))
             xml = render_xml(payload)
             paths = write_outputs(payload, xml, out_dir)
             item = {
@@ -709,14 +1122,24 @@ def main(argv: list[str] | None = None) -> int:
                 "count": payload["count"],
                 "xml": paths["xml"],
                 "json": paths["json"],
+                "overlay_applied": bool(payload.get("overlay_applied")),
             }
             if args.publish:
+                ensure_publishable(payload)
                 pub = publish(payload, Path(paths["xml"]), target.get("node_token") or "")
                 item.update(pub)
+            item["_payload"] = payload
             results.append(item)
         ok_days = [item for item in results if item.get("ok")]
         if not ok_days:
             raise DailyError("指定范围内没有可读消息")
+        if args.notify:
+            last = ok_days[-1]
+            card = render_card(last["_payload"], last.get("url") or "")
+            notice = send_card(card)
+            last["notified"] = notice
+        for item in results:
+            item.pop("_payload", None)
         emit({"ok": True, "days": results} if len(results) != 1 else results[0], args.json)
         return 0
     except DailyError as exc:

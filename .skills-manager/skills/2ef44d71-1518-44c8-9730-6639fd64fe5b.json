@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2ef44d71-1518-44c8-9730-6639fd64fe5b",
+  "path": "image-reverse-analyst",
+  "path_key": "image-reverse-analyst",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

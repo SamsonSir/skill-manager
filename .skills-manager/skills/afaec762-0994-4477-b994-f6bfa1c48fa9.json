@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "afaec762-0994-4477-b994-f6bfa1c48fa9",
+  "path": "xhs-html",
+  "path_key": "xhs-html",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c13ffa77-a3df-4f90-bc34-7e08269498e4",
+  "path": "gzh-positioning",
+  "path_key": "gzh-positioning",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

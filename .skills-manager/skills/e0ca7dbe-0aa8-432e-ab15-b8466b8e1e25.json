@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e0ca7dbe-0aa8-432e-ab15-b8466b8e1e25",
+  "path": "wechat-publisher-pro",
+  "path_key": "wechat-publisher-pro",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

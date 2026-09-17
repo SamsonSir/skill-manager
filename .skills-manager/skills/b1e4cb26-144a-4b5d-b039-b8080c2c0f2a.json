@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b1e4cb26-144a-4b5d-b039-b8080c2c0f2a",
+  "path": "global-content-search",
+  "path_key": "global-content-search",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

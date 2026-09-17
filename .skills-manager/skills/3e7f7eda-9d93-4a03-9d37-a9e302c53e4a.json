@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3e7f7eda-9d93-4a03-9d37-a9e302c53e4a",
+  "path": "deck-dna",
+  "path_key": "deck-dna",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

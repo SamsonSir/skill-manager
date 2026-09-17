@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "59f65e3f-0f43-43be-b7ec-1b88c7f1ac1e",
+  "path": "space-xhs-note-analytics",
+  "path_key": "space-xhs-note-analytics",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

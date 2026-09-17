@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e605eae7-a969-4fca-a2e5-f2a42faf1808",
+  "path": "space-xhs-title",
+  "path_key": "space-xhs-title",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "5fa80591-97b2-4911-8107-4216e92d27a6",
+  "path": "space-video-broll-sketch",
+  "path_key": "space-video-broll-sketch",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

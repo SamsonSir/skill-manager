@@ -1,0 +1,12 @@
+{
+  "name": "公众号草稿推送",
+  "installedAt": 1789217775323,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2096085735123021824",
+  "description_zh": "将本地 HTML 文章（含 base64 内嵌图片）推送到微信公众号草稿箱，自动上传图片素材并创建草稿，供后台手动发布。",
+  "description_en": "Push local HTML articles (with base64 images) into the WeChat official account draft box.",
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
+  "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-draft-publisher/_icon.jpg",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg"
+}

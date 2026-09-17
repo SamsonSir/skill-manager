@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8efecec7-552f-4ff0-a963-d48288d3610f",
+  "path": "space-gzh-cover",
+  "path_key": "space-gzh-cover",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

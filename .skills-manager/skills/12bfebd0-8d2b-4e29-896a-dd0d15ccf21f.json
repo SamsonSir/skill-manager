@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "12bfebd0-8d2b-4e29-896a-dd0d15ccf21f",
+  "path": "joker-get-wechat-key",
+  "path_key": "joker-get-wechat-key",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

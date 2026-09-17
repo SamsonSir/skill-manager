@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "52b45486-eb22-4a89-95b6-908147ffa7ad",
+  "path": "female-portrait-director",
+  "path_key": "female-portrait-director",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

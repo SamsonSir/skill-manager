@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b6682e49-614a-4cc5-9583-20ddaa772eda",
+  "path": "joker-image-prompt-coach",
+  "path_key": "joker-image-prompt-coach",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

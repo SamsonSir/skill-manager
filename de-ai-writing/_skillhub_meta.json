@@ -1,0 +1,12 @@
+{
+  "name": "去除AI味与提示词精简",
+  "installedAt": 1789218003191,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2096285649271418880",
+  "description_zh": "基于 GPT-6 官方最佳实践，专门用于清除文本中的“AI 味/废话套话”，以及对 Agent 系统提示词进行精简调优（主动推进、减少不必要打断、精简过度测试）。",
+  "description_en": "Based on GPT-6 official prompt engineering guidelines. Removes AI buzzwords, cliches, and repetitive formatting from texts, and optimizes Agent system prompts for autonomous execution and concise communication.",
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ad81ab5f-3c73-4fb0-a104-e9b1e5ed6cf9/23f178a1-18be-4c2f-9b47-48fb6c156980.png",
+  "iconLocalPath": "/Users/joker/.workbuddy/skills/de-ai-writing/_icon.png",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ad81ab5f-3c73-4fb0-a104-e9b1e5ed6cf9/23f178a1-18be-4c2f-9b47-48fb6c156980.png"
+}

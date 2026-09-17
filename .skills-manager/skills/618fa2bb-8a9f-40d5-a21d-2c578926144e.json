@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "618fa2bb-8a9f-40d5-a21d-2c578926144e",
+  "path": "seedance-director",
+  "path_key": "seedance-director",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

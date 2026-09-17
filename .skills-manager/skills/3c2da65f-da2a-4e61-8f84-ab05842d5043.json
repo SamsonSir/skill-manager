@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3c2da65f-da2a-4e61-8f84-ab05842d5043",
+  "path": "viral-title-generator",
+  "path_key": "viral-title-generator",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

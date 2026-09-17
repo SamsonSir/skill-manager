@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "385a831e-3391-4754-9a85-8accdd08ec40",
+  "path": "baoyu-wechat-summary",
+  "path_key": "baoyu-wechat-summary",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

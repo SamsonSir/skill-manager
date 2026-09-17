@@ -1,18 +1,19 @@
 # 飞书学习库（个人 Wiki）
 
-私人学习目录，和本机 HTML 报告分开：HTML 是完整证据与检索；飞书写「能练习的方法 + 群主栏目日报」。默认不发布、不拉人、不发群消息。
+私人学习目录。群的本机 HTML 是这棵 Wiki 子树的导出，不是另一份摘要。飞书写「能练习的方法 + 固定九块日报」。默认不发布、不拉人、不发群消息；日报卡片由机器人私聊发给自己。
 
 ## 何时写入飞书
 
-用户说到下面任一说法时，在本机整理之后写入飞书（没有新可读消息则只说明截止时间，不编空日报）：
+下面说法都会更新对应群的 Wiki（没有新可读消息则只说明截止时间，不编空日报）：
 
+- 整理多多 / 整理多多群聊 / 整理夙愿 / 整理夙愿群聊 / 整理微信群
 - 更新学习库 / 补飞书日报 / 整理到飞书 / 飞书知识库
 - 补多多日报 / 补夙愿日报 / 把群报写进飞书
 - 整理多多到飞书 / 整理夙愿到飞书
 
-只说「整理微信群」「整理多多」「整理夙愿」且没提飞书时，仍以本机 HTML + 长图为主，不默认改 Wiki。
+完整流水线用 `scripts/organize.py --name 多多`。只补日报用 `scripts/daily.py build --publish`。
 
-身份一律 `lark-cli ... --as user`。读写走 lark-wiki / lark-doc / lark-drive，不另写飞书客户端。
+Wiki 读写身份一律 `lark-cli ... --as user`。机器人发卡片用 `--as bot`。走 lark-wiki / lark-doc / lark-im，不另写飞书客户端。
 
 ## 空间与群目录
 
@@ -43,7 +44,7 @@ python3 "/Users/joker/.skills-manager/skills/joker-wechat-get-message/scripts/da
   --name 多多 --from-date YYYY-MM-DD --to-date YYYY-MM-DD --publish --json
 ```
 
-九块顺序写死在 `scripts/daily.py` 的 `BLOCKS`：一句话总览、群聊数据、发言排行、热议话题、重点讨论、关键进展、思考摘录、重点工具/资源、关键词。重点讨论每项写「发生了什么 / 群友可参考 / 参与：人名」。统计、排行、链接、时段簇从 sqlite 算出；Agent 只负责跑脚本和核对发布结果。
+九块顺序写死在 `scripts/daily.py` 的 `BLOCKS`。每块写什么以 [owner-daily-template.md](owner-daily-template.md) 为准。重点讨论每项必须有事件标题，以及「发生了什么 / 群友可参考 / 参与」。`群友可参考` 必须是可带走的做法，禁止「以上是该时段可读文字摘录」。统计和排行由脚本算；总览、事件名、可参考必须来自 `scripts/overlays/YYYY-MM-DD-<群>.json`。`--publish` 在 overlay 缺失或套话时直接失败，避免换 Agent 覆盖已有质量。
 
 - 标题：`YYYY-MM-DD-<群名>-<当日主题>`，例如 `2026-09-06-多多的AI视频交流群-参考图分工、MV音频拆分与产品视频询价`
 - 改标题：`lark-cli drive +update-title --url 'https://my.feishu.cn/wiki/<node_token>' --title '...' --as user`（wiki 节点与底层文档标题会一起改）
@@ -67,3 +68,4 @@ python3 "/Users/joker/.skills-manager/skills/joker-wechat-get-message/scripts/da
 - 抽查日报与首页：没有 `成员\d+`、没有 `来源：#`
 - 标题含日期、群名、主题
 - 给用户可点的 wiki 链接，并写清实际覆盖的北京时间
+- 「整理多多群聊」还要核对本机 Wiki HTML、学习地图 01–07、机器人卡片回执

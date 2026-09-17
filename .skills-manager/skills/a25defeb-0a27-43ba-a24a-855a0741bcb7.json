@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a25defeb-0a27-43ba-a24a-855a0741bcb7",
+  "path": "space-xhs-positioning",
+  "path_key": "space-xhs-positioning",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

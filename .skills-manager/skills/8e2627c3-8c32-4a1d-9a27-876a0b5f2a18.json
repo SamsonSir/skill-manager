@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8e2627c3-8c32-4a1d-9a27-876a0b5f2a18",
+  "path": "baokuan-title-generator",
+  "path_key": "baokuan-title-generator",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

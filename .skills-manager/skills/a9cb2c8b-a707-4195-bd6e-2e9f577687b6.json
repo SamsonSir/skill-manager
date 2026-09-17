@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a9cb2c8b-a707-4195-bd6e-2e9f577687b6",
+  "path": "space-video-cover",
+  "path_key": "space-video-cover",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

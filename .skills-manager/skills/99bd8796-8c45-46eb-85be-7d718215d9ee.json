@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "99bd8796-8c45-46eb-85be-7d718215d9ee",
+  "path": "guizang-social-card-skill",
+  "path_key": "guizang-social-card-skill",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c7e3f0a0-c2a3-41bf-a9aa-fb38e4abf4a6",
+  "path": "joker-wechat-workflow",
+  "path_key": "joker-wechat-workflow",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

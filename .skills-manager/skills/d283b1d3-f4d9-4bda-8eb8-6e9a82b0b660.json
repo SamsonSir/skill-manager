@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d283b1d3-f4d9-4bda-8eb8-6e9a82b0b660",
+  "path": "outfit-director",
+  "path_key": "outfit-director",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

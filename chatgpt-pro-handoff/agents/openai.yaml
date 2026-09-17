@@ -1,0 +1,4 @@
+interface:
+  display_name: "ChatGPT Pro → Codex"
+  short_description: "按文章完成 GitHub 准备、业务数据接入、Pro 分析与 Codex 验证实施"
+  default_prompt: "使用 $chatgpt-pro-handoff 按公众号完整流程分析当前项目；若项目未上传 GitHub，先准备上传范围并询问我，获准推送后接续分析和实施交接。"

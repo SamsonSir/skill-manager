@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "82807a1b-1cbd-4601-9113-4c5e495c5686",
+  "path": "space-video-edit",
+  "path_key": "space-video-edit",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

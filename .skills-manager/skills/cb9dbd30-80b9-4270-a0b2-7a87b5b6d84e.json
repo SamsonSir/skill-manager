@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "cb9dbd30-80b9-4270-a0b2-7a87b5b6d84e",
+  "path": "nuyoah-portrait-character-designer",
+  "path_key": "nuyoah-portrait-character-designer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "69868f26-8cd9-4a5e-9fb7-be9d47ab1488",
+  "path": "space-video-subtitle",
+  "path_key": "space-video-subtitle",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

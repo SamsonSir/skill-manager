@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "60cdda8f-41eb-466c-8c1f-d9909327d264",
+  "path": "wechat-article-pro",
+  "path_key": "wechat-article-pro",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

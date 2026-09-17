@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "13aef440-e97f-4759-9fbd-2b82fe1b0f4f",
+  "path": "baoyu-danger-gemini-web",
+  "path_key": "baoyu-danger-gemini-web",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

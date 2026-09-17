@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3607edbd-a17e-4f79-8ce5-3c630f7c8dee",
+  "path": "GordenImagePPTGen",
+  "path_key": "gordenimagepptgen",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

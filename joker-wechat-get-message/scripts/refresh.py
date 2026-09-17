@@ -530,7 +530,8 @@ def maybe_reexec_for_sqlcipher(argv: list[str]) -> None:
     except ImportError:
         pass
     venv = Path(os.environ.get("JOKER_WECHAT_SQLCIPHER_PYTHON", VENV_PYTHON))
-    if venv.is_file() and Path(sys.executable).resolve() != venv.resolve():
+    # venv/bin/python 可能是指向系统 Python 的符号链接，不能用 resolve() 判断已经在 venv 里。
+    if venv.is_file() and Path(sys.executable) != venv:
         os.execv(str(venv), [str(venv), str(Path(__file__).resolve()), *argv])
 
 

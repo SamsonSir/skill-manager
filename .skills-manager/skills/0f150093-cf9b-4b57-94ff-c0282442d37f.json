@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "0f150093-cf9b-4b57-94ff-c0282442d37f",
+  "path": "space-xhs-hotspot",
+  "path_key": "space-xhs-hotspot",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "爆款标题生成器",
+  "installedAt": 1789217900718,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2095512731447894016",
+  "description_zh": "输入一个主题，一键生成小红书、抖音、公众号等多平台的高点击率标题，内置爆款公式、平台字数规范与违规词过滤，支持批量出 N 个候选。",
+  "description_en": "Turn one topic into high-CTR titles for Xiaohongshu, Douyin, WeChat and more, with proven formulas, platform length rules and banned-word filtering. Generate N candidates in batch.",
+  "iconSource": "letter:auto"
+}

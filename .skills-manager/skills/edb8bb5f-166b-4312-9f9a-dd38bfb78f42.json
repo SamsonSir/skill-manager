@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "edb8bb5f-166b-4312-9f9a-dd38bfb78f42",
+  "path": "GordenSuperPPTSkill",
+  "path_key": "gordensuperpptskill",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d821d11c-6aa5-4bcf-b11f-54d4795a3a9d",
+  "path": "space-xhs-writer",
+  "path_key": "space-xhs-writer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

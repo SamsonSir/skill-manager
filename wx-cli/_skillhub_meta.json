@@ -1,0 +1,10 @@
+{
+  "name": "微信数据查询 CLI（macOS）",
+  "installedAt": 1789218036291,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2096222536559063040",
+  "description_zh": "wx-cli 是 macOS 上的微信本地数据库解密与查询 CLI 工具（pandorafuture/wx-cli）。\n让 Agent 能读取、搜索、订阅本地微信聊天记录。\n当用户要求查询微信聊天记录、搜索聊天关键词、查看微信联系人、监听新消息、\n解密微信图片/语音/视频、或部署本地微信 HTTP API 时使用此 skill。\n注意：仅支持 macOS（arm64 / Apple Silicon）+ 微信 4.1.7 及以上；密钥提取需关闭 SIP。",
+  "description_en": "wx-cli is a WeChat macOS local database decryption and query CLI tool (pandorafuture/wx-cli).\nIt lets an Agent read, search and subscribe to local WeChat chat history.\nUse this skill when the user wants to query WeChat chat history, search chat keywords,\nview WeChat contacts, monitor new messages, decrypt WeChat images/voice/video, or deploy\na local WeChat HTTP API.\nNote: macOS arm64 / Apple Silicon only; requires WeChat 4.1.7 or newer; SIP must be\ndisabled for key extraction.",
+  "iconSource": "letter:auto"
+}

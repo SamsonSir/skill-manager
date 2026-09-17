@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "96e5c896-1db9-421f-a2c6-3ca1ab396dce",
+  "path": "space-xhs-buddy",
+  "path_key": "space-xhs-buddy",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

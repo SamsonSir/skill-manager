@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f0589f9f-f9d8-416d-b3e6-2213aecc7552",
+  "path": "gzh-design",
+  "path_key": "gzh-design",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "git",
+    "ref": "https://github.com/isjiamu/gzh-design-skill",
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "602816f3-b9b9-4077-8e6e-6a5dac1ce457",
+  "path": "space-video-transcript",
+  "path_key": "space-video-transcript",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

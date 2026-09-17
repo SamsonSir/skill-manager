@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c80d4d05-0c0d-4128-a3b8-293fb809699c",
+  "path": "space-video-topic",
+  "path_key": "space-video-topic",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

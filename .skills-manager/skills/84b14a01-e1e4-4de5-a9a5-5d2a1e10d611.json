@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "84b14a01-e1e4-4de5-a9a5-5d2a1e10d611",
+  "path": "gzh-explosive-content-detector",
+  "path_key": "gzh-explosive-content-detector",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

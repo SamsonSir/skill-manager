@@ -1,0 +1,12 @@
+{
+  "name": "公众号草稿推送",
+  "installedAt": 1789217979581,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2095480422860632064",
+  "description_zh": "通过微信公众号 API 将 HTML 文章推送到草稿箱，支持封面图上传、access_token 管理，凭据从环境变量读取。",
+  "description_en": "Push HTML articles to WeChat Official Account draft box via API, with optional cover image upload and env-var credential management.",
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
+  "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-draft-push/_icon.jpg",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg"
+}

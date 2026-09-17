@@ -11,9 +11,10 @@
 - 名单管理脚本：技能目录 `scripts/watchlist.py`。只读 SQLite，不打印聊天正文。
 - 快照刷新：技能目录 `scripts/refresh.py`，步骤见 [refresh.md](refresh.md)。
 - 群日报：技能目录 `scripts/daily.py`，飞书目录见 [feishu-wiki.md](feishu-wiki.md) 与 `scripts/wiki_catalog.json`。
-- 报告根：`学习整理/Joker/<运行时间>/<对象标签>/`，每次新目录，禁止覆盖旧报告。群与联系人分开目录，禁止混成同一份。
+- 一行整理：`scripts/organize.py --name 多多`。有 `scripts/overlays/日期-群名.json` 才写飞书。Wiki HTML：`scripts/wiki_html.py export --name 多多`（`scripts/reader.py` 阅读器）。学习地图：`scripts/roadmap.py`，内容来自 Wiki 01–07，不是群聊长图。
+- 报告根：`学习整理/Joker/<运行时间>/<对象标签>/`，每次新目录，禁止覆盖旧报告。群与联系人分开目录，禁止混成同一份。群的 HTML 文件名是 `wiki.html`，地图是 `学习地图.png`。
 - 运行状态：`学习整理/Joker/state.json`。权限目录0700、文件0600；不写进正式知识库或技能目录。不存在时不要伪造增量游标。
-- 飞书个人学习库：空间 `Joker AI学习知识库`（`space_id` `7684186386408197367`）。写入规则见 [feishu-wiki.md](feishu-wiki.md)。本机 HTML 仍按上面的报告根输出，不要用飞书页代替来源索引。
+- 飞书个人学习库：空间 `Joker AI学习知识库`（`space_id` `7684186386408197367`）。写入规则见 [feishu-wiki.md](feishu-wiki.md)。群的本机 HTML 导出该群 Wiki 子树全部页面；来源索引仍只留在本机，不写进飞书正文。
 
 技能内固定的是此用户明确指定的数据位置；默认监控对象是两个群。可以按用户本轮点名把快照里已有的群或联系人加入名单，但查询必须用精确 `chat_username = ?`，不要搜索其他账号、不要默认扩展到全部聊天。刷新快照时由 `scripts/refresh.py` 读取 `private/keys.json`，Agent 不要打印密钥内容。
 

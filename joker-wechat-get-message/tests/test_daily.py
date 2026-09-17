@@ -96,6 +96,8 @@ class DailyTests(unittest.TestCase):
             self.assertIn(heading, xml)
         self.assertIn("Alice", xml)
         self.assertIn("陈备注", xml)
+        self.assertIn("群友可参考", xml)
+        self.assertNotIn("以上是该时段可读文字摘录", xml)
         self.assertNotIn("wxid_abc", xml)
         self.assertNotIn("成员01", xml)
         self.assertNotIn("来源：#", xml)
@@ -113,6 +115,78 @@ class DailyTests(unittest.TestCase):
         text = xml_files[0].read_text(encoding="utf-8")
         self.assertIn("<title>", text)
         self.assertIn("一句话总览", text)
+
+    def test_overlay_replaces_boilerplate_takeaway(self):
+        con = wl.connect(self.db)
+        try:
+            payload = dy.build_day(con, "g1", "测试", "测试群", date(2026, 9, 7))
+        finally:
+            con.close()
+        payload = dy.apply_overlay(
+            payload,
+            {
+                "overview": "先做一条 15 秒，再谈复杂工作流。",
+                "clusters": [
+                    {
+                        "title": "参考图分工",
+                        "what": "群里明确 Image1 锁人物、Image2 锁场景。",
+                        "takeaway": "两张参考图不要同时承担不明确的角色。",
+                        "names": ["Alice"],
+                    }
+                ],
+            },
+        )
+        xml = dy.render_xml(payload)
+        self.assertIn("两张参考图不要同时承担不明确的角色", xml)
+        self.assertNotIn("以上是该时段可读文字摘录", xml)
+        with self.assertRaises(dy.DailyError):
+            dy.apply_overlay(
+                payload,
+                {"clusters": [{"title": "x", "takeaway": "以上是该时段可读文字摘录，不是教程全文"}]},
+            )
+
+    def test_publish_requires_overlay(self):
+        con = wl.connect(self.db)
+        try:
+            payload = dy.build_day(con, "g1", "测试", "测试群", date(2026, 9, 7))
+        finally:
+            con.close()
+        with self.assertRaises(dy.DailyError):
+            dy.ensure_publishable(payload)
+        filled = dy.apply_overlay(
+            payload,
+            {
+                "overview": "先做一条。",
+                "clusters": [
+                    {"title": "参考图分工", "what": "锁人物和场景。", "takeaway": "两张图各管一件事。"}
+                ],
+            },
+        )
+        dy.ensure_publishable(filled)
+
+    def test_card_follows_nine_blocks(self):
+        con = wl.connect(self.db)
+        try:
+            payload = dy.build_day(con, "g1", "测试", "测试群", date(2026, 9, 7))
+        finally:
+            con.close()
+        card = dy.render_card(payload, "https://my.feishu.cn/wiki/demo")
+        dumped = json.dumps(card, ensure_ascii=False)
+        self.assertEqual(card["schema"], "2.0")
+        self.assertEqual(card["header"]["template"], "blue")
+        self.assertEqual(card["config"]["width_mode"], "default")
+        tags = [el["tag"] for el in card["body"]["elements"]]
+        self.assertIn("column_set", tags)
+        self.assertIn("collapsible_panel", tags)
+        self.assertIn("button", tags)
+        for heading in dy.BLOCKS:
+            self.assertIn(heading, dumped)
+        self.assertIn("群友可参考", dumped)
+        self.assertNotIn("以上是该时段可读文字摘录", dumped)
+        self.assertIn("打开 Wiki 日报", dumped)
+        self.assertNotIn("成员01", dumped)
+        self.assertNotIn("来源：#", dumped)
+        self.assertNotIn("wxid_abc", dumped)
 
     def test_empty_day_fails(self):
         con = wl.connect(self.db)

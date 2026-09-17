@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "81a6d992-49ea-4935-84f1-a5abc09a5f7c",
+  "path": "wedding-video-guided-wizard",
+  "path_key": "wedding-video-guided-wizard",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "1e738769-9412-44c1-af8c-565b2cc78e7c",
+  "path": "baokuan-article-analysis",
+  "path_key": "baokuan-article-analysis",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

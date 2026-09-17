@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "93bc45bb-af78-4e0a-ae0b-e3c1b05855a4",
+  "path": "gzh-longform-writer",
+  "path_key": "gzh-longform-writer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

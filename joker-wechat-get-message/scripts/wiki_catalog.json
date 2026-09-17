@@ -1,6 +1,10 @@
 {
   "space_id": "7684186386408197367",
   "space_name": "Joker AI学习知识库",
+  "notify": {
+    "user_open_id": "ou_e3ebeda2b15c3d153fb1b60cb274af03",
+    "as": "bot"
+  },
   "groups": {
     "57947720564@chatroom": {
       "label": "多多",

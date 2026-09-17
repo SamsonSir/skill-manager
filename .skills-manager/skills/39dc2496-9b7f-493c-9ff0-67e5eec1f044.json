@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "39dc2496-9b7f-493c-9ff0-67e5eec1f044",
+  "path": "human-writing",
+  "path_key": "human-writing",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "git",
+    "ref": "https://github.com/KKKKhazix/human-writing/tree/main/human-writing",
+    "subpath": "human-writing",
+    "branch": "main"
+  }
+}

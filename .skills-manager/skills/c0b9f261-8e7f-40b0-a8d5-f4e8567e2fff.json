@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c0b9f261-8e7f-40b0-a8d5-f4e8567e2fff",
+  "path": "chatgpt-pro-handoff",
+  "path_key": "chatgpt-pro-handoff",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

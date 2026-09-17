@@ -1,0 +1,10 @@
+{
+  "name": "公众号-文章&贴图发布",
+  "installedAt": 1789218090531,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2095206046686949376",
+  "description_zh": "一键发布 Markdown 到微信公众号草稿箱，支持图文消息（长文）与图片消息（贴图）两种模式",
+  "description_en": "Publish Markdown to your WeChat Official Account drafts: long-form articles and image posts.",
+  "iconSource": "letter:auto"
+}

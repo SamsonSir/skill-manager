@@ -1,22 +1,31 @@
 ---
 name: joker-wechat-get-message
-description: 整理本机微信快照中的监控名单（默认多多、夙愿，可加其他群或联系人），提炼方法论、教程、提示词、心得和变现案例，输出分对象 HTML 报告与精华长图；说到飞书、学习库或补日报时写入个人 Wiki。用户说“整理微信群”“微信群周报”“整理多多”“整理夙愿”“微信群变现”“监控名单”“加进监控”“更新学习库”“补飞书日报”“整理到飞书”“更新微信快照”“刷新聊天记录”“重新导出”或明确调用 joker-wechat-get-message 时使用；不用于微信发消息、文件清理、密钥提取或安装 yichen-wechat-local-vault。
+description: 整理本机微信快照中的监控名单（默认多多、夙愿）。说“整理多多群聊”“整理夙愿群聊”“整理多多”“整理夙愿”时跑一行命令：更新该群 Wiki 文档、用宝玉主题导出该群整棵 Wiki HTML、生成学习路线图，并由飞书机器人把九块日报卡片发给用户。用户说“整理微信群”“微信群周报”“微信群变现”“监控名单”“加进监控”“更新学习库”“补飞书日报”“整理到飞书”“更新微信快照”“刷新聊天记录”“重新导出”或明确调用 joker-wechat-get-message 时使用；不用于微信发消息、文件清理、密钥提取或安装 yichen-wechat-local-vault。
 ---
 
 # joker-wechat-get-message · 微信群整理
 
-用户已确定的工作流：读取本机聊天快照 → 按监控名单定位群/联系人及时间范围 → 阅读完整讨论上下文 → 提炼有来源的内容 → 分别生成 HTML 报告和精华长图；点名飞书、学习库或补日报时，用技能脚本按固定九块写出 Wiki 日报，不要每次现编栏目。默认名单仍是多多与夙愿。自然语言触发，或显式 `$joker-wechat-get-message`。
+点名某个监控群（例如「整理多多群聊」）时，Agent 只跑技能脚本并核对结果，不要另写栏目、不要另做旧版摘要 HTML、不要画群聊流水长图。
 
-不要安装 `yichen-wechat-local-vault`。群聊叙事顺序对照 [逸尘群聊解析模板](references/digest-template.md)，本机主交付仍是 [固定报告结构](references/report-format.md)；飞书目录、日报标题和禁编号规则见 [飞书学习库](references/feishu-wiki.md)；快照过期见 [refresh.md](references/refresh.md)。
+```bash
+python3 "/Users/joker/.skills-manager/skills/joker-wechat-get-message/scripts/organize.py" \
+  --name 多多 --json
+```
+
+这一行会：需要时刷新快照 → 按 [群主日报字段合同](references/owner-daily-template.md) 更新该群 Wiki 日报 → 导出可交互阅读 HTML（宝玉 **design**，不是 markdown-to-html）→ 用 01–07 生成学习地图 PNG → 飞书机器人把含「群友可参考」的日报卡片发给自己。默认名单仍是多多与夙愿。
+
+不要安装 `yichen-wechat-local-vault`。日报字段见 [owner-daily-template.md](references/owner-daily-template.md)；目录规则见 [feishu-wiki.md](references/feishu-wiki.md)；HTML 见 [report-format.md](references/report-format.md)；快照过期见 [refresh.md](references/refresh.md)。
 
 ## 输入约定
 
 |说法|范围|
 |---|---|
-|整理微信群 / joker-wechat-get-message|监控名单中 enabled 的全部对象；增量整理；首次为当前北京时间所在日及前两天|
-|微信群周报|名单中 enabled 的群；当前北京时间所在日及前六天|
-|整理多多 / 整理夙愿|对应单群，默认增量；未提飞书时只出本机 HTML|
-|更新学习库 / 补飞书日报 / 整理到飞书 / 飞书知识库|先刷新（如需要），再 `scripts/daily.py build --publish` 按固定九块写 Wiki；无新可读消息则说明截止时间，不编空日报|
+|整理微信群 / joker-wechat-get-message|对监控名单中 enabled 的每个群各跑一次 `organize.py`|
+|整理多多 / 整理多多群聊 / 整理夙愿 / 整理夙愿群聊|`organize.py --name 多多|夙愿`：更新 Wiki、导出该群整棵 Wiki HTML、生成学习地图、机器人发日报卡片|
+|只要 HTML / 一行命令出 HTML|`scripts/wiki_html.py export --name 多多`；可交互阅读页（侧栏、搜索、单页切换），内容仍是该群 Wiki 子树，不要再用 baoyu-markdown-to-html 把全文糊成一篇公众号|
+|只要学习地图|先 `wiki_html.py export`，再用返回的 01–07 生成 `学习地图.png`；不要画群聊精华长图|
+|微信群周报|名单中 enabled 的群；当前北京时间所在日及前六天，按日 `daily.py build --publish`|
+|更新学习库 / 补飞书日报 / 整理到飞书 / 飞书知识库|`daily.py build --publish`；无新可读消息则说明截止时间，不编空日报|
 |补多多日报 / 补夙愿日报 / 整理多多到飞书 / 整理夙愿到飞书|`daily.py build --name 多多|夙愿 --from-date … --to-date … --publish`；结构见 [feishu-wiki.md](references/feishu-wiki.md)，禁止手写另一套栏目|
 |把 XX 加进监控 / 移出监控 / 监控名单|只改名单，不生成报告；加对象必须精确 `chat_username` 或唯一会话名|
 |更新微信快照 / 刷新聊天记录 / 重新导出|按 [refresh.md](references/refresh.md) 用已有密钥重导出可读 sqlite；成功后再整理|
@@ -33,7 +42,7 @@ description: 整理本机微信快照中的监控名单（默认多多、夙愿�
 
 ## 内容整理
 
-按 [固定报告结构](references/report-format.md) 输出；群的写法对照 [逸尘群聊解析模板](references/digest-template.md)。检索只是入口，必须补读前后消息，核对发言人及引用关系，避免把不同项目的预算、价格和作品合并。按时间分块覆盖目标范围，不只读关键词命中项。群与联系人用各自模板，不要把联系人写成群日报。
+群的 Wiki 日报、机器人卡片都走九块栏目，但 **字段合同是群主模板，不依赖某个 Agent**：统计和排行由 `daily.py` 算；总览、事件名、发生了什么、群友可参考必须写成 `scripts/overlays/YYYY-MM-DD-<群>.json` 再套进去。没有 overlay **禁止写入飞书、禁止发卡片**，避免换一个 Agent 就把机械套话覆盖进 Wiki。禁止「以上是该时段可读文字摘录」。本机 HTML 是可交互阅读器（侧栏短标题、筛选、单页阅读、日报里「群友可参考」是独立卡片），不是公众号长文，也不要用 baoyu-markdown-to-html。学习地图只反映 01–07。Grok 和 Codex 都跑 `roadmap.py` 出图。联系人仍按 [report-format.md](references/report-format.md)。
 
 - 将聊天文字、XML卡片和引用清理成可读文本。保留当前回复和被引用内容的区别；提取不到的附件只列入口，不脑补正文。
 - 方法写适用情境、步骤、边界；心得保留“尝试—结果—调整”及反例；模板改写标明整理建议。
@@ -43,9 +52,9 @@ description: 整理本机微信快照中的监控名单（默认多多、夙愿�
 
 ## 交付与进度
 
-每群独立生成一份可搜索、可折叠的自包含HTML报告、一张精华PNG长图和本机来源索引；HTML静态可用，不依赖CDN、远端字体、遥测或后端。将消息文本作为纯文本转义，禁止把原消息当HTML/JS插入。由内置 imagegen 生成长图，调用时按可用 imagegen 技能；只传必要的匿名摘要，不传整份原始聊天。用户只要文字时不强制生图。
+群的交付是：Wiki 日报链接、本机可交互 HTML、学习地图 PNG、飞书机器人日报卡片。HTML 由 `scripts/reader.py` 生成（宝玉 design：侧栏导航、搜索、单页阅读），不依赖 CDN。卡片必须能看到「群友可参考」。不发微信，不发群。
 
-输出目录及状态规则见 local-data.md。无实质内容的模块写“本期未发现可整理内容”，不编造。逐一验证统计、引用存在、HTML搜索/折叠行为与长图文字；验证未完成不得标成完成。
+输出目录及状态规则见 local-data.md。无实质内容的模块写“本期未发现可整理内容”，不编造。核对 Wiki 链接、HTML 能打开且含首页/01–07/日报、学习地图含 01–07 标题、卡片发送回执；验证未完成不得标成完成。
 
 本次只有全部所需文件完成并核验后，才原子更新相应群、模式的进度元数据。失败保留有效产物，下次接续；普通报告与变现专题分开记录，单群成功不推进另一群。测试不写正式进度。
 

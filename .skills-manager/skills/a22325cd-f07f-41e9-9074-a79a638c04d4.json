@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a22325cd-f07f-41e9-9074-a79a638c04d4",
+  "path": "wechat-viral-article",
+  "path_key": "wechat-viral-article",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

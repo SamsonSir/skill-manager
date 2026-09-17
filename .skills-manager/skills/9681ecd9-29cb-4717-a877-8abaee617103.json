@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "9681ecd9-29cb-4717-a877-8abaee617103",
+  "path": "gzh-title-strategist",
+  "path_key": "gzh-title-strategist",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "git",
+    "ref": "https://github.com/liucongg/liucong-skills/tree/main/skills/gzh-title-strategist",
+    "subpath": "skills/gzh-title-strategist",
+    "branch": "main"
+  }
+}

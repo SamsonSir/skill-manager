@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "73a42699-95ad-462e-b0f9-bcb404bb1165",
+  "path": "space-wechat-layout",
+  "path_key": "space-wechat-layout",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

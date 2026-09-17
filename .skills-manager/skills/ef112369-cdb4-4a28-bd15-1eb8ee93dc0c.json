@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "ef112369-cdb4-4a28-bd15-1eb8ee93dc0c",
+  "path": "distilly",
+  "path_key": "distilly",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

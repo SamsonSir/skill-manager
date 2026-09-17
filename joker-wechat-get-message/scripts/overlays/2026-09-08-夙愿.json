@@ -1,0 +1,44 @@
+{
+  "theme": "Plus五小时额度烧太快，Pro周额度也紧",
+  "overview": "早上有人问 ChatGPT 5x/20x 订阅会不会把 5 小时额度也乘上去，因为 Plus 的 5 小时烧太快。答复是 Pro 没有 5 小时窗口，但周额度用起来几乎一样紧。随后 Plus 有人没收到重置，Pro 已经重置；有人放弃 computer-use，说体验和宣传差太远、token 烧得像火箭。",
+  "topics": [
+    {"title": "Plus五小时窗口与Pro周额度", "heat": 90},
+    {"title": "放弃computer-use：体验差且烧token", "heat": 72}
+  ],
+  "clusters": [
+    {
+      "title": "Plus五小时窗口与Pro周额度",
+      "count": 7,
+      "start": "10:02",
+      "end": "10:32",
+      "names": ["照烧鳗鱼", "微观史", "麻麻叫你吃饭"],
+      "what": "照烧鳗鱼问 5x/20x 订阅是否让 5 小时额度也变成 5 倍、20 倍，因为现在 Plus 5 小时烧太快。微观史说 Pro 没有 5 小时限制。麻麻叫你吃饭说 Pro 的周额度用起来跟 5 小时差不多。这是群友用量体感，不是官方倍率表。",
+      "takeaway": "Plus 按 5 小时窗口规划任务，长任务不要堆在同一窗口。升 Pro 只能去掉窗口，不能默认「怎么用都不紧」；周额度同样要拆任务。"
+    },
+    {
+      "title": "放弃computer-use：体验差且烧token",
+      "count": 7,
+      "start": "10:53",
+      "end": "11:00",
+      "names": ["林", "麻麻叫你吃饭", "少年游"],
+      "what": "有人突然收到重置，林和少年游的 Plus 没重置，麻麻叫你吃饭的 Pro 已经重置。同一时段他宣布放弃 computer-use：体验和宣传差太远，token 消耗像点火箭。晚上另有人问为什么自己的 Codex 没有 6，当天没有展开成步骤。",
+      "takeaway": "computer-use 先用一个小任务看消耗，再决定要不要开。重置不同步时先看套餐档位，不要假设所有号同一时刻回满。"
+    }
+  ],
+  "progress": [
+    "群内对齐：Pro 无 5 小时窗口，但周额度依然紧",
+    "有人因 token 消耗放弃 computer-use",
+    "Plus 与 Pro 重置不同步，没有官方解释"
+  ],
+  "thoughts": [
+    {"name": "麻麻叫你吃饭", "text": "放弃用 computer-use 了，体验感和宣传差的不是一星半点，token 还跟点火箭一样烧。"}
+  ],
+  "tools": [],
+  "keywords": [
+    "Plus五小时",
+    "Pro周额度",
+    "computer-use",
+    "额度重置",
+    "5x订阅"
+  ]
+}

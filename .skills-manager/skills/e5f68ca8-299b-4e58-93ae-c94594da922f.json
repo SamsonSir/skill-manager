@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e5f68ca8-299b-4e58-93ae-c94594da922f",
+  "path": "space-video-audio",
+  "path_key": "space-video-audio",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

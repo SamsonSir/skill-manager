@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d9f30d09-e9f6-46bc-82e7-d14958cc2bf3",
+  "path": "visual-reverse-engineer",
+  "path_key": "visual-reverse-engineer",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

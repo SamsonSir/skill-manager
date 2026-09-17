@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f4b712b7-31ef-4fae-85a2-be0ab80d855e",
+  "path": "seedance-2-5-video-director",
+  "path_key": "seedance-2-5-video-director",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

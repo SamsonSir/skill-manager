@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "95ad49dd-59e2-415f-9e47-9a00efc6efd8",
+  "path": "space-xhs-image",
+  "path_key": "space-xhs-image",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

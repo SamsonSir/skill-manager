@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "6227447f-484d-4294-acaa-730512dff3fe",
+  "path": "gzh-short-post",
+  "path_key": "gzh-short-post",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
