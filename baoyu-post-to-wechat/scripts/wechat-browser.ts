@@ -82,31 +82,16 @@ function compressTitle(title: string, maxLen = 20): string {
   return t;
 }
 
-function compressContent(content: string, maxLen = 1000): string {
-  if (content.length <= maxLen) return content;
-
-  const lines = content.split('\n');
-  const result: string[] = [];
-  let len = 0;
-
-  for (const line of lines) {
-    if (len + line.length + 1 > maxLen) {
-      const remaining = maxLen - len - 1;
-      if (remaining > 20) result.push(line.slice(0, remaining - 3) + '...');
-      break;
-    }
-    result.push(line);
-    len += line.length + 1;
-  }
-
-  return result.join('\n');
+export function compressContent(content: string, maxLen = 1000): string {
+  if (content.length > maxLen) throw new Error(`Photo content exceeds ${maxLen} characters; supply an approved shorter version`);
+  return content;
 }
 
 async function loadImagesFromDir(dir: string): Promise<string[]> {
   const entries = await readdir(dir);
   const images = entries
     .filter(f => /\.(png|jpg|jpeg|gif|webp)$/i.test(f))
-    .sort()
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
     .map(f => path.join(dir, f));
   return images;
 }
@@ -121,6 +106,13 @@ interface WeChatBrowserOptions {
   timeoutMs?: number;
   profileDir?: string;
   chromePath?: string;
+}
+
+export function assertSaveClicked(result: string): void {
+  if (!result.startsWith('clicked:')) throw new Error('Save button not found; draft not saved');
+}
+export function assertSaveConfirmed(messages: string[]): void {
+  if (messages.some(m => /失败|错误|fail|error/i.test(m)) || !messages.some(m => /保存成功|已保存|saved successfully/i.test(m))) throw new Error('Draft save unconfirmed; inspect draft list before retrying');
 }
 
 export async function postToWeChat(options: WeChatBrowserOptions): Promise<void> {
@@ -143,6 +135,7 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     const absDir = path.isAbsolute(options.imagesDir) ? options.imagesDir : path.resolve(process.cwd(), options.imagesDir);
     if (!fs.existsSync(absDir)) throw new Error(`Images directory not found: ${absDir}`);
     images = await loadImagesFromDir(absDir);
+    console.log(`[wechat-browser] Image order (directory natural filename order): ${JSON.stringify(images)}`);
     console.log(`[wechat-browser] Found ${images.length} images in ${absDir}`);
   }
 
@@ -627,6 +620,7 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
         returnByValue: true,
       }, { sessionId });
       console.log(`[wechat-browser] Submit result: ${submitResult.result.value}`);
+      assertSaveClicked(submitResult.result.value);
       await sleep(3000);
 
       // Verify save success by checking for toast
@@ -640,6 +634,8 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
         returnByValue: true,
       }, { sessionId });
       console.log(`[wechat-browser] Toast messages: ${toastCheck.result.value}`);
+      const messages: string[] = JSON.parse(toastCheck.result.value || '[]');
+      assertSaveConfirmed(messages);
       console.log('[wechat-browser] Draft saved!');
     } else {
       console.log('[wechat-browser] Article composed (preview mode). Add --submit to save as draft.');
@@ -735,7 +731,7 @@ async function main(): Promise<void> {
   await postToWeChat({ title, content, images: images.length > 0 ? images : undefined, imagesDir, markdownFile, submit, profileDir });
 }
 
-await main().catch((err) => {
+if (import.meta.main) await main().catch((err) => {
   console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
   process.exit(1);
 });

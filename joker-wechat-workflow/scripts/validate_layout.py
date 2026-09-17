@@ -10,20 +10,29 @@ class ArticleParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.depth = 0
+        self.regions = 0
+        self.void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
         self.text = []
         self.forbidden = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if self.depth:
-            self.depth += 1
+            if tag not in self.void:
+                self.depth += 1
             if tag in {"button", "script", "style"}:
                 self.forbidden.append(tag)
         elif attrs.get("id") == "article":
             self.depth = 1
+            self.regions += 1
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if tag not in self.void:
+            self.handle_endtag(tag)
 
     def handle_endtag(self, tag):
-        if self.depth:
+        if self.depth and tag not in self.void:
             self.depth -= 1
 
     def handle_data(self, data):
@@ -41,7 +50,14 @@ parser.add_argument("--preview", required=True)
 args = parser.parse_args()
 
 source_lines = Path(args.article).read_text(encoding="utf-8").splitlines()
-paragraphs = [line.strip() for line in source_lines if line.strip() and not line.startswith("#")]
+def visible_markdown(line):
+    line = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", line)
+    line = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", line)
+    line = re.sub(r"^\s{0,3}(?:#{1,6}\s+|>\s*|[-+*]\s+|\d+[.)]\s+)", "", line)
+    line = re.sub(r"(\*\*|__|~~|`)(.*?)\1", r"\2", line)
+    return line.strip()
+paragraphs = [visible_markdown(line) for line in source_lines if line.strip()]
+paragraphs = [line for line in paragraphs if line]
 preview = Path(args.preview).read_text(encoding="utf-8")
 reader = ArticleParser()
 reader.feed(preview)
@@ -51,11 +67,9 @@ if reader.forbidden:
     raise SystemExit(f"FAIL: copy region contains forbidden tags: {sorted(set(reader.forbidden))}")
 
 layout_text = norm("".join(reader.text))
-cursor = 0
-for paragraph in paragraphs:
-    needle = norm(paragraph)
-    index = layout_text.find(needle, cursor)
-    if index < 0:
-        raise SystemExit(f"FAIL: missing or reordered paragraph: {paragraph[:30]}")
-    cursor = index + len(needle)
-print(f"PASS: {len(paragraphs)} article paragraphs present in order; copy region has no toolbar/script/style")
+if reader.regions != 1 or reader.depth:
+    raise SystemExit("FAIL: preview requires exactly one closed #article copy region")
+expected = norm("".join(paragraphs))
+if not expected or layout_text != expected:
+    raise SystemExit("FAIL: visible article text differs (missing, extra, reordered text or title)")
+print(f"PASS: {len(paragraphs)} source blocks exactly match visible copy-region text")

@@ -225,10 +225,16 @@ export function loadWechatExtendConfig(): WechatExtendConfig {
 }
 
 function selectAccount(config: WechatExtendConfig, alias?: string): WechatAccount | undefined {
+  if (alias) {
+    const selected = config.accounts?.find(a => a.alias === alias);
+    if (!selected) throw new Error(`Unknown WeChat account alias: ${alias}`);
+    return selected;
+  }
   if (!config.accounts || config.accounts.length === 0) return undefined;
-  if (alias) return config.accounts.find(a => a.alias === alias);
   if (config.accounts.length === 1) return config.accounts[0];
-  return config.accounts.find(a => a.default);
+  const defaults = config.accounts.filter(a => a.default);
+  if (defaults.length !== 1) throw new Error("Select --account: multiple accounts require exactly one default");
+  return defaults[0];
 }
 
 export function resolveAccount(config: WechatExtendConfig, alias?: string): ResolvedAccount {
@@ -242,7 +248,7 @@ export function resolveAccount(config: WechatExtendConfig, alias?: string): Reso
     only_fans_can_comment: acct?.only_fans_can_comment ?? config.only_fans_can_comment ?? 0,
     app_id: acct?.app_id,
     app_secret: acct?.app_secret,
-    chrome_profile_path: acct?.chrome_profile_path ?? config.chrome_profile_path,
+    chrome_profile_path: acct ? acct.chrome_profile_path : config.chrome_profile_path,
     remote_publish_host: acct?.remote_publish_host ?? config.remote_publish_host,
     remote_publish_user: acct?.remote_publish_user ?? config.remote_publish_user,
     remote_publish_port: acct?.remote_publish_port ?? config.remote_publish_port,
@@ -383,7 +389,7 @@ export function loadCredentials(account?: ResolvedAccount): LoadedCredentials {
     );
   }
 
-  sources.push(
+  if (!account?.alias) sources.push(
     buildCredentialSource("process.env", process.env, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
     buildCredentialSource("<cwd>/.baoyu-skills/.env", cwdEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
     buildCredentialSource("~/.baoyu-skills/.env", homeEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),

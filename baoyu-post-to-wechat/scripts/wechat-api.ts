@@ -202,7 +202,7 @@ async function uploadImage(
   }
 }
 
-async function uploadToWechat(
+export async function uploadToWechat(
   fileBuffer: Buffer,
   filename: string,
   contentType: string,
@@ -222,15 +222,17 @@ async function uploadToWechat(
     body: multipart.body,
   });
 
+  if (res.status < 200 || res.status >= 300) throw new Error(`Upload HTTP failure: ${res.status}`);
   const data = await res.json<UploadResponse>();
   if (data.errcode && data.errcode !== 0) {
     throw new Error(`Upload failed ${data.errcode}: ${data.errmsg}`);
   }
+  if (uploadType === "body" ? !data.url : !data.media_id) throw new Error("Upload response missing required URL/media_id");
 
   return data;
 }
 
-async function uploadImagesInHtml(
+export async function uploadImagesInHtml(
   html: string,
   accessToken: string,
   baseDir: string,
@@ -255,14 +257,11 @@ async function uploadImagesInHtml(
     const [fullTag, src] = match;
     if (!src) continue;
 
-    if (src.startsWith("https://mmbiz.qpic.cn")) {
-      if (collectNewsCoverFallback && !firstCoverMediaId) {
-        try {
-          const coverResp = await uploadImage(src, accessToken, baseDir, "material", client);
-          firstCoverMediaId = coverResp.media_id;
-        } catch (err) {
-          console.error(`[wechat-api] Failed to reuse existing WeChat image as cover: ${src}`, err);
-        }
+    if (src.startsWith("https://mmbiz.qpic.cn/")) {
+      if (articleType === "newspic" || (collectNewsCoverFallback && !firstCoverMediaId)) {
+        const material = await uploadImage(src, accessToken, baseDir, "material", client);
+        if (articleType === "newspic") imageMediaIds.push(material.media_id);
+        if (!firstCoverMediaId) firstCoverMediaId = material.media_id;
       }
       continue;
     }
@@ -296,7 +295,7 @@ async function uploadImagesInHtml(
         }
       }
     } catch (err) {
-      console.error(`[wechat-api] Failed to upload ${imagePath}:`, err);
+      throw new Error(`Failed to upload ${imagePath}`, { cause: err });
     }
   }
 
@@ -330,14 +329,14 @@ async function uploadImagesInHtml(
         }
       }
     } catch (err) {
-      console.error(`[wechat-api] Failed to upload placeholder ${image.placeholder}:`, err);
+      throw new Error(`Failed to upload placeholder ${image.placeholder}`, { cause: err });
     }
   }
 
   return { html: updatedHtml, firstCoverMediaId, imageMediaIds };
 }
 
-async function publishToDraft(
+export async function publishToDraft(
   options: ArticleOptions,
   accessToken: string,
   client: WechatClient = wechatHttp,
@@ -389,10 +388,12 @@ async function publishToDraft(
     body: JSON.stringify({ articles: [article] }),
   });
 
+  if (res.status < 200 || res.status >= 300) throw new Error(`Draft save uncertain: HTTP ${res.status}; reconcile before retrying`);
   const data = await res.json<PublishResponse>();
   if (data.errcode && data.errcode !== 0) {
     throw new Error(`Publish failed ${data.errcode}: ${data.errmsg}`);
   }
+  if (!data.media_id?.trim()) throw new Error("Draft save uncertain: response missing media_id; reconcile before retrying");
 
   return data;
 }
@@ -881,7 +882,7 @@ async function main(): Promise<void> {
   }
 }
 
-await main().catch((err) => {
+if (import.meta.main) await main().catch((err) => {
   console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
   process.exit(1);
 });

@@ -798,13 +798,24 @@ async function getDraftSaveStatus(session: ChromeSession): Promise<DraftSaveStat
   return JSON.parse(raw || '{}') as DraftSaveStatus;
 }
 
-async function waitForDraftSaved(session: ChromeSession, timeoutMs = 60_000): Promise<string> {
+export async function saveOnlyWhenRequested(submit: boolean, save: () => Promise<void>): Promise<boolean> {
+  if (!submit) return false;
+  await save();
+  return true;
+}
+
+export function isFreshDraftSave(current: DraftSaveStatus, previous: DraftSaveStatus): boolean {
+  if (current.messages.some(m => /失败|错误|fail|error/i.test(m))) return false;
+  return !!current.appmsgid && !current.isLoading && (current.appmsgid !== previous.appmsgid || current.messages.some(m => !previous.messages.includes(m) && /保存成功|已保存|saved successfully/i.test(m)));
+}
+
+async function waitForDraftSaved(session: ChromeSession, previous: DraftSaveStatus, timeoutMs = 60_000): Promise<string> {
   const start = Date.now();
   let lastStatus: DraftSaveStatus | null = null;
 
   while (Date.now() - start < timeoutMs) {
     lastStatus = await getDraftSaveStatus(session);
-    if (lastStatus.appmsgid && !lastStatus.isLoading) return lastStatus.appmsgid;
+    if (isFreshDraftSave(lastStatus, previous)) return lastStatus.appmsgid;
 
     const relevantFailure = lastStatus.messages.find((message) => /保存.*失败|草稿.*失败|save.*fail/i.test(message));
     if (relevantFailure) throw new Error(`Draft save failed: ${relevantFailure}`);
@@ -1084,10 +1095,14 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
 
     await verifyTitleUnchangedBeforeSave(session, effectiveTitle);
 
-    console.log('[wechat] Saving as draft...');
-    await evaluate(session, `document.querySelector('#js_submit button').click()`);
-    const appmsgid = await waitForDraftSaved(session);
-    console.log(`[wechat] Draft saved successfully! appmsgid: ${appmsgid}`);
+    const saved = await saveOnlyWhenRequested(submit, async () => {
+      const previousSave = await getDraftSaveStatus(session);
+      console.log('[wechat] Saving as draft...');
+      await evaluate(session, `document.querySelector('#js_submit button').click()`);
+      const appmsgid = await waitForDraftSaved(session, previousSave);
+      console.log(`[wechat] Draft saved successfully! appmsgid: ${appmsgid}`);
+    });
+    if (!saved) console.log('[wechat] Preview only; explicit --submit required to save.');
 
     console.log('[wechat] Done. Browser window left open.');
   } finally {
@@ -1187,7 +1202,7 @@ async function main(): Promise<void> {
   await postArticle({ title: title || '', content, htmlFile, markdownFile, theme, color, citeStatus, author, summary, images, submit, profileDir, cdpPort });
 }
 
-await main().then(() => {
+if (import.meta.main) await main().then(() => {
   process.exit(0);
 }).catch((err) => {
   console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);

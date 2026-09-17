@@ -5,27 +5,19 @@ from pathlib import Path
 
 
 def image_size(path: Path):
-    data = path.read_bytes()
-    if data.startswith(b"\x89PNG\r\n\x1a\n") and len(data) >= 24:
-        return struct.unpack(">II", data[16:24])
-    if data[:2] == b"\xff\xd8":
-        i = 2
-        while i + 9 < len(data):
-            if data[i] != 0xFF:
-                i += 1
-                continue
-            marker = data[i + 1]
-            i += 2
-            if marker in (0xD8, 0xD9):
-                continue
-            if i + 2 > len(data):
-                break
-            length = struct.unpack(">H", data[i:i + 2])[0]
-            if marker in range(0xC0, 0xC4):
-                height, width = struct.unpack(">HH", data[i + 3:i + 7])
-                return width, height
-            i += length
-    raise SystemExit(f"ERROR: unsupported or invalid image: {path}")
+    try:
+        from PIL import Image
+    except ImportError:
+        raise SystemExit("ERROR: Pillow is required; install Pillow before validating images")
+    try:
+        with Image.open(path) as image:
+            image.verify()
+        with Image.open(path) as image:
+            image.load()
+            return image.size
+    except (OSError, ValueError, SyntaxError) as exc:
+        raise SystemExit(f"FAIL: image cannot be fully decoded: {path}: {exc}")
+
 
 
 parser = argparse.ArgumentParser()
