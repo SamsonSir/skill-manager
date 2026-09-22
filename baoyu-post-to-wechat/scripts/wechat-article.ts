@@ -1,3 +1,5 @@
+import { saveCurrentDraft } from './wechat-save-current.ts';
+import { extractArticleHtml } from './wechat-html.ts';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -6,6 +8,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { launchChrome, tryConnectExisting, findExistingChromeDebugPort, getPageSession, waitForNewTab, clickElement, typeText, evaluate, sleep, getAccountProfileDir, type ChromeSession, type CdpConnection } from './cdp.ts';
 import { loadWechatExtendConfig, resolveAccount } from './wechat-extend-config.ts';
+import { ACCOUNT_ID_EXPRESSION, assertBackendAccount } from './wechat-account-guard.ts';
 import { prepareWechatBodyImageUpload } from './wechat-image-processor.ts';
 
 const WECHAT_URL = 'https://mp.weixin.qq.com/';
@@ -27,11 +30,119 @@ interface ArticleOptions {
   citeStatus?: boolean;
   author?: string;
   summary?: string;
+  cover?: string;
   images?: string[];
   contentImages?: ImageInfo[];
   submit?: boolean;
+  expectedAccountId?: string;
   profileDir?: string;
   cdpPort?: number;
+  draftId?: string;
+}
+
+async function clickVisibleByText(
+  session: ChromeSession,
+  selector: string,
+  text: string,
+): Promise<void> {
+  let point = 'null';
+  const start = Date.now();
+  while (Date.now() - start < 10_000 && point === 'null') {
+    point = await evaluate<string>(session, `
+      (function() {
+        const element = Array.from(document.querySelectorAll(${JSON.stringify(selector)}))
+          .find(node => node.offsetParent !== null && node.textContent?.trim() === ${JSON.stringify(text)});
+        if (!element) return 'null';
+        element.scrollIntoView({ block: 'center', behavior: 'instant' });
+        const rect = element.getBoundingClientRect();
+        return JSON.stringify({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 });
+      })()
+    `);
+    if (point === 'null') await sleep(250);
+  }
+  if (point === 'null') throw new Error(`Visible control not found: ${text}`);
+  const { x, y } = JSON.parse(point);
+  await session.cdp.send('Input.dispatchMouseEvent', {
+    type: 'mousePressed', x, y, button: 'left', clickCount: 1,
+  }, { sessionId: session.sessionId });
+  await sleep(100);
+  await session.cdp.send('Input.dispatchMouseEvent', {
+    type: 'mouseReleased', x, y, button: 'left', clickCount: 1,
+  }, { sessionId: session.sessionId });
+}
+
+async function setArticleCover(session: ChromeSession, coverPath: string): Promise<void> {
+  const absolutePath = path.isAbsolute(coverPath) ? coverPath : path.resolve(process.cwd(), coverPath);
+  if (!fs.existsSync(absolutePath)) throw new Error(`Cover image not found: ${absolutePath}`);
+  const filename = path.basename(absolutePath);
+
+  console.log(`[wechat] Setting cover image: ${filename}`);
+  const opened = await evaluate<boolean>(session, `
+    (function() {
+      const button = document.querySelector('#js_cover_null .js_imagedialog')
+        || document.querySelector('.first_appmsg_cover .js_imagedialog');
+      if (!button) return false;
+      button.click();
+      return true;
+    })()
+  `);
+  if (!opened) throw new Error('Cover image library control not found');
+
+  const dialogReady = await waitForElement(session, '.weui-desktop-dialog input[type="file"][accept*="image/bmp"]', 10_000);
+  if (!dialogReady) throw new Error('Cover upload dialog did not open');
+  const previousNameCount = await evaluate<number>(session, `
+    Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title'))
+      .filter(node => node.textContent?.trim() === ${JSON.stringify(filename)}).length
+  `);
+
+  const document = await session.cdp.send<{ root: { nodeId: number } }>('DOM.getDocument', {
+    depth: -1,
+    pierce: true,
+  }, { sessionId: session.sessionId });
+  const input = await session.cdp.send<{ nodeId: number }>('DOM.querySelector', {
+    nodeId: document.root.nodeId,
+    selector: '.weui-desktop-dialog input[type="file"][accept*="image/bmp"]',
+  }, { sessionId: session.sessionId });
+  if (!input.nodeId) throw new Error('Cover upload input not found');
+  await session.cdp.send('DOM.setFileInputFiles', {
+    nodeId: input.nodeId,
+    files: [absolutePath],
+  }, { sessionId: session.sessionId });
+
+  const uploaded = await waitForCondition(session, `
+    Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title'))
+      .filter(node => node.textContent?.trim() === ${JSON.stringify(filename)}).length > ${previousNameCount}
+  `, 30_000);
+  if (!uploaded) throw new Error(`Uploaded cover did not appear in image library: ${filename}`);
+
+  const selected = await evaluate<boolean>(session, `
+    (function() {
+      const title = Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title'))
+        .find(node => node.textContent?.trim() === ${JSON.stringify(filename)});
+      if (!title) return false;
+      title.parentElement?.click();
+      return true;
+    })()
+  `);
+  if (!selected) throw new Error(`Unable to select uploaded cover: ${filename}`);
+
+  await clickVisibleByText(session, '.weui-desktop-dialog button', '下一步');
+  const cropReady = await waitForCondition(session, `
+    Array.from(document.querySelectorAll('.weui-desktop-dialog'))
+      .some(dialog => dialog.offsetParent !== null && dialog.textContent?.includes('编辑封面'))
+  `, 10_000);
+  if (!cropReady) throw new Error('Cover crop dialog did not open');
+  await clickVisibleByText(session, '.weui-desktop-dialog button', '确认');
+
+  const applied = await waitForCondition(session, `
+    (function() {
+      const preview = document.querySelector('.first_appmsg_cover');
+      const background = preview?.style?.backgroundImage || '';
+      return background.includes('url(') && !background.includes('url(\"\")');
+    })()
+  `, 15_000);
+  if (!applied) throw new Error('Cover selection was not applied; draft was not saved');
+  console.log('[wechat] Cover image verified in editor.');
 }
 
 async function sendQrToTelegram(session: ChromeSession): Promise<void> {
@@ -145,6 +256,15 @@ async function waitForElement(session: ChromeSession, selector: string, timeoutM
   return false;
 }
 
+async function waitForCondition(session: ChromeSession, expression: string, timeoutMs = 10_000): Promise<boolean> {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    if (await evaluate<boolean>(session, expression)) return true;
+    await sleep(500);
+  }
+  return false;
+}
+
 async function clickMenuByText(session: ChromeSession, text: string, maxRetries = 5): Promise<void> {
   console.log(`[wechat] Clicking "${text}" menu...`);
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
@@ -155,7 +275,7 @@ async function clickMenuByText(session: ChromeSession, text: string, maxRetries 
           for (const item of items) {
             const title = item.querySelector('.new-creation__menu-title');
             if (title && title.textContent?.trim() === '${text}') {
-              item.scrollIntoView({ block: 'center' });
+              item.scrollIntoView({ block: 'center', behavior: 'instant' });
               const rect = item.getBoundingClientRect();
               return JSON.stringify({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 });
             }
@@ -235,6 +355,9 @@ async function copyHtmlFromBrowser(cdp: CdpConnection, htmlFilePath: string, con
   await cdp.send('Runtime.enable', {}, { sessionId });
   await sleep(2000);
 
+  const approvedHtml = extractArticleHtml(fs.readFileSync(htmlFilePath, 'utf8'));
+  await cdp.send('Runtime.evaluate', {expression: `document.body.innerHTML = ${JSON.stringify(approvedHtml)}`, returnByValue: true}, {sessionId});
+
   if (contentImages.length > 0) {
     console.log('[wechat] Replacing img tags with placeholders for browser paste...');
     const replacements = contentImages.map(img => ({ placeholder: img.placeholder, localPath: img.localPath }));
@@ -257,11 +380,11 @@ async function copyHtmlFromBrowser(cdp: CdpConnection, htmlFilePath: string, con
     await sleep(500);
   }
 
-  console.log('[wechat] Selecting #output content...');
+  console.log('[wechat] Selecting approved article content...');
   await cdp.send<{ result: { value: unknown } }>('Runtime.evaluate', {
     expression: `
       (function() {
-        const output = document.querySelector('#output') || document.body;
+        const output = document.body;
         const range = document.createRange();
         range.selectNodeContents(output);
         const selection = window.getSelection();
@@ -303,7 +426,7 @@ async function insertHtmlIntoEditorFromFile(
   contentImages: ImageInfo[] = [],
 ): Promise<void> {
   const absolutePath = path.isAbsolute(htmlFilePath) ? htmlFilePath : path.resolve(process.cwd(), htmlFilePath);
-  const html = fs.readFileSync(absolutePath, 'utf8');
+  const html = extractArticleHtml(fs.readFileSync(absolutePath, 'utf8'));
   const replacements = contentImages.map(img => ({ placeholder: img.placeholder, localPath: img.localPath }));
 
   const result = await session.cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
@@ -325,13 +448,8 @@ async function insertHtmlIntoEditorFromFile(
           }
         }
 
-        const output = template.content.querySelector('#output');
         const wrapper = document.createElement('div');
-        if (output) {
-          wrapper.innerHTML = output.innerHTML;
-        } else {
-          wrapper.appendChild(template.content.cloneNode(true));
-        }
+        wrapper.appendChild(template.content.cloneNode(true));
 
         editor.focus();
         const selection = window.getSelection();
@@ -367,7 +485,7 @@ async function insertHtmlIntoEditorFromFile(
 async function verifyTitleUnchangedBeforeSave(session: ChromeSession, expectedTitle: string): Promise<void> {
   if (!expectedTitle) return;
 
-  const actualTitle = await evaluate<string>(session, `document.querySelector('#title')?.value || ''`);
+  const actualTitle = await evaluate<string>(session, `document.querySelector('.ProseMirror[data-placeholder]')?.textContent || document.querySelector('#title')?.value || ''`);
   if (actualTitle !== expectedTitle) {
     throw new Error(`Title was modified during paste. Expected: "${expectedTitle}", got: "${actualTitle}"`);
   }
@@ -827,7 +945,7 @@ async function waitForDraftSaved(session: ChromeSession, previous: DraftSaveStat
 }
 
 export async function postArticle(options: ArticleOptions): Promise<void> {
-  const { title, content, htmlFile, markdownFile, theme, color, citeStatus = true, author, summary, images = [], submit = false, profileDir, cdpPort } = options;
+  const { title, content, htmlFile, markdownFile, theme, color, citeStatus = true, author, summary, cover, images = [], submit = false, profileDir, cdpPort, draftId } = options;
   let { contentImages = [] } = options;
   let effectiveTitle = title || '';
   let effectiveAuthor = author || '';
@@ -848,6 +966,7 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
     console.log(`[wechat] Found ${contentImages.length} images to insert`);
   } else if (htmlFile && fs.existsSync(htmlFile)) {
     console.log(`[wechat] Parsing HTML: ${htmlFile}`);
+    extractArticleHtml(fs.readFileSync(htmlFile, 'utf8'));
     const meta = parseHtmlMeta(htmlFile);
     effectiveTitle = effectiveTitle || meta.title;
     effectiveAuthor = effectiveAuthor || meta.author;
@@ -910,7 +1029,10 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
         const currentUrl = await evaluate<string>(session, 'window.location.href');
         if (!currentUrl.includes('/cgi-bin/home')) {
           console.log('[wechat] Navigating to home...');
-          await evaluate(session, `window.location.href = '${WECHAT_URL}cgi-bin/home?t=home/index'`);
+          const parsed = new URL(currentUrl);
+          const token = parsed.searchParams.get('token');
+          const homeUrl = `${WECHAT_URL}cgi-bin/home?t=home/index${token ? `&token=${encodeURIComponent(token)}` : ''}&lang=zh_CN`;
+          await evaluate(session, `window.location.href = ${JSON.stringify(homeUrl)}`);
           await sleep(5000);
         }
       } else {
@@ -938,13 +1060,22 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
     const menuReady = await waitForElement(session, '.new-creation__menu', 40_000);
     if (!menuReady) throw new Error('Home page menu did not load');
 
-    const targets = await cdp.send<{ targetInfos: Array<{ targetId: string; url: string; type: string }> }>('Target.getTargets');
-    const initialIds = new Set(targets.targetInfos.map(t => t.targetId));
-
-    await clickMenuByText(session, '文章');
-    await sleep(3000);
-
-    const editorTargetId = await waitForNewTab(cdp, initialIds, 'mp.weixin.qq.com');
+    assertBackendAccount(options.expectedAccountId, await evaluate(session, ACCOUNT_ID_EXPRESSION));
+    let editorTargetId: string;
+    if (draftId) {
+      const currentUrl = await evaluate<string>(session, 'window.location.href');
+      const token = new URL(currentUrl).searchParams.get('token');
+      if (!token) throw new Error('Cannot resume draft: backend token is unavailable');
+      const editUrl = `${WECHAT_URL}cgi-bin/appmsg?t=media/appmsg_edit&action=edit&type=77&appmsgid=${encodeURIComponent(draftId)}&isMul=1&replaceScene=0&isSend=0&isFreePublish=0&token=${encodeURIComponent(token)}&lang=zh_CN`;
+      editorTargetId = (await cdp.send<{ targetId: string }>('Target.createTarget', { url: editUrl })).targetId;
+      console.log(`[wechat] Resuming draft: ${draftId}`);
+    } else {
+      const targets = await cdp.send<{ targetInfos: Array<{ targetId: string; url: string; type: string }> }>('Target.getTargets');
+      const initialIds = new Set(targets.targetInfos.map(t => t.targetId));
+      await clickMenuByText(session, '文章');
+      await sleep(3000);
+      editorTargetId = await waitForNewTab(cdp, initialIds, 'mp.weixin.qq.com');
+    }
     console.log('[wechat] Editor tab opened.');
 
     const { sessionId } = await cdp.send<{ sessionId: string }>('Target.attachToTarget', { targetId: editorTargetId, flatten: true });
@@ -963,7 +1094,17 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
 
     if (effectiveTitle) {
       console.log('[wechat] Filling title...');
-      await evaluate(session, `(function() { const el = document.querySelector('#title'); el.focus(); el.value = ${JSON.stringify(effectiveTitle)}; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); })()`);
+      await evaluate(session, `(function() {
+        const rich = document.querySelector('.ProseMirror[data-placeholder]');
+        if (rich) {
+          rich.focus(); const range = document.createRange(); range.selectNodeContents(rich);
+          const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
+          document.execCommand('insertText', false, ${JSON.stringify(effectiveTitle)});
+        } else {
+          const el = document.querySelector('#title'); el.focus(); el.value = ${JSON.stringify(effectiveTitle)};
+          el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      })()`);
     }
 
     if (effectiveAuthor) {
@@ -974,11 +1115,11 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
     await sleep(500);
 
     if (effectiveTitle) {
-      const actualTitle = await evaluate<string>(session, `document.querySelector('#title')?.value || ''`);
+      const actualTitle = await evaluate<string>(session, `document.querySelector('.ProseMirror[data-placeholder]')?.textContent || document.querySelector('#title')?.value || ''`);
       if (actualTitle === effectiveTitle) {
         console.log('[wechat] Title verified OK.');
       } else {
-        console.warn(`[wechat] Title verification failed. Expected: "${effectiveTitle}", got: "${actualTitle}"`);
+        throw new Error(`[wechat] Title verification failed. Expected: "${effectiveTitle}", got: "${actualTitle}"`);
       }
     }
 
@@ -1093,14 +1234,17 @@ export async function postArticle(options: ArticleOptions): Promise<void> {
       }
     }
 
+    if (cover) {
+      await setArticleCover(session, cover);
+    } else if (submit) {
+      throw new Error('Browser article draft requires --cover; draft was not saved');
+    }
+
     await verifyTitleUnchangedBeforeSave(session, effectiveTitle);
 
     const saved = await saveOnlyWhenRequested(submit, async () => {
-      const previousSave = await getDraftSaveStatus(session);
-      console.log('[wechat] Saving as draft...');
-      await evaluate(session, `document.querySelector('#js_submit button').click()`);
-      const appmsgid = await waitForDraftSaved(session, previousSave);
-      console.log(`[wechat] Draft saved successfully! appmsgid: ${appmsgid}`);
+      const result = await saveCurrentDraft(expression => evaluate(session, expression), options.expectedAccountId!, effectiveTitle);
+      console.log(JSON.stringify(result));
     });
     if (!saved) console.log('[wechat] Preview only; explicit --submit required to save.');
 
@@ -1126,11 +1270,14 @@ Options:
   --no-cite          Disable bottom citations for ordinary external links in markdown mode
   --author <name>    Author name
   --summary <text>   Article summary
+  --cover <path>     Required local cover image when saving a browser draft
   --image <path>     Content image, can repeat (only with --content)
+  --expected-account-id <id>  Required original backend account ID (gh_...)
   --submit           Save as draft
   --profile <dir>    Chrome profile directory
   --account <alias>  Select account by alias (for multi-account setups)
   --cdp-port <port>  Connect to existing Chrome debug port instead of launching new instance
+  --draft-id <id>    Resume and update an existing article draft instead of creating another
 
 Examples:
   npx -y bun wechat-article.ts --markdown article.md
@@ -1162,10 +1309,13 @@ async function main(): Promise<void> {
   let citeStatus = true;
   let author: string | undefined;
   let summary: string | undefined;
+  let cover: string | undefined;
   let submit = false;
   let profileDir: string | undefined;
   let cdpPort: number | undefined;
   let accountAlias: string | undefined;
+  let expectedAccountId: string | undefined;
+  let draftId: string | undefined;
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i]!;
@@ -1179,11 +1329,14 @@ async function main(): Promise<void> {
     else if (arg === '--no-cite') citeStatus = false;
     else if (arg === '--author' && args[i + 1]) author = args[++i];
     else if (arg === '--summary' && args[i + 1]) summary = args[++i];
+    else if (arg === '--cover' && args[i + 1]) cover = args[++i];
     else if (arg === '--image' && args[i + 1]) images.push(args[++i]!);
+    else if (arg === '--expected-account-id' && args[i + 1]) expectedAccountId = args[++i];
     else if (arg === '--submit') submit = true;
     else if (arg === '--profile' && args[i + 1]) profileDir = args[++i];
     else if (arg === '--account' && args[i + 1]) accountAlias = args[++i];
     else if (arg === '--cdp-port' && args[i + 1]) cdpPort = parseInt(args[++i]!, 10);
+    else if (arg === '--draft-id' && args[i + 1]) draftId = args[++i];
   }
 
   const extConfig = loadWechatExtendConfig();
@@ -1199,7 +1352,7 @@ async function main(): Promise<void> {
   if (!markdownFile && !htmlFile && !title) { console.error('Error: --title is required (or use --markdown/--html)'); process.exit(1); }
   if (!markdownFile && !htmlFile && !content) { console.error('Error: --content, --html, or --markdown is required'); process.exit(1); }
 
-  await postArticle({ title: title || '', content, htmlFile, markdownFile, theme, color, citeStatus, author, summary, images, submit, profileDir, cdpPort });
+  await postArticle({ title: title || '', content, htmlFile, markdownFile, theme, color, citeStatus, author, summary, cover, images, submit, profileDir, cdpPort, expectedAccountId, draftId });
 }
 
 if (import.meta.main) await main().then(() => {

@@ -104,10 +104,10 @@ def fetch_no_sni(params: dict[str, str], timeout: int = 60) -> dict[str, Any]:
     }
 
     sock = socket.create_connection((host, 443), timeout=timeout)
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    context.check_hostname = False
-    context.verify_mode = ssl.CERT_NONE
-    ssl_sock = context.wrap_socket(sock, server_hostname=None)
+    context = ssl.create_default_context()
+    context.check_hostname = True
+    context.verify_mode = ssl.CERT_REQUIRED
+    ssl_sock = context.wrap_socket(sock, server_hostname=host)
     try:
         lines = [f"GET {request_path} HTTP/1.1"]
         lines.extend(f"{k}: {v}" for k, v in headers.items())
@@ -589,6 +589,10 @@ def build_formula_cards(sector_name: str, title_words: list[str]) -> str:
 
 def build_sector_html(sector: dict[str, Any]) -> str:
     items = sector["items"]
+    errors = sector.get("errors", [])
+    if errors and not items:
+        return '<section class="sector"><h2>' + esc(sector['name']) + '</h2><p>数据源查询失败，不能判定为零结果。</p><ul>' + ''.join('<li>' + esc(str(e)) + '</li>' for e in errors) + '</ul></section>'
+    warning = ('<p>部分数据源查询失败，以下仅为已取得样本。</p><ul>' + ''.join('<li>'+esc(str(e))+'</li>' for e in errors) + '</ul>') if errors else ''
     top_reads, top_shares, top_comments = top_metric_items(items)
     title_words = extract_title_patterns([x.get("title", "") for x in items])
     avg_share = round(sum(parse_count(x.get("shareCount")) for x in items) / max(1, len(items)), 1)
@@ -596,7 +600,7 @@ def build_sector_html(sector: dict[str, Any]) -> str:
     max_comment = parse_count(top_comments.get("commentCount")) if top_comments else 0
     top_title = top_reads.get("title") if top_reads else "暂无"
     top_read_count = display_count(top_reads.get("clicksCount")) if top_reads else "0"
-    return f"""<section class="sector">
+    return f"""<section class="sector">{warning}
   <div class="section-head">
     <div>
       <p class="eyebrow">Sector</p>

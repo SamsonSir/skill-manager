@@ -118,7 +118,7 @@ def decode_chunked(data):
 
 
 def fetch_via_no_sni(base_url: str, params: dict, headers: dict, timeout: int = 60):
-    """使用原生 socket 实现 HTTPS 请求（不发送 SNI）"""
+    """使用原生 socket 实现 HTTPS 请求（校验证书与主机名，发送 SNI）"""
     if "://" in base_url:
         base_url = base_url.split("://", 1)[1]
     host, path = base_url.split("/", 1)
@@ -128,10 +128,10 @@ def fetch_via_no_sni(base_url: str, params: dict, headers: dict, timeout: int = 
         path = f"{path}?{query}"
     
     sock = socket.create_connection((host, 443), timeout=timeout)
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    context.check_hostname = False
-    context.verify_mode = ssl.CERT_NONE
-    ssl_sock = context.wrap_socket(sock, server_hostname=None)
+    context = ssl.create_default_context()
+    context.check_hostname = True
+    context.verify_mode = ssl.CERT_REQUIRED
+    ssl_sock = context.wrap_socket(sock, server_hostname=host)
     
     request_lines = [
         f"GET /{path} HTTP/1.1",

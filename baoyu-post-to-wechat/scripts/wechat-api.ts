@@ -1,3 +1,5 @@
+import { extractArticleHtml } from './wechat-html.ts';
+import { assertBackendAccount } from './wechat-account-guard.ts';
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
@@ -459,13 +461,7 @@ function replaceAllPlaceholders(html: string, placeholder: string, replacement: 
 }
 
 function extractHtmlContent(htmlPath: string): string {
-  const html = fs.readFileSync(htmlPath, "utf-8");
-  const match = html.match(/<div id="output">([\s\S]*?)<\/div>\s*<\/body>/);
-  if (match) {
-    return match[1]!.trim();
-  }
-  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  return bodyMatch ? bodyMatch[1]!.trim() : html;
+  return extractArticleHtml(fs.readFileSync(htmlPath, 'utf-8'));
 }
 
 function printUsage(): never {
@@ -488,6 +484,7 @@ Options:
   --cover <path>      Cover image path (local or URL)
   --account <alias>   Select account by alias (for multi-account setups)
   --no-cite           Disable bottom citations for ordinary external links in markdown mode
+  --expected-app-id <id> Required independently configured AppID before network writes
   --dry-run           Parse and render only, don't publish
   --remote            Route WeChat API calls via SSH SOCKS5 tunnel to a whitelisted server
   --remote-host <h>   Remote server host (implies --remote)
@@ -543,6 +540,7 @@ interface CliArgs {
   color?: string;
   cover?: string;
   account?: string;
+  expectedAppId?: string;
   citeStatus: boolean;
   dryRun: boolean;
   remote: boolean;
@@ -573,7 +571,9 @@ function parseArgs(argv: string[]): CliArgs {
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]!;
-    if (arg === "--type" && argv[i + 1]) {
+    if (arg === "--expected-app-id" && argv[i + 1]) {
+      args.expectedAppId = argv[++i];
+    } else if (arg === "--type" && argv[i + 1]) {
       const t = argv[++i]!.toLowerCase();
       if (t === "news" || t === "newspic") {
         args.articleType = t;
@@ -790,6 +790,7 @@ async function main(): Promise<void> {
   }
 
   const creds = loadCredentials(resolved);
+  assertBackendAccount(args.expectedAppId, creds.appId);
   for (const skippedSource of creds.skippedSources) {
     console.error(`[wechat-api] Skipped incomplete credential source: ${skippedSource}`);
   }

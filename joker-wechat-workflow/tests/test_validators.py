@@ -72,6 +72,17 @@ class Gates(unittest.TestCase):
         (self.root/'source.txt').write_text('经历来源')
         risk['source_ref']='source.txt'
         check(dict(packet, claims=[risk]), review, True)
+        # Production strict mode binds the policy and actual contract, not just IDs.
+        contract=self.root/'contract'
+        contract.write_text('account_id: a\ncharacter_id: p\nstatus: confirmed\nfact_policy: source_bound\n')
+        strict_review=dict(review,reference_sha256={f:hashlib.sha256((self.root/f).read_bytes()).hexdigest() for f in ['contract','anchor']})
+        claims.write_text(json.dumps(packet));style.write_text(json.dumps(strict_review))
+        strict=dict(article=article,claims=claims,style=style,account_id='a',character_id='p',contract=contract)
+        self.run_gate('validate_article_packet.py',True,**strict)
+        claims.write_text(json.dumps(dict(packet,fact_policy='explicit_fiction')))
+        self.run_gate('validate_article_packet.py',False,**strict)
+        claims.write_text(json.dumps(packet));(self.root/'anchor').write_text('changed anchor')
+        self.run_gate('validate_article_packet.py',False,**strict)
         article.write_text('# 只有标题\n')
         digest=hashlib.sha256(article.read_bytes()).hexdigest()
         check(dict(packet, article_sha256=digest, interaction_lines=[]), dict(review, article_sha256=digest), False)

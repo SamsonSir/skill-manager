@@ -43,6 +43,8 @@ description: Joker WeChat Workflow 的文章模式内部制作与验收规则，
 
 终点早于草稿时（如只到正文、只到贴图文案），按用户指定的范围完成并停手；未做的配图、排版、后台与发布逐项写入待办，状态用「XX完成，XX待制作」如实标记，并在账号项目的当前进度和角色知识库各留一条可回填的记录。不得把未做的环节写成已完成，也不得因终点提前而省略内容卡与编辑检查。
 
+出现人物的成图还必须通过 `visual-continuity.md` 的通用照片真实感门禁；角色精致、时尚或风韵不能作为 CG 感、影楼感、塑料磨皮或人物贴进背景的理由。
+
 ## 跨会话人物校验（2026-09-17）
 每个角色项目保存独立 identity.json（account_id、character_id、version、status=confirmed、references有序列表、retired_identity_files）。每条reference记录role、相对清单路径path及sha256；第一条必须为primary_identity，其余身份图须有用户确认依据。不得从“摄影真实感获认可”推导“脸部身份获认可”。
 生成人物前运行 joker-wechat-workflow/scripts/check_identity.py --manifest <当前角色清单绝对路径> --account-id <当前账号ID>；失败先修正绑定，不能猜图继续。成功后实际查看返回的身份图，按顺序传入生图工具；摄影参考单列在后。每次调用记录角色ID、清单版本、实际传入路径和提示词。

@@ -8,10 +8,13 @@ import {
   findChromeExecutable,
   getDefaultProfileDir,
   getAccountProfileDir,
+  findExistingChromeDebugPort,
   launchChrome,
   sleep,
+  tryConnectExisting,
 } from './cdp.ts';
 import { loadWechatExtendConfig, resolveAccount } from './wechat-extend-config.ts';
+import { ACCOUNT_ID_EXPRESSION, assertBackendAccount } from './wechat-account-guard.ts';
 
 const WECHAT_URL = 'https://mp.weixin.qq.com/';
 
@@ -52,34 +55,16 @@ function parseMarkdownFile(filePath: string): MarkdownMeta {
     if (trimmed.startsWith('![')) continue;
     if (trimmed.startsWith('---')) continue;
     paragraphs.push(trimmed);
-    if (paragraphs.join('\n').length > 1200) break;
+
   }
   content = paragraphs.join('\n');
 
   return { title, author, content };
 }
 
-function compressTitle(title: string, maxLen = 20): string {
-  if (title.length <= maxLen) return title;
-
-  const prefixes = ['如何', '为什么', '什么是', '怎样', '怎么', '关于'];
-  let t = title;
-  for (const p of prefixes) {
-    if (t.startsWith(p) && t.length > maxLen) {
-      t = t.slice(p.length);
-      if (t.length <= maxLen) return t;
-    }
-  }
-
-  const fillers = ['的', '了', '在', '是', '和', '与', '以及', '或者', '或', '还是', '而且', '并且', '但是', '但', '因为', '所以', '如果', '那么', '虽然', '不过', '然而', '——', '…'];
-  for (const f of fillers) {
-    if (t.length <= maxLen) break;
-    t = t.replace(new RegExp(f, 'g'), '');
-  }
-
-  if (t.length > maxLen) t = t.slice(0, maxLen);
-
-  return t;
+export function compressTitle(title: string, maxLen = 20): string {
+  if (title.length > maxLen) throw new Error(`Photo title exceeds ${maxLen} characters; supply an approved shorter version`);
+  return title;
 }
 
 export function compressContent(content: string, maxLen = 1000): string {
@@ -103,16 +88,96 @@ interface WeChatBrowserOptions {
   imagesDir?: string;
   markdownFile?: string;
   submit?: boolean;
+  expectedAccountId?: string;
   timeoutMs?: number;
   profileDir?: string;
   chromePath?: string;
+  draftId?: string;
+  cover?: string;
 }
 
 export function assertSaveClicked(result: string): void {
   if (!result.startsWith('clicked:')) throw new Error('Save button not found; draft not saved');
 }
-export function assertSaveConfirmed(messages: string[]): void {
-  if (messages.some(m => /失败|错误|fail|error/i.test(m)) || !messages.some(m => /保存成功|已保存|saved successfully/i.test(m))) throw new Error('Draft save unconfirmed; inspect draft list before retrying');
+export function assertSaveConfirmed(messages: string[], previous: string[] = []): void {
+  if (messages.some(m => /失败|错误|fail|error/i.test(m)) || !messages.some(m => !previous.includes(m) && /保存成功|已保存|saved successfully/i.test(m))) throw new Error('Draft save unconfirmed; inspect draft list before retrying');
+}
+
+async function waitForDomCondition(cdp: CdpConnection, sessionId: string, expression: string, timeoutMs = 15_000): Promise<boolean> {
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    const result = await cdp.send<{ result: { value: boolean } }>('Runtime.evaluate', {
+      expression: `Boolean(${expression})`, returnByValue: true,
+    }, { sessionId });
+    if (result.result.value) return true;
+    await sleep(250);
+  }
+  return false;
+}
+
+async function clickVisibleButton(cdp: CdpConnection, sessionId: string, text: string): Promise<void> {
+  const result = await cdp.send<{ result: { value: boolean } }>('Runtime.evaluate', {
+    expression: `(function() {
+      const button = Array.from(document.querySelectorAll('.weui-desktop-dialog button'))
+        .find(node => node.textContent?.trim().includes(${JSON.stringify(text)}));
+      if (!button) return false;
+      button.click();
+      return true;
+    })()`,
+    returnByValue: true,
+    userGesture: true,
+  }, { sessionId });
+  if (!result.result.value) throw new Error(`Visible cover dialog button not found: ${text}`);
+}
+
+async function setPhotoCover(cdp: CdpConnection, sessionId: string, coverPath: string): Promise<void> {
+  const absolutePath = path.isAbsolute(coverPath) ? coverPath : path.resolve(process.cwd(), coverPath);
+  if (!fs.existsSync(absolutePath)) throw new Error(`Photo cover image not found: ${absolutePath}`);
+  const filename = path.basename(absolutePath);
+  const opened = await cdp.send<{ result: { value: boolean } }>('Runtime.evaluate', {
+    expression: `(function() {
+      const button = document.querySelector('#js_cover_null .js_imagedialog') || document.querySelector('.first_appmsg_cover .js_imagedialog');
+      if (!button) return false;
+      button.click();
+      return true;
+    })()`, returnByValue: true, userGesture: true,
+  }, { sessionId });
+  if (!opened.result.value) throw new Error('Photo cover image library control not found');
+  const dialogReady = await waitForDomCondition(cdp, sessionId, `document.querySelector('.weui-desktop-dialog input[type="file"][accept*="image/bmp"]')`, 10_000);
+  if (!dialogReady) throw new Error('Photo cover upload dialog did not open');
+  const previousCount = await cdp.send<{ result: { value: number } }>('Runtime.evaluate', {
+    expression: `Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title')).filter(node => node.textContent?.trim() === ${JSON.stringify(filename)}).length`,
+    returnByValue: true,
+  }, { sessionId });
+  const documentNode = await cdp.send<{ root: { nodeId: number } }>('DOM.getDocument', { depth: -1, pierce: true }, { sessionId });
+  const input = await cdp.send<{ nodeId: number }>('DOM.querySelector', {
+    nodeId: documentNode.root.nodeId,
+    selector: '.weui-desktop-dialog input[type="file"][accept*="image/bmp"]',
+  }, { sessionId });
+  if (!input.nodeId) throw new Error('Photo cover upload input not found');
+  await cdp.send('DOM.setFileInputFiles', { nodeId: input.nodeId, files: [absolutePath] }, { sessionId });
+  const uploaded = await waitForDomCondition(cdp, sessionId, `Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title')).filter(node => node.textContent?.trim() === ${JSON.stringify(filename)}).length > ${previousCount.result.value}`, 30_000);
+  if (!uploaded) throw new Error('Photo cover did not appear in image library');
+  const selected = await cdp.send<{ result: { value: boolean } }>('Runtime.evaluate', {
+    expression: `(function() {
+      const title = Array.from(document.querySelectorAll('.weui-desktop-img-picker__img-title')).find(node => node.textContent?.trim() === ${JSON.stringify(filename)});
+      if (!title) return false;
+      title.parentElement?.click();
+      return true;
+    })()`, returnByValue: true, userGesture: true,
+  }, { sessionId });
+  if (!selected.result.value) throw new Error('Uploaded photo cover could not be selected');
+  await clickVisibleButton(cdp, sessionId, '下一步');
+  const cropReady = await waitForDomCondition(cdp, sessionId, `Array.from(document.querySelectorAll('.weui-desktop-dialog')).some(dialog => dialog.offsetParent !== null && dialog.textContent?.includes('编辑封面'))`, 10_000);
+  if (!cropReady) throw new Error('Photo cover crop dialog did not open');
+  await clickVisibleButton(cdp, sessionId, '确认');
+  const applied = await waitForDomCondition(cdp, sessionId, `(function() {
+    const preview = document.querySelector('.first_appmsg_cover');
+    const background = preview?.style?.backgroundImage || '';
+    return background.includes('url(') && !document.body.innerText.includes('封面规格异常');
+  })()`, 15_000);
+  if (!applied) throw new Error('Photo cover crop was not applied cleanly');
+  console.log('[wechat-browser] Photo cover verified in editor.');
 }
 
 export async function postToWeChat(options: WeChatBrowserOptions): Promise<void> {
@@ -139,17 +204,8 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     console.log(`[wechat-browser] Found ${images.length} images in ${absDir}`);
   }
 
-  if (title.length > 20) {
-    const original = title;
-    title = compressTitle(title, 20);
-    console.log(`[wechat-browser] Title compressed: "${original}" → "${title}"`);
-  }
-
-  if (content.length > 1000) {
-    const original = content.length;
-    content = compressContent(content, 1000);
-    console.log(`[wechat-browser] Content compressed: ${original} → ${content.length} chars`);
-  }
+  title = compressTitle(title, 20);
+  content = compressContent(content, 1000);
 
   if (!title) throw new Error('Title is required (use --title or --markdown)');
   if (!content) throw new Error('Content is required (use --content or --markdown)');
@@ -162,15 +218,18 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
   const chromePath = findChromeExecutable(options.chromePath);
   if (!chromePath) throw new Error('Chrome not found. Set WECHAT_BROWSER_CHROME_PATH env var.');
 
-  console.log(`[wechat-browser] Launching Chrome (profile: ${profileDir})`);
-
-  const launched = await launchChrome(WECHAT_URL, profileDir, chromePath);
-  const chrome = launched.chrome;
-
   let cdp: CdpConnection | null = null;
 
   try {
-    cdp = launched.cdp;
+    const existingPort = await findExistingChromeDebugPort(profileDir);
+    if (existingPort) {
+      cdp = await tryConnectExisting(existingPort);
+      if (cdp) console.log(`[wechat-browser] Connected to existing Chrome on port ${existingPort}`);
+    }
+    if (!cdp) {
+      console.log(`[wechat-browser] Launching Chrome (profile: ${profileDir})`);
+      cdp = (await launchChrome(WECHAT_URL, profileDir, chromePath)).cdp;
+    }
 
     const targets = await cdp.send<{ targetInfos: Array<{ targetId: string; url: string; type: string }> }>('Target.getTargets');
     let pageTarget = targets.targetInfos.find((t) => t.type === 'page' && t.url.includes('mp.weixin.qq.com'));
@@ -194,7 +253,7 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
         expression: `window.location.href`,
         returnByValue: true,
       }, { sessionId });
-      return result.result.value.includes('/cgi-bin/home');
+      return result.result.value.includes('/cgi-bin/');
     };
 
     const waitForLogin = async (): Promise<boolean> => {
@@ -214,7 +273,39 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     }
     console.log('[wechat-browser] Logged in.');
 
-    await sleep(2000);
+    const currentUrl = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
+      expression: `window.location.href`, returnByValue: true,
+    }, { sessionId });
+    if (!currentUrl.result.value.includes('/cgi-bin/home')) {
+      const activeUrl = new URL(currentUrl.result.value);
+      const token = activeUrl.searchParams.get('token');
+      if (!token) throw new Error('Logged-in WeChat page has no token; cannot navigate safely.');
+      const homeUrl = `${WECHAT_URL}cgi-bin/home?t=home/index&token=${encodeURIComponent(token)}&lang=zh_CN`;
+      await cdp.send('Runtime.evaluate', {
+        expression: `window.location.href = ${JSON.stringify(homeUrl)}`,
+      }, { sessionId });
+      await sleep(5000);
+    }
+    const accountProof = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
+      expression: ACCOUNT_ID_EXPRESSION, returnByValue: true,
+    }, { sessionId });
+    assertBackendAccount(options.expectedAccountId, accountProof.result.value);
+
+    let editorInfo: { targetId: string; isNewTab: boolean } | null = null;
+    if (options.draftId) {
+      const homeLocation = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
+        expression: 'window.location.href', returnByValue: true,
+      }, { sessionId });
+      const token = new URL(homeLocation.result.value).searchParams.get('token');
+      if (!token) throw new Error('Cannot resume photo draft: backend token is unavailable');
+      const editUrl = `${WECHAT_URL}cgi-bin/appmsg?t=media/appmsg_edit&action=edit&reprint_confirm=0&type=77&appmsgid=${encodeURIComponent(options.draftId)}&token=${encodeURIComponent(token)}&lang=zh_CN`;
+      const created = await cdp.send<{ targetId: string }>('Target.createTarget', { url: editUrl });
+      editorInfo = { targetId: created.targetId, isNewTab: true };
+      console.log(`[wechat-browser] Resuming photo draft: ${options.draftId}`);
+    }
+
+    if (!editorInfo) {
+      await sleep(2000);
 
     console.log('[wechat-browser] Looking for "贴图" menu...');
     const menuResult = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
@@ -247,7 +338,7 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
             const text = title?.textContent?.trim() || '';
             console.log('Menu item text:', text);
             if (text === '图文' || text === '贴图') {
-              item.scrollIntoView({ block: 'center' });
+              item.scrollIntoView({ block: 'center', behavior: 'instant' });
               const rect = item.getBoundingClientRect();
               console.log('Found 贴图，rect:', JSON.stringify(rect));
               return JSON.stringify({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height });
@@ -322,7 +413,8 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
       return null;
     };
 
-    const editorInfo = await waitForEditor();
+      editorInfo = await waitForEditor();
+    }
     if (!editorInfo) {
       const finalTargets = await getTargets();
       console.log(`[wechat-browser] Final targets: ${finalTargets.targetInfos.filter(t => t.type === 'page').map(t => t.url).join(', ')}`);
@@ -345,15 +437,46 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     await cdp.send('Runtime.enable', {}, { sessionId });
     await cdp.send('DOM.enable', {}, { sessionId });
 
-    await sleep(2000);
+    let uploadInputReady = false;
+    for (let i = 0; i < 30; i++) {
+      const ready = await cdp.send<{ result: { value: boolean } }>('Runtime.evaluate', {
+        expression: `Boolean(document.querySelector('.js_upload_btn_container input[type=file], input[type=file][multiple][accept*="image"]'))`,
+        returnByValue: true,
+      }, { sessionId });
+      if (ready.result.value) {
+        uploadInputReady = true;
+        break;
+      }
+      await sleep(500);
+    }
+    if (!uploadInputReady) throw new Error('Photo editor did not finish loading its image uploader');
 
     console.log('[wechat-browser] Uploading all images at once...');
     const absolutePaths = images.map(p => path.isAbsolute(p) ? p : path.resolve(process.cwd(), p));
     console.log(`[wechat-browser] Images: ${absolutePaths.join(', ')}`);
+    if (options.draftId) {
+      await waitForDomCondition(cdp, sessionId, `document.querySelectorAll('.image-selector__bottom-list-item').length > 0`, 10_000);
+      await sleep(500);
+    }
 
     // --- PRIMARY approach: intercept file chooser dialog ---
-    let uploadSuccess = false;
+    const existingRemoteCount = await cdp.send<{ result: { value: number } }>('Runtime.evaluate', {
+      expression: `(function() {
+        const remote = new Set();
+        document.querySelectorAll('.image-selector__bottom-list-item').forEach((el) => {
+          const bg = getComputedStyle(el).backgroundImage || '';
+          if (/mmbiz|qpic\\.cn/.test(bg)) remote.add(bg);
+        });
+        return remote.size;
+      })()`,
+      returnByValue: true,
+    }, { sessionId });
+    let uploadSuccess = existingRemoteCount.result.value === absolutePaths.length;
+    if (uploadSuccess) {
+      console.log(`[wechat-browser] Existing draft already contains ${absolutePaths.length} remote images; keeping them.`);
+    }
     try {
+      if (uploadSuccess) throw new Error('__SKIP_ALREADY_UPLOADED__');
       console.log('[wechat-browser] [primary] Enabling file chooser interception...');
       await cdp.send('Page.setInterceptFileChooserDialog', { enabled: true }, { sessionId });
 
@@ -415,10 +538,31 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
         files: absolutePaths,
         backendNodeId: chooser.backendNodeId,
       }, { sessionId });
+      const resolvedInput = await cdp.send<{ object: { objectId?: string } }>('DOM.resolveNode', {
+        backendNodeId: chooser.backendNodeId,
+      }, { sessionId });
+      if (!resolvedInput.object.objectId) throw new Error('Selected file input could not be resolved');
+      const dispatchResult = await cdp.send<{ result: { value: string } }>('Runtime.callFunctionOn', {
+        objectId: resolvedInput.object.objectId,
+        functionDeclaration: `function() {
+          const fileCount = this.files ? this.files.length : 0;
+          this.dispatchEvent(new Event('input', { bubbles: true }));
+          this.dispatchEvent(new Event('change', { bubbles: true }));
+          return JSON.stringify({ files: fileCount });
+        }`,
+        returnByValue: true,
+      }, { sessionId });
+      const dispatchStatus = JSON.parse(dispatchResult.result.value || '{}');
+      console.log(`[wechat-browser] [primary] Change event dispatched: ${dispatchResult.result.value}`);
+      if (dispatchStatus.files !== absolutePaths.length) {
+        throw new Error(`File input did not retain selected files (${dispatchStatus.files || 0}/${absolutePaths.length})`);
+      }
       console.log('[wechat-browser] [primary] Files set successfully via file chooser interception');
       uploadSuccess = true;
     } catch (primaryErr) {
-      console.log(`[wechat-browser] [primary] File chooser approach failed: ${primaryErr instanceof Error ? primaryErr.message : String(primaryErr)}`);
+      if (!(primaryErr instanceof Error && primaryErr.message === '__SKIP_ALREADY_UPLOADED__')) {
+        console.log(`[wechat-browser] [primary] File chooser approach failed: ${primaryErr instanceof Error ? primaryErr.message : String(primaryErr)}`);
+      }
       // Disable interception before falling back
       try { await cdp.send('Page.setInterceptFileChooserDialog', { enabled: false }, { sessionId }); } catch {}
     }
@@ -475,34 +619,52 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     // Wait for images to upload
     console.log('[wechat-browser] Waiting for images to upload...');
     const targetCount = absolutePaths.length;
+    let uploadedCount = 0;
     for (let i = 0; i < 30; i++) {
       await sleep(2000);
       const uploadCheck = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
         expression: `
-          JSON.stringify({
-            uploaded: document.querySelectorAll('.weui-desktop-upload__thumb, .pic_item, [class*=upload_thumb], [class*="pic_item"], [class*="upload__thumb"]').length,
+          (function() {
+            const remote = new Set();
+            document.querySelectorAll('.image-selector img').forEach((img) => {
+              if (/mmbiz|qpic\.cn/.test(img.src || '')) remote.add(img.src);
+            });
+            document.querySelectorAll('.image-selector *').forEach((el) => {
+              const bg = getComputedStyle(el).backgroundImage || '';
+              if (/mmbiz|qpic\.cn/.test(bg)) remote.add(bg);
+            });
+            return JSON.stringify({
+            uploaded: remote.size,
+            remote: Array.from(remote),
             loading: document.querySelectorAll('[class*="upload_loading"], [class*="uploading"], .weui-desktop-upload__loading').length
-          })
+            });
+          })()
         `,
         returnByValue: true,
       }, { sessionId });
       const status = JSON.parse(uploadCheck.result.value);
+      uploadedCount = status.uploaded;
       console.log(`[wechat-browser] Upload progress: ${status.uploaded}/${targetCount} (loading: ${status.loading})`);
       if (status.uploaded >= targetCount) break;
     }
+    if (uploadedCount < targetCount) {
+      throw new Error(`Image upload was not verified (${uploadedCount}/${targetCount}); draft was not saved`);
+    }
 
     console.log('[wechat-browser] Filling title...');
-    await cdp.send('Runtime.evaluate', {
+    const titleResult = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
       expression: `
-        const titleInput = document.querySelector('#title');
-        if (titleInput) {
-          titleInput.value = ${JSON.stringify(title)};
-          titleInput.dispatchEvent(new Event('input', { bubbles: true }));
-        } else {
-          throw new Error('Title input not found');
-        }
+        (function() {
+          const visibleTitle = document.querySelector('.ProseMirror[contenteditable=true][data-placeholder="请在这里输入标题"]');
+          if (!visibleTitle) return 'title_editor_not_found';
+          visibleTitle.textContent = ${JSON.stringify(title)};
+          visibleTitle.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: ${JSON.stringify(title)} }));
+          return visibleTitle.textContent || '';
+        })()
       `,
+      returnByValue: true,
     }, { sessionId });
+    if (titleResult.result.value !== title) throw new Error('Visible photo title was not written exactly');
     await sleep(500);
 
     console.log('[wechat-browser] Filling content...');
@@ -513,10 +675,14 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
           const contentHtml = ${JSON.stringify('<p>' + content.split('\n').filter(l => l.trim()).join('</p><p>') + '</p>')};
 
           // New UI: ProseMirror contenteditable
-          const pm = document.querySelector('.ProseMirror[contenteditable=true]');
+          const pm = Array.from(document.querySelectorAll('.ProseMirror[contenteditable=true]')).find(el =>
+            !el.hasAttribute('data-placeholder') &&
+            !el.textContent?.includes('从这里开始写正文') &&
+            !el.classList.contains('original_primary_tips_input')
+          );
           if (pm) {
             pm.innerHTML = contentHtml;
-            pm.dispatchEvent(new Event('input', { bubbles: true }));
+            pm.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: ${JSON.stringify(content)} }));
             return 'ProseMirror: content set, length=' + pm.textContent.length;
           }
 
@@ -561,6 +727,19 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
         }, { sessionId });
         await sleep(300);
 
+        await cdp.send('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'a', code: 'KeyA', modifiers: process.platform === 'darwin' ? 4 : 2,
+        }, { sessionId });
+        await cdp.send('Input.dispatchKeyEvent', {
+          type: 'keyUp', key: 'a', code: 'KeyA', modifiers: process.platform === 'darwin' ? 4 : 2,
+        }, { sessionId });
+        await cdp.send('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'Backspace', code: 'Backspace', windowsVirtualKeyCode: 8,
+        }, { sessionId });
+        await cdp.send('Input.dispatchKeyEvent', {
+          type: 'keyUp', key: 'Backspace', code: 'Backspace', windowsVirtualKeyCode: 8,
+        }, { sessionId });
+
         const lines = content.split('\n');
         for (let i = 0; i < lines.length; i++) {
           const line = lines[i];
@@ -588,7 +767,12 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
     }
     await sleep(500);
 
+    await setPhotoCover(cdp, sessionId, options.cover || absolutePaths[0]!);
+
     if (submit) {
+      const beforeSave = await cdp.send<{ result: { value: string[] } }>('Runtime.evaluate', {
+        expression: `Array.from(document.querySelectorAll('.weui-desktop-toast, [class*=toast]')).map(t => t.textContent?.trim()).filter(Boolean)`, returnByValue: true,
+      }, { sessionId });
       console.log('[wechat-browser] Saving as draft...');
       const submitResult = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
         expression: `
@@ -635,8 +819,31 @@ export async function postToWeChat(options: WeChatBrowserOptions): Promise<void>
       }, { sessionId });
       console.log(`[wechat-browser] Toast messages: ${toastCheck.result.value}`);
       const messages: string[] = JSON.parse(toastCheck.result.value || '[]');
-      assertSaveConfirmed(messages);
-      console.log('[wechat-browser] Draft saved!');
+      let draftId = '';
+      let savedHref = '';
+      for (let i = 0; i < 30 && !draftId; i++) {
+        const idResult = await cdp.send<{ result: { value: string } }>('Runtime.evaluate', {
+          expression: `JSON.stringify({ id: new URL(window.location.href).searchParams.get('appmsgid') || '', href: window.location.href })`,
+          returnByValue: true,
+        }, { sessionId });
+        const locationState = JSON.parse(idResult.result.value || '{}');
+        draftId = locationState.id || '';
+        savedHref = locationState.href || '';
+        if (!draftId) await sleep(500);
+      }
+      const freshToast = messages.some(m => !(beforeSave.result.value || []).includes(m) && /保存成功|已保存|saved successfully/i.test(m));
+      const urlAcknowledged = Boolean(draftId && savedHref && !savedHref.includes('isNew=1'));
+      if (!freshToast && !urlAcknowledged) {
+        assertSaveConfirmed(messages, beforeSave.result.value || []);
+      }
+      if (!draftId) throw new Error('Save acknowledgement observed without a draft ID; inspect draft list before retrying');
+      console.log(JSON.stringify({
+        draft_id: draftId,
+        account_id: options.expectedAccountId,
+        title,
+        image_count: images.length,
+        status: 'saved_pending_readback',
+      }));
     } else {
       console.log('[wechat-browser] Article composed (preview mode). Add --submit to save as draft.');
     }
@@ -660,8 +867,11 @@ Options:
   --title <text>     Article title (max 20 chars, auto-compressed)
   --content <text>   Article content (max 1000 chars, auto-compressed)
   --image <path>     Add image (can be repeated)
+  --expected-account-id <id>  Required original backend account ID (gh_...)
   --submit           Save as draft (default: preview only)
   --profile <dir>    Chrome profile directory
+  --draft-id <id>    Resume and update an existing photo draft instead of creating another
+  --cover <path>      Cover source; defaults to first photo and uses WeChat crop step
   --account <alias>  Select account by alias (for multi-account setups)
   --help             Show this help
 
@@ -685,6 +895,9 @@ async function main(): Promise<void> {
   let markdownFile: string | undefined;
   let imagesDir: string | undefined;
   let accountAlias: string | undefined;
+  let expectedAccountId: string | undefined;
+  let draftId: string | undefined;
+  let cover: string | undefined;
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i]!;
@@ -698,10 +911,16 @@ async function main(): Promise<void> {
       content = args[++i];
     } else if (arg === '--markdown' && args[i + 1]) {
       markdownFile = args[++i];
+    } else if (arg === '--expected-account-id' && args[i + 1]) {
+      expectedAccountId = args[++i];
     } else if (arg === '--submit') {
       submit = true;
     } else if (arg === '--profile' && args[i + 1]) {
       profileDir = args[++i];
+    } else if (arg === '--draft-id' && args[i + 1]) {
+      draftId = args[++i];
+    } else if (arg === '--cover' && args[i + 1]) {
+      cover = args[++i];
     } else if (arg === '--account' && args[i + 1]) {
       accountAlias = args[++i];
     }
@@ -728,7 +947,7 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  await postToWeChat({ title, content, images: images.length > 0 ? images : undefined, imagesDir, markdownFile, submit, profileDir });
+  await postToWeChat({ title, content, images: images.length > 0 ? images : undefined, imagesDir, markdownFile, submit, profileDir, expectedAccountId, draftId, cover });
 }
 
 if (import.meta.main) await main().catch((err) => {

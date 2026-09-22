@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import sys
+import yaml
 from pathlib import Path
 
 VALID_TYPES = {"opinion", "general_observation", "experience", "biography", "dialogue", "quote"}
@@ -30,6 +31,9 @@ def main() -> int:
     parser.add_argument("--article", required=True)
     parser.add_argument("--claims", required=True)
     parser.add_argument("--style", required=True)
+    parser.add_argument("--account-id")
+    parser.add_argument("--character-id")
+    parser.add_argument("--contract", help="Expected account contract, required for production strict mode")
     args = parser.parse_args()
 
     article_path = Path(args.article)
@@ -91,6 +95,38 @@ def main() -> int:
 
     if not isinstance(packet, dict):
         return fail(errors + ["claims ledger must be an object"])
+    for key, expected in (("account_id", args.account_id), ("character_id", args.character_id)):
+        if expected is not None and packet.get(key) != expected:
+            errors.append(f"{key}: task context mismatch")
+    # Strict mode is used by the workflow; legacy calls remain structural checks only.
+    if args.account_id is not None or args.character_id is not None:
+        if not args.account_id or not args.character_id:
+            errors.append("strict mode requires both account and character")
+        if not args.contract:
+            errors.append("strict mode requires explicit --contract from account configuration")
+        else:
+            try:
+                contract_path = Path(args.contract).resolve()
+                contract = yaml.safe_load(contract_path.read_text())
+                if not isinstance(contract, dict):
+                    raise ValueError("contract must be an object")
+                for key, expected in (("account_id", args.account_id), ("character_id", args.character_id), ("fact_policy", packet.get("fact_policy"))):
+                    if contract.get(key) != expected:
+                        errors.append(f"contract {key} mismatch")
+                if contract.get("status") != "confirmed":
+                    errors.append("contract not confirmed")
+                if (style_path.parent / str(style.get("contract_ref", "")).split('#', 1)[0]).resolve() != contract_path:
+                    errors.append("review uses a different contract")
+            except (OSError, ValueError, yaml.YAMLError) as exc:
+                errors.append(f"invalid expected contract: {exc}")
+        hashes = style.get("reference_sha256", {})
+        refs = [style.get("contract_ref")] + (anchors if isinstance(anchors, list) else [])
+        for ref in refs:
+            if not isinstance(ref, str):
+                continue
+            file = style_path.parent / ref.split('#', 1)[0]
+            if not isinstance(hashes, dict) or not file.is_file() or hashes.get(ref) != hashlib.sha256(file.read_bytes()).hexdigest():
+                errors.append("contract/anchor hash missing or changed")
     digest = hashlib.sha256(article_path.read_bytes()).hexdigest()
     for label, document in (("claims", packet), ("style", style)):
         if document.get("article_sha256") != digest:
@@ -177,7 +213,7 @@ def main() -> int:
 
     if errors:
         return fail(errors)
-    print(f"PASS: {article_path.name}; {len(claims)} claims; fact and style gates passed")
+    print(f"PASS: {article_path.name}; {len(claims)} claims; structural checks only; semantic review remains required")
     return 0
 
 

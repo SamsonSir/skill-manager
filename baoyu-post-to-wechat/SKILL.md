@@ -13,6 +13,20 @@ metadata:
 
 # Post to WeChat Official Account
 
+## 本地安全适配（2026-09-17）
+
+当前本地版本在上游 1.118.2 上增加账号、成品和保存校验；以下条款优先于旧示例：
+- 浏览器文章/贴图必须传 `--expected-account-id gh_...`；API 必须传 `--expected-app-id wx...`，来自任务账号配置，不拿未知当前账号反填。
+- 保存需要 `--submit`；没有该参数不主动保存，但浏览器编辑可能自动保存，因此明确“不保存”时只制作本地文件，不打开后台。
+- 账号已有固定排版时传纯正文 HTML，不重复渲染 Markdown。HTML 提取统一保留指定正文区域及内联样式，排除预览工具栏。
+- 贴图标题/正文超出工具阈值时退回修改，不自动删词或截断。工作流使用显式有序 --image 列表。
+- 贴图写入新版可见标题框和短正文编辑器；以微信远程图片URL确认上传，保存后仍须重新打开核验。默认用首图完成封面裁剪，也可传 `--cover PATH`。
+- 文章与贴图均支持 `--draft-id ID` 续编已有草稿；回读失败时续编原草稿，禁止直接新建重复稿。
+- 新版标题框优先操作 `.ProseMirror[data-placeholder]`；隐藏 `#title` 的值不能证明可见标题写入。
+- 返回草稿 ID 只表示已保存待回读；必须重新读取标题、正文、图片与样式后才能称回读通过。
+- `scripts/wechat-save-current.ts` 是文章保存器共用的保存阶段，不是完整制作入口。单独测试它不得称整套技能验收通过。
+- 原生支持 API 或 Chrome/CDP；其他浏览器已登录不代表可连接。尊重用户指定浏览器，禁止连接失败后无授权自动启动 Chrome。
+
 ## User Input Tools
 
 When this skill prompts the user, follow this tool-selection rule (priority order):

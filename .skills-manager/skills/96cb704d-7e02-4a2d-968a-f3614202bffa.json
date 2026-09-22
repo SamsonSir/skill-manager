@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "96cb704d-7e02-4a2d-968a-f3614202bffa",
+  "path": "yichen-mac-wechat-dual-open",
+  "path_key": "yichen-mac-wechat-dual-open",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
