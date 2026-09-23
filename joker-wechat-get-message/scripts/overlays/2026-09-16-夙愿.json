@@ -1,0 +1,51 @@
+{
+  "theme": "Codex桥接ChatGPT Pro本地工具；网页GPT-6只在工作模式",
+  "overview": "微观史发现 GPT 网页可接 Codex（codex-bridge）。夙愿重点安利 miuuyy/codex-chatgpt-web：给没法调本地工具的 GPT-6/ChatGPT Pro 桥接 Codex 跑命令并回传；同时提醒没有好 IP、网页降智就别折腾。下午确认网页端 GPT-6 多在工作模式且会扣 Codex 额度；ironiu 另提 Devin 本月无限 token。",
+  "topics": [
+    {"title": "codex-chatgpt-web给Pro桥接本地命令", "heat": 92},
+    {"title": "网页GPT-6多在工作模式且扣Codex额度", "heat": 84},
+    {"title": "Devin本月无限token分享", "heat": 68}
+  ],
+  "clusters": [
+    {
+      "title": "codex-chatgpt-web给Pro桥接本地命令",
+      "count": 26,
+      "start": "11:31",
+      "end": "13:35",
+      "names": ["夙愿", "微观史", "花满楼", "薇冷 Violet", "余生姜", "觉醒"],
+      "what": "微观史分享 github.com/anightmonarch/codex-bridge-chatgpt。夙愿介绍 GPT-6 Pro 无法调本地工具，可用项目给 ChatGPT 加工具；更进一步用较小 Codex 模型帮 Pro 跑本机命令再回传，并贴 miuuyy/codex-chatgpt-web 中文 README。薇冷偏好 Codex in-app browser 打包上传、Pro 跑完再下载。花满楼问与推私有仓库让 Pro 处理有何区别；夙愿指出那样 Pro 拿不到实时工具结果。前提是好 IP，否则网页降智不如不用。",
+      "takeaway": "只有「网页 Pro 要实时跑本机命令」才值得上桥接方案。先确认 IP 不降智，再按 README 配；若只需异步改代码，推私有仓/下载压缩包更简单。"
+    },
+    {
+      "title": "网页GPT-6多在工作模式且扣Codex额度",
+      "count": 14,
+      "start": "17:05",
+      "end": "18:18",
+      "names": ["无风不起浪", "少年游", "夙愿", "Levin", "薇冷 Violet"],
+      "what": "无风发现网页端其实有 GPT-6，之前一直用 5.6；问是否只有工作模式才有。少年游：工作模式会扣 Codex 额度，切回去默认还是 5.6。夙愿提到以前会报 429。另有人问 Claude 防封是否还要改本地时区。",
+      "takeaway": "网页看到 GPT-6 先确认是否工作模式、会不会扣 Codex 额度。额度紧时用完立刻切回普通对话，避免「以为在用 5.6 其实在烧工作额度」。"
+    },
+    {
+      "title": "Devin本月无限token分享",
+      "count": 8,
+      "start": "18:52",
+      "end": "19:07",
+      "names": ["ironiu", "觉醒", "薇冷 Violet", "夙愿"],
+      "what": "ironiu 分享可用 Devin，称这个月无限 token。薇冷吐槽 Pro 一周约 200 次太少。群友在看项目能否直接装上用，细节未展开。",
+      "takeaway": "「本月无限」当促销窗口，用前核对接入口径和到期日；别把短期活动额度当长期产能规划。"
+    }
+  ],
+  "progress": [
+    "miuuyy/codex-chatgpt-web 与 bridge 项目被多次转发试用",
+    "确认网页 GPT-6 与工作模式/Codex 额度挂钩（群友口述）"
+  ],
+  "thoughts": [
+    {"name": "微观史", "text": "才发现 gpt 网页可以接入 codex 了"},
+    {"name": "夙愿", "text": "折腾这些东西的前提是，你有一个好的ip，不然网页版降智的话，还不如不用"}
+  ],
+  "tools": [
+    {"label": "codex-chatgpt-web · Pro 桥接本机命令", "url": "https://github.com/miuuyy/codex-chatgpt-web/blob/main/README.zh-CN.md"},
+    {"label": "codex-bridge-chatgpt · 网页接 Codex", "url": "https://github.com/anightmonarch/codex-bridge-chatgpt"}
+  ],
+  "keywords": ["codex-chatgpt-web", "ChatGPT Pro", "GPT-6", "工作模式", "429", "Devin", "好IP"]
+}

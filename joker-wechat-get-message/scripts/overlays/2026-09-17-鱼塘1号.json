@@ -1,0 +1,113 @@
+{
+  "theme": "20x停开、充值路径与闲鱼超管家开源",
+  "overview": "白天吵 20x 开不了、只能提前续费；有人公开问怎么充 ChatGPT，群友劝走苹果商店、别找代充；另有人发 Steam 游戏试玩，莫城丢闲鱼超级管家 GitHub。",
+  "topics": [
+    {
+      "title": "20x停开与提前一天续费",
+      "heat": 88
+    },
+    {
+      "title": "ChatGPT充值：商店优先、拒代充",
+      "heat": 80
+    },
+    {
+      "title": "视频模型性价比：kling/veo",
+      "heat": 70
+    },
+    {
+      "title": "Steam试玩与闲鱼超管家开源",
+      "heat": 75
+    }
+  ],
+  "clusters": [
+    {
+      "title": "20x停开与提前一天续费",
+      "count": 73,
+      "start": "14:32",
+      "end": "15:22",
+      "names": [
+        "陈又又",
+        "Zz",
+        "熊庆文",
+        "吴晗",
+        "苗 ",
+        "pation",
+        "老脸（辰心）-论文期刊综评ai充"
+      ],
+      "what": "多人确认 20x 现在开不了，有人观察商家改成提前一天续费；话题夹杂生图模型是否还能无限出图。",
+      "takeaway": "订阅档位变更期先冻结扩容决策：把当前额度用在已接单项目，新实验改走按量或替代模型，避免在「停开窗口」赌灰产续费。"
+    },
+    {
+      "title": "ChatGPT充值：商店优先、拒代充",
+      "count": 20,
+      "start": "15:49",
+      "end": "15:55",
+      "names": [
+        "CUI",
+        "蛋挞.",
+        "Cander",
+        "苗 ",
+        "pation"
+      ],
+      "what": "有人问怎么充 ChatGPT；建议苹果用户走 App Store；有人明确「不会找我代充就行」；另有谷歌付款被拒案例。",
+      "takeaway": "【风险/红线】优先官方应用商店/官方网页订阅；代充易导致账号丢失与资金纠纷。付款被拒时先换官方支持的支付方式，不要转向陌生代充。"
+    },
+    {
+      "title": "视频模型性价比：kling/veo",
+      "count": 18,
+      "start": "13:38",
+      "end": "14:00",
+      "names": [
+        "鱼总丨AIGC",
+        "苗 ",
+        "Marco",
+        "十七"
+      ],
+      "what": "比较 kling2.6 pro 与更便宜的 veo omni；同时夹杂 Saily 抵用金与手机卡信号不稳、5x 价格询问。",
+      "takeaway": "视频生成先定时长与分辨率预算，再在「贵但稳」与「便宜可试」各跑同一条 5 秒提示词对比，用成片可用性决定主力模型。"
+    },
+    {
+      "title": "Steam试玩与闲鱼超管家开源",
+      "count": 6,
+      "start": "10:20",
+      "end": "10:29",
+      "names": [
+        "cccp",
+        "pation",
+        "鱼总丨AIGC"
+      ],
+      "what": "cccp 宣传自己做的 Steam 游戏，求试玩、加愿望单与评价；另有进度里莫城分享 xianyu-super-butler 仓库。",
+      "takeaway": "独立游戏冷启动用「试玩+愿望单+一句评价引导」三件套；电商自动化开源先在测试店跑通上下架，再接到真实库存。"
+    }
+  ],
+  "progress": [
+    "cccp 发布 Steam 游戏试玩链接",
+    "莫城分享 github.com/Mxucc/xianyu-super-butler",
+    "群内达成「少找代充、商店充值」口径",
+    "20x 停开成为当日共识，无官方替代方案"
+  ],
+  "thoughts": [
+    {
+      "name": "阿海法基恩",
+      "text": "视频生成一般都用什么性价比高点，我本地部署 h3 感觉有点慢，seedance 太贵"
+    }
+  ],
+  "tools": [
+    {
+      "label": "cccp · Steam 试玩",
+      "url": "https://store.steampowered.com/app/5239590/"
+    },
+    {
+      "label": "莫城 · 闲鱼超级管家",
+      "url": "https://github.com/Mxucc/xianyu-super-butler"
+    }
+  ],
+  "keywords": [
+    "20x停开",
+    "官方充值",
+    "代充红线",
+    "kling",
+    "Steam",
+    "闲鱼管家"
+  ]
+}

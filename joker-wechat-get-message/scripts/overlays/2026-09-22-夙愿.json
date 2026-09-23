@@ -1,0 +1,26 @@
+{
+  "theme": "Yeadon晒Jev+Hypit商品找数字达人工作台",
+  "overview": "当天仅 2 条可读消息。Yeadon伊登称复刻 Hypit 官方视频效果，做了商品与数字达人匹配工作台：用 Jev 召回、Hypit 创作，让商品自己找 AI 达人。另有一条微信更新页链接，无群内讨论跟进。",
+  "topics": [
+    {"title": "Jev召回+Hypit创作的商品达人匹配台", "heat": 70}
+  ],
+  "clusters": [
+    {
+      "title": "Jev召回+Hypit创作的商品达人匹配台",
+      "count": 2,
+      "start": "22:09",
+      "end": "22:09",
+      "names": ["Yeadon伊登"],
+      "what": "Yeadon伊登自述：复刻 Hypit 官方视频效果，做了一个商品与数字达人匹配工作台，通过 Jev 召回、Hypit 创作，让商品自己找 AI 达人。附带微信更新相关链接。无人提问或复现步骤。",
+      "takeaway": "若要跟进该方向，向作者要：输入商品字段、召回策略、Hypit 提示词模板、一条可复现样例。没有样例前不要按一句话宣传去承诺客户交付。"
+    }
+  ],
+  "progress": [
+    "仅有工作台概念自述，无复现材料"
+  ],
+  "thoughts": [],
+  "tools": [
+    {"label": "微信更新页 · 附件入口未展开", "url": "https://support.weixin.qq.com/update/"}
+  ],
+  "keywords": ["Jev", "Hypit", "数字达人", "商品匹配"]
+}

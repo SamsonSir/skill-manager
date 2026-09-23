@@ -1,0 +1,100 @@
+{
+  "theme": "工作台、RSS与资料盘，工具向讨论升温",
+  "overview": "白天分享可复用的工作台与 GitHub 工具（含 yunn-workbench、公众号 RSS 相关项目），并继续聊号龄、试用期心态与广告投放是手动还是智能。灰色搬运玩法有人提起，但未形成可执行合规方案。",
+  "topics": [
+    {
+      "title": "工作台与 GitHub 工具分享",
+      "heat": 92
+    },
+    {
+      "title": "号龄与试用期心态",
+      "heat": 75
+    },
+    {
+      "title": "广告投放手动 vs 智能",
+      "heat": 70
+    },
+    {
+      "title": "网盘资料与搞钱指南",
+      "heat": 68
+    }
+  ],
+  "clusters": [
+    {
+      "title": "工作台与 GitHub 工具分享",
+      "count": 252,
+      "start": "14:37",
+      "end": "17:48",
+      "names": [
+        "九圓",
+        "Faith",
+        "自由落体（薄肌版）",
+        "蜗牛🐌"
+      ],
+      "what": "讨论把提示词做成 skill 是否真能省事；有人要小红书视频转文稿；群里丢了 Mac 工作台与 RSS 相关开源链接，并分享网盘资料。",
+      "takeaway": "工具先满足一个具体痛点：例如「转写」或「RSS 订阅」二选一装通，再考虑把提示词打包成 skill。不要一次装十条网盘资料。"
+    },
+    {
+      "title": "号龄与试用期心态",
+      "count": 119,
+      "start": "08:16",
+      "end": "09:14",
+      "names": [
+        "Faith",
+        "蜗牛🐌",
+        "九圓"
+      ],
+      "what": "有人号龄两月仍日更百出头；临近更长试用节点，讨论先稳着过，不折腾。",
+      "takeaway": "新号前三个月优先稳定更新与选题复盘，不把「换激进玩法」当破局默认选项。"
+    },
+    {
+      "title": "广告投放手动 vs 智能",
+      "count": 36,
+      "start": "19:42",
+      "end": "20:46",
+      "names": [
+        "蜗牛🐌",
+        "Rami",
+        "自由落体（薄肌版）"
+      ],
+      "what": "从实际需求聊广告添加方式：手动还是智能；强调先解决问题再选工具。",
+      "takeaway": "投放前写清目标（加粉/阅读/私信），再决定手动还是智能投放；没有目标就先别开量。"
+    }
+  ],
+  "progress": [
+    "分享 GitHub：Yunshiro/yunn-workbench、rachelos/we-mp-rss",
+    "多条百度/夸克网盘资料链接（外部分享，需自行甄别）"
+  ],
+  "thoughts": [
+    {
+      "name": "自由落体（薄肌版）",
+      "text": "各类搞钱指南网盘资料很多人会下载试试，免费门槛低。"
+    },
+    {
+      "name": "九圓",
+      "text": "越刷越觉得自己要被淘汰了。"
+    },
+    {
+      "name": "Qyy",
+      "text": "感觉这些 agent 用得还很菜。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "yunn-workbench（群内分享）",
+      "url": "https://github.com/Yunshiro/yunn-workbench"
+    },
+    {
+      "label": "we-mp-rss（群内分享）",
+      "url": "https://github.com/rachelos/we-mp-rss"
+    }
+  ],
+  "keywords": [
+    "工作台",
+    "skill",
+    "RSS",
+    "网盘资料",
+    "广告投放",
+    "号龄"
+  ]
+}

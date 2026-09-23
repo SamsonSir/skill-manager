@@ -1,0 +1,121 @@
+{
+  "theme": "出海需求站清单、Tello美卡与梯子话题红线",
+  "overview": "夜里鱼总甩 columbus/traffic/sitedata/trustmrr 等找 Web 需求的站点；白天有人推 Tello 美区保号卡；另有人问便宜梯子，被提醒群内别聊。",
+  "topics": [
+    {
+      "title": "鱼总分享出海Web需求发现站",
+      "heat": 92
+    },
+    {
+      "title": "Tello美区手机号保号教程讨论",
+      "heat": 80
+    },
+    {
+      "title": "问便宜梯子被群规叫停",
+      "heat": 68
+    },
+    {
+      "title": "新人入群与财务自由口号",
+      "heat": 55
+    }
+  ],
+  "clusters": [
+    {
+      "title": "鱼总分享出海Web需求发现站",
+      "count": 6,
+      "start": "20:32",
+      "end": "21:01",
+      "names": [
+        "鱼总丨AIGC",
+        "混沌Ai～山子",
+        "刘元初",
+        "阿良",
+        "🔞摄影导师-魏冰"
+      ],
+      "what": "鱼总推荐 columbus.tools/ai-rank、traffic.cv、sitedata.dev、trustmrr.com、toolify.ai 等用于发现 Web/AI 产品需求；顺带和徐州老乡寒暄。",
+      "takeaway": "选一个站点每周固定扫 30 分钟：记下「流量来源+变现方式+可抄的缺口」三条，比收藏十个网址更有用。"
+    },
+    {
+      "title": "Tello美区手机号保号教程讨论",
+      "count": 9,
+      "start": "17:35",
+      "end": "18:04",
+      "names": [
+        "M.",
+        "莫城",
+        "Marco"
+      ],
+      "what": "M. 发 YouTube：Tello 约 5 美元/月长期保号、eSIM+WiFi 通话；有人嫌贵，也有人问为何某些套餐只能打美国不能打中国。",
+      "takeaway": "海外验证码场景先确认「能否收短信/能否打回国/月租地板价」，再用官方套餐对比表选型；别只看博主标题里的「神卡」。"
+    },
+    {
+      "title": "问便宜梯子被群规叫停",
+      "count": 8,
+      "start": "22:03",
+      "end": "22:21",
+      "names": [
+        "皮皮",
+        "宽窄自如",
+        "Zz"
+      ],
+      "what": "有人求便宜梯子并称节点干不干净无所谓；有人提醒群里尽量别聊，另有人提到 GitHub 搜 clash、自己搭。",
+      "takeaway": "【风险/红线】网络访问与节点交易易踩合规与安全坑，群内已明确少聊；需要工具时只走合法合规渠道与官方文档，不要在群里索要/分享付费节点。"
+    },
+    {
+      "title": "新人入群与财务自由口号",
+      "count": 11,
+      "start": "19:47",
+      "end": "19:57",
+      "names": [
+        "鱼总丨AIGC",
+        "宽窄自如",
+        "大海(Max)",
+        "🍟"
+      ],
+      "what": "欢迎大海(Max)；有人只看到「财务自由」四个字并表态要加油学习。",
+      "takeaway": "新人第一周先交一份「我正在做的一件小事+卡点」，比喊财务自由更容易被群友接住协作。"
+    }
+  ],
+  "progress": [
+    "鱼总给出一组出海需求发现站清单",
+    "M. 发布 Tello 美卡保号视频",
+    "梯子询价被提醒少聊，未形成方案",
+    "大海(Max) 等新人入群"
+  ],
+  "thoughts": [
+    {
+      "name": "鱼总丨AIGC",
+      "text": "推荐几个发现 web 需求的网站：columbus.tools/ai-rank、traffic.cv、sitedata.dev、trustmrr.com、toolify.ai"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Tello 保号教程 · YouTube",
+      "url": "https://youtu.be/cnkK6RQ4j74"
+    },
+    {
+      "label": "columbus AI rank",
+      "url": "https://columbus.tools/ai-rank"
+    },
+    {
+      "label": "traffic.cv",
+      "url": "https://traffic.cv"
+    },
+    {
+      "label": "sitedata.dev",
+      "url": "https://sitedata.dev/r?aff=yuzong"
+    },
+    {
+      "label": "trustmrr.com",
+      "url": "https://trustmrr.com/"
+    }
+  ],
+  "keywords": [
+    "出海需求站",
+    "columbus",
+    "Tello",
+    "保号",
+    "梯子红线",
+    "Web产品"
+  ]
+}

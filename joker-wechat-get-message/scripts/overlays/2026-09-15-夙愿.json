@@ -1,0 +1,38 @@
+{
+  "theme": "Codex选模型：省token别盲目降档，好模型一次做完更省",
+  "overview": "无风不起浪问 Codex 该用 GPT-5.6 Terra Extra High 还是 Sol Medium 更省 token。薇冷荐 6 medium，沐白荐 luna 轻度；无风担心 luna 丢精度要反复修。夙愿总结：好模型+合适思考程度往往最省，因为减少返工。麻麻自曝 luna 曾跑出两万四千行垃圾，最后让 Claude 擦屁股。",
+  "topics": [
+    {"title": "Codex模型档位：省token还是保精度", "heat": 85},
+    {"title": "luna跑出两万行垃圾要Claude擦屁股", "heat": 74}
+  ],
+  "clusters": [
+    {
+      "title": "Codex模型档位：省token还是保精度",
+      "count": 12,
+      "start": "17:40",
+      "end": "18:05",
+      "names": ["无风不起浪", "薇冷 Violet", "沐白·沉迷AI编程中", "夙愿"],
+      "what": "无风在 Terra Extra High 与 Sol Medium 间纠结省 token；薇冷说 6 medium，沐白说省 token 用 5.6 luna 轻度。无风觉得 luna 提交常要反复、Terra High 有时也不稳，换纯净 IP 后好很多。还问大家开发用 skills 还是直接话聊。夙愿：好模型+好思考程度可能最省，因为减少出错、可能一次干完。",
+      "takeaway": "为省 token 先降档前，用同一任务测「一次成功率」。返工两次以上就升回更高档；IP 不干净时先修网络再怪模型。"
+    },
+    {
+      "title": "luna跑出两万行垃圾要Claude擦屁股",
+      "count": 5,
+      "start": "18:39",
+      "end": "21:16",
+      "names": ["麻麻叫你吃饭", "Dr威廉 17836391574", "无风不起浪"],
+      "what": "麻麻说用 luna 曾跑出两万四千行垃圾；维护方式是让 Claude 擦屁股，并做了不靠谱的 loop 测试。无风追问后续怎么维护。",
+      "takeaway": "低档模型适合草稿和试错，交付前用更高档模型做审查/重写，并限制单次改动范围，避免一次生成超大不可维护补丁。"
+    }
+  ],
+  "progress": [
+    "群内共识倾向：盲目降档不一定省钱；夙愿强调一次做完更省",
+    "luna 暴走案例被复述，无正式基准测试"
+  ],
+  "thoughts": [
+    {"name": "夙愿", "text": "实际上，用一个好的模型+好的思考程度可能是最省 token 的，因为减少了出错率"},
+    {"name": "麻麻叫你吃饭", "text": "我用 luna曾经跑了两万四千行垃圾，堪称奇观"}
+  ],
+  "tools": [],
+  "keywords": ["Codex", "GPT-5.6", "Terra", "Sol Medium", "luna", "省token", "skills"]
+}

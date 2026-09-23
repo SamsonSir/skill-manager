@@ -1,0 +1,110 @@
+{
+  "theme": "新视频模型试玩、DanceCopilot上线与X号冻结",
+  "overview": "下午鱼总安利新视频模型并欢迎电商新人；铁角马推出扒舞搭子 DanceCopilot 的 TestFlight；夜里有人 X 号被冻结、另有人问住宅 IP / VPN 替代。",
+  "topics": [
+    {
+      "title": "新视频模型安利与新人欢迎",
+      "heat": 82
+    },
+    {
+      "title": "DanceCopilot TestFlight上线",
+      "heat": 88
+    },
+    {
+      "title": "X账号无故冻结与申诉",
+      "heat": 78
+    },
+    {
+      "title": "住宅IP/VPN讨论升温",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "新视频模型安利与新人欢迎",
+      "count": 20,
+      "start": "14:24",
+      "end": "15:19",
+      "names": [
+        "鱼总丨AIGC",
+        "康康🐹",
+        "小鱼Fred",
+        "阿甘",
+        "xiaocui",
+        "然也",
+        "张热烈啊",
+        "lowgo"
+      ],
+      "what": "鱼总说新视频模型不错让大家玩玩；欢迎佛山电商然也等多位新人。",
+      "takeaway": "新模型落地用同一条「固定提示词+固定种子素材」做 A/B，先看运动稳定性与字幕可读性，再决定是否迁主力工作流。"
+    },
+    {
+      "title": "DanceCopilot TestFlight上线",
+      "count": 12,
+      "start": "14:40",
+      "end": "15:19",
+      "names": [
+        "铁角马",
+        "鱼总丨AIGC"
+      ],
+      "what": "独立开发者铁角马介绍扒舞辅助软件 DanceCopilot，计划国内外部署多端，已有 iOS TestFlight，并丢小红书条目。",
+      "takeaway": "工具产品冷启动：先发 TestFlight 收 10 个真实舞者反馈（卡点、误识别），再决定安卓/鸿蒙排期；用小红书做「使用前后对比」比功能清单更吸量。"
+    },
+    {
+      "title": "X账号无故冻结与申诉",
+      "count": 12,
+      "start": "21:37",
+      "end": "21:48",
+      "names": [
+        "皮皮",
+        "林白【充会员购电影票】",
+        "Zz",
+        "鱼总丨AIGC"
+      ],
+      "what": "皮皮称买了静态 IP 仍被冻，近期主要在刷几乎不评论；鱼总建议申诉，问题不大。",
+      "takeaway": "账号异常先走官方申诉并导出最近登录/设备记录；冻结期停止一切自动化与批量操作，恢复后再用「低频人工」养号一周。"
+    },
+    {
+      "title": "住宅IP/VPN讨论升温",
+      "count": 25,
+      "start": "22:11",
+      "end": "22:33",
+      "names": [
+        "327",
+        "Zz",
+        "鱼总丨AIGC"
+      ],
+      "what": "有人说 equalvpn 不行，改问住宅 IP 替代；扯到香港是否也要翻墙、无痕浏览器试试等。",
+      "takeaway": "【风险/红线】跨境网络与住宅 IP 话题易涉违规与账号风控，只保留「官方登录+合规网络」原则；不要在群里交换具体 VPN/住宅 IP 供应商操作。"
+    }
+  ],
+  "progress": [
+    "铁角马放出 DanceCopilot TestFlight",
+    "鱼总安利新视频模型试玩",
+    "X 冻结案例给出「先申诉」口径",
+    "Ponyo / 鱼总分享公众号与 X 链接"
+  ],
+  "thoughts": [],
+  "tools": [
+    {
+      "label": "Ponyo · X",
+      "url": "https://x.com/ponyodong/status/2100787048005472601?s=20"
+    },
+    {
+      "label": "鱼总丨AIGC · 公众号",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwNDU0NDkwNw==&mid=2247486900&idx=1&sn=6b4742c610ea741db3ba3156f7a0dee0"
+    },
+    {
+      "label": "DanceCopilot TestFlight",
+      "url": "https://testflight.apple.com/join/wn8fNEzV"
+    }
+  ],
+  "keywords": [
+    "视频模型",
+    "DanceCopilot",
+    "TestFlight",
+    "X冻结",
+    "申诉",
+    "住宅IP红线"
+  ]
+}

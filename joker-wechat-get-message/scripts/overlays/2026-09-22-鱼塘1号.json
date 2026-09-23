@@ -1,0 +1,118 @@
+{
+  "theme": "Muse/Manus成本、TG诈骗预警与云手机注册",
+  "overview": "傍晚争论付费 AI 必须能变现，提到 Muse/Manus 与 OpenCode Go 低价套餐；有人用 airtap 云手机拿美国 IP 注册；夜里强调 TG 别点陌生链接、别找假官方机器人。",
+  "topics": [
+    {
+      "title": "付费AI要能变现：Muse/Manus争议",
+      "heat": 88
+    },
+    {
+      "title": "TG双向/诈骗链接预警",
+      "heat": 95
+    },
+    {
+      "title": "airtap云手机注册美区环境",
+      "heat": 75
+    },
+    {
+      "title": "Gift卡封禁与客服退款",
+      "heat": 68
+    }
+  ],
+  "clusters": [
+    {
+      "title": "付费AI要能变现：Muse/Manus争议",
+      "count": 19,
+      "start": "20:14",
+      "end": "20:25",
+      "names": [
+        "林白【充会员购电影票】",
+        "鱼总丨AIGC"
+      ],
+      "what": "有人用不了 Muse；讨论新模型扎堆发布、有没有人用 Manus；共识是付费一堆 AI 必须产出可变现结果。另有 OpenCode Go 上 Muse 约 10 美元套餐的性价比说法。",
+      "takeaway": "每个付费座位写清「本周要交付的一件可变现产出」；到期前若交不出作品就降配或停订，避免工具订阅变成收藏夹。"
+    },
+    {
+      "title": "TG双向/诈骗链接预警",
+      "count": 14,
+      "start": "22:14",
+      "end": "23:00",
+      "names": [
+        "鱼总丨AIGC",
+        "327",
+        "鹏飞"
+      ],
+      "what": "有人问 TG 是否遇到双向；有人跟步骤一直失败，怀疑是诈骗套路；鱼总提醒千万别轻易点链接，王刀刀补充别找所谓官方机器人。",
+      "takeaway": "【风险/红线】Telegram 陌生链接与假官方机器人是高发电诈入口：只从已验证渠道进群，不点私信链接，不向「客服机器人」转账或交验证码。"
+    },
+    {
+      "title": "airtap云手机注册美区环境",
+      "count": 12,
+      "start": "19:13",
+      "end": "19:28",
+      "names": [
+        "范为",
+        "林白【充会员购电影票】",
+        "JAX",
+        "鱼总丨AIGC",
+        "两凉"
+      ],
+      "what": "范为分享 airtap.ai，称用虚拟云手机开浏览器注册 IP 即美国；夹杂群主寄月饼快递乌龙与改昵称提醒。",
+      "takeaway": "需要干净注册环境时，优先官方支持的合规云手机/浏览器方案，并记录用途与费用；不要用它去批量养灰产账号。"
+    },
+    {
+      "title": "Gift卡封禁与客服退款",
+      "count": 6,
+      "start": "16:27",
+      "end": "16:30",
+      "names": [
+        "雨山",
+        "吴锐锋"
+      ],
+      "what": "有人问新申请 gift 卡是否还被封；有人老卡封了又自动恢复，也有人邮件客服后被告知解封不了只能退款。",
+      "takeaway": "支付卡风控期先降低新开卡频率，被封就保留邮件工单号走退款；不要在群里交换「稳过」的灰产开卡渠道。"
+    }
+  ],
+  "progress": [
+    "范为分享 airtap 云手机注册路径",
+    "鱼总分享 qiaomu-ai-rss GitHub",
+    "TG 防诈骗口径在群内明确",
+    "Muse 低价套餐口头对比，未见统一测评分"
+  ],
+  "thoughts": [
+    {
+      "name": "鱼总丨AIGC",
+      "text": "感觉是各种环境问题组合比较好的就能直接进去"
+    },
+    {
+      "name": "鱼总丨AIGC",
+      "text": "TG 大家一定要小心不要轻易点击链接"
+    },
+    {
+      "name": "王刀刀",
+      "text": "不要找官方机器人，过后一大堆诈骗账号顺着就来了"
+    }
+  ],
+  "tools": [
+    {
+      "label": "鱼总 · qiaomu-ai-rss",
+      "url": "https://github.com/joeseesun/qiaomu-ai-rss"
+    },
+    {
+      "label": "airtap 云手机",
+      "url": "https://airtap.ai/zh"
+    },
+    {
+      "label": "S'améliorer · X",
+      "url": "https://x.com/SUOHA_AI/status/2102091983292358839"
+    }
+  ],
+  "keywords": [
+    "Muse",
+    "Manus",
+    "TG防诈",
+    "airtap",
+    "Gift卡",
+    "变现优先"
+  ]
+}
