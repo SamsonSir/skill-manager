@@ -96,8 +96,8 @@ def _trash_macos(path):
 
 
 def _trash_windows(path):
-    # Send to Recycle Bin via SHFileOperationW with FOF_ALLOWUNDO (stdlib ctypes).
-    # UNTESTED on this build — verify on a real Windows machine.
+    # Recycle Bin via SHFileOperationW. Python rejects str with embedded NULLs,
+    # so the double-null path list has to live in a wchar buffer.
     import ctypes
     from ctypes import wintypes
 
@@ -105,8 +105,8 @@ def _trash_windows(path):
         _fields_ = [
             ("hwnd", wintypes.HWND),
             ("wFunc", wintypes.UINT),
-            ("pFrom", wintypes.LPCWSTR),
-            ("pTo", wintypes.LPCWSTR),
+            ("pFrom", ctypes.c_void_p),
+            ("pTo", ctypes.c_void_p),
             ("fFlags", ctypes.c_uint16),
             ("fAnyOperationsAborted", wintypes.BOOL),
             ("hNameMappings", ctypes.c_void_p),
@@ -117,10 +117,12 @@ def _trash_windows(path):
     FOF_ALLOWUNDO = 0x0040
     FOF_NOCONFIRMATION = 0x0010
     FOF_SILENT = 0x0004
+    FOF_NOERRORUI = 0x0400
+    buf = ctypes.create_unicode_buffer(os.path.abspath(path) + "\0")
     op = SHFILEOPSTRUCTW()
     op.wFunc = FO_DELETE
-    op.pFrom = os.path.abspath(path) + "\x00\x00"  # double-null terminated list
-    op.fFlags = FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_SILENT
+    op.pFrom = ctypes.addressof(buf)
+    op.fFlags = FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_SILENT | FOF_NOERRORUI
     rc = ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op))
     if rc != 0:
         raise OSError("SHFileOperation failed (code %d)" % rc)
