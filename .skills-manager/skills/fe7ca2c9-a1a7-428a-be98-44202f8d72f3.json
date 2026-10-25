@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fe7ca2c9-a1a7-428a-be98-44202f8d72f3",
+  "path": "reference-image-to-prompt",
+  "path_key": "reference-image-to-prompt",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
