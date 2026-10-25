@@ -1,0 +1,4 @@
+interface:
+  display_name: "写真账号创作导演"
+  short_description: "融合人物模板、姿势库和导演设计，按账号配置制作封面与短文"
+  default_prompt: "使用 $joker-portrait-content，按指定账号配置生成不露脸封面、实际提示词、标题和正文。"

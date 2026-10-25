@@ -1,0 +1,85 @@
+{
+  "theme": "Muse注册窗口收紧、Visa订GPT受阻与LibTV短剧工作流",
+  "overview": "CR7分享仍可用的Muse注册法并催尽快注册；有人反馈国内Visa订GPT过不去；另有LibTV 1.5新功能测评与历史人物解说skill求推荐。",
+  "topics": [
+    {
+      "title": "Muse注册越来越难",
+      "heat": 88
+    },
+    {
+      "title": "国内Visa订GPT受阻",
+      "heat": 78
+    },
+    {
+      "title": "LibTV短剧工作流测评",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Muse注册越来越难",
+      "count": 12,
+      "start": "23:43",
+      "end": "23:44",
+      "names": [
+        "CR7"
+      ],
+      "what": "CR7贴步骤图称当前方法还能注册，但越来越难，建议尽快；并附邀请码。",
+      "takeaway": "注册窗口收紧时：按已验证教程+稳定美区IP一次做完；成功后再填邀请码，失败不要反复换卡硬撞。"
+    },
+    {
+      "title": "国内Visa订GPT受阻",
+      "count": 8,
+      "start": "13:07",
+      "end": "14:28",
+      "names": [
+        "零💯",
+        "吃得饱"
+      ],
+      "what": "有人反馈国内Visa订阅GPT无法通过；吃得饱计划先办卡再统一订阅。",
+      "takeaway": "订阅前先小额验证卡能否过风控；失败就换合规通道，不要在同一张卡上连续重试。"
+    },
+    {
+      "title": "LibTV短剧工作流测评",
+      "count": 5,
+      "start": "18:27",
+      "end": "18:27",
+      "names": [
+        "卡尔的AI沃茨"
+      ],
+      "what": "分享LibTV1.5五大新功能实测文：一句话生成3D建模、预演进短剧工作流。",
+      "takeaway": "新工具先只验证一条链路（如分镜预演），再决定是否迁整条短剧流水线。"
+    }
+  ],
+  "progress": [
+    "CR7更新Muse注册提醒（窗口收紧）",
+    "贝壳求历史人物解说skill推荐"
+  ],
+  "thoughts": [
+    {
+      "name": "CR7",
+      "text": "muse越来越难注册了，想注册的尽快注册。"
+    },
+    {
+      "name": "零💯",
+      "text": "国内visa订阅gpt这样无法通过。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "LibTV 1.5 · 短剧工作流测评文",
+      "url": ""
+    },
+    {
+      "label": "Muse · 注册（窗口收紧）",
+      "url": "https://muse.ai/"
+    }
+  ],
+  "keywords": [
+    "Muse注册",
+    "Visa订阅",
+    "LibTV",
+    "短剧工作流",
+    "历史解说"
+  ]
+}

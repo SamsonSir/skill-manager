@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a2d6051b-a6f8-4f8a-895d-4eee90bedfdd",
+  "path": "vibe-writing",
+  "path_key": "vibe-writing",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

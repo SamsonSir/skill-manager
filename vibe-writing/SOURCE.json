@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/Tasihi89/vibe-writing-workflow",
+  "commit": "24847ff733eee9fbec89fa3be031a9fb59513fde",
+  "upstream_files": 31,
+  "verification": "All upstream blobs match Git tree SHA-1; no upstream changes.",
+  "local_additions": [
+    "SKILL.md",
+    "SOURCE.json"
+  ]
+}

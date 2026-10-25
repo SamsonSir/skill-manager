@@ -9,6 +9,60 @@ they are saying and draws someone into the thought. Voice, expression and moveme
 relationship together. Expressiveness concerns how clearly the attitude comes through; it can be
 outgoing or restrained.
 
+## Let footage carry temporal behavior that matters
+
+Reference footage is evidence before it is a generation input. Watch and listen to understand the
+work, whether or not any of its frames will enter a model request. Choose generation inputs from what
+the new shot must actually realize. A still can establish a person, object, place or composition;
+prose can direct an action and its expressive purpose. When a particular unfolding in time is
+essential to the result—its performed rhythm, path, contact, coordination, effect evolution or
+camera relationship—and prose, stills or authored components would lose that information, use the
+relevant source footage as a video reference to a model that accepts it. The fact that a task is
+called a clone does not by itself make the whole reference video a generation input. A broadly
+described action can leave more freedom to the model when its exact movement is not the point.
+
+Replacing a person is a common case; the target may instead change an object, world, words or sound.
+A comic speaking performance can depend on the relation between vocal phrasing, face, gesture and
+camera angle; dance on coordination, a fight on contact, and a fixed-camera mishap on how its cause
+and payoff develop within the view. Watch and listen to learn what the source contributes. Its vocal
+manner can inform direction, while Script and [voice direction](voice-direction.md) establish the
+target's words and voice. The video reference can carry temporal behavior while image references
+establish the new visible facts and the prompt directs their relationship.
+[Transformation](../../creation/transformations.md#reshape-an-event-from-footage) owns what the
+new work keeps and reshapes. Watching a reference to understand a work is distinct from connecting
+a selected excerpt as an actual generation input.
+
+Name the relationship the excerpt contributes. In **reference transfer**, it supplies a temporal
+property such as motion, camera behavior, performance rhythm or effect evolution while the request
+creates new material. In **strict source editing**, the supplied footage is itself the material being
+changed, and the direction states what changes and which motion, framing, timing or sound remains.
+A request can combine evidence from several materials, but each one still needs a stated job. These
+are model-input relationships, not separate kinds of Hypit work. An accepted result is ordinary Media
+and enters normalization, Timeline and presentation like any other material.
+
+Choose an excerpt that contains the useful action and, when relevant, its preparation or settling.
+Its range follows the relationship to preserve, the intended new duration and the selected model's
+reference limits. Connect the actual footage in Source; describing it in prose does not supply
+its temporal behavior to the model. The selected model and Provider determine supported combinations
+and media requirements; read their installed vocabulary and package documentation for the exact
+request, including reference metadata and any strict-edit duration or aspect contract. Inspect the
+selected excerpt, not just its first frame.
+
+For a longer action, distinguish the duration of source footage the model can accept from the
+duration it can produce in one request. Use one request when the model's capability and the work's
+continuity allow it. A forty-second fight might contain several exchanges and reversals, or its
+uninterrupted choreography might be the point. If separate requests serve the work, select excerpts
+around meaningful action or camera relationships and carry forward the target
+people, objects and world through useful references. A literal boundary frame helps when that exact
+continuity is intended; it is not needed for every new passage. The accepted outputs establish the
+target's actual time. When uninterrupted continuity is essential, use a capability that can carry
+it or explain what an edited interpretation changes. When an accepted wordless action carries the
+passage, [empty Segments](../../production/media.md#project-a-wordless-segment-when-its-identity-is-consumed)
+let that material establish its time without word tokens.
+
+[Reference relationships](generated-dependencies.md) owns how images carry identity and world
+forward across requests. This page owns the decision to give a video request temporal evidence.
+
 ## Direct the reason for an action
 
 Give the passage a clear expressive intention, then specify the few details that decide how it
@@ -17,7 +71,7 @@ a discovery with a friend, weighing an ambitious claim with skeptical interest, 
 roasting something they know well. Such directions suggest voice, expression, posture and rhythm
 together. Their value is the performable relationship they contain.
 
-As with [Image direction](image-direction.md#compress-the-idea-into-decisive-anchors), high-level
+As with [Image direction](image-direction.md#two-ideas-behind-every-sentence), high-level
 language should carry sensory direction. The model can realize "admiring but incredulous" across a
 whole passage. Words such as "lively" or "expressive" set an energy level; the speaker's particular
 response to the meaning gives that energy direction. Locate the consequential thought in the Script
@@ -47,7 +101,7 @@ in the new Script. This preserves the expressive relationship while letting the 
 their own movements and phrasing. Phrase-level emphasis should fit the performed language's tones
 and cadence; a source-language stress pattern is not a universal performance instruction.
 
-Carry the character, voice and useful physical relationships across Takes while directing the
+Carry the character, voice and useful physical relationships across generated clips while directing the
 attitude each passage calls for. The same speaker can invite, question, tease and persuade as the
 argument develops. Shared direction can preserve their manner; the passage supplies the particular
 response. Carry forward production continuity, and reconsider the expressive intention whenever the
@@ -125,13 +179,28 @@ An encounter also has edges: someone interrupted can first be occupied, and some
 begin to leave. Small causes make a clip feel like a piece of life rather than a pose bounded by the
 encoder.
 
+## Prepare footage for subject isolation
+
+When the work needs an isolated moving silhouette, choose a matting method that can process the
+actual footage. For new generation, a continuous, evenly lit chroma backdrop can support a chosen
+keying workflow. Choose a color separated from the person's hair, clothing and carried objects;
+direct the visible body extent, performance and stable backdrop as facts of this recording. This
+is a material-preparation choice for that use. Existing footage can instead use a suitable matting
+capability, and an opaque camera view can remain useful through cropping and reframing.
+
+The moving result needs its own alpha-producing operation. A transparent reference still alone
+does not establish transparency in generated video. Keep the original when the final work also uses
+its setting. [Media preparation](../../production/media.md#keep-original-and-processed-material-explicit)
+owns processing, alpha-preserving normalization and explicit use of those outputs. Judge the moving
+edge against its intended background, including shoulders, hair, hands, spill and changes in opacity.
+
 ## Give each input its own responsibility
 
 | Input | Responsibility |
 | --- | --- |
 | Character-and-scene references | appearance, setting, framing and the physical state to preserve |
 | Product, interface or other factual references | the visible facts that need continuity or exactness |
-| Motion or camera video references | temporal behavior whose phrasing, coordination or path should guide the new shot |
+| Source-footage references | performed, physical or camera relationships whose timing should guide the new shot |
 | Recurring voice references | a speaker's intended voice identity when the model accepts them |
 | Script dialogue | the exact words, intended pronunciation and speaking turns for a visible performance |
 | Prompt Kit or Recipe | a reusable prompt relationship that fits this kind of work |
@@ -175,6 +244,8 @@ useful images can already establish people, scenes, products, composition and vi
 requested performance then makes that world move. Text-directed or first-/last-frame generation remains
 useful when its relationship is genuinely the one the shot needs; a last frame belongs when arriving
 at that exact image is part of the intended action.
+Reference transfer and strict source editing are two uses within reference-directed generation, not
+additional invocation shapes or finished-work categories.
 
 Model-specific Surfaces and Prompt Kits are implementations of these relationships, not the Craft
 itself. Kits produce ordinary Text; Source connects that Text and the actual references to the selected
@@ -186,28 +257,6 @@ without making it a model wrapper.
 Read the selected template's wording when choosing its Recipe. Composition, camera, edit rhythm,
 performance and gesture choices shape different aspects of the footage. Choose them to support the
 intended delivery, and use action Text for the passage's particular meaning and reactions.
-
-## Let footage carry motion that matters
-
-When the defining value of a reference is its movement, let a video reference carry that evidence to
-an appropriate video model. Dance phrasing, coordinated body action and a distinctive camera move
-can be easier to preserve through footage than through a long verbal reconstruction. Understand what
-makes the movement work, then state which motion to follow and which person, setting or appearance
-to change. The reference supplies temporal behavior; the prompt and other references direct the new
-visible result.
-
-Choose a useful excerpt around the complete action and its preparation or settling. Size it using
-the source passage, the target's intended duration and the selected model's actual reference-duration,
-count and size limits. A long reference can yield several purposeful excerpts. Preserve continuous
-action where it matters, and use natural editorial boundaries where separate requests make sense.
-Connect the actual video as a reference input; an excerpt mentioned only in prose is not an input.
-
-The same [reference relationships](generated-dependencies.md) apply: each image, video or audio carries
-specific facts, and the nearest useful references guide the next request. Image references can supply
-the target identity or world while video supplies movement. The selected model and Provider determine
-which combination is supported. Read their installed vocabulary and exact media requirements,
-including any declared person-reference metadata, before submitting. Motion reference is another
-way to direct capable generation, alongside text, camera images and voice references.
 
 ## Direct camera and cuts as part of the passage
 
@@ -221,26 +270,34 @@ guest and use the interviewer view for a reaction. An unfolding action or a held
 its effect from a continuous shot; choose that temporal shape when it serves the passage.
 
 One generated video can contain multiple shots, several speaking turns or a split-screen composition.
-One Segment is not one speaker turn or one camera shot. Conversely, several Takes can reuse the same
+One Segment is not one speaker turn or one camera shot. Conversely, several generated clips can reuse the same
 character-and-scene image and meet at natural editorial cuts. A genuinely continuous shot calls for
 the model relationship and direction that preserve that action. See
 [Reference relationships](generated-dependencies.md) when deciding which visual or motion evidence
 should condition each request.
 
+When supported by the selected model, several camera images can guide one request through different
+views or locations. Direct which people, settings and states each image contributes and how the
+passage develops among them. Reference images in this relationship guide the generated footage;
+they become literal first or last frames only when that is the chosen generation relationship.
+Choose the request's span from the intended performance and the model's supported duration and
+reference inputs, not from a one-image-per-shot correspondence.
+
 A prompt-directed jump cut asks the generator for an edited rhythm; it does not inspect or trim the
 returned media. When produced footage needs a deterministic cut, speed change or trim, use the
-corresponding media operation and align the edited result before it becomes a SemanticTake.
+corresponding media operation before normalization and alignment. The edited media, local domain and
+alignment remain separate facts.
 
 ## Size the request around the delivery
 
-Use `hypit measure` on a spoken Segment at its intended pace, including time for meaningful
-interaction, pauses and actions. [Script and time](../../creation/script-and-time.md#measure-before-choosing-durations)
+Use `hypit estimate` on a spoken Segment at its intended pace, including time for meaningful
+interaction, pauses and actions. [Script and time](../../creation/script-and-time.md#estimate-before-choosing-durations)
 owns the command, rounding and the relationship between estimated duration and real aligned time.
 Choose that pace from the intended performance and carry it into the voice and passage direction.
 For brisk social delivery with trim cuts, `fast` is a useful starting choice; the name `normal`
 does not make it the right rhythm for every piece. A shorter duration gives the words less room,
 while the direction still supplies the stresses, attitude and reactions that make them engaging.
-Measurement sizes the words; emphasis, attitude and motivated reactions give their delivery character.
+The estimate sizes the words; emphasis, attitude and motivated reactions give their delivery character.
 The target's delivery determines how much generated media the passage needs; the reference video's
 seconds help explain its rhythm without becoming the target duration automatically.
 
@@ -251,6 +308,7 @@ question and answer may belong together, a short line may gain a meaningful reac
 exchange may divide where its thought turns. Preserve the intended meaning and energy, then choose a
 supported duration.
 
-After production, normalized media supplies the real envelope and alignment supplies word positions.
-Use that material and timing to compose the piece. [Composition review](../../production/review.md)
+After production, normalized media supplies the real envelope. When the composition needs word
+positions, alignment supplies them from the accepted performance. Use the material and any required
+timing to compose the piece. [Composition review](../../production/review.md)
 owns judging how Caption, MG, B-roll and other layers work with the produced performance.

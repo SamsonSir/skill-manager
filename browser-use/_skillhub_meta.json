@@ -8,5 +8,6 @@
   "description_en": "Automates browser interactions for web testing, form filling, screenshots, and data extraction.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_8eccd64f-169.svg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/browser-use/_icon.svg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_8eccd64f-169.svg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_8eccd64f-169.svg",
+  "installedContentHash": "sha256:1fa3cabff0af8d04345f0dfce2e8a02d4e4cf2a40f92cedc56a970180161bd21"
 }

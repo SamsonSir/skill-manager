@@ -3,5 +3,6 @@
   "name": "公众号爆款文章查询",
   "version": "1.0.8",
   "installedAt": 1778465844675,
-  "source": "skillhub"
+  "source": "skillhub",
+  "installedContentHash": "sha256:a60e031d2d6748d302d4e4ded24facdf57860aebd9de9527d039e05dd6ec324b"
 }

@@ -1,7 +1,7 @@
 # Choosing and authoring Prompt Kits
 
 Read this when choosing a reusable prompt treatment, assembling its Text inputs, or preserving useful
-direction in a new Kit. A Kit can preserve proven wording even for one image or Take. Ordinary
+direction in a new Kit. A Kit can preserve proven wording even for one image or passage. Ordinary
 `text:Value` elements carry the parts authored specifically for the current work.
 
 A Prompt Kit is a data-only TextTemplate Source. It owns reusable wording and meaningful choices;
@@ -133,6 +133,15 @@ produced elsewhere remains a graph edge rather than being copied into a scalar b
     <text:Set name="references" text={reference-roles}/>
   </text:Render>
 </svml>
+```
+
+Save the template above as `phone-shot.svs`. For this example, `look.svs` can be:
+
+```svs
+<?svml using="@hypit/recipe@1"?>
+<sheet version="1">
+  prompt.main { camera: handheld; }
+</sheet>
 ```
 
 The optional Recipe supplies scalar properties consumed by the template. Template defaults apply

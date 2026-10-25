@@ -8,5 +8,6 @@
   "description_en": "Based on GPT-6 official prompt engineering guidelines. Removes AI buzzwords, cliches, and repetitive formatting from texts, and optimizes Agent system prompts for autonomous execution and concise communication.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ad81ab5f-3c73-4fb0-a104-e9b1e5ed6cf9/23f178a1-18be-4c2f-9b47-48fb6c156980.png",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/de-ai-writing/_icon.png",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ad81ab5f-3c73-4fb0-a104-e9b1e5ed6cf9/23f178a1-18be-4c2f-9b47-48fb6c156980.png"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ad81ab5f-3c73-4fb0-a104-e9b1e5ed6cf9/23f178a1-18be-4c2f-9b47-48fb6c156980.png",
+  "installedContentHash": "sha256:1859d306b4c304f790d28ee154a6526a57ce8e525ce74f03de81b81c67905951"
 }

@@ -1,0 +1,89 @@
+{
+  "theme": "提示词从哪来、Google Pro练手视频额度与OpenAI剪辑dot",
+  "overview": "新人问复杂视频提示词从哪来，群友认为靠AI写或平台skill，关键在白膜和控场图；午后Ponyo分享OpenAI剪辑dot文章；Phoenix推Google Pro做练手视频，引出与豆包/Seedance的取舍。",
+  "topics": [
+    {
+      "title": "视频提示词怎么写",
+      "heat": 80
+    },
+    {
+      "title": "Google Pro vs Seedance",
+      "heat": 78
+    },
+    {
+      "title": "OpenAI剪辑dot",
+      "heat": 60
+    }
+  ],
+  "clusters": [
+    {
+      "title": "复杂提示词从哪来",
+      "count": 12,
+      "start": "11:09",
+      "end": "11:30",
+      "names": [
+        "启昊",
+        "后知后觉",
+        "吃得饱"
+      ],
+      "what": "启昊问分镜、镜头光影写得很复杂的提示词怎么来，豆包15/30秒怎么拼3分钟；后知后觉说复杂不一定好用，非专业团队不需要，可让AI写或用平台skill；吃得饱认为写再多没用，关键靠白膜和控场图。",
+      "takeaway": "先固定人物和场景（定妆图、白膜、控场图），再用AI或平台skill生成分镜提示词，按15–30秒一段拼接。"
+    },
+    {
+      "title": "OpenAI剪辑dot：废片重新上岗",
+      "count": 6,
+      "start": "14:03",
+      "end": "14:47",
+      "names": [
+        "Ponyo",
+        "千与千寻",
+        "涡天1982"
+      ],
+      "what": "Ponyo分享文章：用OpenAI的剪辑dot一句话把AI废片重新剪成可用片子。",
+      "takeaway": "AI生成的废片别急着删，留素材库，之后可交给剪辑agent重组。"
+    },
+    {
+      "title": "Google Pro练手视频 vs 豆包Seedance",
+      "count": 20,
+      "start": "15:11",
+      "end": "16:31",
+      "names": [
+        "Phoenix",
+        "仙人掌",
+        "Ponyo",
+        "吃得饱",
+        "千与千寻",
+        "yoyo"
+      ],
+      "what": "Phoenix建议买Google Pro，免费生图，一个月约60条视频（后更正为10秒）；仙人掌认为谷歌视频质量不行，Ponyo说大家多半想用Seedance；Phoenix主张练手不必娇贵，挖能引起共鸣的题材每天发一两条；yoyo称SD2.5效果不错。",
+      "takeaway": "练手和日更用便宜通道（Google、Grok）每天出一两条找题材，正片再上Seedance；所报价格和时长需自行核实。"
+    }
+  ],
+  "progress": [
+    "提示词实践共识：先控场图再写词"
+  ],
+  "thoughts": [
+    {
+      "name": "吃得饱",
+      "text": "写再多没用啊，关键还得靠白膜和控场图"
+    },
+    {
+      "name": "Phoenix",
+      "text": "不做漫剧什么的, grok 啊, google 的啊, 都可以用, 没那么娇贵"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Ponyo：OpenAI剪辑dot（X）",
+      "url": "https://x.com/ponyodong/status/2105175655994245432"
+    }
+  ],
+  "keywords": [
+    "提示词",
+    "白膜",
+    "控场图",
+    "Google Pro",
+    "Seedance 2.5",
+    "dot"
+  ]
+}

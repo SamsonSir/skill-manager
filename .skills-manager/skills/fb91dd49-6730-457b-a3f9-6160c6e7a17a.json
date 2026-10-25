@@ -6,9 +6,9 @@
   "enabled": true,
   "tags": [],
   "source": {
-    "type": "local",
-    "ref": null,
-    "subpath": null,
-    "branch": null
+    "type": "git",
+    "ref": "https://github.com/hypit-ai/hypit/tree/main/skills/hypit",
+    "subpath": "skills/hypit",
+    "branch": "main"
   }
 }

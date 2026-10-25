@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "c5aff5e2-29c1-4783-b9ad-89d137623bf5",
+  "path": "writing-dna-skill",
+  "path_key": "writing-dna-skill",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

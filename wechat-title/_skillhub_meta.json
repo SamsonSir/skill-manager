@@ -8,5 +8,6 @@
   "description_en": "WeChat viral title generator and scorer based on real trending article data, with multi-dimensional scoring.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d62a826a-65b.svg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-title/_icon.svg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d62a826a-65b.svg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d62a826a-65b.svg",
+  "installedContentHash": "sha256:55040dbd7f462f49fbbaa7129b39532d8ec8341057348c3822dc9bdb59e726ee"
 }

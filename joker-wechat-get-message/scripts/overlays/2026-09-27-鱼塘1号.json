@@ -1,0 +1,90 @@
+{
+  "theme": "美国云居民ITIN办卡、Muse新注册法与X自媒体新人",
+  "overview": "白天分享加密货币充AI、出海长文与美国云居民ITIN办Capital One教程；傍晚东宁给Muse新注册法（Lexmount浏览器）；晚间多位X新人自我介绍，鱼总称某动态MG提示词是万能提示词。",
+  "topics": [
+    {
+      "title": "美国云居民：ITIN与办卡",
+      "heat": 90
+    },
+    {
+      "title": "Muse新注册法（云端浏览器）",
+      "heat": 88
+    },
+    {
+      "title": "X自媒体新人与拆化发",
+      "heat": 75
+    }
+  ],
+  "clusters": [
+    {
+      "title": "美国云居民：ITIN与办卡",
+      "count": 30,
+      "start": "11:37",
+      "end": "11:58",
+      "names": [
+        "M.",
+        "327",
+        "烨"
+      ],
+      "what": "M.发「成为美国云居民」第六期：ITIN申请Capital One免年费卡全流程；并给YouTube合集；有人问美国住宅地址渠道。",
+      "takeaway": "出海支付链路按专辑顺序：地址→手机号→ITIN→卡；缺地基环节不要跳办卡。"
+    },
+    {
+      "title": "Muse新注册法（云端浏览器）",
+      "count": 20,
+      "start": "17:31",
+      "end": "17:56",
+      "names": [
+        "M.",
+        "高菲"
+      ],
+      "what": "M.建议全局美国IP，用browser.lexmount.com内置Open Muse注册，银行卡建议U卡；有人反馈部分邮箱路径已失效。",
+      "takeaway": "注册环境固定美区+一次性邮箱策略；重要银行卡不要拿去试，失败就换教程别连撞。"
+    },
+    {
+      "title": "X自媒体新人与拆化发",
+      "count": 25,
+      "start": "13:44",
+      "end": "20:33",
+      "names": [
+        "建维",
+        "FourtyNine",
+        "鱼总丨AIGC"
+      ],
+      "what": "聂二等新人自我介绍；FourtyNine分享拆化发系列（拆解复刻升华爆款）；鱼总欢迎并点出一条MG提示词像万能提示词。",
+      "takeaway": "学爆款用「拆-化-发」：先拆结构，再改情境，最后发自己的素材，不要整段搬提示词。"
+    }
+  ],
+  "progress": [
+    "美国云居民第六期ITIN办卡教程入群",
+    "Lexmount云端浏览器注册Muse方法分享",
+    "多位X新人入群自我介绍"
+  ],
+  "thoughts": [
+    {
+      "name": "鱼总丨AIGC",
+      "text": "这应该是万能提示词。"
+    },
+    {
+      "name": "良竹",
+      "text": "新写了一篇长文，像搞出海的可以看看，有一个赚钱生意，我今天也开始验证。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "美国云居民系列合集（YouTube）",
+      "url": "https://www.youtube.com/playlist?list=PLZ3bI9CowsE8"
+    },
+    {
+      "label": "Lexmount浏览器 · Muse注册",
+      "url": "http://browser.lexmount.com"
+    }
+  ],
+  "keywords": [
+    "ITIN",
+    "Capital One",
+    "Muse注册",
+    "拆化发",
+    "出海"
+  ]
+}

@@ -6,5 +6,6 @@
   "skillId": "skill_2095206046686949376",
   "description_zh": "一键发布 Markdown 到微信公众号草稿箱，支持图文消息（长文）与图片消息（贴图）两种模式",
   "description_en": "Publish Markdown to your WeChat Official Account drafts: long-form articles and image posts.",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:bb9a1cdacb8d5cf080057c019c47c3d8d85083bd8df249dff76f3f9ad850c5a8"
 }

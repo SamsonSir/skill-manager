@@ -1,0 +1,139 @@
+{
+  "theme": "GPT Pro 20x降10x补偿2500刀、Claude封号与防封组合、Codex资产迁移",
+  "overview": "凌晨到傍晚Muse注册新法持续流传；上午Claude封号吐槽集中，群友分享指纹浏览器加静态IP加优质付款卡的防封组合；中午确认GPT Pro 20x将统一降为10x并补偿2500刀积分；下午讨论Codex里的项目资产如何迁移。",
+  "topics": [
+    {
+      "title": "GPT Pro额度调整",
+      "heat": 90
+    },
+    {
+      "title": "Claude封号与防封",
+      "heat": 88
+    },
+    {
+      "title": "Muse注册新法",
+      "heat": 75
+    },
+    {
+      "title": "强模型规划弱模型执行",
+      "heat": 70
+    },
+    {
+      "title": "Codex资产迁移",
+      "heat": 72
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Muse注册新法",
+      "count": 25,
+      "start": "00:07",
+      "end": "18:26",
+      "names": [
+        "阿坤 拼豆板 出租",
+        "苗",
+        "混沌Ai～山子",
+        "向日葵"
+      ],
+      "what": "阿坤称比特浏览器加美国或加拿大原生住宅IP（约23–25元一个）就能注册，可在airtap进入绑卡界面绑自己的卡；傍晚又说用facebook注册很顺；Muse自带云电脑无法注册Muse；信用卡验证可用卡台开卡或招行全币种卡。",
+      "takeaway": "准备原生住宅IP加可扣款卡再注册；别在被屏蔽的云电脑里注册。"
+    },
+    {
+      "title": "Claude封号与防封组合",
+      "count": 35,
+      "start": "08:49",
+      "end": "11:11",
+      "names": [
+        "Marco",
+        "piano",
+        "柳伟杰",
+        "l",
+        "zzZ",
+        "LY",
+        "钟醷"
+      ],
+      "what": "多人反映Claude被封，有人桌面端连封两号；柳伟杰用苹果手机在Claude里申诉，获退款并删号；钟醷建议用CLI别用桌面端；zzZ按鱼总教程用指纹浏览器加静态IP加优质付款卡，一个季度没封；LY用招行VISA绑Google Play或美区礼品卡订阅，换到Mac后稳定。",
+      "takeaway": "防封三件套：干净设备环境、固定静态IP、稳定付款渠道；被封后走App内申诉争取退款。"
+    },
+    {
+      "title": "强模型规划、弱模型执行",
+      "count": 12,
+      "start": "08:28",
+      "end": "09:42",
+      "names": [
+        "柳伟杰",
+        "老脸（辰心）"
+      ],
+      "what": "柳伟杰分享文章《Claude没了才发现：你只有项目，没有流水线》；老脸说自己已按这套做：强模型做规划和方案，弱模型做执行。",
+      "takeaway": "把工作拆成规划和执行两段：规划交给强模型，执行交给便宜模型，换模型时流水线不必重建。"
+    },
+    {
+      "title": "GPT Pro 20x降10x与2500刀补偿",
+      "count": 30,
+      "start": "11:50",
+      "end": "17:58",
+      "names": [
+        "王老九",
+        "KickEGG",
+        "zyon",
+        "pation",
+        "老脸（辰心）",
+        "在雾里",
+        "混沌Ai～山子"
+      ],
+      "what": "群友确认：当天前订阅或续费的Pro 20x维持到10月29日，之后所有人统一为10x；补偿约2500美元额度到积分，有时间限制，部分账号先到账；6.1 Sol被评价顺畅、消耗小。",
+      "takeaway": "老用户在10月29日前用足20x额度；补偿积分有期限，尽快排上大任务。"
+    },
+    {
+      "title": "Codex项目资产迁移",
+      "count": 15,
+      "start": "14:14",
+      "end": "15:57",
+      "names": [
+        "Ponyo",
+        "金尘马",
+        "FourtyNine",
+        "花底闲人"
+      ],
+      "what": "Ponyo称影视资产与项目记录都在Codex，dots会自动调用工作流；金尘马建议资产放本地并做handoff，用GitHub同步，防止Codex不可用；FourtyNine的短片在Grok Bot渲染不过、迁到GPT就好了；Codex缓存占C盘可让它自己迁到其他分区。",
+      "takeaway": "每个项目定期导出handoff文档和资产清单到本地或GitHub，别锁死在单一agent里。"
+    }
+  ],
+  "progress": [
+    "GPT Pro额度调整细则明确",
+    "防封组合与申诉退款路径被分享"
+  ],
+  "thoughts": [
+    {
+      "name": "金尘马",
+      "text": "建议一些资产性的东西，哪怕搞个 handoff 也要搞出来"
+    },
+    {
+      "name": "老脸（辰心）",
+      "text": "强模型做规划做方案，弱模型做执行"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Codex做二战地图动画教程（X）",
+      "url": "https://x.com/DemitiyaGeekzen/status/2104970664901804049"
+    },
+    {
+      "label": "Ponyo：OpenAI剪辑dot（X）",
+      "url": "https://x.com/ponyodong/status/2105175655994245432"
+    },
+    {
+      "label": "Raven 0.2.0（X）",
+      "url": "https://x.com/duange6099/status/2105114408737480960"
+    }
+  ],
+  "keywords": [
+    "GPT Pro",
+    "10x",
+    "2500刀补偿",
+    "Claude封号",
+    "防封",
+    "handoff",
+    "Muse"
+  ]
+}

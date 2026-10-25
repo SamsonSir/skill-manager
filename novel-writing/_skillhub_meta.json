@@ -16,5 +16,6 @@
   ],
   "description_zh": "AI长篇网文创作，解决上下文丢失、文风不一致等7大痛点",
   "description_en": "AI web novel writing solving context loss, voice drift & 5 more pain points",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:d0feb4da3bacf8392b0e118677bd817f8a0d94e78b8218e5fb2415601cd03979"
 }

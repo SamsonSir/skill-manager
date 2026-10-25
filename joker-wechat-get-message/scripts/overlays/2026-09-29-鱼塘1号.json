@@ -1,0 +1,135 @@
+{
+  "theme": "Cue美国号码实测、Muse多号自邀、鱼总X复盘开放与云电脑之问",
+  "overview": "凌晨群友实测Cue的0.99刀美国号码；上午梳理Muse邀请与验证规则，鱼总把X一年复盘免费发到公众号；午后Claude封号蔓延，Cursor被当成调用Opus 5.5的通道；晚间讨论云电脑与本地agent的区别。",
+  "topics": [
+    {
+      "title": "Cue实测",
+      "heat": 85
+    },
+    {
+      "title": "Muse注册规则",
+      "heat": 80
+    },
+    {
+      "title": "鱼总X复盘",
+      "heat": 75
+    },
+    {
+      "title": "Claude封号与Cursor",
+      "heat": 82
+    },
+    {
+      "title": "云电脑vs本地agent",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Cue美国号码与客户端实测",
+      "count": 45,
+      "start": "02:37",
+      "end": "11:45",
+      "names": [
+        "kaitokuang",
+        "zyon",
+        "林白",
+        "FourtyNine"
+      ],
+      "what": "Cue可0.99刀买美国号码给agent用，AI会接电话简单问答但没有后续转达；号码默认配给另一个agent，所以在Cue助手里查不到记录；Manus可接入自己的模型；桌面端需单独下载，移动端只有安卓；FourtyNine称配置比Grok Bot低一半，林白觉得用着卡。",
+      "takeaway": "Cue号码适合给agent收验证或接听，不要指望它代你转达；查记录要问号码绑定的那个agent。"
+    },
+    {
+      "title": "Muse邀请与验证规则",
+      "count": 15,
+      "start": "07:47",
+      "end": "09:44",
+      "names": [
+        "zyon",
+        "Marco",
+        "独角",
+        "AI搬运工"
+      ],
+      "what": "被邀请人只能兑现一个邀请码；zyon说不嫌麻烦可注册多号自邀，一次约20亿token；原邮箱有Meta生态账号可直接快速注册，否则要验证年龄、填visa会扣1美元再退回。",
+      "takeaway": "用有Meta账号的邮箱注册可跳过年龄验证；邀请码互换一人只算一次。"
+    },
+    {
+      "title": "鱼总X一年复盘免费开放与大模型备案",
+      "count": 20,
+      "start": "10:14",
+      "end": "10:30",
+      "names": [
+        "鱼总丨AIGC",
+        "阿海法基恩",
+        "张岩"
+      ],
+      "what": "鱼总把《一年涨粉6.3万、X上做AI自媒体从起号到变现40万+》复盘免费发到公众号，覆盖算法、涨粉、变现；另有人问国内大模型备案，张岩称自己办约半年。",
+      "takeaway": "做X先读完鱼总复盘再起号；国内上线含大模型调用的小程序要预留约半年备案周期。"
+    },
+    {
+      "title": "Claude封号潮与Cursor通道",
+      "count": 30,
+      "start": "12:16",
+      "end": "13:55",
+      "names": [
+        "Nano giant",
+        "季白羽",
+        "Walker",
+        "独角",
+        "花底闲人",
+        "AI搬运工"
+      ],
+      "what": "季白羽说每个群都在说被封，久未登录的号也被封；Walker问Cursor能否境内visa买Pro调用Opus 5.5，独角确认支付宝扫码付年费Pro可调，但需代理且路由别把cursor.sh设成直连；有传言称Cursor里Opus效果差10–20%。",
+      "takeaway": "在Cursor调用Opus前检查代理路由规则；把Cursor当备用通道，关键任务仍做对比验证。"
+    },
+    {
+      "title": "云电脑与本地agent的区别",
+      "count": 25,
+      "start": "19:11",
+      "end": "20:35",
+      "names": [
+        "王刀刀",
+        "阿坤 拼豆板 出租",
+        "向日葵",
+        "FourtyNine"
+      ],
+      "what": "王刀刀问云电脑和ssh服务器有什么区别；阿坤认为云电脑的好处是算力不受本地限制、随时可访问、位于海外；向日葵说可以24小时跑任务；FourtyNine用多个Bot组团队各司其职，由指挥官调度。",
+      "takeaway": "需要24小时跑任务、海外环境或多bot分工时再上云电脑；单人轻任务本地agent就够。"
+    }
+  ],
+  "progress": [
+    "Cue号码行为被实测",
+    "鱼总X复盘免费开放"
+  ],
+  "thoughts": [
+    {
+      "name": "柳伟杰",
+      "text": "看每本书都在蒸馏别人，避免自己踩同样的坑"
+    },
+    {
+      "name": "季白羽",
+      "text": "今天每个群都在说被封号了。出了新模型就开始封号。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Cue（Manus）",
+      "url": "https://cue.im/"
+    },
+    {
+      "label": "yt-dlp + FunASR 提取视频逐字稿",
+      "url": ""
+    },
+    {
+      "label": "Cursor（调用Opus 5.5）",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "Cue",
+    "Muse",
+    "鱼总X复盘",
+    "Claude封号",
+    "Cursor",
+    "云电脑"
+  ]
+}

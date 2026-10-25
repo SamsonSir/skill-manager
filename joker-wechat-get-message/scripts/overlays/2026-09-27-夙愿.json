@@ -1,0 +1,43 @@
+{
+  "theme": "Claude Code /status 斜杠自检",
+  "overview": "消息很少：麻麻叫你吃饭发现cc的/status斜杠命令可做自我体检，并感叹功能好用。",
+  "topics": [
+    {
+      "title": "Claude Code /status自检",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Claude Code /status自检",
+      "count": 3,
+      "start": "08:10",
+      "end": "08:12",
+      "names": [
+        "麻麻叫你吃饭"
+      ],
+      "what": "发现cc有/status斜杠命令，用来对自己做个体检，称真的无敌。",
+      "takeaway": "会话异常时先跑/status看环境与配额，再决定是否换模型或重开会话，少盲目重试。"
+    }
+  ],
+  "progress": [
+    "群友分享Claude Code /status自检用法"
+  ],
+  "thoughts": [
+    {
+      "name": "麻麻叫你吃饭",
+      "text": "/status这个斜杠命令真的无敌了。才发现cc有这么好的功能。对自己做个体检"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Claude Code · /status",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "Claude Code",
+    "/status",
+    "自检"
+  ]
+}

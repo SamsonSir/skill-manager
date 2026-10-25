@@ -1,0 +1,65 @@
+{
+  "theme": "Claude Max防封教程与Opus5.5周额度体感",
+  "overview": "夙愿发封了30多个号换来的Claude Max防封保姆级教程；晚间称Opus5.5猛蹬一天才用15%周额度，会员自带额度够用，并提到Claude云端免费额度赠送。",
+  "topics": [
+    {
+      "title": "Claude Max防封保姆级教程",
+      "heat": 95
+    },
+    {
+      "title": "Opus5.5周额度体感松",
+      "heat": 85
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Claude Max防封保姆级教程",
+      "count": 10,
+      "start": "09:28",
+      "end": "11:07",
+      "names": [
+        "夙愿"
+      ],
+      "what": "夙愿发公众号文：封30多号换来的Claude Max防封教程（2026年9月最新），并催按教程来。",
+      "takeaway": "防封跟着已验证步骤走：环境、支付、设备指纹一次对齐；不要用「多开硬刚」换额度。"
+    },
+    {
+      "title": "Opus5.5周额度体感松",
+      "count": 12,
+      "start": "19:34",
+      "end": "19:46",
+      "names": [
+        "夙愿",
+        "Levin"
+      ],
+      "what": "夙愿体感Opus5.5一天只用15%周额度；Levin提Claude云端免费额度赠送；夙愿认为会员自带额度够。",
+      "takeaway": "新模型先看周额度消耗曲线再加购；云端赠额当彩蛋，核心工作放在稳定会员额度上。"
+    }
+  ],
+  "progress": [
+    "发布Claude Max防封教程链接到群"
+  ],
+  "thoughts": [
+    {
+      "name": "夙愿",
+      "text": "这个opus5.5也太顶用了，猛蹬一天才用15%周额度。会员自带的额度是够够的了。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Claude Max防封教程（夙愿公众号）",
+      "url": ""
+    },
+    {
+      "label": "Claude · /claim-credit云端赠额（群内提及）",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "Claude Max",
+    "防封",
+    "Opus5.5",
+    "周额度",
+    "claim-credit"
+  ]
+}

@@ -16,5 +16,6 @@
   ],
   "description_zh": "Puppeteer 无头浏览器，渲染 JS 页面并提取纯文本",
   "description_en": "Puppeteer headless browser: render JS pages & extract clean text",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:535712ae910ccbc0ca88f25c59da79fddeeff737c15064ae09f9e899e941c81e"
 }

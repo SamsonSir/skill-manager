@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "69da25bc-c329-457f-b741-9d6cd376002b",
+  "path": "jk-media-metainfo",
+  "path_key": "jk-media-metainfo",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

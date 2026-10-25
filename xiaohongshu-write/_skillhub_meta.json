@@ -8,5 +8,6 @@
   "description_en": "Generate ready-to-publish Xiaohongshu notes based on trending note data analysis",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_56b0caf3-feb.svg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/xiaohongshu-write/_icon.svg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_56b0caf3-feb.svg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_56b0caf3-feb.svg",
+  "installedContentHash": "sha256:c9d21bfd232f0f7607ce0225b951cd240228b8188af2f7412a16d7d5a8d6d33d"
 }

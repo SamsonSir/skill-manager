@@ -26,6 +26,70 @@ def fail(messages: list[str]) -> int:
     return 1
 
 
+def check_editorial_review(style: dict, base: Path, body: str) -> list[str]:
+    """Check evidence bindings, not editorial quality or expected readership."""
+    errors = []
+    review = style.get("editorial_review")
+    if not isinstance(review, dict):
+        return ["photo account requires editorial_review from the final title and body"]
+
+    def bound_file(path, digest, label):
+        if not isinstance(path, str) or not path.strip():
+            errors.append(f"editorial {label}: missing path")
+            return
+        file = base / path
+        try:
+            data = file.read_bytes()
+            if not data.strip() or hashlib.sha256(data).hexdigest() != digest:
+                errors.append(f"editorial {label}: empty file or missing/stale hash")
+        except OSError:
+            errors.append(f"editorial {label}: file not readable")
+
+    bound_file(review.get("title_file"), review.get("title_sha256"), "title")
+    for key in ("reader_question", "title_promise", "reason"):
+        if not isinstance(review.get(key), str) or not review[key].strip():
+            errors.append(f"editorial missing {key}")
+    quote = review.get("payoff_quote")
+    if not isinstance(quote, str) or not quote.strip() or quote not in body:
+        errors.append("editorial payoff_quote must be an exact passage in the final body")
+    if review.get("decision") != "candidate_ready":
+        errors.append("editorial decision requires revision")
+    # Unknown platform outcomes are recorded separately, not as pending copy edits.
+    if review.get("unresolved") != []:
+        errors.append("editorial unresolved content revisions must be resolved before candidate_ready")
+    sources = review.get("sources")
+    has_body = False
+    if not isinstance(sources, list) or not sources:
+        errors.append("editorial sources must identify references actually read")
+        sources = []
+    for i, source in enumerate(sources):
+        if not isinstance(source, dict):
+            errors.append(f"editorial source {i}: invalid record")
+            continue
+        bound_file(source.get("path"), source.get("sha256"), f"source {i}")
+        use = source.get("use")
+        if use not in {"direct_short", "adjacent_body", "title_only", "method"}:
+            errors.append(f"editorial source {i}: invalid use")
+        has_body |= use in {"direct_short", "adjacent_body"}
+        if not isinstance(source.get("adopted"), str) or not source["adopted"].strip():
+            errors.append(f"editorial source {i}: missing adopted point")
+    if not has_body:
+        errors.append("editorial requires at least one full-body reference, not only title lists")
+    recent = review.get("recent_comparison")
+    if not isinstance(recent, list) or not recent:
+        errors.append("editorial recent_comparison required for this established account")
+        recent = []
+    for i, item in enumerate(recent):
+        if not isinstance(item, dict):
+            errors.append(f"editorial recent {i}: invalid record")
+            continue
+        bound_file(item.get("path"), item.get("sha256"), f"recent {i}")
+        for key in ("overlap", "difference"):
+            if not isinstance(item.get(key), str) or not item[key].strip():
+                errors.append(f"editorial recent {i}: missing {key}")
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--article", required=True)
@@ -211,9 +275,11 @@ def main() -> int:
         if looks_like_claim and line_number not in covered and line_number not in interactions:
             errors.append(f"line {line_number}: possible first-person event is absent from claims ledger: {text[:60]}")
 
+    if packet.get("account_id") == "photo-account-pending":
+        errors.extend(check_editorial_review(style, style_path.parent, "\n".join(lines)))
     if errors:
         return fail(errors)
-    print(f"PASS: {article_path.name}; {len(claims)} claims; structural checks only; semantic review remains required")
+    print(f"PASS: {article_path.name}; {len(claims)} claims; evidence consistency only; editorial quality and platform outcomes are not certified")
     return 0
 
 

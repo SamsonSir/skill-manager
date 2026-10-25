@@ -1,0 +1,88 @@
+{
+  "theme": "屏幕文字生成翻车、Workbuddy中英文包与Muse教程PDF",
+  "overview": "涡天请教电子屏幕文字反复生成错误；唐伯猫下错Workbuddy国际包被指去.cn；晚间CR7再发Muse注册教程PDF，白日等人继续等号。",
+  "topics": [
+    {
+      "title": "屏幕文字提示词反复生成错字",
+      "heat": 85
+    },
+    {
+      "title": "Workbuddy国际版vs国区",
+      "heat": 80
+    },
+    {
+      "title": "Muse注册教程PDF再发",
+      "heat": 78
+    }
+  ],
+  "clusters": [
+    {
+      "title": "屏幕文字提示词反复生成错字",
+      "count": 15,
+      "start": "11:05",
+      "end": "11:17",
+      "names": [
+        "涡天1982",
+        "Ponyo",
+        "任浩"
+      ],
+      "what": "涡天强调屏幕显示正确文字仍连错三次；群友围观Ponyo成片并点赞。",
+      "takeaway": "UI文字不要一次赌对：先生成无字底板，再用局部重绘/后期叠字；少把长句塞进生视频提示词。"
+    },
+    {
+      "title": "Workbuddy国际版vs国区",
+      "count": 10,
+      "start": "14:30",
+      "end": "15:55",
+      "names": [
+        "唐伯猫",
+        "Jim"
+      ],
+      "what": "唐伯猫从workbuddy.ai下到英文版；Jim指出国际版，应从workbuddy.cn下载。",
+      "takeaway": "装工具先认域名：要中文国区能力走.cn，国际站默认英文与不同账号体系。"
+    },
+    {
+      "title": "Muse注册教程PDF再发",
+      "count": 20,
+      "start": "20:44",
+      "end": "23:49",
+      "names": [
+        "白日",
+        "CR7"
+      ],
+      "what": "白日继续问等待与IP；CR7再丢详细PDF，称一般第二天，不行就换推荐IP并从邀请链接进。",
+      "takeaway": "按教程固定IP与邀请入口；等不到就换IP重走，不要同一环境连刷。"
+    }
+  ],
+  "progress": [
+    "CR7再次投递Muse_ai_注册教程.pdf",
+    "在路上分享用GitHub开源项目做成一集；moveR称二开以支持协作/部署"
+  ],
+  "thoughts": [
+    {
+      "name": "CR7",
+      "text": "一般明天。不行看看我发群里的教程。我这边用的那个Ip最多也就等一天。"
+    },
+    {
+      "name": "Jim",
+      "text": "这个是国际版，从workbuddy.cn下载。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Workbuddy.cn · 国区安装",
+      "url": "https://www.workbuddy.cn/"
+    },
+    {
+      "label": "Muse注册教程PDF · CR7群内分享",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "屏幕文字",
+    "Workbuddy",
+    "Muse教程",
+    "GitHub二开",
+    "角色一致性"
+  ]
+}

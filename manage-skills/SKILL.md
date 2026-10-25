@@ -352,3 +352,14 @@ Report which skills actually refreshed (`refreshed: true` in the JSON) vs which 
 - **No active preset** only affects legacy `skills sync` / `presets apply`; additive deploy commands do not require one.
 - **Adopted skills can't be `update`d from git** → `npx skills add` and manual `git clone` don't leave source metadata, so adopt has to treat them as `local`. Re-point them with `skills set-source`. Do **not** reach for `adopt --git-url` here: adopt only ever creates new library entries, and it fails *late* — `--dry-run` returns `ok: true` with the skill sitting in `skipped`, and only the real run errors with `--git-url requires exactly one adoptable skill, found 0`. Do **not** remove-then-reinstall either — that drops the skill id, and with it the tags, preset membership and every per-agent deployment.
 - Use `--dry-run` before bulk remove, tag delete, preset delete, deploy, or undeploy operations. Use `check` before `update`.
+
+
+## Joker 本机安装与 Git 备份闭环（2026-10-25 用户确认）
+
+来源：用户在 Codex 本会话明确要求“以后安装技能都走这个流程，别只装本地”。适用范围：本机个人 Skill Manager 管理的技能安装；不扩大到公司或其他仓库。
+
+- 新技能和已有技能补登记均优先经 Skill Manager CLI，保留来源、技能原文件和已有本地修改；适配包与上游自动更新分开处理，不能用上游覆盖本地适配。
+- 安装完成需核对 Manager 登记、所需 Agent 的实际部署、Git 提交与推送；最后读取远程分支实际文件/树哈希，与本地交付版本比较。
+- 只有远程已确认包含本次技能，才报告“安装并同步完成”；本地可用、提交成功或一次 push 返回成功均不能代替远程内容核对。失败时保留本地成果并明确未完成环节。
+- Git 备份沿用已配置仓库和认证方式，不把无关待改文件顺手全部提交。旧锁需核对存活进程、持有者和时间，确认无人使用后才移走并保留诊断记录；不能删除活动锁。
+- 磁盘备份大小、运行内存、CPU 和同步错误分别诊断。历史缓存和备份先盘点，不因同步失败自动删除。

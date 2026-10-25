@@ -11,7 +11,7 @@ how the selected graph becomes a Build, and [rendering](rendering.md) covers who
 
 For a revision, identify the relevant Run and its completed Outputs, then preserve the still-useful
 ones with `build-record` and `satisfy`. Keep unrelated Candidate selections. [Authoring](authoring.md#reuse-produced-work-explicitly)
-explains which media or SemanticTake Output to keep without freezing the downstream edit. A failed
+explains which media, local-domain or alignment Output to keep without freezing the downstream edit. A failed
 Build can still supply completed Outputs; a missing exported file is not evidence of missing media.
 
 If the CLI or observation tool loses its reply while submitting or following a Build, inspect the
@@ -66,8 +66,8 @@ from the earlier attempt in its Run.
 
 When a usable receipt does exist and gives access to a generated asset, the Agent can retrieve that
 asset as an ordinary project file and select it with `file` and `satisfy` in the new Run. This supplies
-the file Output; downstream preparation and alignment still run when needed. A completed SemanticTake
-can instead be reused directly through its existing Result Output.
+the file Output; downstream preparation and alignment still run when needed. Completed normalized
+media, local-domain and alignment Outputs can instead be reused independently through the existing Result.
 
 Use `status <build-id> --verbose` for task IDs, Endpoints and progress. Use
 `inspect <build-id> --verbose --json` for the Result's full retained execution records, including
@@ -174,8 +174,9 @@ Result label; it does not replace the Build id or alter Source identity.
 Build performs a cheap preflight and submits only when the selected deployment slice is ready. It
 does not install packages or start a missing Managed Program. When the environment has already been
 prepared and only the Worker is stopped, Build ensures that Worker becomes available. When
-preparation is missing, use `hypit runtime up` as described in `../environment/profile.md` and submit
-again after it succeeds.
+preparation is missing, prepare the selected Endpoint with `hypit programs prepare --endpoint <instance>`;
+use `programs up` if its helper also needs starting. [Local preparation](../environment/local-tools.md#let-the-selected-endpoint-own-its-program)
+explains their scope and the combined `runtime up` command. Submit again after the required preparation succeeds.
 
 The Worker owns execution after durable submission. `--follow` only observes it; closing or
 interrupting that terminal detaches the observer and leaves the Build running. Reattach with:
@@ -205,10 +206,10 @@ ends the attempt and preserves available remote receipts; it does not resubmit t
 When an action fails, the attempt ends and local reservations are released. Any last-observed remote
 status remains evidence, rather than a condition the old Build must resolve before the next attempt.
 
-Providers that expose `actionLimits` can separately limit asynchronous `submit`, `poll` and `collect`
-actions through `concurrency` and `rate: { limit, periodMs }`. These budgets share the Profile's pool.
-Task occupancy, overlapping network actions and starts permitted per time period are different quantities;
-`activity --verbose --json` exposes the actual resource claims. Provider-local documentation owns available settings.
+`activity --verbose --json` exposes actual resource claims when capacity explains a wait.
+Task occupancy, overlapping network actions and starts permitted per time period are different
+quantities. [Runtime profiles](../environment/profile.md) owns their configuration and selection;
+the selected Provider's documentation owns its available settings.
 
 ## Separate active work from Result outcome
 
@@ -269,9 +270,8 @@ current Run. `get` exports one named Output to one explicit destination:
 - a Resource becomes one streamed file;
 - a Composite becomes a directory containing `value.json` and its referenced Resources.
 
-The destination remains a user-facing export. The original Result stays in the project's selected
-repository. The default filesystem repository lives under the project; `hypit.results.json` may
-select another adapter such as S3 without changing these commands or the Run.
+The destination remains a user-facing export. The original Result stays in the project's
+`.hypit/results` directory on the machine running Hypit.
 
 Give useful Results presentation metadata when it helps people and Studio find them:
 
@@ -285,22 +285,13 @@ The title, note, and highlights live in that Result manifest. They do not rename
 or create a project-wide history index. Reuse still names the exact Build id and Output through the
 Run mechanism in `authoring.md`.
 
-## Select the Result repository deliberately
+## Keep Results with the project
 
-Result storage belongs to the video project. The official default is the filesystem repository at
-`.hypit/results`. An explicit `hypit.results.json` selects an adapter with the envelope
-`format: "hypit.build-results@1"`, `use` and adapter-owned `config`. Read the installed
-`@hypit/build-result-fs` README for a custom filesystem path, or `@hypit/build-result-s3` for bucket,
-prefix, deployment options and its credential setup. `hypit.results.json` owns Result storage;
-the Runtime Profile owns execution, and the S3 adapter owns its credentials.
+Result storage belongs to the video project at `.hypit/results`. Result listing, export, history and
+Studio's finished library all read that directory. Moving or archiving completed Results is ordinary
+project/file management performed after a Build; it is not a live Runtime repository choice.
 
-`hypit paths` locates the project; `hypit doctor` checks its selected repository, even without a
-Runtime Profile. Result listing, export, history and Studio's finished library read that repository.
-If expected Results are absent, first check the selected project and Result repository.
-
-A submitted Build retains the repository destination captured at submission. Changing the project
-selection while it runs does not redirect its eventual Result. Use the original destination to
-find that Result; changing a selection does not migrate earlier history. Preserve any Result that
+A submitted Build retains its exact project Result directory. Preserve any Result that
 still supplies a Run Candidate: exported files are optional copies, and explicit reuse may still
 reference Resources in the original Result.
 

@@ -1,0 +1,60 @@
+{
+  "theme": "网页订阅不退、Apple可退与Muse邀请码",
+  "overview": "讨论网页订阅通常不退、Apple Store订阅可退但不保证；Peter发Muse邀请码；夙愿转发相关X帖。",
+  "topics": [
+    {
+      "title": "订阅退款：网页vs Apple",
+      "heat": 88
+    },
+    {
+      "title": "Muse邀请码分享",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "订阅退款：网页vs Apple",
+      "count": 20,
+      "start": "19:05",
+      "end": "20:23",
+      "names": [
+        "夙愿",
+        "白锋"
+      ],
+      "what": "夙愿明确网页订阅不退；Apple订阅可以退但不是100%；并提到有专门用来订阅的路径。",
+      "takeaway": "不确定要不要长期用时，优先选可退渠道小额开；网页通道当不可退处理。"
+    },
+    {
+      "title": "Muse邀请码分享",
+      "count": 4,
+      "start": "21:10",
+      "end": "21:10",
+      "names": [
+        "Peter"
+      ],
+      "what": "Peter发Muse邀请：48小时内设置里兑现邀请码双方各得词元。",
+      "takeaway": "邀请码有时效：账号可用后48小时内到设置兑现，过期再求新码。"
+    }
+  ],
+  "progress": [
+    "群内明确网页订阅不退、Apple可退但非必过"
+  ],
+  "thoughts": [
+    {
+      "name": "夙愿",
+      "text": "网页订阅不退；apple订阅可以退但不是100%。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Muse · 邀请码兑现",
+      "url": "https://muse.ai/join"
+    }
+  ],
+  "keywords": [
+    "订阅退款",
+    "Apple",
+    "网页订阅",
+    "Muse邀请"
+  ]
+}

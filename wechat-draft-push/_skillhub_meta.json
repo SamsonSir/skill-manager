@@ -8,5 +8,6 @@
   "description_en": "Push HTML articles to WeChat Official Account draft box via API, with optional cover image upload and env-var credential management.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-draft-push/_icon.jpg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
+  "installedContentHash": "sha256:812b8df9a44b1c3b2fc99c744aa6b0d2608d25223d36b4386c49d7584c13e7c1"
 }

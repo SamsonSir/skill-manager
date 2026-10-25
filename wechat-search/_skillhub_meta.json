@@ -8,5 +8,6 @@
   "description_en": "Search WeChat viral articles by keyword. Features three-dimensional scoring, time range filtering, and scheduled subscription push.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d9a35137-6df.svg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-search/_icon.svg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d9a35137-6df.svg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/9f40ec1e-e8c9-4dca-ace6-b634b3c73991/avatar/skill/au_d9a35137-6df.svg",
+  "installedContentHash": "sha256:88d253f959e3ca3da9197dcc7c50cf37558ddebdcd8db73ccd388fc34c96f92f"
 }

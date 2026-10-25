@@ -1,0 +1,46 @@
+{
+  "theme": "GPT 6 Sol体感拉胯、与GLM5一个水平",
+  "overview": "当天仅7条：夙愿晒榜称GPT 6 Sol与GLM5一个水平，群友补充不省token，夙愿说明榜单多为纯chat或一句话生成场景。",
+  "topics": [
+    {
+      "title": "GPT 6 Sol评测",
+      "heat": 70
+    }
+  ],
+  "clusters": [
+    {
+      "title": "GPT 6 Sol体感与榜单",
+      "count": 7,
+      "start": "19:37",
+      "end": "19:52",
+      "names": [
+        "夙愿",
+        "虞逸阳 Philip",
+        "林",
+        "薇冷 Violet"
+      ],
+      "what": "夙愿晒榜称GPT 6 Sol拉胯、和GLM5一个水平；林说也不省token，一件小事用掉五小时额度的一半；薇冷质疑至少该保持5.6 Sol水平；夙愿补充榜单多是纯chat或一句话生成。",
+      "takeaway": "看榜单先看测的是什么场景（纯chat还是agent任务）；新模型先用小任务测token消耗，再决定是否切主力。"
+    }
+  ],
+  "progress": [
+    "群内对GPT 6 Sol形成负面体感"
+  ],
+  "thoughts": [
+    {
+      "name": "夙愿",
+      "text": "这个是好像大部分情况是纯 chat 或者一句话生成"
+    }
+  ],
+  "tools": [
+    {
+      "label": "GPT 6 Sol",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "GPT 6 Sol",
+    "GLM5",
+    "token消耗"
+  ]
+}

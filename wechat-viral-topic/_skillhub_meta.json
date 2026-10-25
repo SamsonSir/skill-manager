@@ -18,5 +18,6 @@
   "description_en": "An essential viral-content planning assistant for WeChat editors, short-video creators, comic authors and H5 planners. It forges hot topics, products or personal stories into viral topics, titles and full-format content plans (article / short video / comic / H5), screening ideas through four viral genes and 12 planning principles, with 8-dimension scoring, shareable anchors and risk self-checks.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/operation-platform/skill-icons/skill_2060353101233287168/b784fdc60beee8f9.svg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-viral-topic/_icon.svg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/operation-platform/skill-icons/skill_2060353101233287168/b784fdc60beee8f9.svg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/operation-platform/skill-icons/skill_2060353101233287168/b784fdc60beee8f9.svg",
+  "installedContentHash": "sha256:1daa01bb635864134165e598c4b1b050bf5ba754bcc5660114000bb6c3a8b57a"
 }

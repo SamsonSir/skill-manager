@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "fae78c3f-b0ac-4001-aac3-a2250ee47254",
+  "path": "joker-portrait-content",
+  "path_key": "joker-portrait-content",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

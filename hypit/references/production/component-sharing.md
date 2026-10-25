@@ -19,12 +19,38 @@ Keep the same name when distributing it. The Source import names its logical Mod
 <import as="score" from="@studio/score-strip@1"/>
 ```
 
-Here `1` is the Module interface version. The package manager separately records the npm release,
-such as `1.2.0`. A release that preserves that interface keeps the same Source import.
+Here `@1` names the logical Module ABI used by the Source. The package manager separately records
+the physical npm release, such as `1.2.0`. Updating that package release does not by itself change
+the logical import. Follow the package's actual published vocabulary for its author interface.
+
+## Publish for repeated distribution
+
+For stable reuse across projects, publish a versioned package under its owner's npm scope or private
+registry when that owner chooses distribution. For a public scoped package, the publication command is:
+
+```bash
+npm publish --access public
+```
+
+Consumers install the selected release with their usual package manager:
+
+```bash
+npm install --save-exact @studio/score-strip@1.2.0
+# or
+pnpm add --save-exact @studio/score-strip@1.2.0
+```
+
+The project lockfile records the installed dependency tree. Updates are explicit package-manager
+operations; Builds use the selected installed code. A missing package is an installation problem.
+Select the intended new release in the consumer project, inspect its changed vocabulary where
+relevant, check the actual Source/Run and review the changed behavior. New Builds load that selected
+implementation; restart an existing Studio session to load package-code changes. Reuse compatible
+media through Run Candidates while recomputing the component being revised. The package's own
+release notes describe any required author changes; no Build upgrades or migrates it automatically.
 
 ## Send a tarball to another person
 
-For a direct handoff, build the package and run `npm pack` in its directory. A TypeScript package
+For an explicit direct handoff or development check, build the package and run `npm pack` in its directory. A TypeScript package
 compiles to JavaScript; a JavaScript package may already have executable files. Its `prepack` script
 can perform the build. For example:
 
@@ -45,26 +71,6 @@ Keep the tarball with the project while its dependency points to that file, alon
 and the lockfile. Source imports select author contributions; Runtime Profile entries select Provider
 contributions. To send the next release, give it a new package version, create a new tarball, and
 install that file explicitly.
-
-## Publish for repeated distribution
-
-When the owner wants a registry release, publish the built package under their npm scope or private
-registry. For a public scoped package, the publication command is:
-
-```bash
-npm publish --access public
-```
-
-Consumers install the selected release with their usual package manager:
-
-```bash
-npm install @studio/score-strip@1.2.0
-# or
-pnpm add @studio/score-strip@1.2.0
-```
-
-The project lockfile records the installed dependency tree. Updates are explicit package-manager
-operations; Builds use the selected installed code. A missing package is an installation problem.
 
 ## Make a public release discoverable
 
@@ -116,9 +122,12 @@ JavaScript entry. Declare third-party runtime dependencies in `dependencies`. In
 an actual Source example, the public outputs, any companion or asset requirements, and the Hypit
 release used to check it. Inspect the tarball contents with `npm pack --dry-run`.
 
-An executable Author Package develops against `@hypit/hypit/author-kit` and the relevant `@hypit/hypit/*` domain
-subpaths, with `@hypit/hypit` as a development dependency. Its release contains its own code and assets;
-the active Hypit Distribution supplies the framework APIs when loading it. Check the package from a
+An executable Author Package uses the public APIs it needs, such as `@hypit/hypit/author`,
+`@hypit/hypit/producer`, `@hypit/hypit/admission` and `@hypit/hypit/markup`.
+Declare `@hypit/hypit` as a compatible peer and development dependency, and domain packages such as
+`@hypit/composition` or `@hypit/caption` as ordinary dependencies. A Studio Companion also declares
+compatibility with `@hypit/studio-companion` through a peer dependency. Its release contains its own
+code and assets; the selected host supplies the framework APIs. Check the package from a
 separate consumer project so local source links do not conceal omitted files or dependencies.
 
 Package code runs as trusted JavaScript in the host process. The recipient chooses which package and
@@ -135,10 +144,3 @@ A Prompt Kit can export an `.svs` Source through ordinary package `exports` with
 That reads the selected package data. The same packing, installation, versioning, and file-completeness
 rules apply. [Project handoff](../creation/project-files.md#hand-over-an-editable-production) explains
 sharing the Sources, Runs, assets and Results needed to continue a video on another machine.
-
-## Official Distribution ownership is a separate decision
-
-A package maintained in the official Hypit Distribution becomes part of Hypit's product and release
-surface. A proposal for that ownership begins with an issue that explains the shared production need
-and maintenance boundary. Community reuse remains under the package owner's own releases, independent
-of that product decision.

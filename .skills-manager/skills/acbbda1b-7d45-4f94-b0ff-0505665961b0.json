@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "acbbda1b-7d45-4f94-b0ff-0505665961b0",
+  "path": "claude-cleanup",
+  "path_key": "claude-cleanup",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

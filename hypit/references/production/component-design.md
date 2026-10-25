@@ -5,7 +5,8 @@ Design it with the taste of a director and the care of someone who will use it i
 A useful component makes a particular idea legible and keeps its behavior understandable within the
 production. Its author interface can be as small as the work requires.
 
-[Graphic composition](../playbooks/craft/graphic-compositions.md) owns visual hierarchy and motion;
+[Graphic composition](../playbooks/craft/graphic-compositions.md) owns visual hierarchy;
+[motion graphics](../playbooks/craft/motion-graphics.md) owns changes in the picture over time;
 [Track authoring](track-authoring.md) owns the implementation. A new Caption family also draws on
 [Caption craft](../playbooks/craft/captions.md) and [Caption authoring](caption-authoring.md).
 
@@ -28,7 +29,7 @@ authored identity while its state develops. Let shared behavior define the unit.
 A performance moving from full screen into a side viewport and a diagram filling the released space
 can share one component. It owns their relative layout, overlap, masking and coordinated motion.
 A-roll supplies the performed passage; visual ownership follows the behavior being designed.
-Existing footage can use [Performance Styles](performance.md); independent assets use Media. A
+Existing footage and independent assets can both use [Visual Clips](visual-clips.md). A
 one-off scene is a useful component too. Caption and independent overlays can remain separate.
 
 Decompose a scene further where its parts have meaningful independent responsibilities. Keep
@@ -47,6 +48,11 @@ that owner; reuse preserves a relationship across uses. These decisions serve di
 | Independent organization | A distinct visual responsibility, lifetime or behavior benefits from its own owner. Parts sharing geometry, state or motion can stay together. |
 | Parameterization | The production needs an external choice: an asset, a spoken trigger, a placement or a setting the author will actually adjust. |
 | Reusable design | Actual uses share a relationship or treatment. Share that behavior and generalize only the variation those uses need. |
+
+An author input is not a requirement to publish a package or provide a Studio control. A shared
+internal function is not necessarily another Track. Numeric and qualitative choices use the same
+criterion: does an external dependency or a useful directing decision belong here? A color, mood,
+layout mode or easing name does not deserve a public parameter merely because it could vary.
 
 One-off effects can be independently organized with fixed designs. A future edit may appropriately
 change their implementation. Consider likely revisions to reveal tangled responsibilities or useful
@@ -74,6 +80,11 @@ remain with its owner, while a shared change should flow through a shared depend
 requires reconstructing the same decision across several scenes, consolidate that decision's source.
 The aim is to make the relationship explicit, whether its owner is a fixed implementation or an author input.
 
+A useful revision question is: if delivery pauses before the result, which event should move and
+which local design should stay? Inspect the input that carries that event rather than counting how
+many parameters the component exposes. If the work needs a qualitatively different relationship,
+change its implementation or define a new component instead of accumulating speculative mode flags.
+
 Keep revisions local as the scene grows. Separate independently edited scene bodies, styling and
 frame evaluation into ordinary source modules while sharing their actual mechanics. A palette,
 typing function or media-sampling helper can be an ordinary project dependency; it needs no Surface
@@ -94,10 +105,11 @@ relationship among words and graphics. Both consume Script wording and semantic 
 behavior can keep these visuals together; [Caption authoring](caption-authoring.md) explains the
 specialized text inputs and the same freedom to compose.
 
-Give a reusable scene the prepared performance, its outer Window and the Moment that changes its
-layout through the Timeline and shared temporal projections. Replacing a product or rewriting the
-Script then changes content and semantic anchors while preserving the behavior. The final frame
-positions come from the placed Takes.
+Give a reusable scene explicit normalized media sources, their exact absolute Windows, its outer
+Window and the Moment that changes
+its layout through the Timeline and shared temporal projections. Replacing a product or rewriting the
+Script then changes content and semantic anchors while preserving the behavior. Source sampling comes
+from each source Window; final geometry comes from the component's explicit picture-plane Frames.
 
 The repository's [video examples](https://github.com/hypit-ai/hypit/tree/main/examples) show different
 applications: a persistent ranking board, related podcast views, a shared interview encounter and
@@ -105,6 +117,8 @@ coordinated explainer scenes. Trace why a behavior has its owner, what drives it
 inputs a changed brief would replace. Their notes explain those choices; the scene lists are each
 production's design. In the explainer, scenes retain fixed internal details while Script events,
 Caption and presenter framing remain independently authored.
+Install the selected example's declared dependencies with `npm ci` as its README directs;
+in another project selecting Ranking, use `npm install @hypit/ranking@^0.1.0`.
 For that whole-work relationship, read [Presenter-led visual explainers](../playbooks/formats/presenter-led-explainer.md).
 The [explainer's craft notes](https://github.com/hypit-ai/hypit/blob/main/examples/complex-explainer/productions/explainer/CRAFT-NOTES.md)
 trace concrete revisions back to their design decisions and source owners.
@@ -112,8 +126,9 @@ trace concrete revisions back to their design decisions and source owners.
 ## Let meaning drive the behavior
 
 Prefer Script Selections, Moments and Segments for events that respond to the argument or performance.
-The Surface projects them through the accepted Timeline; the component consumes the resulting
-Windows or Instants. A different delivery can then move the event while preserving its purpose.
+An upstream Narrative Projection reveals them as named absolute Windows or Instants; the component
+consumes those values without knowing their semantic source. A different delivery can then move the
+event while preserving its purpose.
 Explicit time remains useful for an authored lead, a short entrance or another clock-based decision.
 In a pure MG piece, name the events that carry its meaning and direct their reading rhythm. A useful
 component accepts resolved Instants or Windows so the same reveal can follow a Script Moment or an
@@ -121,6 +136,19 @@ authored time. Keep message content and its trigger together in Source; repeated
 have their own trigger. Use semantic examples first for speech-led roles, showing how a new performance
 preserves the relationship. [Authored animation](rendering.md#compose-an-authored-animation) covers
 the film clock when there is no performance.
+
+A semantic outer Window alone does not establish the timing of its internal events. In a drag-and-drop
+scene, selecting a picture, dropping it into an editor and revealing the result may answer three
+different phrases. Give those actions their own semantic inputs. Placing them at fixed seconds or
+at 20%, 50% and 80% of the outer Window preserves neither their identities nor their relationship
+to unevenly changed speech.
+
+The component can accept an outer Window and separate Instants for those events. Source obtains them
+from the appropriate projector or direct time declarations. The implementation derives movement
+between the resulting events and keeps its
+pointer path, button geometry, click rebound and decoration local. A movement that simply unfolds
+inside one authored event interval may use normalized progress there; it needs no marker for every
+animation key. Meaningful event location and the designed duration/shape of motion are different choices.
 
 Choose the temporal input from what the component does. A picture covering an explanation occupies
 its Selection. An answer revealed on a word can remain visible after that word ends. A ranking item
@@ -189,6 +217,7 @@ adjustments the user needs, such as Caption position and color, through the exis
 An empty parameter panel alone is no reason to widen the component interface.
 [Companion authoring](studio-companions.md) owns those bindings.
 
-For an existing example, read the installed `@hypit/ranking` README and the part of its implementation
-that answers the current question. It connects semantic reveals, settled state, layout and editor
-entities. Carry the relevant relationship into the project component's own design.
+If the current project deliberately installed `@hypit/ranking`, its README is one example of
+semantic reveals, settled state, layout and editor Items. Do not assume that optional package is
+part of the Distribution or install it merely to begin a component. Carry only a relationship that
+answers the current video's need into the project component's own design.

@@ -8,5 +8,6 @@
   "description_en": "Push local HTML articles (with base64 images) into the WeChat official account draft box.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-draft-publisher/_icon.jpg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/4fab3c8c-9d08-4056-9c32-a3127ce10bdb/760fcfb2-5e5a-4d32-8f83-1db6286b7f79.jpg",
+  "installedContentHash": "sha256:9958b5f8341e5bdddfcece35ebe7cdca70b90d143b33c36cf2bf60284c83eef7"
 }

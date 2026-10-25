@@ -8,5 +8,6 @@
   "description_en": "Top-tier WeChat Official Account viral article writing skill. Fuses 2026 recommendation algorithm (completion rate first, social sharing second, 3x original weight) with six viral formulas to produce publish-ready articles.",
   "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ac3a66c3-1445-49e5-9585-f1976110f96e/5a806d7f-0422-45ad-9376-ab0f4a963839.png",
   "iconLocalPath": "/Users/joker/.workbuddy/skills/wechat-viral-article/_icon.jpg",
-  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ac3a66c3-1445-49e5-9585-f1976110f96e/5a806d7f-0422-45ad-9376-ab0f4a963839.png"
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/ac3a66c3-1445-49e5-9585-f1976110f96e/5a806d7f-0422-45ad-9376-ab0f4a963839.png",
+  "installedContentHash": "sha256:8467fda0b10653d0bd3c3223467d12f75f6396a61a8786197acc3603260ffe15"
 }

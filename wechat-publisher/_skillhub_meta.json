@@ -16,5 +16,6 @@
   ],
   "description_zh": "一键发布 Markdown 到微信公众号草稿箱（多主题、代码高亮、图片自动上传）",
   "description_en": "Publish Markdown to WeChat Official Account drafts (themes, code highlight, image upload)",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:12b5d730614c17e2c0d3d72d4df81dc2aa198523f902267d09e9986f753493d3"
 }

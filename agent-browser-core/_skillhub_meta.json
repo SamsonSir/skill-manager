@@ -16,5 +16,6 @@
   ],
   "description_zh": "基于 agent-browser CLI 的 AI 友好型网页自动化",
   "description_en": "AI-friendly web automation via agent-browser CLI with snapshots & refs",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:ecf6830da76553ee63663a352b2185111ed55621404ca0ca44a3f422d31ebce2"
 }

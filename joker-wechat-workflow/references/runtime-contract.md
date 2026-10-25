@@ -1,10 +1,14 @@
+## 搞钱观察员分流（先于通用人物规则）
+
+当 account_id 为 `income-business-observer`，先执行 `income-business-observer.md`。`visual_mode=non_person_graphic` 不执行真人身份/衣着/家具摄影校验；`writing_mode=positioning_sample` 保留样文待认可状态。其余账号继续原分支。`--no-save` 在本号表示禁止后台保存，可制作本地完整成品。
+
 # 运行与交接协议（Pro审查修复）
 
 `SKILL_ROOT` 是实际读取的 SKILL.md 的真实目录；`PROJECT_ROOT` 是当前账号项目；`ROLE_ROOT` 是当前角色专属资产目录。以下命令始终使用绝对路径，不受 cwd 影响。规范文件中的 scripts/ 相对 SKILL_ROOT；references 内文档引用相对所在文档。旧的重复 references/ 前缀不使用。
 
 ## 就绪与审核
 - 写作就绪：已绑定账号、角色合同、事实策略与认可语气材料；新账号无近期稿件属于合法空历史，明确登记“不适用：新账号”，不能伪造已阅读历史。
-- 人物生图就绪：运行 `python3 SKILL_ROOT/scripts/check_identity.py --manifest 身份清单 --account-id 当前账号 --character-id 当前角色 --account-root ROLE_ROOT` 并查看实际参考。以角色专属目录限制素材，不能传包含其他角色的工作区根目录。
+- 人物生图就绪先判身份范围。固定人物运行 `python3 SKILL_ROOT/scripts/check_identity.py --manifest 身份清单 --account-id 当前账号 --character-id 当前角色 --account-root ROLE_ROOT` 并查看实际参考。原创多人物的新独立组按账号配置创建候选；同组续图核对本次选定原图的归属、哈希、状态及可见继承项，每张传同一原图。后两种不冒充固定主脸校验通过，也不因没有固定主脸而停做。各组资产限制在本账号内。
 - 正文审核：两份审核均含最终正文 article_sha256；style 的 reference_sha256 按 contract_ref 和 anchors_read 原始路径字符串记录文件哈希。执行 `validate_article_packet.py` 时必须同时传 --account-id、--character-id、--contract（账号配置指定的真实合同）；旧结构检查不作为生产就绪证据。来源文件路径相对账本所在目录；外部来源附本地取证文件。哈希不能证明语义真实。
 - 保存就绪：账号专用映射及实际后台身份一致、完整图片、固定排版和最终稿验收通过。未知别名不能回退通用账号。浏览器保存前必须取得当前后台稳定账号标识与预期匹配的证据，显示名称或 profile 路径本身不足以证明身份。
 
@@ -23,7 +27,7 @@
 写实生活照只使用支持图像参考的照片生成后端，事先核实能力。不得自动以 baoyu-cover-image 的设计插画规则代替生活照；原生 imagegen 缺失时验证替代后端能力，否则记录待补图。不生图模式生成调用必须为零。运行依赖按 SKILL_ROOT/requirements.txt 安装；图片解码校验依赖 Pillow；缺依赖明确报错，不回退只读文件头。
 
 ## 可执行入口与证据边界
-- 分阶段配置检查：`python3 SKILL_ROOT/scripts/check_account_readiness.py --config 账号运行配置.json --account-id ACCOUNT --character-id ROLE`。配置字段为 account_id、character_id、project_root（相对配置文件）、contract、voice_anchor、layout_template、role_root、identity（后五项相对项目）、image_backend（reference_images/photorealistic 能力声明）、backend（method、original_id 或 app_id、binding_evidence）。结果只表示配置完整度；缺少人物图不会否决可写作，配置通过不等于登录可用。
+- 分阶段配置检查：`python3 SKILL_ROOT/scripts/check_account_readiness.py --config 账号运行配置.json --account-id ACCOUNT --character-id ROLE`。配置字段为 account_id、character_id、project_root（相对配置文件）、contract、voice_anchor、layout_template、role_root、identity（后五项相对项目）、image_backend（reference_images/photorealistic 能力声明）、backend（method、original_id 或 app_id、binding_evidence）。结果只表示配置完整度；该脚本 images 项检查的是固定身份配置，原创多人物组按上文分支另行记录就绪，不能冒称脚本 images 已通过，也不能用其固定主脸缺项否决新原创组。缺少人物图不会否决可写作，配置通过不等于登录可用。
 - 保存器初始化先读 EXTEND.md。参数可从用户已确认账号配置取得，不重新要求用户选主题；固定 HTML 不套默认主题。浏览器 CLI 必传 --expected-account-id；API CLI 必传 --expected-app-id。两者含义不同，不能互换。
 - `content_state.py init` 对每份封面、正文图片和最终 HTML 重复传 `--artifact PATH`。saved 回执必须含 account_id、character_id、content_id、attempt_id、draft_id、article_sha256；空文件、空对象不能证明保存。
 - 保存后重新打开同一 `draft_id`。文章核对标题、正文HTML、固定排版、摘要、正文图片和封面；贴图核对可见标题、短正文、远程图片数量与顺序、封面和规格提示。只有这些检查全部通过，`content_state.py verified` 才可写入。

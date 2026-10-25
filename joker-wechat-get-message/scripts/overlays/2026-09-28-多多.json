@@ -1,0 +1,92 @@
+{
+  "theme": "Muse邀请码池小工具、谷歌模型登顶争议与豆包7天限额",
+  "overview": "消息不多：Phoenix推自制Chrome插件并提示Muse可生成视频，CR7用Muse做了邀请码池；午后讨论谷歌模型榜单与网络用不了Gemini；晚间涡天被豆包7天限额卡住，Jason Zhu转Opus 5.5视频作品合集。",
+  "topics": [
+    {
+      "title": "Muse邀请码与生成视频",
+      "heat": 80
+    },
+    {
+      "title": "谷歌模型榜单与Gemini可用性",
+      "heat": 70
+    },
+    {
+      "title": "豆包限额与Opus 5.5视频合集",
+      "heat": 65
+    }
+  ],
+  "clusters": [
+    {
+      "title": "Muse邀请码池与视频生成",
+      "count": 10,
+      "start": "11:34",
+      "end": "13:34",
+      "names": [
+        "Phoenix",
+        "CR7",
+        "氵工鸟",
+        "yoyo"
+      ],
+      "what": "Phoenix分享自做的Chrome插件（快速查每日常用内容），并说Muse可以拿来生成视频；CR7用Muse做了邀请码池小工具让大家填码互换；群友感叹满地都是兑换码。",
+      "takeaway": "邀请码走公共池互换即可，不必花钱买；把Muse当作视频生成的备选通道，先拿小样测画质再决定是否投入。"
+    },
+    {
+      "title": "谷歌模型榜单与网络可用性",
+      "count": 9,
+      "start": "14:52",
+      "end": "16:18",
+      "names": [
+        "eureka",
+        "AR",
+        "常大龙",
+        "千与千寻",
+        "韩非"
+      ],
+      "what": "eureka晒榜单称谷歌单独坐一桌；常大龙、千与千寻反映买的网络用不了Gemini；韩非推荐AI Studio、GPT、Midjourney组合。",
+      "takeaway": "用Gemini前先确认节点地区被支持（可走AI Studio入口测试），别只看榜单就切主力。"
+    },
+    {
+      "title": "豆包7天限额与Opus 5.5作品合集",
+      "count": 4,
+      "start": "21:25",
+      "end": "21:28",
+      "names": [
+        "涡天1982",
+        "Jason Zhu"
+      ],
+      "what": "涡天说豆包已触发7天限制、查询后确认不能重置，只能换号码；Jason Zhu转发Opus 5.5视频合集：962个作品、252个追到提示词、94个完整原文。",
+      "takeaway": "豆包额度用完不能手动重置，生成前先规划好次数；找视频提示词可从合集追原文再改写。"
+    }
+  ],
+  "progress": [
+    "Muse邀请码池小工具上线",
+    "确认豆包7天限额不可手动重置"
+  ],
+  "thoughts": [
+    {
+      "name": "韩非",
+      "text": "aistudio,gpt,midjourney 三剑客"
+    },
+    {
+      "name": "涡天1982",
+      "text": "不能重置，还是换个号码玩"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Muse邀请码池（CR7）",
+      "url": "https://muse.vibecoding.best/"
+    },
+    {
+      "label": "Opus 5.5视频作品合集（X）",
+      "url": "https://x.com/GoSailGlobal/status/2104562514088398967"
+    }
+  ],
+  "keywords": [
+    "Muse",
+    "邀请码",
+    "Gemini",
+    "豆包限额",
+    "Opus 5.5"
+  ]
+}

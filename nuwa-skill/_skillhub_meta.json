@@ -6,5 +6,6 @@
   "skillId": "skill_2072584908289445888",
   "description_zh": "蒸馏人物思维框架，生成可运行的人物 Skill",
   "description_en": "Distill thinking frameworks from people and generate runnable persona Skills",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:eec0cd57e842f70ab257cb745165ba8ca85353d204abac2f66e61e8e787a4a37"
 }

@@ -1,0 +1,90 @@
+{
+  "theme": "口喷+写作Skill对照学习、违规松紧期与标题Skill开源",
+  "overview": "凌晨蜗牛教：朱雀过不去别狂改AI，直接重来，并把前后版本交给写作skill学习；晚间提醒违规松紧期、注销重开易验真；范不着开源snail-biaoti标题skill。",
+  "topics": [
+    {
+      "title": "口喷初稿与写作Skill对照学习",
+      "heat": 95
+    },
+    {
+      "title": "违规松紧期与珍惜账号",
+      "heat": 90
+    },
+    {
+      "title": "标题Skill开源与同质化模板风险",
+      "heat": 85
+    }
+  ],
+  "clusters": [
+    {
+      "title": "口喷初稿与写作Skill对照学习",
+      "count": 30,
+      "start": "00:29",
+      "end": "00:56",
+      "names": [
+        "蜗牛🐌",
+        "无名"
+      ],
+      "what": "蜗牛：直接回口喷用AI整理；某段过不去朱雀不要频繁让AI改，直接重来；把前后版本给写作skill学习。无名总结流程：保存初稿→口喷成文→AI整理→人工改→两版对照喂skill。",
+      "takeaway": "卡审段落优先删重写，不在同一稿上死磕；写作skill用「初稿vs终稿」对照喂，而不是只喂终稿。"
+    },
+    {
+      "title": "违规松紧期与珍惜账号",
+      "count": 40,
+      "start": "18:54",
+      "end": "19:31",
+      "names": [
+        "蜗牛🐌",
+        "九圓"
+      ],
+      "what": "蜗牛：有过违规的注意，每年平台有松紧期；注销重开新号非常容易触发验真，要珍惜现有号；起号容易时更要保护。",
+      "takeaway": "松紧期降风险操作：少擦边、少注销重开；能救的号优先申诉/客服，不轻易弃号。"
+    },
+    {
+      "title": "标题Skill开源与同质化模板风险",
+      "count": 25,
+      "start": "22:14",
+      "end": "23:14",
+      "names": [
+        "范不着",
+        "九圓",
+        "蜗牛🐌"
+      ],
+      "what": "范不着开源snail-biaoti；九圓问完读率77%能否推送券、担心知识库模板化导致主页同质。",
+      "takeaway": "标题工具只辅助，主页抽样检查是否「一个模子」；完读率不够先改开头与选题，再谈推送券。"
+    }
+  ],
+  "progress": [
+    "沉淀口喷→AI整理→对照喂skill流程",
+    "开源 github.com/dulala567/snail-biaoti-public/.../snail-biaoti",
+    "明确注销重开易验真"
+  ],
+  "thoughts": [
+    {
+      "name": "蜗牛🐌",
+      "text": "把前后版本让你的写作skill学习。"
+    },
+    {
+      "name": "蜗牛🐌",
+      "text": "注销重开的新号非常容易触发验真，所以珍惜手里的账号。"
+    },
+    {
+      "name": "九圓",
+      "text": "别人点开公众号主页，看着都是一个模子刻出来的，可能会判定为模板同质化。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "snail-biaoti 标题Skill（GitHub）",
+      "url": "https://github.com/dulala567/snail-biaoti-public/tree/main/skills/snail-biaoti"
+    }
+  ],
+  "keywords": [
+    "口喷",
+    "写作Skill",
+    "朱雀",
+    "验真",
+    "同质化",
+    "完读率"
+  ]
+}

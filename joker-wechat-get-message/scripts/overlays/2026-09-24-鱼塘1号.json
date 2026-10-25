@@ -1,0 +1,90 @@
+{
+  "theme": "AI打戏Skill、美国地址地基、Claude赠额与Muse注册",
+  "overview": "西堂发AI打戏开源Skill；M.更新美国云居民第四期租私人地址；Claude Code云端赠额（Max250/Pro100）入口流传；鱼总推Grok bot云端注册Muse，并自曝差点忘2709美金佣金。",
+  "topics": [
+    {
+      "title": "AI打戏开源Skill",
+      "heat": 88
+    },
+    {
+      "title": "美国私人地址是出海地基",
+      "heat": 90
+    },
+    {
+      "title": "Claude赠额与Muse注册",
+      "heat": 86
+    }
+  ],
+  "clusters": [
+    {
+      "title": "AI打戏开源Skill",
+      "count": 20,
+      "start": "11:20",
+      "end": "11:26",
+      "names": [
+        "西堂AI短剧",
+        "阿良"
+      ],
+      "what": "西堂分享「AI打戏别只写激烈格斗」：5种方法、9案例与开源Skill。",
+      "takeaway": "动作戏提示词按方法库选镜，不要只用「激烈格斗」一词硬生成。"
+    },
+    {
+      "title": "美国私人地址是出海地基",
+      "count": 25,
+      "start": "11:25",
+      "end": "12:07",
+      "names": [
+        "M.",
+        "无事乱翻书"
+      ],
+      "what": "M.讲Anytime Mailbox租美国私人地址，强调甄别真住宅地址；合集覆盖ITIN、手机号等。",
+      "takeaway": "地址是后续办卡/号的地基：先用多个站点交叉验证住宅地址，再付月费。"
+    },
+    {
+      "title": "Claude赠额与Muse注册",
+      "count": 40,
+      "start": "17:13",
+      "end": "20:54",
+      "names": [
+        "M.",
+        "鱼总丨AIGC",
+        "凡",
+        "lisa-AI 健康-硅谷@lisaaicoach"
+      ],
+      "what": "M.公布Claude云端赠额领取入口；鱼总推Grok bot云端注册Muse，并分享佣金提醒案例；多条Muse邀请码。",
+      "takeaway": "赠额用网页或/claim-credit领取；注册Muse选已验证云端环境，邀请码48小时内兑现。"
+    }
+  ],
+  "progress": [
+    "AI打戏开源Skill入群",
+    "美国云居民第四期地址教程",
+    "Claude /claim-credit赠额入口传播"
+  ],
+  "thoughts": [
+    {
+      "name": "鱼总丨AIGC",
+      "text": "我差点忘了一笔2709美金的佣金，幸亏这个AI提醒了我。"
+    },
+    {
+      "name": "M.",
+      "text": "地址这事是整套东西的地基，没有它后面什么都办不了。"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Claude claim-credit",
+      "url": "https://claude.ai/code/claim-credit"
+    },
+    {
+      "label": "Anytime Mailbox · 美国地址（教程提及）",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "AI打戏",
+    "美国地址",
+    "claim-credit",
+    "Muse",
+    "佣金"
+  ]
+}

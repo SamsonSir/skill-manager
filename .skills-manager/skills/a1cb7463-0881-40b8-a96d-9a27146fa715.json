@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a1cb7463-0881-40b8-a96d-9a27146fa715",
+  "path": "html5-canvas-game-dev",
+  "path_key": "html5-canvas-game-dev",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

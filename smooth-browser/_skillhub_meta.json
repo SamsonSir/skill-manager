@@ -16,5 +16,6 @@
   ],
   "description_zh": "Smooth.sh 云端 AI 浏览器代理，自然语言驱动网页操作",
   "description_en": "Smooth.sh cloud AI browser agent with natural language web automation",
-  "iconSource": "letter:auto"
+  "iconSource": "letter:auto",
+  "installedContentHash": "sha256:cf9a2d8a1d9771e002a6c71ede2f2fe0a91069ea03cfa887adcbf0704313738e"
 }

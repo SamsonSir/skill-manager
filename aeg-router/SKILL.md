@@ -13,14 +13,18 @@ aeg-version: 2.1.0
 - 遵守项目内更具体的 AGENTS.md 和 .agent/project.yaml；用 aeg policies --ids 加载返回的必要策略，不注入整个规范库。
 - Demo 是交付模式，MVP 可以正式上线；分别检查项目规模、任务影响和操作风险。低风险子需求不能降低真实高风险操作的要求。
 - 单文件可逆 Demo 保持轻量，不运行完整 init；使用实际运行或浏览器证据。可维护项目才使用项目治理模板，按返回结果加载必要策略包。
-- 修改前结合当前请求和已确认上下文明确定义目标、允许范围与验收。已建立 AEG Session 的任务按对应流程运行实际 Diff Gate 和所需验证：轻量 Session 使用 session verify --commands JSON --files PATHS，验证后 session complete --evidence EVIDENCE_ID；可信项目使用 trust evidence 的实际证据。未建立 Session 的小修改检查实际差异并进行针对性验证即可；已有项目门禁继续有效。
+- 修改前明确目标、允许范围与验收；完成前运行实际 Diff Gate 和所需验证。轻量任务使用 session verify --commands JSON --files PATHS，验证后 session complete --evidence EVIDENCE_ID；可信项目使用 trust evidence 的实际证据。
 - 原生子任务或 worktree 只在用户明确要求或当前宿主允许时创建；优先复用当前任务。实际使用协调器时关联真实操作回执；原生任务成功不等于工程验证通过。
 - 失败保留工作区和有效结果；接续与切换客户端不得丢失合约、风险和项目绑定。
 
 ## 默认工具路由
 
 - 涉及飞书读取、写入、Wiki、文档、表格或消息，读取对应 Lark Skill 并使用 lark-cli，不另造飞书 API 客户端。
-- 公开资料检索和文档阅读优先搜索或页面读取。
-- 临时网页交互优先使用宿主原生 computer use，在 Codex 中新开网页默认使用内置浏览器。这里的 computer use 指宿主能力，不特指同名的 Orca Skill。
-- 需要 ego 的登录态、任务空间或自动化能力时使用 ego-browser；需要可维护的自动化测试、持续回归或 CI 时使用 Playwright。
-- 沿用已经适合当前任务的浏览器和登录态，避免无必要的切换。用户或项目指定工具时遵循指定。
+- 公开资料检索和文档阅读优先搜索或页面读取；登录态、表单交互和网页验收默认使用 ego-browser。用户或项目指定工具时遵循指定。
+
+## 文件生命周期管理
+
+- 本机任务文件遵守 AEG 文件生命周期管理；轻量任务无需初始化工程目录。创建临时文件前运行 aeg files init --id TASK_ID，使用返回的专属 scratch；已有 Session 复用其 ID，轻量任务使用唯一 ID。用户原件、正式成果、凭据、登录态和工程验证证据不得混入可清理临时目录。
+- 确需覆盖原文件时用 aeg files backup --id TASK_ID --file ABSOLUTE_PATH；内容相同复用备份，禁止备份的备份和反复整目录复制。多 Agent 复用同一任务 ID 或分别使用唯一 ID，不清理其他任务目录。
+- 交付前把有效成果移到正式位置；需暂留的 scratch 文件运行 aeg files keep --id TASK_ID --file RELATIVE_PATH --reason REASON。Session 完成时自动清理专属 scratch；轻量任务自行运行 aeg files complete --id TASK_ID --write 并报告结果。失败任务保留诊断材料并说明，不能冒充完成。
+- 历史残留只盘点、不删除。自动清理仅限新机制登记的 scratch 与受管备份；活动任务、未知归属和最近恢复点受保护。新备份保留最近三份及三十天内版本，只有关联任务已完成的过期版本可清理。个人 AI 成品继续遵守现有归档规则，原件不删除。
