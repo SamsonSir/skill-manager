@@ -1,0 +1,185 @@
+{
+  "_说明": "开关清单。只收对着官方文档逐条核过的键。scan 只报当前值和默认值，不替用户选。键名、默认值、版本门槛会变，核对日期超过三个月的条目先重新核对出处再用。",
+  "verified": "2026-11-19",
+  "claude": [
+    {
+      "key": "autoCompactWindow",
+      "where": "settings",
+      "default": "未设（Claude Code 按模型自动选）",
+      "what": "上下文用到多少 token 时自动压缩。范围 100000–1000000。环境变量 CLAUDE_CODE_AUTO_COMPACT_WINDOW 会盖过它。",
+      "source": "https://code.claude.com/docs/en/settings-reference#autocompactwindow"
+    },
+    {
+      "key": "CLAUDE_CODE_AUTO_COMPACT_WINDOW",
+      "where": "env",
+      "default": "未设",
+      "what": "同上，优先级高于 autoCompactWindow。带 k 后缀的写法（如 350k）要 v2.1.304 以上，纯数字都认。",
+      "source": "https://code.claude.com/docs/en/env-vars"
+    },
+    {
+      "key": "idleCompaction",
+      "where": "settings",
+      "default": "未设（开）",
+      "what": "长会话放着不动、缓存快过期时，在后台先压缩一次。关掉后会话不会被自动压，但隔很久回来的第一条消息要重建整段缓存。",
+      "source": "https://code.claude.com/docs/en/settings-reference#idlecompaction"
+    },
+    {
+      "key": "autoCompactEnabled",
+      "where": "settings",
+      "default": "true",
+      "what": "上下文快满时要不要自动压缩。设成 false 后只能手动 /compact；环境变量 DISABLE_AUTO_COMPACT=1 效果相同，两者任何一个关了，另一个都开不回来。",
+      "source": "https://code.claude.com/docs/en/settings-reference#autocompactenabled"
+    },
+    {
+      "key": "autoMemoryEnabled",
+      "where": "settings",
+      "default": "true",
+      "what": "Claude Code 自带的自动记忆：它会自己把你的纠正和偏好记进每个项目的 MEMORY.md，开头 200 行或 25KB 在那个项目的每个会话里都加载。设成 false 后不读也不写。",
+      "ask": "Claude Code 会自己记笔记（自动记忆），每个会话开头都带着。你有自己的一套记忆或知识库的话，可以关掉它。",
+      "source": "https://code.claude.com/docs/en/settings-reference#automemoryenabled"
+    },
+    {
+      "key": "promptSuggestionEnabled",
+      "where": "settings",
+      "default": "true",
+      "what": "输入框里灰色的下一句预测。每轮结束后多一次请求来生成它。",
+      "ask": "模型答完之后，输入框里会冒出一句灰色的「你下一句可能想说」，按 Tab 就能发。它每一轮都要多请求一次模型。不想被它带着走、也想少一次请求，可以关掉。",
+      "source": "https://code.claude.com/docs/en/settings-reference#promptsuggestionenabled"
+    },
+    {
+      "key": "awaySummaryEnabled",
+      "where": "settings",
+      "default": "未设（开）",
+      "what": "离开几分钟回来时显示一行会话回顾。",
+      "source": "https://code.claude.com/docs/en/settings-reference#awaysummaryenabled"
+    },
+    {
+      "key": "crossSessionInbound",
+      "where": "settings",
+      "default": "未设（按消息逐条决定）",
+      "what": "别的 Claude Code 会话发来的消息怎么处理：accept 送给模型 / hold 只提示 / refuse 丢掉。用 agent team 或多窗口协作的人需要 accept。",
+      "ask": "别的 Claude Code 窗口能给这个窗口发消息。你不用多个窗口互相传话的话，可以设成 refuse。",
+      "source": "https://code.claude.com/docs/en/settings-reference#crosssessioninbound"
+    },
+    {
+      "key": "includeGitInstructions",
+      "where": "settings",
+      "default": "true",
+      "what": "Bash 工具说明里自带的 commit / PR 写法，加上会话开始时的 git status 快照。自己有 git 流程的 skill 时可以设 false 把这两样都去掉。",
+      "ask": "Claude Code 每个会话都自带一段「怎么提交代码、怎么开 PR」的说明。你不写代码，或者有自己的一套提交流程，可以去掉。",
+      "source": "https://code.claude.com/docs/en/settings-reference#includegitinstructions"
+    },
+    {
+      "key": "bashOutputMaxChars",
+      "where": "settings",
+      "default": "未设（30000 字符）",
+      "what": "一条成功的 Bash 命令最多有多少字符的输出直接进上下文，超出的存成文件、只给预览和路径。取值会被夹到 4000–128000。要 v2.1.261 以上。",
+      "source": "https://code.claude.com/docs/en/settings-reference#bashoutputmaxchars"
+    },
+    {
+      "key": "disableClaudeAiConnectors",
+      "where": "settings",
+      "default": "false（会拉取）",
+      "what": "要不要把 claude.ai 账号里连过的 MCP 连接器带进终端会话。环境变量 ENABLE_CLAUDEAI_MCP_SERVERS=false 效果相同。",
+      "source": "https://code.claude.com/docs/en/settings-reference#disableclaudeaiconnectors"
+    },
+    {
+      "key": "ENABLE_CLAUDEAI_MCP_SERVERS",
+      "where": "env",
+      "default": "未设",
+      "what": "设成 false 时不拉取 claude.ai 的 MCP 连接器。",
+      "source": "https://code.claude.com/docs/en/env-vars"
+    },
+    {
+      "key": "disableBundledSkills",
+      "where": "settings",
+      "default": "未设（内置 skill 都加载）",
+      "what": "关掉 Claude Code 自带的全部 skill。打开后 /doctor prompt-audit 也用不了。只想关个别的用 skillOverrides。",
+      "source": "https://code.claude.com/docs/en/settings-reference#disablebundledskills"
+    },
+    {
+      "key": "ENABLE_TOOL_SEARCH",
+      "where": "env",
+      "default": "未设（MCP 工具延迟加载）",
+      "what": "未设或 true 时，MCP 工具的说明不常驻，用到才搜出来加载。false 时所有 MCP 工具说明每轮都在上下文里。本机实测（Claude Code 2.1.321，没有 MCP 的配置）：设成 false 后，原本用到才加载的一部分内置工具也变成常驻，第一次请求里内置工具说明从 12 个、约 3 万字符变成 22 个、约 7 万字符。",
+      "source": "https://code.claude.com/docs/en/env-vars"
+    },
+    {
+      "key": "MAX_MCP_OUTPUT_TOKENS",
+      "where": "env",
+      "default": "未设（25000）",
+      "what": "一次 MCP 工具返回最多多少 token。",
+      "source": "https://code.claude.com/docs/en/env-vars"
+    },
+    {
+      "key": "disableAutoMode",
+      "where": "settings",
+      "default": "未设",
+      "what": "把 auto 模式从 Shift+Tab 的切换里拿掉。类型是字符串 \"disable\"，不是布尔值。",
+      "source": "https://code.claude.com/docs/en/settings-reference#disableautomode"
+    },
+    {
+      "key": "CLAUDE_CODE_SUBAGENT_MODEL",
+      "where": "env",
+      "default": "未设（子代理跟主会话用同一个模型）",
+      "what": "没有另外指定模型的子代理默认用哪个模型，可以写 haiku、sonnet 这样的别名。派子代理时点名的模型、subagent 定义里的 model 字段优先于它；v2.1.251 之前它会盖过这两样。",
+      "source": "https://code.claude.com/docs/en/env-vars"
+    }
+  ],
+  "codex": [
+    {
+      "key": "model_auto_compact_token_limit",
+      "default": "未设（Codex 按模型决定）",
+      "what": "对话历史用到多少 token 时自动压缩。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "model_post_turn_compact_threshold_percent",
+      "default": "未设（不做回合末压缩）",
+      "what": "可用窗口用到百分之多少时，等这一轮回答完再压缩。0 或不写表示关，取值 0–100。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "tool_output_token_limit",
+      "default": "未设",
+      "what": "一次工具输出存进上下文时的 token 预算。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "model_context_window",
+      "default": "未设（用模型自带的窗口）",
+      "what": "手动指定模型上下文窗口大小。写了就是覆盖了默认值。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "project_doc_max_bytes",
+      "default": "32768",
+      "what": "项目指令文件（各级 AGENTS.md）合计最多读多少字节，超出的部分读不到。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "model_reasoning_effort",
+      "default": "未设（模型默认档）",
+      "what": "日常推理档位。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "plan_mode_reasoning_effort",
+      "default": "未设",
+      "what": "Plan 模式单独用的推理档位。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "service_tier",
+      "default": "未设",
+      "what": "请求走哪个服务档（default / priority / flex，旧写法 fast 也认）。加速档怎么计费以 OpenAI 官方说明为准。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    },
+    {
+      "key": "web_search",
+      "default": "未设",
+      "what": "联网搜索工具的模式：disabled / cached / indexed / live。",
+      "source": "https://developers.openai.com/codex/config-schema.json"
+    }
+  ]
+}

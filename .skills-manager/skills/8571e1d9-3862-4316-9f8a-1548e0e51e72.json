@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8571e1d9-3862-4316-9f8a-1548e0e51e72",
+  "path": "save-my-tokens",
+  "path_key": "save-my-tokens",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
