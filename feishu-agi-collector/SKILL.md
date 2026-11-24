@@ -1,3 +1,8 @@
+---
+name: feishu-agi-collector
+description: "采集 WaytoAGI 飞书知识库内容，按断点记录处理每日资料。"
+---
+
 # 飞书AGI知识库采集器
 
 ## 功能

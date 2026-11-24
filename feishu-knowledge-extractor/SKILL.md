@@ -1,3 +1,8 @@
+---
+name: feishu-knowledge-extractor
+description: "提取与同步飞书 Wiki 知识库，支持增量更新、内容提纯和主题分类。"
+---
+
 # feishu-knowledge-extractor
 
 飞书知识库（Wiki）自动提取与同步工具。支持增量更新、AI 提纯、主题分类。

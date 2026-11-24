@@ -1,3 +1,8 @@
+---
+name: female-portrait-director
+description: "根据用户参数或授权参考图生成女性人像生图提示词与完整视觉方案。"
+---
+
 # 女性人像提示词导演 Skill｜轻量核心流程
 
 版本编号：`FEMALE-PORTRAIT-DIRECTOR-V1.6`

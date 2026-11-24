@@ -1,3 +1,8 @@
+---
+name: claude-code-third-party-api
+description: "Configure Claude Code to use third-party API endpoints and troubleshoot authentication configuration."
+---
+
 # Claude Code with Third-Party API
 
 Configure Claude Code to work with third-party API endpoints (e.g., API proxies, aggregators) instead of official Anthropic authentication.
